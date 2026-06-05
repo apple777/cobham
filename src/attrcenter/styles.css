@@ -1,0 +1,15 @@
+.params-txt{
+	width:790px;
+}
+.results-txt{
+	width:966px;
+}
+.exe-btn{
+	width:93px;
+}
+#inf-result {
+	background-color: #222222;
+    height: 220px;
+    overflow: auto;
+    padding: 5px;
+}

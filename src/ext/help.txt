@@ -1,0 +1,11 @@
+#External Alarms
+
+External alarms are 4 small pins in front of the controller board that can be used for various purposes like:
+
+ * Smoke sensors</li>
+ * Motion sensors</li>
+ * Water sensors</li>
+ * etc.
+
+Each sensor can be activated on high or low voltage which trigger an alarm.
+The trigger can be set up in this page as well as a user-friendly name for each of these 4 pins.

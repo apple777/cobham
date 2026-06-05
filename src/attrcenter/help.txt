@@ -1,0 +1,3 @@
+#Attribute Center
+
+In this page you can see a list of all attributes and operate on them.

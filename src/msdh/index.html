@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Topology</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="system_overview" class="panel collapsible">
+    <div id="routing_setup">
+        <span class="system-overview-title">Routing profile:</span>
+        <span id="routing_setup_select"></span>
+        <div id="routing-setup-panel" style="display:none">
+            <div id="routing-setup-status"><div id="routing-setup-led" class="led round"></div> <span id="setup-message"></span></div>
+            <div id="routing-setup-detail">
+                <div class="setup-detail">
+                    <label>Last Error: </label><span id="last-setup"> </span>
+                </div>
+                <div class="setup-detail">
+                    <label>Alarm Message: </label><span id="setup-msg"></span>
+                </div>
+            </div>
+            <div id="routing-setup-btn-panel">
+                <div class="seperator"></div>
+                <a id="clear-routing-setup-ala-btn" class="button">Clear Alarm</a>
+            </div>
+        </div>
+    </div>
+    <div class="v-seperator"></div>
+    <div id="filter">
+        <span class="system-overview-title">Operator:</span>
+        <select id="operator_list">
+        </select>
+    </div>
+    <div class="v-seperator"></div>
+    <div id="display_filter">
+        <span class="system-overview-title">Display mode:</span>
+        <select id="display_filter_list">
+            <option value="rack">Rack View</option>
+            <option value="topology">Topology View</option>
+        </select>
+    </div>
+    <div class="v-seperator"></div>
+    <div id="logged_in_user">
+        <span class="system-overview-title">Current logged in user:</span> <span id="username"></span>
+    </div>
+    <div id="system_status">
+        <!--<span>System Status:</span>--><div id="system_status_led" class="led round" title="System Status"></div>
+    </div>
+</div>
+
+<div id="topology-container"></div>
+
+<div id="popup" class="panel" style="display:none">
+    <div id="popup_header" class="ui-dialog-titlebar ui-widget-header">
+        <span id="popup_header_text"></span>
+        <div id="popup_hide_button" class="icon unused"></div>
+    </div>
+    <div id="popup_content">
+        <div id="right_side_bar" class="panel">
+            <div id="right_side_bar_header">
+                <span id="right_side_bar_header_text">Node details</span>
+            </div>
+            <div id="right_side_bar_content">
+                <!-- append right_side_bar_content here-->
+            </div>
+        </div>
+        <div id="left_side_bar" class="panel">
+            <!--
+            <div id="left_side_bar_header">
+                <span id="left_side_bar_header_text">Rack</span>
+            </div>
+            -->
+            <div id="left_side_bar_content">
+                <!-- append rack here-->
+            </div>
+        </div>
+        <!--div id="lower_right_side_bar" class="panel">
+            <div id="lower_right_side_bar_header">
+                <span id="lower_right_side_bar_header_text">Active Alarms</span>
+            </div>
+        </div-->
+    </div>
+</div>
+
+<div id="initial_setup_dialog">
+</div>
+<div id="disable_connection_dialog" style="display:none">
+    <span>You will have
+        <select id="hour"></select> hour(s)
+        <select id="minute"></select> minute(s) to remove the CPRI link before it is reconnected again.</span>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+
+</body>
+</html>

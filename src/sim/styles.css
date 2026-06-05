@@ -1,0 +1,12 @@
+.action-cell {
+    width: 25px;
+}
+
+.command {
+    width: 352px;
+}
+
+.result {
+    width: 589px;
+    height: 50px;
+}

@@ -1,0 +1,28 @@
+.box{
+   box-sizing: border-box;
+   width: 900px;
+   height: 500px;
+   float: left;
+   background: #fff;
+   border: 1px solid #ddd;
+}
+
+.fake-browser-ui {
+    padding: 20px 0 0;
+    border-radius: 3px;
+    border-bottom: 2px solid #ccc;
+    background: #ddd;
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+}
+
+.fake-browser-ui .frame {
+    display: block;
+    height: 15px;
+    position: absolute;
+    top: 5px;
+    left: 1px;
+}
+
+

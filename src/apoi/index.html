@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Axell Point of Interface</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div id= "button_panel" class="button-panel">
+        <a class="button" href="javascript:window.location.reload()"><div class="icon refresh"></div>Reload</a>
+    </div>
+
+
+    <div class="panel">
+        <div class="header">Axell Point of Interface Management</div>
+        <div class="contents">
+            <table id="apoi_table" class="type1">
+
+            </table>
+        </div>
+    </div>
+    <div id="query_apoi_dialog" style="display:none">
+        <label>Please fill in the IP of Axell Point of Interface:</label><br><br>
+        <input id="apoi_ip" type="text"/>
+    </div>
+    <div id="add_apoi_dialog" style="display:none">
+        <label>Name: </label> <span id="apoi_name"></span><br>
+        <label>Location ID: </label><div class="loc_led"> <div id="loc_id1" class="led"></div></div><div class="loc_led"><div id="loc_id2" class="led"></div></div><br>
+        <label>System ID: </label> <span id="sys_id"></span><br>
+        <label>Software Version: </label> <span id="version"></span><br>
+        <table class="type1">
+            <caption>Band</caption>
+            <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+            <tr><td id="slot1"></td><td id="slot2">2</td><td id="slot3">3</td><td id="slot4">4</td><td id="slot5">5</td><td id="slot6">6</td><td id="slot7">7</td><td id="slot8">8</td></tr>
+        </table>
+    </div>
+    <div id="loading_dialog" style="display:none">Loading...</div>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

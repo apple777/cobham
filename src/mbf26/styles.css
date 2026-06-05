@@ -1,0 +1,116 @@
+/* This contains an icon and some stuff that may come after it like text or another icons*/
+div.iconcontainer{
+	display:inline-block;
+	border-right-width:1px;
+	border-right-style:dotted;
+	border-right-color:#666;
+	padding-left:5px;
+	padding-right:5px;
+}
+#tag-val {
+	display:inline-block;
+	width:180px;
+}
+#rid-val {
+	display:inline-block;
+	width:215px;
+}
+/*------------------Don't let the OLA button grow too wide ----------------*/
+.ola-button {
+	width: 80%;
+}
+/*-----------------------Tables in the General Panel-----------------------*/
+table#generalstatus{
+	width:450px;
+	float:left;
+}
+table#generalstatus th{
+	width:190px;
+}
+table#ext{
+	margin-left:5px;
+	width:505px;
+	float:left;
+}
+table#ext th{
+	width:150px;
+}
+table#ext td:first-of-type{
+	width:315px;
+}
+table#bandstatus tr:first-child th{
+	width:auto;
+}
+table tr.separatortitle{
+	background-color:#B8C6EB;
+	text-align:center !important;
+	height:15px !important;
+	font-size:12px;
+	font-weight:bold;
+	color:black;
+}
+table#bandstatus tr td{
+	width:auto;
+	text-align:center;
+}
+table#bandstatus tr th{
+	width:190px;
+}
+table#fiberopticstatus tr td{
+	width:auto;
+	text-align:center;
+}
+table#fiberopticstatus tr th{
+	width:190px;
+}
+table#powerstatus td{
+	width:5.55%;
+}
+/*-----------------------Number fields-----------------------*/
+div.panel div.contents table tr td.number{
+}
+/*-----------------------Panel status led-----------------------*/
+div.panel div.header .led{
+	margin-right:4px;
+}
+/*-----------------------The border between rows-----------------------*/
+table.horizontal tr td+td,
+table.vertical th.borderleft,
+table.vertical td.borderleft{
+	border-left:1px solid #999;
+}
+/*-----------------------SELECT BOXES-----------------------*/
+table#bandstatus tr td select{
+	width:180px;
+}
+/*-----------------------BASIC ADVANCED LINKS-----------------------*/
+/* This one is just a fix for center-aligning the header for general status even though it's a horizontal table*/
+table.horizontal#generalstatus th#alightcenter{
+	text-align:center !important;
+}
+/*-----------------------For highlighting the Fo unit that is being used by commux-----------------------*/
+.commux-enabled {
+	background-color:#ecccde !important;
+	border-left: solid #F69 1px;
+	border-right: solid #F69 1px;
+}
+.commux-enabled:hover {
+	background-color:#E4C6DD !important;
+}
+/*-----------------------These classes are used more as an indigation for showing or hiding a column-----------------------*/
+.commux-component{
+}
+.dl1{
+}
+.dl2{
+}
+.ul{
+}
+.fo1{
+}
+.fo2{
+}
+.fo3{
+}
+.fo4{
+}

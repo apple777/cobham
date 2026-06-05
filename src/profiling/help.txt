@@ -1,0 +1,3 @@
+#Profiling
+
+This page is for development purpose. Repeating a command, it estimates the number of milliseconds it takes to run it in average.

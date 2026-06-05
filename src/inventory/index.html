@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="inventory_pagecontainer">
+    <div id="control_buttons" class="button-panel" style="height: 30px;">
+        <a style="float: left;font-size: 17px;padding-right: 10px;">Filter By: </a>
+        <select class="filter_select" name="colomn" id="filter_colomn">
+            <option value="Node Type">Node Type</option>
+            <option value="ID">ID</option>
+            <option value="Status">Status</option>
+            <option value="Comm">Comm</option>
+            <option value="Tag">Tag</option>
+            <option value="Location">Location</option>
+            <option value="System">System</option>
+            <option value="Common">Common</option>
+            <option value="Target">Target</option>
+            <option value="IP">IP</option>
+            <option id=filterPRM value="PRM">Redundancy</option>           
+        </select>
+        <!--select id="filterSelect" name="selectColomnText" style="visibility:hidden;float: left;min-width: 150px;"></select -->
+        <!-- input id="filterText" type="text" style="visibility:hidden;float: left;min-width: 150px;" -->
+        <a id="inventory_filter" class="button" style="float: left;margin-left: 10px;min-width: 90px;"><div class="icon filter" title="Filter By Colomns"></div>Filter</a>
+        <a id="inventory_filter_clear" class="button" style="float: left;min-width: 90px;"><div class="icon clear" title="Clear Filter"></div>Clear Filter</a>
+        <a id="send_batch_command" class="button bc" style="display:none;float: left;min-width: 90px;" title="Send a command to one or multiple units by checking boxes in table below.">Send command</a>
+        <input id="batch_command" class="bc" type="text" list="batch_commands" style="display:none;float: left;min-width: 180px; min-height: 28px"/>
+        <datalist id="batch_commands">
+        </datalist>
+        <!--input id="batch_command" class="bc" type="text" style="display:none;float: left;min-width: 180px; min-height: 28px"-->
+        <a id="delete_button" class="button" style="float: right;min-width: 90px;"><div title="Delete"></div>Delete</a>
+        <a id="zoom_button" class="button" style="float: right;min-width: 90px;"><div title="Zoom"></div>Zoom</a>
+        <a id="login_button" class="button" style="float: right;min-width: 90px;"><div title="Login"></div>Login</a>
+        <a id="export_button" class="button" style="float: right;min-width: 90px;"><div title="Export"></div>Export</a>
+    </div>
+	<div class="panel collapsible" style="width: 1400px">
+        <div class="header"><span id="log-count"></span></div>
+        <div class="contents">
+			<table id="inventory-table">
+				<caption>System Inventory</caption>
+                <thead>
+                    <tr class="inventory_table_head">
+                        <td style="width:10; text-align:center" title="click to sort" id="Index"> <input type="checkbox" id="select-all" title="Select all units for send command"/></td>
+                        <td title="click to sort" id="Node Type">Node Type</td>
+                        <td title="click to sort" id="ID">ID</td>
+                        <td title="click to sort" id="Status">Status</td>
+                        <td title="click to sort" id="Comm">Com.</td>
+                        <td title="click to sort" id="Tag">Tag</td>
+                        <td title="click to sort" id="Location">Location</td>
+                        <td title="click to sort" id="System">System</td>
+                        <td title="click to sort" id="Common">Common</td>
+                        <td title="click to sort" id="Target">Target</td>
+                        <td title="click to sort" id="IP">IP address</td>
+                        <td                       id="Patches">Patches</td>
+                        <td                       id="PRM">Redundancy</td>
+                        <td                       id="QueryTime">Last Update Time</td>
+                        <td                       id="Bands">Bands</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

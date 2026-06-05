@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MSDH</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div id= "button_panel" class="button-panel">
+        <a class="button" href="javascript:window.location.reload()"><div class="icon refresh"></div>Reload</a>
+    </div>
+
+
+    <div class="panel">
+        <div class="header">MSDH Management</div>
+        <div class="contents">
+            <table id="msdhr_table" class="type1">
+
+            </table>
+        </div>
+    </div>
+    <div id="add_msdhr_dialog" style="display:none">
+        <label>Please fill in the IP of MSDH:</label><br><br>
+        <input id="msdhr_ip" type="text"/>
+    </div>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

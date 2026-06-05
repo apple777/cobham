@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MBF-20</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+	<div class="button-panel">
+			<a href="javascript:void(0)" onclick="collapseAllPanels()" class="button"><div class="icon minimize"></div>Collapse</a>
+			<a href="javascript:void(0)" onclick="basicMode()" class="button"><div class="icon basicmode"></div>Basic</a>
+			<a href="javascript:void(0)" onclick="advancedMode()" class="button"><div class="icon advancedmode"></div>Advanced</a>
+    </div>
+	<div class="panel collapsible">
+		<div class="header">
+			General
+			<div class="headericons">
+				<div id="general-overall-led" class="led round" title="Overall Status"></div>
+			</div>
+		</div>
+		<div class="contents">
+			<table id="generaltable" class="type3">
+				<tr>
+					<th class="row1"><div class="icon radio"></div>Received Level</th><td class="row1"><div class="numerical"><div id="rcv-optical-level-led" class="led"></div> <span id="rcv-optical-level-val" class="value">...</span><span class="unit">dBm</span></div></td>
+					<th class="row2 advanced borderleft"><div class="icon radio"></div>Transmitter</th><td class="row2 advanced"><div id="transmitted-optical-level-led" class="led"></div></td>
+				</tr>
+				<tr>
+					<th class="row1"><div class="icon tag"></div>Tag</th><td class="row1"><a id="edit-tag-btn" class="button" href="javascript:void(0)" onClick="onEditTag()" title="Edit tag"><div class="icon editwhite"></div></a><span id="fiberdas-tag-val">...</span></td>
+					<th class="row2 advanced borderleft"><div class="icon pilotsynth"></div>Pilot Tone Generator Synth</th><td class="row2 advanced"><div id="pilot-tone-gen-synth-led" class="led"></div></td>
+				</tr>
+				<tr>
+					<th class="row1"><div class="icon model"></div>Model</th><td id="fiberdas-mdl-val" class="row1">...</td>
+					<th class="row2 advanced borderleft"><div class="icon pilotsynthreceived"></div>Received Pilot Tone Level</th><td class="row2 advanced"><div id="rcv-pilot-tone-lvl-led" class="led"></div></td>
+				</tr>
+				<tr>
+					<th class="row1"><div class="icon id"></div>ID</th><td id="fiberdas-rid-val" class="row1">...</td>
+					<th class="row2 advanced borderleft"><div class="icon rfadjust"></div>Opto Matching</th><td class="row2 advanced"><div id="opto-matching-led" class="led"></div></td>
+				</tr>
+                <tr>
+                	<th class="row1">Opto Loss Compensation</th><td class="row1"><div class="numerical"><span id="optoloss-compensation-val" class="value">...</span><span class="unit">dB</span></div></td>
+                	<th class="row2 advanced borderleft">Opto Loss Adjustment</th><td class="row2 advanced"><a id="optoloss-adjustment-btn"class="button"  href="javascript:void(0)" onclick="olaRows()"><div class="icon optolossadjustment"></div>Adjust</a></td>
+                </tr>
+			</table>
+		</div>
+	</div>
+	<div class="panel collapsible">
+        <div class="header">
+            Bands
+			<div class="headericons">
+        		<div id="bands-overall-led" class="led round" title="Overall Status"></div>
+      		</div>
+        </div>
+        <div class="contents">
+            <table id="bandstable" class="type2">
+				<tr id="board-overall">
+					<th id="boardname"></th>
+					<th class="board1" colspan="2"><div id="band1-overall-led" class="led round"></div>Master</th>
+					<th class="board2 borderleft" colspan="2"><div id="band2-overall-led" class="led round"></div>Slave</th>
+				</tr>
+				<tr id="board-comm">
+					<th><div class="icon communication"></div>Comm</th>
+					<td class="board1" colspan="2"><div id="board1-comm-led" class="led"></div></td>
+					<td class="board2 borderleft" colspan="2"><div id="board2-comm-led" class="led"></div></td>
+				</tr>
+				<tr id="board-crc" class="advanced">
+					<th><div class="icon firmware"></div>Firmware</th>
+					<td class="board1" colspan="2"><div id="board1-crc-led" class="led"></div></td>
+					<td class="board2 borderleft" colspan="2"><div id="board2-crc-led" class="led"></div></td>
+				</tr>
+				<tr id="board-psu" class="advanced">
+					<th><div class="icon power"></div>Power Supply</th>
+					<td class="board1" colspan="2"><div id="board1-psu-led" class="led"></div></td>
+					<td class="board2 borderleft" colspan="2"><div id="board2-psu-led" class="led"></div></td>
+				</tr>
+				<tr id="board-temp">
+					<th><div class="icon temperature"></div>Temperature</th>
+					<td class="board1" colspan="2"><div class="numerical"><div id="board1-temp-led" class="led"></div><span id="board1-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+					<td class="board2 borderleft" colspan="2"><div class="numerical"><div id="board2-temp-led" class="led"></div><span id="board2-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+				</tr>
+				<tr id="freq">
+					<th><div class="icon antenna2"></div>Frequency</th>
+					<th class="board1 band1"><div class="numerical-pale"><span id="board1-freq-val" class="value">...</span><span class="unit">MHz</span></div></th>
+					<th class="board1 band2"><div class="numerical-pale"><span id="board2-freq-val" class="value">...</span><span class="unit">MHz</span></div></th>
+					<th class="board2 band3 borderleft"><div class="numerical-pale"><span id="board3-freq-val" class="value">...</span><span class="unit">MHz</span></div></th>
+					<th class="board2 band4"><div class="numerical-pale"><span id="board4-freq-val" class="value">...</span><span class="unit">MHz</span></div></th>
+				</tr>
+				<tr id="prange">
+					<th><div class="icon antenna2"></div>Power Range</th>
+					<th class="board1 band1"><div class="numerical-pale"><span id="board1-prange-val" class="value">...</span><span class="unit">dBm</span></div></th>
+					<th class="board1 band2"><div class="numerical-pale"><span id="board2-prange-val" class="value">...</span><span class="unit">dBm</span></div></th>
+					<th class="board2 band3 borderleft"><div class="numerical-pale"><span id="board3-prange-val" class="value">...</span><span class="unit">dBm</span></div></th>
+					<th class="board2 band4"><div class="numerical-pale"><span id="board4-prange-val" class="value">...</span><span class="unit">dBm</span></div></th>
+				</tr>
+				<!--
+				<tr id="rfadjustment" class="advanced">
+					<th><div class="icon rfadjust"></div>RF Adjustment</th>
+					<td class="board1 band1"><a id="band1-rfadjustment-btn" class="button" href="javascript:void(0)" onClick="onRfAdjust(1)"><div class="icon rfadjustbtn"></div>Auto Adjust</a></td>
+					<td class="board1 band2"><a id="band2-rfadjustment-btn" class="button" href="javascript:void(0)" onClick="onRfAdjust(2)"><div class="icon rfadjustbtn"></div>Auto Adjust</a></td>
+					<td class="board2 band3 borderleft"><a id="band3-rfadjustment-btn" class="button" href="javascript:void(0)" onClick="onRfAdjust(3)"><div class="icon rfadjustbtn"></div>Auto Adjust</a></td>
+					<td class="board2 band4"><a id="band4-rfadjustment-btn" class="button" href="javascript:void(0)" onClick="onRfAdjust(4)"><div class="icon rfadjustbtn"></div>Auto Adjust</a></td>
+				</tr>
+				-->
+				<tr id="sysmute" class="advanced">
+					<th><div class="icon mutedradio"></div>System Mute</th>
+					<td class="board1 band1"><div id="band1-sysmute-led" class="led"></div></td>
+					<td class="board1 band2"><div id="band2-sysmute-led" class="led"></div></td>
+					<td class="board2 band3 borderleft"><div id="band3-sysmute-led" class="led"></div></td>
+					<td class="board2 band4"><div id="band4-sysmute-led" class="led"></div></td>
+				</tr>
+                <tr class="separator">
+					<th><div class="icon uplink"></div> Uplink</th>
+                    <td class="board1 band1"></td>
+                    <td class="board1 band2"></td>
+                    <td class="board2 band3"></td>
+                    <td class="board2 band4"></td>
+                </tr>
+                <tr id="ul-power">
+                    <th><div class="icon amplifier"></div>Amplifier</th>
+                    <td class="board1 band1"><div id="band1-ul-power-pbtn" class="powerbutton"></div></td>
+                    <td class="board1 band2"><div id="band2-ul-power-pbtn" class="powerbutton"></div></td>
+                    <td class="board2 band3 borderleft"><div id="band3-ul-power-pbtn" class="powerbutton"></div></td>
+                    <td class="board2 band4"><div id="band4-ul-power-pbtn" class="powerbutton"></div></td>
+                </tr>
+                <tr id="ul-attenuation">
+                    <th><div class="icon attenuation"></div>Attenuation</th>
+                    <td class="board1 band1"><select id="band1-ul-attenuation-select" class="attenuation" onchange="onChangeAtt('ul',1)"></select></td>
+                    <td class="board1 band2"><select id="band2-ul-attenuation-select" class="attenuation" onchange="onChangeAtt('ul',2)"></select></td>
+                    <td class="board2 band3 borderleft"><select id="band3-ul-attenuation-select" class="attenuation" onchange="onChangeAtt('ul',3)"></select></td>
+                    <td class="board2 band4"><select id="band4-ul-attenuation-select" class="attenuation" onchange="onChangeAtt('ul',4)"></select></td>
+                </tr>
+				<tr id="ul-usermute" class="advanced">
+					<th><div class="icon mutedradio"></div>User Mute</th>
+					<td class="board1 band1"><div id="band1-ul-usermute-led" class="led"></div></td>
+					<td class="board1 band2"><div id="band2-ul-usermute-led" class="led"></div></td>
+					<td class="board2 band3 borderleft"><div id="band3-ul-usermute-led" class="led"></div></td>
+					<td class="board2 band4"><div id="band4-ul-usermute-led" class="led"></div></td>
+				</tr>
+				<tr id="ul-satval">
+					<th><div class="icon satval"></div>Saturation Status<div class="icon help" title="Amplifier Saturation Status. If the alarm stays saturated for a while. The saturation alarm will be activated"></div></th>
+					<td class="board1 band1"><div id="band1-ul-satval-led" class="icon sat-val-icon"></div></td>
+					<td class="board1 band2"><div id="band2-ul-satval-led" class="icon sat-val-icon"></div></td>
+					<td class="board2 band3 borderleft"><div id="band3-ul-satval-led" class="icon sat-val-icon"></div></td>
+					<td class="board2 band4"><div id="band4-ul-satval-led" class="icon sat-val-icon"></div></td>
+				</tr>
+				<tr id="ul-ampsat" class="advanced">
+					<th><div class="icon saturation"></div>Saturation Alarm</th>
+					<td class="board1 band1"><div id="band1-ul-ampsat-led" class="led"></div></td>
+					<td class="board1 band2"><div id="band2-ul-ampsat-led" class="led"></div></td>
+					<td class="board2 band3 borderleft"><div id="band3-ul-ampsat-led" class="led"></div></td>
+					<td class="board2 band4"><div id="band4-ul-ampsat-led" class="led"></div></td>
+				</tr>
+				<tr id="ul-output">
+					<th><div class="icon output"></div>Output</th>
+					<td class="board1 band1"><div class="numerical"><span id="band1-ul-output-val" class="value">...</span><span class="unit">dBm</span></div></td>
+					<td class="board1 band2"><div class="numerical"><span id="band2-ul-output-val" class="value">...</span><span class="unit">dBm</span></div></td>
+					<td class="board2 band3 borderleft"><div class="numerical"><span id="band3-ul-output-val" class="value">...</span><span class="unit">dBm</span></div></td>
+					<td class="board2 band4"><div class="numerical"><span id="band4-ul-output-val" class="value">...</span><span class="unit">dBm</span></div></td>
+				</tr>
+                <tr class="separator">
+					<th><div class="icon downlink"></div> Downlink</th>
+                    <td class="board1 band1"></td>
+                    <td class="board1 band2"></td>
+                    <td class="board2 band3"></td>
+                    <td class="board2 band4"></td>
+                </tr>
+                <tr id="dl-power">
+                    <th><div class="icon amplifier"></div>Amplifier</th>
+                    <td class="board1 band1"><div id="band1-dl-power-pbtn" class="powerbutton"></div></td>
+                    <td class="board1 band2"><div id="band2-dl-power-pbtn" class="powerbutton"></div></td>
+                    <td class="board2 band3 borderleft"><div id="band3-dl-power-pbtn" class="powerbutton"></div></td>
+                    <td class="board2 band4"><div id="band4-dl-power-pbtn" class="powerbutton"></div></td>
+                </tr>
+                <tr id="dl-attenuation">
+                    <th><div class="icon attenuation"></div>Attenuation</th>
+                    <td class="board1 band1"><select id="band1-dl-attenuation-select" class="attenuation" onchange="onChangeAtt('dl',1)"></select></td>
+                    <td class="board1 band2"><select id="band2-dl-attenuation-select" class="attenuation" onchange="onChangeAtt('dl',2)"></select></td>
+                    <td class="board2 band3 borderleft"><select id="band3-dl-attenuation-select" class="attenuation" onchange="onChangeAtt('dl',3)"></select></td>
+                    <td class="board2 band4"><select id="band4-dl-attenuation-select" class="attenuation" onchange="onChangeAtt('dl',4)"></select></td>
+                </tr>
+				<tr id="dl-usermute" class="advanced">
+					<th><div class="icon mutedradio"></div>User Mute</th>
+					<td class="board1 band1"><div id="band1-dl-usermute-led" class="led"></div></td>
+					<td class="board1 band2"><div id="band2-dl-usermute-led" class="led"></div></td>
+					<td class="board2 band3 borderleft"><div id="band3-dl-usermute-led" class="led"></div></td>
+					<td class="board2 band4"><div id="band4-dl-usermute-led" class="led"></div></td>
+				</tr>
+				<tr id="dl-satval">
+					<th><div class="icon satval"></div>Saturation Status<div class="icon help" title="Amplifier Saturation Status. If the amplifier stays saturated for a while. The saturation alarm will be activated"></div></th>
+					<td class="board1 band1"><div id="band1-dl-satval-led" class="icon sat-val-icon"></div></td>
+					<td class="board1 band2"><div id="band2-dl-satval-led" class="icon sat-val-icon"></div></td>
+					<td class="board2 band3 borderleft"><div id="band3-dl-satval-led" class="icon sat-val-icon"></div></td>
+					<td class="board2 band4"><div id="band4-dl-satval-led" class="icon sat-val-icon"></div></td>
+				</tr>
+				<tr id="dl-ampsat" class="advanced">
+					<th><div class="icon saturation"></div>Saturation Alarm</th>
+					<td class="board1 band1"><div id="band1-dl-ampsat-led" class="led saturation-alarm"></div></td>
+					<td class="board1 band2"><div id="band2-dl-ampsat-led" class="led saturation-alarm"></div></td>
+					<td class="board2 band3 borderleft"><div id="band3-dl-ampsat-led" class="led saturation-alarm"></div></td>
+					<td class="board2 band4"><div id="band4-dl-ampsat-led" class="led saturation-alarm"></div></td>
+				</tr>
+				<tr id="dl-output">
+					<th><div class="icon output"></div>Output</th>
+					<td class="board1 band1"><div class="numerical"><div id="band1-dl-output-led" class="led"></div><span id="band1-dl-output-val" class="value">...</span><span class="unit">dBm</span></div></td>
+					<td class="board1 band2"><div class="numerical"><div id="band2-dl-output-led" class="led"></div><span id="band2-dl-output-val" class="value">...</span><span class="unit">dBm</span></div></td>
+					<td class="board2 band3 borderleft"><div class="numerical"><div id="band3-dl-output-led" class="led"></div><span id="band3-dl-output-val" class="value">...</span><span class="unit">dBm</span></div></td>
+					<td class="board2 band4"><div class="numerical"><div id="band4-dl-output-led" class="led"></div><span id="band4-dl-output-val" class="value">...</span><span class="unit">dBm</span></div></td>
+				</tr>
+				<tr id="dl-nominalpwr" class="advanced">
+					<th><div class="icon rfadjust"></div>Nominal Power Level</th>
+					<td class="board1 band1"><span id="band1-dl-nominalpwr-val" class="value">...</span><span class="unit">dBm</span></td>
+					<td class="board1 band2"><span id="band2-dl-nominalpwr-val" class="value">...</span><span class="unit">dBm</span></td>
+					<td class="board2 band3 borderleft"><span id="band3-dl-nominalpwr-val" class="value">...</span><span class="unit">dBm</span></td>
+					<td class="board2 band4"><span id="band4-dl-nominalpwr-val" class="value">...</span><span class="unit">dBm</span></td>
+				</tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

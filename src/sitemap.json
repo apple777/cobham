@@ -1,0 +1,25 @@
+{
+    "common":[
+        "nodes":{
+            "url":"/nodes",
+            "title":"List of nodes in the system",
+            "icon":"nodes-link-icon",
+        }
+    ],
+        <li><a href="/nodes" title="List of nodes in the system"><div class="icon nodes-link-icon"></div> Nodes</a></li>
+        <li><a href="/logs" title="View and acknowledge the logs on the controller"><div class="icon logs-link-icon"></div> Logs</a></li>
+        <li><a href="/datetime" title="View and set system date and time (it will be used for logs for example)"><div class="icon date-and-time-link-icon"></div> Date and Time</a></li>
+        <li><a href="/password" title="Change your password"><div class="icon password-link-icon"></div> Password</a></li>
+        <li><a href="/ethernet" title="Ethernet and IP settings"><div class="icon ethernet-link-icon"></div> Ethernet</a></li>
+        <li><a href="/communication" title="Communication settings"><div class="icon communication-link-icon"></div> Communication</a></li>
+        <li><a href="/snmpagent" title="Configure SNMP Alarm Forwarding"><div class="icon snmp-link-icon"></div> SNMP Agent</a></li>
+        <li><a href="/ext" title="Configure the external alarms triggers"><div class="icon external-alarms-link-icon"></div> External Alarms</a></li>
+        <li><a href="/thresholds" title="See and change the thresholds for triggering alarms"><div class="icon alarm-thresholds-link-icon"></div> Alarm Thresholds</a></li>
+        <li><a href="/term" title="Axell Shell terminal"><div class="icon axell-shell-link-icon"></div> Axell Shell</a></li>
+        <li><a href="/info" title="View general site information and set tag and id"><div class="icon system-information-link-icon"></div> System Information</a></li>
+        <li><a href="/reboot" title="Reboot the controller"><div class="icon reboot-link-icon"></div> Reboot</a></li>
+
+    "target":{
+
+    }
+}

@@ -1,0 +1,134 @@
+/* freq indicator */
+.freq-indicator {
+    height: 50px;
+    background-color: #BAB7B7;
+    border-radius: 1px;
+    box-shadow: inset 0 0 3px #999;
+    margin: 5px;
+    margin-top: 20px;
+    padding-right: 2px;
+    padding-left: 2px;
+    position: relative;
+    border-radius: 5px;
+
+    background-color: #BAB7B7;
+    background-size: 100px 100px, 900px 100px, 20px 10px, 10px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    background-image: -webkit-linear-gradient(white 2px, transparent 2px),
+    -webkit-linear-gradient(0, white 2px, transparent 2px),
+    -webkit-linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    -webkit-linear-gradient(0, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-image: -moz-linear-gradient(white 2px, transparent 2px),
+    -moz-linear-gradient(0, white 2px, transparent 2px),
+    -moz-linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    -moz-linear-gradient(0, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-image: linear-gradient(white 2px, transparent 2px),
+    linear-gradient(90deg, white 2px, transparent 2px),
+    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+    -pie-background: linear-gradient(white 2px, transparent 2px) -2px -2px / 100px,
+    linear-gradient(90deg, white 2px, transparent 2px) -2px -2px / 100px,
+    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px) -1px -1px / 20px,
+    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px) -1px -1px / 20px,
+    #BAB7B7;
+}
+
+.freq-indicator-range {
+    color: #2c5533;
+    font-size: 10px;
+    position: absolute;
+    z-index: 50;
+    margin-top: -15px;
+}
+
+.freq-indicator-range-min {
+    top: 0;
+    left: 2px;
+}
+.freq-indicator-range-max {
+    top: 0;
+    right: 2px;
+}
+
+.rflevel-indicator-range {
+    color: #2c5533;
+    font-size: 10px;
+    position: absolute;
+    z-index: 50;
+    margin-right: -50px;
+}
+
+.rflevel-indicator-range-min {
+    bottom: 2px;
+    right: 0;
+}
+.rflevel-indicator-range-max {
+    top: 2px;
+    right: 0;
+}
+
+/*
+.freq-indicator-bar.disabled {
+    background-color: #C1F7BB;
+    color: #333;
+    z-index: 1;
+}*/
+.freq-indicator-bar {
+    display: inline-block;
+    position: absolute;
+    opacity: 0.7;
+    box-shadow: 0 0 2px #5b5;
+    z-index: 2;
+    padding-top:2px;
+    background-color: #DFF1DE;
+    bottom:0;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-right:1px green solid;
+    border-left:1px green solid;
+    border-top:1px green solid
+}
+.freq-indicator-bar:hover {
+    opacity: 1;
+    box-shadow: none;
+    background-color: #68AFE4 !important;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    z-index: 1;
+    padding-top:2px!important;
+    bottom:0;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-right:2px green solid;
+    border-left:2px green solid;
+    border-top:2px green solid
+}
+.freq-indicator-bar.zero {
+    border-right:2px red solid!important;
+    border-left:2px red solid!important;
+    border-top:2px red solid!important;
+}
+.legend_color.focused{
+    opacity: 1;
+    box-shadow: none;
+    background-color: #68AFE4 !important;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    z-index: 1;
+    height: 14px;
+}
+.freq-indicator-bar.focused {
+    opacity: 1;
+    box-shadow: none;
+    background-color: #68AFE4 !important;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    z-index: 1;
+    padding-top:2px!important;
+    bottom:0;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-right:2px green solid;
+    border-left:2px green solid;
+    border-top:2px green solid
+}

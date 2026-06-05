@@ -1,0 +1,6 @@
+#Password
+
+In this page you can change your password.
+
+Please note that the password is transfered in clear text over the network so it will be possible for hackers to access that.
+Please use this feature over a secure line or use AEM instead.

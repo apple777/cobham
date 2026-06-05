@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BSF3604</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+  <div class="button-panel">
+		<a href="javascript:void(0)" onClick="collapseAllPanels()" class="button"><div class="icon minimize"></div>Collapse</a>
+		<a href="javascript:void(0)" onClick="basicMode()" class="button"><div class="icon basicmode"></div>Basic</a>
+		<a href="javascript:void(0)" onClick="advancedMode()" class="button"><div class="icon advancedmode"></div>Advanced</a>
+  </div>
+  <div id="general-status-panel" class="panel collapsible">
+    <div class="header">General
+      <div class="headericons">
+        <div id="general-status-overall-led" class="led round" title="Overall Status"></div>
+      </div>
+    </div>
+    <div id="general-status-panel-contents" class="contents">
+      <table id="generalstatus" class="type2">
+        <caption><div class="icon controller"></div>Controller</caption>
+        <tr>
+          <th><div class="icon temperature"></div>Temperature<div class="icon help" title="current system temperature"></div></th>
+          <td><div class="numerical">
+                  <div id="ctrl-temp-led" class="led"></div>
+                  <span id="ctrl-temp-val" class="value">...</span><span class="unit">&deg;C</span>
+              </div>
+          </td>
+        </tr>
+        <tr class="basic">
+          <th><div class="icon tag"></div>Tag</th><td id="tag-row">
+          <a id="lock-tag-btn" class="button" href="javascript:void(0)" onClick="onLockTag()" title="Toggle lock of tag"><div id="lock-tag-button-icon" class="icon"></div></a>
+          <a id="edit-tag-btn" class="button" href="javascript:void(0)" onClick="onEditTag()" title="Edit tag"><div class="icon editwhite"></div></a>
+          <span id="tag-val">...</span></td>
+        </tr>
+        <tr class="basic">
+          <th><div class="icon door"></div>Door Status<div class="icon help" title="If the led is red, the door is open"></div></th><td><div id="door-led" class="led"></div></td>
+        </tr>
+        <tr class="basic slavespecific">
+          <th class="rcv-data-quality"><div class="icon rcvquality"></div>Received Data Quality<div class="icon help" title="Received data quality alarm"></div></th>
+          <td class="rcv-data-quality"><div id="rcv-data-quality-led" class="led"></div></td>
+        </tr>
+      </table>
+      <table id="ext" class="type4">
+        <caption><div class="icon externalalarm"></div>
+         External Alarms
+            <div class="icon help" title="You can set the external alarm description by clicking on the text"></div></caption>
+        <tr>
+          <th><div class="icon ext1"></div> External Alarm 1</th>
+          <td><span id="ext-1-desc">...</span></td>
+          <td id="ext1led"><div id="ext-1-led" class="led"></div></td>
+        </tr>
+        <tr>
+          <th><div class="icon ext2"></div> External Alarm 2</th>
+          <td><span id="ext-2-desc">...</span></td>
+          <td id="ext2led"><div id="ext-2-led" class="led"></div></td>
+        </tr>
+        <tr>
+          <th><div class="icon ext3"></div> External Alarm 3</th>
+          <td><span id="ext-3-desc">...</span></td>
+          <td id="ext3led"><div id="ext-3-led" class="led"></div></td>
+        </tr>
+        <tr>
+          <th><div class="icon ext4"></div> External Alarm 4</th>
+          <td><span id="ext-4-desc">...</span></td>
+          <td id="ext4led"><div id="ext-4-led" class="led"></div></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="bands-status-panel" class="panel collapsible">
+    <div class="header">
+      <div id="bands-status-overall-led" class="headericon led round"></div>RF Status </div>
+    <div id="bands-status-panel-contents" class="contents">
+	  <table id="uplinkdownlink-table" class="type2">
+	  	<tr>
+			<th>
+			<th><div class="icon uplink"></div> Uplink</th>
+			<th><div class="icon downlink"></div> Downlink</th>
+		</tr>
+		<tr id="ul-freq-range">
+		  <th><div class="icon freq-range"></div>Frequency Range</th>
+		  <td><div id="ul-freq-indicator" class="freq-indicator"><span id="ul-freq-start" class="start" title="Start Frequency in MHz">...</span><span id="ul-freq-stop" class="stop" title="Stop Frequency in MHz">...</span></div></td>
+		  <td><div id="dl-freq-indicator" class="freq-indicator"><span id="dl-freq-start" class="start" title="Start Frequency in MHz">...</span><span id="dl-freq-stop" class="stop" title="Stop Frequency in MHz">...</span></div></td>
+		</tr>
+        <tr id="poweramp">
+          <th><div class="icon amplifierpower"></div>Amplifier Power<div id="powerUplinkWarning" class="icon warning hidden" title="When the power amplifier is off, the repeater doesn't work."></div></th>
+          <td><div id="ul-amp-pwr" class="powerbutton" onClick='javascript:onPwrBtn("u")'></div></td>
+          <td><div id="dl-amp-pwr" class="powerbutton" onClick='javascript:onPwrBtn("d")'></div></td>
+        </tr>
+        <tr id="uplinkattenuation">
+          <th><div class="icon attenuation"></div> Attenuation</th>
+          <td><select id="ul-att" onChange="onChangeAtten('u')"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option> <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option></select></td>
+          <td><select id="dl-att" onChange="onChangeAtten('d')"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option> <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option></select></td>
+        </tr>
+        <tr id="user-mute-row" class="advanced">
+          <th><div class="icon mutedradio"></div> User Mute</th>
+          <td><div id="ul-user-mute-led" class="led"></div></td>
+          <td><div id="dl-user-mute-led"class="led"></div></td>
+        </tr>
+        <tr id="uplinkamplifier" class="advanced">
+          <th><div class="icon amplifier"></div> Amplifier</th>
+          <td><div id="ul-amp-led" class="led"></div></td>
+          <td><div id="dl-amp-led" class="led"></div></td>
+        </tr>
+        <tr id="uplinksynth" class="advanced">
+          <th><div class="icon synth"></div> Synthesizer</th>
+          <td><div id="ul-synth-led" class="led"></div></td>
+		  <td>-</td>
+        </tr>
+        <tr id="uplink-noise-row" class="advanced">
+          <th><div class="icon noise"></div> Noise Detection</th>
+          <td id="ul-amp-sat-1"><div id="ul-amp-sat-led" class="led"></div></td>
+		  <td>-</td>
+        </tr>
+        <tr id="downlinkamplifiersaturation" class="basic">
+          <th><div class="icon saturation"></div> Saturation</th>
+          <td><div id="band1-ul-ampsat-indicator" class="icon"></div></td>
+          <td><div id="band1-dl-ampsat-indicator" class="icon"></div><div id="dl-amp-sat-led" class="led"></div></td>
+        </tr>
+        <tr id="input" class="advanced">
+          <th><div class="icon input"></div> Input</th>
+		    <td><div class="numerical"><span id="ul-input-val" class="value">...</span><span class="unit">dBm</span></div></td>
+		    <td><div class="numerical"><span id="dl-input-val" class="value">...</span><span class="unit">dBm</span></div></td>
+        </tr>
+        <tr id="output" class="basic">
+          <th><div class="icon output"></div> Output</th>
+		    <td><div class="numerical advanced"><span id="ul-output-val" class="value">...</span><span class="unit">dBm</span></div></td>
+		    <td><div class="numerical basic"><div id="dl-pwr-lvl-led" class="led"></div><span id="dl-output-val" class="value">...</span><span class="unit">dBm</span></div></td>
+        </tr>
+	  </table>
+      <table id="bandstatus" class="type1 advanced">
+	  <caption>Detailed Status</caption>
+	    <tr>
+		  <th colspan="5"><div class="icon radio-board"></div> Radio Board</th>
+		  <th colspan="8" class="borderleft"><div class="icon mcpa"></div> MCPA</th>
+		</tr>
+	    <tr>
+			<th title="Radio Board Communication"><div class="icon communication"></div></th>
+            <th title="Radio Board Firmware CRC"><div class="icon firmware"></div></th>
+			<th title="Radio Board Temperature"><div class="icon temperature"></div></th>
+			<th title="Radio Board Power 2"><div class="icon power2"></div></th>
+			<th title="Radio Board Power 3"><div class="icon power3"></div></th>
+
+			<th class="borderleft" title="MCPA Communication"><div class="icon communication"></div></th>
+            <th title="MCPA Firmware CRC"><div class="icon firmware"></div></th>
+			<th title="MCPA Temperature"><div class="icon temperature"></div></th>
+			<th title="MCPA Return Loss"><div class="icon return-loss"></div></th>
+			<th title="MCPA Gain"><div class="icon gain"></div></th>
+			<th title="MCPA Power 1"><div class="icon power1"></div></th>
+			<th title="MCPA Power 2"><div class="icon power2"></div></th>
+			<th title="MCPA Power 3"><div class="icon power3"></div></th>
+		</tr>
+        <tr id="radioboardcomm" class="advanced">
+			<td title="Radio Board Communication"><div id="tetra-comm-led" class="led"></div></td>
+            <td title="Radio Board Firmware CRC"><div id="tetra-crc-led" class="led"></div></td>
+			<td id="tetra-temp-cell"><div id="tetra-temp-led" class="led"></div></td>
+			<td title="Radio Board Power 2"><div id="tetra-pw2-led" class="led"></div></td>
+			<td title="Radio Board Power 3"><div id="tetra-pw3-led" class="led"></div></td>
+
+			<td class="borderleft" title="Radio Board Communication"><div id="mcpa-comm-led" class="led"></div></td>
+            <td title="MCPA Firmware CRC"><div id="mcpa-crc-led" class="led"></div></td>
+			<td id="mcpa-temp-cell"><div id="mcpa-temp-led" class="led"></div></td>
+			<td><div class="numerical basic"><div id="mcpa-loss-led" class="led"></div><span id="dl-retloss-val" class="value">...</span><span class="unit">dBm</span></div></td>
+			<td title="MCPA Gain"><div id="mcpa-gain-led" class="led"></div></td>
+			<td title="MCPA Power 1"><div id="mcpa-pw1-led" class="led"></div></td>
+			<td title="MCPA Power 2"><div id="mcpa-pw2-led" class="led"></div></td>
+			<td title="MCPA Power 3"><div id="mcpa-pw3-led" class="led"></div></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="fo-status-panel" class="panel collapsible">
+    <div class="header">
+      <div id="fo-status-overall-led" class="headericon led round"></div>
+      Fiber Optic Unit </div>
+    <div class="contents">
+      <table id="fiberopticstatus" class="type2">
+	  	<caption><div class="icon laser"></div>Fiber Optic Modules</caption>
+        <tr class="title">
+          <th><div class="icon number"></div>
+          Module</th>
+          <th class="fo1"><div id="fo1-overall-led" class="led round"></div>1</th>
+          <th class="fo2"><div id="fo2-overall-led" class="led round"></div>2</th>
+          <th class="fo3"><div id="fo3-overall-led" class="led round"></div>3</th>
+          <th class="fo4"><div id="fo4-overall-led" class="led round"></div>4</th>
+        </tr>
+        <tr id="fiberopticcomm" class="advanced">
+          <th><div class="icon communication"></div>Comm</th>
+          <td class="fo1"><div id="fo1-comm-led" class="led"></div></td>
+          <td class="fo2"><div id="fo2-comm-led" class="led"></div></td>
+          <td class="fo3"><div id="fo3-comm-led" class="led"></div></td>
+          <td class="fo4"><div id="fo4-comm-led" class="led"></div></td>
+        </tr>
+        <tr id="fiberopticfirmware" class="advanced">
+          <th title="EEPROM CRC"><div class="icon firmware"></div>Firmware</th>
+          <td class="fo1"><div id="fo1-crc-led" class="led"></div></td>
+          <td class="fo2"><div id="fo2-crc-led" class="led"></div></td>
+          <td class="fo3"><div id="fo3-crc-led" class="led"></div></td>
+          <td class="fo4"><div id="fo4-crc-led" class="led"></div></td>
+        </tr>
+        <tr class="advanced">
+          <th title="Fiber Optic Board Temprature"><div class="icon temperature"></div>Temperature</th>
+          <td class="fo1"><div class="numerical"><div id="fo1-temp-led" class="led"></div><span id="fo1-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+          <td class="fo2"><div class="numerical"><div id="fo2-temp-led" class="led"></div><span id="fo2-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+          <td class="fo3"><div class="numerical"><div id="fo3-temp-led" class="led"></div><span id="fo3-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+          <td class="fo4"><div class="numerical"><div id="fo4-temp-led" class="led"></div><span id="fo4-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+        </tr>
+        <tr id="fotransmitter" class="advanced">
+          <th><div class="icon txopto"></div>Tx Opto</th>
+          <td class="fo1"><div id="fo1-txopto-led" class="led"></div></td>
+          <td class="fo2"><div id="fo2-txopto-led" class="led"></div></td>
+          <td class="fo3"><div id="fo3-txopto-led" class="led"></div></td>
+          <td class="fo4"><div id="fo4-txopto-led" class="led"></div></td>
+        </tr>
+        <tr>
+          <th><div class="icon rxopto"></div>Rx Opto</th>
+          <td class="fo1"><div id="fo1-rxopto" class="numerical"><div id="fo1-rxopto-led" class="led"></div><span id="fo1-rxopto-val" class="value">...</span><span class="unit">dBm</span></div></td>
+          <td class="fo2"><div id="fo2-rxopto" class="numerical"><div id="fo2-rxopto-led" class="led"></div><span id="fo2-rxopto-val" class="value">...</span><span class="unit">dBm</span></div></td>
+          <td class="fo3"><div id="fo3-rxopto" class="numerical"><div id="fo3-rxopto-led" class="led"></div><span id="fo3-rxopto-val" class="value">...</span><span class="unit">dBm</span></div></td>
+          <td class="fo4"><div id="fo4-rxopto" class="numerical"><div id="fo4-rxopto-led" class="led"></div><span id="fo4-rxopto-val" class="value">...</span><span class="unit">dBm</span></div></td>
+        </tr>
+        <tr id="pilotsynth" class="advanced">
+          <th title="Pilot Synthesizer Generator"><div class="icon pilotsynth"></div>Pilot Tone Synth</th>
+          <td class="fo1"><div id="fo1-pilotsynth-led" class="led"></div></td>
+          <td class="fo2"><div id="fo2-pilotsynth-led" class="led"></div></td>
+          <td class="fo3"><div id="fo3-pilotsynth-led" class="led"></div></td>
+          <td class="fo4"><div id="fo4-pilotsynth-led" class="led"></div></td>
+        </tr>
+        <tr class="advanced commux-component">
+          <th title="Which one is being used by communication multiplexer:"><div class="icon commux"></div>Current Com. Path</th>
+          <td class="fo1"><div id="fo1-commux-indicator" class="fo-commux-indicator icon"></div></td>
+          <td class="fo2"><div id="fo2-commux-indicator" class="fo-commux-indicator icon"></div></td>
+          <td class="fo3"><div id="fo3-commux-indicator" class="fo-commux-indicator icon"></div></td>
+          <td class="fo4"><div id="fo4-commux-indicator" class="fo-commux-indicator icon"></div></td>
+        </tr>
+        <tr class="advanced">
+          <th title="Received Pilot Tone Level"><div class="icon pilotsynthreceived"></div>Received Pilot Level</th>
+          <td class="fo1"><div class="numerical"><div id="fo1-rcv-pilot-level-led" class="led"></div><span id="fo1-rcv-pilot-val" class="value">...</span><span class="unit">dBm</span></div></td>
+          <td class="fo2"><div class="numerical"><div id="fo2-rcv-pilot-level-led" class="led"></div><span id="fo2-rcv-pilot-val" class="value">...</span><span class="unit">dBm</span></div></td>
+          <td class="fo3"><div class="numerical"><div id="fo3-rcv-pilot-level-led" class="led"></div><span id="fo3-rcv-pilot-val" class="value">...</span><span class="unit">dBm</span></div></td>
+          <td class="fo4"><div class="numerical"><div id="fo4-rcv-pilot-level-led" class="led"></div><span id="fo4-rcv-pilot-val" class="value">...</span><span class="unit">dBm</span></div></td>
+        </tr>
+        <tr id="OLAbuttons">
+          <th><div class="icon ola"></div>Optical Loss Adjustment</th>
+          <td class="fo1"><a id="fo1-ola-adjustment" class="button ola-button" href="javascript:void(0)" onClick="olaRows(1)"><div class="icon optolossadjustment"></div>Adjust</a></td>
+          <td class="fo2"><a id="fo2-ola-adjustment" class="button ola-button" href="javascript:void(0)" onClick="olaRows(2)"><div class="icon optolossadjustment"></div>Adjust</a></td>
+          <td class="fo3"><a id="fo3-ola-adjustment" class="button ola-button" href="javascript:void(0)" onClick="olaRows(3)"><div class="icon optolossadjustment"></div>Adjust</a></td>
+          <td class="fo4"><a id="fo4-ola-adjustment" class="button ola-button" href="javascript:void(0)" onClick="olaRows(4)"><div class="icon optolossadjustment"></div>Adjust</a></td>
+        </tr>
+        <tr class="advanced">
+          <th><div class="icon olacompensation"></div>Optical Compensation</th>
+          <td class="fo1"><div class="numerical-pale"><span id="fo1-ola-compensation-val" class="value">...</span><span class="unit">dB</span></div></td>
+          <td class="fo2"><div class="numerical-pale"><span id="fo2-ola-compensation-val" class="value">...</span><span class="unit">dB</span></div></td>
+          <td class="fo3"><div class="numerical-pale"><span id="fo3-ola-compensation-val" class="value">...</span><span class="unit">dB</span></div></td>
+          <td class="fo4"><div class="numerical-pale"><span id="fo4-ola-compensation-val" class="value">...</span><span class="unit">dB</span></div></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="misc-status-panel" class="panel collapsible">
+    <div class="header">
+      <div id="misc-status-overall-led" class="headericon led round"></div>
+      Subsystems
+	</div>
+    <div class="contents">
+      <table id="powerstatus" class="type1">
+        <tr>
+          <th colspan="2" title="Communication Multiplexer" class="commux-component"><div id="commux-overall-led" class="led round"></div>Com. Mux</th>
+          <th class="borderleft psu1-component" title="Main Power Supply" colspan="8"><div id="psu1-overall-led" class="led round"></div>Main Power Supply</th>
+          <th class="borderleft psu2-component" title="Redundant Power Supply" colspan="5"><div id="psu2-overall-led" class="led round"></div>Redundant Power Supply</th>
+          <th class="borderleft ref-gen-component" title="Reference Generator" colspan="2"><div id="ref-gen-overall-led" class="led round"></div>Ref. Gen.</th>
+        </tr>
+        <tr class="advanced">
+          <th class="commux-component" title="Communication Multiplexer (Com. Mux) Communication"><div class="icon communication"></div></th>
+          <th class="commux-component" title="Communication Multiplexer (Com. Mus) Firmware"><div class="icon firmware"></div></th>
+          <th class="psu1-component borderleft" title="Communication"><div class="icon communication"></div></th>
+          <th class="psu1-component" title="Temprature"><div class="icon temperature"></div></th>
+          <th class="psu1-component" title="Input level"><div class="icon powerinput"></div></th>
+          <th class="psu1-component" title="Battery"><div class="icon battery2"></div></th>
+          <th class="psu1-component" title="Power 1 (28 V)"><div class="icon power1"></div></th>
+          <th class="psu1-component" title="Power 2 (15 V)"><div class="icon power2"></div></th>
+          <th class="psu1-component" title="Power 3 (6.45 V)"><div class="icon power3"></div></th>
+          <th class="psu1-component" title="Power 4 (6.45 V Backup)"><div class="icon power4"></div></th>
+          <th class="psu2-component borderleft" title="Communication"><div class="icon communication"></div></th>
+          <th class="psu2-component" title="Temprature"><div class="icon temperature"></div></th>
+          <th class="psu2-component" title="Power 1 (28 V)"><div class="icon power1"></div></th>
+          <th class="psu2-component" title="Power 2 (15 V)"><div class="icon power2"></div></th>
+          <th class="psu2-component" title="Power 3 (6.45 V)"><div class="icon power3"></div></th>
+          <th class="ref-gen borderleft" title="Communication"><div class="icon communication"></div></th>
+          <th class="ref-gen" title="Power 3 (6.45 V)"><div class="icon power3"></div></th>
+        </tr>
+        <tr class="advanced">
+          <td class="commux-component"><div id="commux-comm-led" class="led"></div></td>
+          <td class="commux-component"><div id="commux-crc-led" class="led"></div></td>
+          <td class="psu1-component borderleft"><div id="psu1-comm-led" class="led"></div></td>
+          <td id="psu-1-temp-cell" class="psu1-component"><div id="psu1-temp-led" class="led"></div></td>
+          <td class="psu1-component"><div id="psu1-input-power-led" class="led"></div></td>
+          <td class="psu1-component"><div id="psu1-battery-led" class="led"></div></td>
+          <td class="psu1-component"><div id="psu1-pw1-led" class="led"></div></td>
+          <td class="psu1-component"><div id="psu1-pw2-led" class="led"></div></td>
+          <td class="psu1-component"><div id="psu1-pw3-led" class="led"></div></td>
+          <td class="psu1-component"><div id="psu1-pw4-led" class="led"></div></td>
+          <td class="psu2-component borderleft"><div id="psu2-comm-led" class="led"></div></td>
+          <td id="psu-2-temp-cell" class="psu2-component"><div id="psu2-temp-led" class="led"></div></td>
+          <td class="psu2-component"><div id="psu2-pw1-led" class="led"></div></td>
+          <td class="psu2-component"><div id="psu2-pw2-led" class="led"></div></td>
+          <td class="psu2-component"><div id="psu2-pw3-led" class="led"></div></td>
+          <td class="ref-gen-component borderleft"><div id="refgen-comm-led" class="led"></div></td>
+          <td class="ref-gen-component"><div id="refgen-pw3-led" class="led"></div></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

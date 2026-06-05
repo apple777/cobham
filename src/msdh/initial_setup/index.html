@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Welcome to idDAS</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="panel">
+        <div id="initial_setup_header">
+            Welcome to the COBHAM idDAS system!
+        </div>
+        <div id="instruction">
+            <span> Before the system can be used, the following steps are needed:</span><br>
+            <ol>
+                <li>One or more operators need to be added to the system. Please give each operator a short name to use in the system, and also a longer more user-friendly description.</li>
+                <li>Each operator is given a default filter quota allocation (amount of DSP resources at each RRU and MTDI), which can be edited in advanced setting. The total available to be shared between operators is 64.</li>
+                <li>Each operator is given a default CPRI (fibre link capacity) and RF Power quota allocation, which can be edited in advanced setting. Those are in % of total available link capacity and RF power.</li>
+            </ol>
+            <span>  All of the above are entered in this window. Once you have made these settings, you will be directed to the RF Settings page, where the operator frequency allocations within
+                each RF band are defined. These are the frequency ranges that the operators are permitted to use according to their regulatory spectrum allocations.</span><br><br>
+
+            <span>Once these steps are done, each operator can begin to connect their base station Sectors and add the corresponding Cell Resources (carrier frequency ranges within each BTS port) from the main screen.</span>
+        </div>
+        <div id="initial_setup_content">
+            <div class ="opadd_select">
+                <label>Number of Operators: </label>
+                <select id="num_of_operator">
+                    <option value="">Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+            <div id="advanced-btn" style="display: none" flag="true">Show advanced settings</div>
+            <div id ="opadd_table">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>

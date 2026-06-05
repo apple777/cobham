@@ -1,0 +1,33 @@
+.inventory_panel{
+    background-color: #f5f5f5;
+    color: #666;
+    cursor: default;
+    height: auto;
+    padding: 10px;
+    align-self: center;
+    width: 1400px;
+    /*background-image:url(/images/bg_panel.png);*/
+    box-shadow: 0 0 50px #777;
+    border-radius: 5px;
+}
+.inventory_pagecontainer{
+	width:1400px;
+	margin:20px auto;
+	padding:0;
+}
+.inventory_table_head{
+    font-weight: bold;
+    font-style: italic;
+    text-align: left;
+    background-position: center right;
+}
+tr.active td{
+    background-color: #165788;
+    color: white
+}
+.filter_select{
+    float: left;
+    padding-right: 10px;
+    min-width: 150px;
+    margin-right: 10px;
+}

@@ -1,0 +1,4 @@
+#Reboot the controller
+
+This page allows you to reboot the controller.
+Please not that almost all settings are applied without requiring to reboot the controller.

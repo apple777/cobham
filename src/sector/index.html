@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BTS Port Connection Wizard</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="wizard-panel">
+        <li id="wizard-start" class="wizard-step">Start</li>
+        <li id="wizard-bts-port" class="wizard-step">BTS Port</li>
+        <li id="wizard-apoi" class="wizard-step">APOI</li>
+        <li id="wizard-mtdi" class="wizard-step">MTDI</li>
+        <li id="wizard-msdh" class="wizard-step">MSDH</li>
+        <li id="wizard-filters" class="wizard-step">Filters</li>
+        <li id="wizard-end" class="wizard-step">End</li>
+    </div>
+    <div class="panel">
+        <div class="header">BTS Port</div>
+        <div id="sector-content">
+        <table id="sector-config" class="type3">
+            <caption><div class="icon sector_config"></div> BTS Port Configuration</caption>
+            <tr>
+                <th><div class=""></div> Operator</th>
+                <td colspan="3"><select id="operator_list"></select></td>
+            </tr>
+            <tr>
+                <th><div class="icon tag"></div> <label for="sector-tag"> BTS Port Tag</label></th>
+                <td colspan="3"> <input id="sector-tag" type="text"/> <div class="icon help" title="BTS port tag should be 0-50 characters long and only contain [a-z0-9-_]"></div>
+                </td>
+            </tr>
+            <tr>
+                <th><div class="icon tag"></div><label for="sector-bts-tag"> Base Station Tag</label></th>
+                <td colspan="3"> <input id="sector-bts-tag" type="text"/> <div class="icon help" title="BTS tag should be 0-50 characters long and only contain [a-z0-9-_]"></div>
+                </td>
+            </tr>
+            <tr>
+                <th><div class="icon freq-range"></div><label> Band</label></th>
+                <td colspan="3"><select id="band-select"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <div id ="band-freq-indicator" class="freq-indicator"></div>
+                    <div>
+                        <div class="legend"><div id="available_range_legend" class="legend_color"></div>Operator Allocated Range</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table id="conn_type_table">
+            <tr class="conn_info">
+                <th rowspan="4"><label>RF Interface</label></th>
+                <th class="center"><input type="radio" name="conn_type" value="DUPL" checked/> Duplex</th>
+                <th class="center" colspan="2"><input type="radio" name="conn_type" value="DLUL"/> Simplex</th>
+                <th class="center" colspan="2"><input type="radio" name="conn_type" value="MIMODUPL" disabled="true"/> MIMO Duplex</th>
+                <th class="center" colspan="4"><input type="radio" name="conn_type" value="MIMO" disabled="true"/> MIMO Simplex</th>
+            </tr>
+            <tr class="conn_info_second">
+                <td class="center" rowspan="2">Downlink/ Uplink</td>
+                <td class="center" rowspan="2">Downlink</td>
+                <td class="center" rowspan="2">Uplink</td>
+                <td class="center"><b>MIMO A</b></td>
+                <td class="center"><b>MIMO B</b></td>
+                <td colspan="2" class="center"><b>MIMO A</b></td>
+                <td colspan="2" class="center"><b>MIMO B</b></td>
+            </tr>
+            <tr class="conn_info_third">
+                <td class="center">Downlink/ Uplink</td>
+                <td class="center">Downlink/ Uplink</td>
+                <td class="center">Downlink</td>
+                <td class="center">Uplink</td>
+                <td class="center">Downlink</td>
+                <td class="center">Uplink</td>
+            </tr>
+            <tr class="center">
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+            </tr>
+        </table>
+        </div>
+    </div>
+    <div class="wizard-bottom-panel">
+        <a class="button" id="add">Save & Next</a>
+        <a class="button" id="cancel">Cancel</a>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+.pagecontainer{
+    width:98% !important;
+}
+.panel{
+    width: 98% !important;
+}
+.model_display{
+    padding:5px;
+    margin-left: 50px;
+}
+.model_display_table{
+    padding-top:10px;
+}
+
+.left_panel{
+    float: left;
+    width:70%;
+}
+.right_panel{
+    float:left;
+    width:29%;
+    margin-left: 10px;
+}
+#config_table td {
+    font-weight: bold;
+}
+#config_table td span{
+    font-weight: normal;
+}
+path, ._jsPlumb_endpoint { cursor:pointer; }
+/*
+._jsPlumb_connector { z-index:2000; }
+._jsPlumb_endpoint { z-index:2001; }
+*/
+._jsPlumb_overlay { z-index:2006; }
+._jsPlumb_connector._jsPlumb_hover {
+    z-index:2002 !important;
+}
+._jsPlumb_endpoint._jsPlumb_hover {
+    z-index:2004 !important;
+}
+._jsPlumb_overlay._jsPlumb_hover {
+    z-index:2005 !important;
+}
+/*guide tool style */
+#guide_tool_UL{
+    position: absolute;
+    background-color: #80bd29;
+    padding: 5px;
+    color: #ffffff;
+}
+#guide_tool_DL{
+    position: absolute;
+    background-color: #80bd29;
+    padding: 5px;
+    color: #ffffff;
+}
+#down_arrow{
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 15px;
+    background-color: #80bd29;
+}
+#down_arrow_up{
+    position: absolute;
+    margin-left: 130px;
+    margin-top: 15px;
+    background-color: #80bd29;
+}
+#up_arrow_up{
+    position: absolute;
+    margin-left: 130px;
+    margin-top: -20px;
+    background-color: #80bd29;
+}
+/*mimo guide tool guide*/
+#MIMO-guide_tool_UL{
+    position: absolute;
+    background-color: #80bd29;
+    padding: 5px;
+    color: #ffffff;
+}
+#MIMO-guide_tool_DL{
+    position: absolute;
+    background-color: #80bd29;
+    padding: 5px;
+    color: #ffffff;
+}
+#MIMO-down_arrow{
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 15px;
+    background-color: #80bd29;
+}
+#MIMO-down_arrow_up{
+    position: absolute;
+    margin-left: 130px;
+    margin-top: 15px;
+    background-color: #80bd29;
+}
+#MIMO-up_arrow_up{
+    position: absolute;
+    margin-left: 130px;
+    margin-top: -20px;
+    background-color: #80bd29;
+}
+
+#instruction_tbl td div{
+    display:inline-block;
+}
+.conn_panel_header{
+    width:99%;
+    background-color: #00A4F2;
+    color: white;
+    font-size: 12px;
+    line-height: 30px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+/*legend*/
+.legend{
+    display: inline-block;
+    padding: 5px;
+}
+.legend_color{
+    display: inline-block;
+    margin-right: 3px;
+    width:14px;
+    height:14px;
+}
+.available_port{
+    background-color: #0074e6;
+}
+.selected_port{
+    background-color: #11ff01;
+}
+.wizard-bottom-panel{
+    width:100%;
+}
+.wizard-panel{
+    width: 100%;
+}

@@ -1,0 +1,118 @@
+/* General stuff that's shared site-wide with every page*/
+html, body {
+	margin:0;
+	padding:0;
+	border:none;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+    background: #ddd url('/images/bg-noise.png');
+    color: #444;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+/* a useful class to set the cursor on an element to pointer */
+.cursorpointer{
+	cursor:pointer;
+}
+/* a useful class to set the cursor on an element to default */
+.cursordefault{
+	cursor:default;
+}
+.clearfix {
+	display: inline-block;
+}
+::-moz-selection,
+::selection {
+	background-color: #FF0099;
+	color: white;
+	text-shadow: none;
+}
+/*----------------------------Hidden and visible elements----------------------------*/
+.hidden{
+	visibility:hidden;
+}
+.visible{
+	visibility:visible;
+}
+.none{
+	display:none !important;
+}
+/*-----------------------Advanced and Basic Elements-----------------------*/
+.basic{
+	/*Currently it is empty but it's there for the sake of auto-completion in design tools*/
+}
+.advanced{
+	/*Currently it is empty but it's there for the sake of auto-completion in design tools*/
+}
+/*-----------------------Basic Elements controllers -----------------------*/
+.float{
+	float: left;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+	float: left !important;
+    padding-left: 7px;	
+	width: 100%;    
+}
+
+/*----------------------------FONTS AND HEADERS----------------------------*/
+p{
+	margin:0;
+	padding:10px 0 10px 0;
+}
+h3{
+	font-size:12px;
+	font-weight:bold;
+	padding:0;
+	margin:0;
+	color:#666;
+	text-shadow:#FFF 0 1px 1px;
+	text-align:center
+}
+.monofont{
+	font-family:"Courier New", Courier, monospace;
+}
+/*----------------------------PAGE CONTAINER----------------------------*/
+.pagecontainer{
+	/* old style:
+	width:980px;
+	margin:10px auto;
+	background-color:rgba(0,0,0,0.1);
+	padding:10px;
+	border-radius:12px;
+	box-shadow:inset #444 0 0 5px;*/
+	/* Newer style:
+	background-color: #DDDDDD;
+    bottom: 0;
+    box-shadow: 0 0 15px #111111;
+    left: 50%;
+    margin-left: -500px;
+    overflow: hidden;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    width: 980px;*/
+	width:1000px;
+	margin:10px auto;
+	padding:0;
+	/*look and feel backward compatibility
+	box-shadow: 0 0 2px #555 inset;
+	background-color:rgba(0,0,0,0.1);
+    border-radius: 11px 11px 11px 11px;
+    margin: 10px auto;
+    padding: 10px;
+	*/
+}
+.pagecontainer.fixed{
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+}

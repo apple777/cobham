@@ -1,0 +1,70 @@
+table {
+    table-layout: auto !important;
+}
+.opto-row td {
+    border-top: 1px solid #FFD1FF;
+}
+.node-row:last-of-type td {
+}
+.led-cell {
+    width: 10px !important;
+}
+.ul-ola-cell {
+    width: 10px !important;
+}
+.dl-ola-cell {
+    width: 10px !important;
+}
+.drop-down-cell {
+    width: 25px !important;
+}
+.position-cell {
+    width: 30px !important;
+}
+.message-cell {
+    width: 260px !important;
+}
+.stop-cell {
+    width: 80px !important;
+}
+.pilot-cell {
+    width: 30px !important;
+}
+.result-attenuation-cell {
+    width: 35px !important;
+}
+.drop-down-cell {
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.drop-down-cell.opto {
+    background-image: url('opto.png');
+}
+.drop-down-cell.node {
+    background-image: url('node.png');
+}
+.drop-down-cell.node-last {
+    background-image: url('node-last.png');
+}
+input.in-progress {
+    background-color: red;
+}
+input.in-progress:after {
+    width: 16px;
+    height: 16px;
+    background-image: url('../../images/waiting16-black.gif');
+}
+
+.in-progress input[type=checkbox] {
+    display: none;
+}
+
+.in-progress .checbox-cell {
+    background-image: url('/src/images/waiting16-black.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.in-progress .status-led {
+    visibility: hidden;
+}

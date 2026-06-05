@@ -1,0 +1,1489 @@
+-- *****************************************************************
+-- DEKOLINK-NE-MIB.mib:  Decolink CCD MIB
+-- 
+--
+-- Copyright (c) 2005 by Dekolink Wireless
+-- All rights reserved.
+--
+-- Version  Date       Author           Comment
+-- =======  =========  ==============   ============================================
+-- 1.0      01-Apr-07  Yuval Lifshitz   Initial version.
+-- 1.0.1    26-Apr-07  Yuval Lifshitz   Add dekoAlarmsSystemCounter mib object.
+-- 1.0.2    14-May-07  Yuval Lifshitz   Add dekoInventoryGroup and dekoInventoryTable.
+-- 1.0.3    13-Apr-10  Andrey Kruchkov  Add stadlerInventoryGroup and dekoAlarmGPS.
+-- 1.0.4    03-Jul-12  Andrey Kruchkov  Add dekoTrapMngrIP fields.
+-- 1.1.0    14-Jul-13  Andrey Kruchkov  Add operational tables.
+-- =======  =========  ==============  ============================================
+-- *****************************************************************
+
+DEKOLINK-NE-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+  MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+	enterprises, Counter32
+    FROM SNMPv2-SMI
+  MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+    FROM SNMPv2-CONF
+  DisplayString, DateAndTime
+    FROM SNMPv2-TC ;
+
+--
+-- Module Identity
+--
+
+dekoMIB MODULE-IDENTITY
+    LAST-UPDATED    "201307140000Z"
+    ORGANIZATION    "Dekolnk"
+    CONTACT-INFO
+        "       Dekolnk Wireless
+
+                Postal: P.O. Box 10018 
+				Petah Tikva, 
+				ISRAEL 49001
+                Tel:  972-3-9180180
+                Fax: 972-3-9180190
+                E-Mail: marketing@dekolink.com "
+ 
+               
+   DESCRIPTION
+        "The DEKOLINK-NE-MIB module contains a description of
+	the SNMP interface to the Dekolink NE version 1.0.	
+	"
+    REVISION   "200704100000Z"
+    DESCRIPTION
+        "Initial released version of this MIB module."
+    ::= { dekolinkwireless 200 }  
+  
+  
+dekolinkwireless OBJECT IDENTIFIER ::= { enterprises 23792 } 
+
+--
+-- Dekolink module MIB Managed Objects
+--
+dekoModuleManagement OBJECT IDENTIFIER    
+    ::= { dekoMIB 1 }
+          
+--
+-- Dekolink module MIB Notification Objects
+--
+dekoNotificationManagement OBJECT IDENTIFIER
+    ::= { dekoMIB 2 }
+      
+
+
+--   ************************************************************
+-- 		Modules
+--
+
+dekoModules		 OBJECT IDENTIFIER ::= { dekoModuleManagement 1 }
+dekoNEModule		 OBJECT IDENTIFIER ::= { dekoModules 10 }
+
+--- ************************************************************
+--- Dekolink NE Module Structure
+---
+                                                                                         
+dekoAlarmsGroup           OBJECT IDENTIFIER ::= { dekoNEModule 2 }
+dekoAlarmsLogGroup        OBJECT IDENTIFIER ::= { dekoNEModule 3 }
+dekoInventoryGroup        OBJECT IDENTIFIER ::= { dekoNEModule 4 }
+axellOperationGroup       OBJECT IDENTIFIER ::= { dekoNEModule 5 }
+stadlerCCDInventoryGroup  OBJECT IDENTIFIER ::= { dekoNEModule 10 }
+
+
+-- ~~~~~~~~~~~~~ Alarms group  ~~~~~~~~~~~~~~~~~~
+
+  	dekoAlarmsTable	OBJECT-TYPE
+         SYNTAX  SEQUENCE OF DekoAlarmsEntry
+         MAX-ACCESS  not-accessible
+         STATUS  current
+         DESCRIPTION
+         "AlarmsTable - Contains the NE' Alarms.
+          Use neID as index"
+     ::= { dekoAlarmsGroup  10 }
+
+     dekoAlarmsEntry	OBJECT-TYPE
+         SYNTAX  DekoAlarmsEntry
+         MAX-ACCESS  not-accessible
+         STATUS  current
+         DESCRIPTION
+         "The entries of the table."
+         INDEX { dekoAlarmNotificationId }
+     ::= { dekoAlarmsTable 1 }
+
+		DekoAlarmsEntry ::= SEQUENCE
+		{
+      dekoAlarmNotificationId  Counter32,
+      dekoAlarmId              Counter32,
+      dekoAlarmMngrSnapId      DisplayString,
+      dekoAlarmMngrName        DisplayString,
+      dekoAlarmRptrSnapId      DisplayString,
+      dekoAlarmRptrName        DisplayString,
+      dekoAlarmTime            DateAndTime,
+      dekoAlarmText            DisplayString,
+      dekoAlarmSeverity        INTEGER,
+      dekoAlarmAdditionalText  DisplayString           
+		}
+
+    dekoAlarmNotificationId	OBJECT-TYPE	
+  		SYNTAX			Counter32
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"table index. global notification counter in the system."
+		::=  {  dekoAlarmsEntry 1  }
+
+    dekoAlarmId	OBJECT-TYPE	
+  		SYNTAX			Counter32
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Global notification counter of correlated new alarm in the system.
+           Each time a new Alarm is raised, this value will be equal to
+           the dekoAlarmNotificationId."
+		::=  {  dekoAlarmsEntry 2  }
+
+     dekoAlarmMngrSnapId	OBJECT-TYPE
+  		 SYNTAX    DisplayString   ( SIZE (8) )
+  		 MAX-ACCESS read-only
+  		 STATUS    current
+  		 DESCRIPTION
+  		 "The Manager Snap Id. Unique identification in the system." 
+     ::= { dekoAlarmsEntry  3 } 
+	 
+    dekoAlarmMngrName	OBJECT-TYPE	
+  		SYNTAX			DisplayString 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Manager name associated to repeater that initiates the alarm."
+		::=  {  dekoAlarmsEntry 4  } 
+
+    dekoAlarmRptrSnapId	OBJECT-TYPE	
+  		 SYNTAX    DisplayString   ( SIZE (8) )
+  		 MAX-ACCESS    read-only
+  		 STATUS    current
+  		 DESCRIPTION
+  		 "The Manager Snap Id. Unique identification in the system." 
+		::=  {  dekoAlarmsEntry 5  }		
+
+    dekoAlarmRptrName	OBJECT-TYPE	
+  		SYNTAX			DisplayString 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Repeater name of the NE that initiates the alarm."
+		::=  {  dekoAlarmsEntry 6  } 
+
+    dekoAlarmTime	OBJECT-TYPE	
+  		SYNTAX			DateAndTime
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Date/Time of the Alarm."
+		::=  {  dekoAlarmsEntry 7  }
+
+    dekoAlarmText	OBJECT-TYPE	
+  		SYNTAX			DisplayString 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"basic description of the problem that
+  				caused the alarm."
+		::=  {  dekoAlarmsEntry 8 }		
+		
+    dekoAlarmSeverity	OBJECT-TYPE	
+  		SYNTAX INTEGER {
+  			indeterminate(1),
+  			critical(2),
+  			major(3),
+  			minor(4),
+  			warning(5),
+  			cleared(6)
+  		}
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Alarm Severity:
+  					1 - Indeterminate
+  					2 - Critical
+  					3 - Major
+  					4 - Minor
+  					5 - Warning
+  					6 - Cleared "
+		::=  {  dekoAlarmsEntry 9  }
+
+    dekoAlarmAdditionalText	OBJECT-TYPE	
+  		SYNTAX			DisplayString 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"further qualification on the alarm."
+		::=  {  dekoAlarmsEntry 10  }
+		
+  dekoAlarmsSystemCounter OBJECT-TYPE	
+  		SYNTAX      Counter32 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Dekolink system global alarms counter."
+		::=  {  dekoAlarmsGroup 20  }
+
+-- ~~~~~~~~~~~~~ Alarms Log group  ~~~~~~~~~~~~~~~~~~
+
+	dekoAlarmsLogTable	OBJECT-TYPE
+         SYNTAX  SEQUENCE OF DekoAlarmsLogEntry
+         MAX-ACCESS  not-accessible
+         STATUS  current
+         DESCRIPTION
+         "AlarmsTable - Contains the NE' Alarms.
+          Use neID as index"
+     ::= { dekoAlarmsLogGroup  20 }
+
+     dekoAlarmsLogEntry	OBJECT-TYPE
+         SYNTAX  DekoAlarmsLogEntry
+         MAX-ACCESS  not-accessible
+         STATUS  current
+         DESCRIPTION
+         "The entries of the table."
+         INDEX { dekoAlarmLogNotificationId }
+     ::= { dekoAlarmsLogTable 1 }
+
+		DekoAlarmsLogEntry ::= SEQUENCE
+		{
+      dekoAlarmLogNotificationId  Counter32,
+      dekoAlarmLogId              Counter32,
+      dekoAlarmLogMngrSnapId      DisplayString,          
+      dekoAlarmLogMngrName        DisplayString,  
+      dekoAlarmLogRptrSnapId      DisplayString,    
+      dekoAlarmLogRptrName        DisplayString,  
+      dekoAlarmLogTime            DateAndTime,
+      dekoAlarmLogText            DisplayString,
+      dekoAlarmLogSeverity        INTEGER,
+      dekoAlarmLogAdditionalText  DisplayString  
+		}
+
+    dekoAlarmLogNotificationId	OBJECT-TYPE	
+  		SYNTAX			Counter32
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"table index. global notification counter in the system."
+		::=  {  dekoAlarmsLogEntry 1  }
+
+    dekoAlarmLogId	OBJECT-TYPE	
+  		SYNTAX			Counter32
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Global notification counter of correlated new alarm in the system.
+           Each time a new Alarm is raised, this value will be equal to
+           the dekoAlarmLogNotificationId."
+		::=  {  dekoAlarmsLogEntry 2  }
+
+     dekoAlarmLogMngrSnapId	OBJECT-TYPE
+  		 SYNTAX    DisplayString   ( SIZE (8) )
+  		 MAX-ACCESS read-only
+  		 STATUS    current
+  		 DESCRIPTION
+  		 "The Manager Snap Id. Unique identification in the system." 
+     ::= { dekoAlarmsLogEntry  3 } 
+	 
+    dekoAlarmLogMngrName	OBJECT-TYPE	
+  		SYNTAX			DisplayString 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Manager name associated to repeater that initiates the alarm."
+		::=  {  dekoAlarmsLogEntry 4  } 
+
+    dekoAlarmLogRptrSnapId	OBJECT-TYPE	
+  		 SYNTAX    DisplayString   ( SIZE (8) )
+  		 MAX-ACCESS    read-only
+  		 STATUS    current
+  		 DESCRIPTION
+  		 "The Manager Snap Id. Unique identification in the system." 
+		::=  {  dekoAlarmsLogEntry 5  }		
+
+    dekoAlarmLogRptrName	OBJECT-TYPE	
+  		SYNTAX			DisplayString 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Repeater name of the NE that initiates the alarm."
+		::=  {  dekoAlarmsLogEntry 6  } 
+
+    dekoAlarmLogTime	OBJECT-TYPE	
+  		SYNTAX			DateAndTime
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Date/Time of the Alarm."
+		::=  {  dekoAlarmsLogEntry 7  }
+
+    dekoAlarmLogText	OBJECT-TYPE	
+  		SYNTAX			DisplayString 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"basic description of the problem that
+  				caused the alarm."
+		::=  {  dekoAlarmsLogEntry 8 }		
+		
+    dekoAlarmLogSeverity	OBJECT-TYPE	
+  		SYNTAX INTEGER {
+  			indeterminate(1),
+  			critical(2),
+  			major(3),
+  			minor(4),
+  			warning(5),
+  			cleared(6)
+  		}
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Alarm Severity:
+  					1 - Indeterminate
+  					2 - Critical
+  					3 - Major
+  					4 - Minor
+  					5 - Warning
+  					6 - Cleared "
+		::=  {  dekoAlarmsLogEntry 9  }
+
+    dekoAlarmLogAdditionalText	OBJECT-TYPE	
+  		SYNTAX			DisplayString 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"further qualification on the alarm."
+		::=  {  dekoAlarmsLogEntry 10  }
+		
+
+-- ~~~~~~~~~~~~~ Inventory group  ~~~~~~~~~~~~~~~~~~
+
+  	dekoInventoryTable	OBJECT-TYPE
+         SYNTAX  SEQUENCE OF DekoInventoryEntry
+         MAX-ACCESS  not-accessible
+         STATUS  current
+         DESCRIPTION
+         "InventoryTable - Contains the NE' inventory data.
+          Use repeater snap id as index"
+     ::= { dekoInventoryGroup  10 }
+
+     dekoInventoryEntry	OBJECT-TYPE
+         SYNTAX  DekoInventoryEntry
+         MAX-ACCESS  not-accessible
+         STATUS  current
+         DESCRIPTION
+         "The entries of the table."
+         INDEX { dekoRptrSnapId }
+     ::= { dekoInventoryTable 1 }
+
+		DekoInventoryEntry ::= SEQUENCE
+		{
+      dekoRptrSnapId           DisplayString,    
+      dekoRptrName             DisplayString,    
+      dekoMngrSnapid           DisplayString,    
+      dekoMngrName             DisplayString,
+      dekoMngrVersion          DisplayString,
+      dekoRptrOperationState   INTEGER,          
+      dekoConnectionType       INTEGER,
+      dekoPhoneNumber          DisplayString
+		}
+
+     dekoRptrSnapId	OBJECT-TYPE
+  		 SYNTAX    DisplayString   ( SIZE (8) )
+  		 MAX-ACCESS read-only
+  		 STATUS    current
+  		 DESCRIPTION
+  		 "Repeater snap id. Unique identification in the system." 
+     ::= { dekoInventoryEntry  1 } 
+	 
+    dekoRptrName	OBJECT-TYPE	
+  		SYNTAX			DisplayString 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Repeater name."
+		::=  {  dekoInventoryEntry 2  } 
+
+    dekoMngrSnapid	OBJECT-TYPE	
+  		 SYNTAX    DisplayString   ( SIZE (8) )
+  		 MAX-ACCESS    read-only
+  		 STATUS    current
+  		 DESCRIPTION
+  		 "The manager snap Id. Unique identification in the system." 
+		::=  {  dekoInventoryEntry 3  }		
+
+    dekoMngrName	OBJECT-TYPE	
+  		SYNTAX			DisplayString 
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"The manager name."
+		::=  {  dekoInventoryEntry 4  } 
+
+
+    dekoMngrVersion	OBJECT-TYPE	
+  		SYNTAX			DisplayString
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Manager version."
+		::=  {  dekoInventoryEntry 5  }
+
+    dekoRptrOperationState	OBJECT-TYPE	
+  		SYNTAX INTEGER {
+  			indeterminate(1),
+  			ok(2),
+  			rptrdown(3)
+  		}
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+  				"Repeater operation state (OK, RF down):
+  					1 - Indeterminate
+  					2 - OK
+  					3 - Repeater Down"
+		::=  {  dekoInventoryEntry 6  }
+
+    dekoConnectionType	OBJECT-TYPE	
+  		SYNTAX INTEGER {
+  			direct(1),
+  			alwayson(2),
+  			callback(3),
+  			indeterminate(99)
+  		}
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+				"Manager connection type.
+				Values are:
+					1 - Direct for fixed ip - LAN connection 
+					2 - Alwayson for fixed ip WAN connection via modem
+					3 - callback for connection via modem that wakes the server.
+					    Server gets the callback call and initiates the connection from its side
+					99 - Indeterminate."
+		::=  {  dekoInventoryEntry 7  }
+
+    dekoPhoneNumber	OBJECT-TYPE	
+  		SYNTAX			DisplayString
+  		MAX-ACCESS	read-only
+  		STATUS			current
+  		DESCRIPTION		
+				"Manager Telephone number."
+		::=  {  dekoInventoryEntry  8  }		
+
+
+-- ~~~~~~~~~~~~~ Operation group  ~~~~~~~~~~~~~~~~~~
+
+axellOperationScalarsTable OBJECT-TYPE
+         SYNTAX  SEQUENCE OF AxellOperationScalarsEntry
+         MAX-ACCESS  not-accessible
+         STATUS  current
+         DESCRIPTION
+         "OperationScalarsTable - Contains the NE' working parameters.
+          Use numerical counter as index"
+     ::= { axellOperationGroup  10 }
+
+     axellOperationScalarsEntry OBJECT-TYPE
+         SYNTAX  AxellOperationScalarsEntry
+         MAX-ACCESS  not-accessible
+         STATUS  current
+         DESCRIPTION
+         "The entries of the table."
+         INDEX { axellNeIdIndex }
+     ::= { axellOperationScalarsTable 1 }
+
+     AxellOperationScalarsEntry ::= SEQUENCE
+     {
+          axellNeIdIndex                           Counter32,
+          axellNeSystemType                        DisplayString,
+          axellNeRepeaterPartNumber                DisplayString,
+          axellNeRepeaterSerialNumber              DisplayString,
+          axellNeRepeaterIdentification            DisplayString,
+          axellNeRFTransmissionEnable              DisplayString,
+          axellNeMaxPowerDL                        DisplayString,
+          axellNeMaxPowerUL                        DisplayString,
+          axellNeDLOutputThresholdDelta            DisplayString,
+          axellNeTemperature                       DisplayString,
+          axellNeOutputPowerDL                     DisplayString,
+          axellNeOscillationPrevention             DisplayString,
+          axellNeRFTransmissionEnableB             DisplayString,
+          axellNeOscillationPreventionB            DisplayString,
+          axellNeMaxPowerDLB                       DisplayString,
+          axellNeMaxPowerULB                       DisplayString,
+          axellNeDLOutputThresholdDeltaB           DisplayString,
+          axellNeOutputPowerDLB                    DisplayString,
+          axellNeIMMuteEnable                      DisplayString,
+          axellNeBuildVersion                      DisplayString,
+          axellNePathADlUlShift                    DisplayString,
+          axellNePathAName                         DisplayString,
+          axellNePathBDlUlShift                    DisplayString,
+          axellNePathBName                         DisplayString,
+          axellNePossibleFilters                   DisplayString
+     }
+
+     axellNeIdIndex OBJECT-TYPE
+          SYNTAX Counter32
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              "Repeater Index"
+     ::=  { axellOperationScalarsEntry 1 }
+
+     axellNeSystemType OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 2 }
+
+     axellNeRepeaterPartNumber OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 3 }
+
+     axellNeRepeaterSerialNumber OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 4 }
+
+     axellNeRepeaterIdentification OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 5 }
+
+     axellNeRFTransmissionEnable OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 6 }
+
+     axellNeMaxPowerDL OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 7 }
+
+     axellNeMaxPowerUL OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 8 }
+
+     axellNeDLOutputThresholdDelta OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 9 }
+
+     axellNeTemperature OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 10 }
+
+     axellNeOutputPowerDL OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 11 }
+
+     axellNeOscillationPrevention OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 12 }
+
+     axellNeRFTransmissionEnableB OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 13 }
+
+     axellNeOscillationPreventionB OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 14 }
+
+     axellNeMaxPowerDLB OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 15 }
+
+     axellNeMaxPowerULB OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 16 }
+
+     axellNeDLOutputThresholdDeltaB OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 17 }
+
+     axellNeOutputPowerDLB OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 18 }
+
+     axellNeIMMuteEnable OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 19 }
+
+     axellNeBuildVersion OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 20 }
+
+     axellNePathADlUlShift OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 21 }
+
+     axellNePathAName OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 22 }
+
+     axellNePathBDlUlShift OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 23 }
+
+     axellNePathBName OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 24 }
+
+     axellNePossibleFilters OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationScalarsEntry 25 }
+
+---  --------------------------------------------------
+
+axellOperationMultipleTable OBJECT-TYPE
+         SYNTAX  SEQUENCE OF AxellOperationMultipleEntry
+         MAX-ACCESS  not-accessible
+         STATUS  current
+         DESCRIPTION
+         "OperationMultipleTable - Contains the NE' working parameters.
+          Use numerical counter as index"
+     ::= { axellOperationGroup  20 }
+
+     axellOperationMultipleEntry OBJECT-TYPE
+         SYNTAX  AxellOperationMultipleEntry
+         MAX-ACCESS  not-accessible
+         STATUS  current
+         DESCRIPTION
+         "The entries of the table."
+         INDEX { axellNeIndex }
+     ::= { axellOperationMultipleTable 1 }
+
+     AxellOperationMultipleEntry ::= SEQUENCE
+     {
+          axellNeIndex                             Counter32,
+          axellNeId                                DisplayString,
+          axellNeBandIndex                         DisplayString,
+          axellNeDlMesRSSI                         DisplayString,
+          axellNeDlMesChPower                      DisplayString,
+          axellNeDlMesChGain                       DisplayString,
+          axellNeUlMesRSSI                         DisplayString,
+          axellNeUlMesChPower                      DisplayString,
+          axellNeUlMesChGain                       DisplayString,
+          axellNeENABLED                           DisplayString,
+          axellNeFilterType                        DisplayString,
+          axellNeDlFreqStart                       DisplayString,
+          axellNeDlSquelchLevel                    DisplayString,
+          axellNeDlMaxPower                        DisplayString,
+          axellNeDlMaxGain                         DisplayString,
+          axellNeDlFreqStop                        DisplayString,
+          axellNeUlSquelchLevel                    DisplayString,
+          axellNeUlMaxPower                        DisplayString,
+          axellNeUlMaxGain                         DisplayString,
+          axellNeImopGainReduction                 DisplayString,
+          axellNeDlIsolation                       DisplayString,
+          axellNeUlIsolation                       DisplayString
+     }
+
+     axellNeIndex OBJECT-TYPE
+          SYNTAX Counter32
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              "Repeater Index"
+     ::=  { axellOperationMultipleEntry 1 }
+
+     axellNeId OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              "Repeater Index"
+     ::=  { axellOperationMultipleEntry 2 }
+
+     axellNeBandIndex OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 3 }
+
+     axellNeDlMesRSSI OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 4 }
+
+     axellNeDlMesChPower OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 5 }
+
+     axellNeDlMesChGain OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 6 }
+
+     axellNeUlMesRSSI OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 7 }
+
+     axellNeUlMesChPower OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 8 }
+
+     axellNeUlMesChGain OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 9 }
+
+     axellNeENABLED OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 10 }
+
+     axellNeFilterType OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 11 }
+
+     axellNeDlFreqStart OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 12 }
+
+     axellNeDlSquelchLevel OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 13 }
+
+     axellNeDlMaxPower OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 14 }
+
+     axellNeDlMaxGain OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 15 }
+
+     axellNeDlFreqStop OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 16 }
+
+     axellNeUlSquelchLevel OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 17 }
+
+     axellNeUlMaxPower OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 18 }
+
+     axellNeUlMaxGain OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 19 }
+
+     axellNeImopGainReduction OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 20 }
+
+     axellNeDlIsolation OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 21 }
+
+     axellNeUlIsolation OBJECT-TYPE
+          SYNTAX DisplayString
+          MAX-ACCESS read-only
+          STATUS current
+          DESCRIPTION
+              ""
+     ::=  { axellOperationMultipleEntry 22 }
+
+
+---  ------------ Stadler CCD Inventory Group  --------
+	
+	stadlerLanIP	OBJECT-TYPE
+		SYNTAX    DisplayString
+		MAX-ACCESS    read-only
+		STATUS    current
+		DESCRIPTION
+		"LAN IP Address."
+	::= { stadlerCCDInventoryGroup  1 }
+	
+	stadlerModemIP	OBJECT-TYPE
+		SYNTAX    DisplayString
+		MAX-ACCESS    read-only
+		STATUS    current
+		DESCRIPTION
+		"Modem IP address."
+	::= { stadlerCCDInventoryGroup  2 }
+	
+	stadlerCoachID	OBJECT-TYPE
+		SYNTAX    DisplayString
+		MAX-ACCESS    read-only
+		STATUS    current
+		DESCRIPTION
+		"Coach Unique Identifier."
+	::= { stadlerCCDInventoryGroup  3 }
+	
+	stadlerRptrName	OBJECT-TYPE
+		SYNTAX    DisplayString
+		MAX-ACCESS    read-only
+		STATUS    current
+		DESCRIPTION
+		"Repeater Name."
+	::= { stadlerCCDInventoryGroup  4 }
+
+	stadlerRptrPN	OBJECT-TYPE
+		SYNTAX    DisplayString
+		MAX-ACCESS    read-only
+		STATUS    current
+		DESCRIPTION
+		"Repeater Part Number."
+	::= { stadlerCCDInventoryGroup  5 }
+
+	stadlerSysVer	OBJECT-TYPE
+		SYNTAX    DisplayString
+		MAX-ACCESS    read-only
+		STATUS    current
+		DESCRIPTION
+		"System Version."
+	::= { stadlerCCDInventoryGroup  6 }
+
+	stadlerSysTime	OBJECT-TYPE
+		SYNTAX    DateAndTime
+		MAX-ACCESS    read-only
+		STATUS    current
+		DESCRIPTION
+		"System Time."
+	::= { stadlerCCDInventoryGroup  7 }
+	
+	stadlerConfVer	OBJECT-TYPE
+		SYNTAX    DisplayString
+		MAX-ACCESS    read-only
+		STATUS    current
+		DESCRIPTION
+		"Configuration Version."
+	::= { stadlerCCDInventoryGroup  8 }
+	
+	stadlerGPSPos	OBJECT-TYPE
+		SYNTAX    DisplayString
+		MAX-ACCESS    read-only
+		STATUS    current
+		DESCRIPTION
+		"GPS position."
+	::= { stadlerCCDInventoryGroup  9 }
+	
+	stadlerState	OBJECT-TYPE
+		SYNTAX    DisplayString
+		MAX-ACCESS    read-only
+		STATUS    current
+		DESCRIPTION
+		"Repeater state."
+	::= { stadlerCCDInventoryGroup  10 }
+
+	
+---  **********************************************************
+-- Dekolink MIB Notification object definitions
+--
+
+    dekoNotificationsPrefix	OBJECT IDENTIFIER ::= { dekoNotificationManagement 1 }
+    
+    dekoNotifications	OBJECT IDENTIFIER ::= { dekoNotificationsPrefix 0 } 
+    
+---
+
+dekoNewAlarmNotification NOTIFICATION-TYPE
+	OBJECTS {
+	dekoTrapNotificationId,
+	dekoTrapAlarmId,
+	dekoTrapMngrSnapId,
+	dekoTrapMngrName,
+	dekoTrapRptrSnapId,
+	dekoTrapRptrName,
+	dekoTrapAlarmTime,
+	dekoTrapAlarmText,
+	dekoTrapAlarmSeverity,
+	dekoTrapAlarmAdditionalText,
+	dekoTrapAlarmGPS
+	}
+    STATUS  current
+    DESCRIPTION
+        "NE new raised alarm notification."
+    ::= { dekoNotifications 10 }  
+
+---
+
+  dekoClearAlarmNotification NOTIFICATION-TYPE
+	OBJECTS {   
+    dekoTrapNotificationId,    
+    dekoTrapAlarmId,
+    dekoTrapMngrSnapId,          
+    dekoTrapMngrName,          
+    dekoTrapRptrSnapId,          
+    dekoTrapRptrName,          
+    dekoTrapAlarmTime,
+    dekoTrapAlarmSeverity,
+    dekoTrapAlarmText,
+    dekoTrapAlarmAdditionalText,
+    dekoTrapAlarmGPS }
+    STATUS  current
+    DESCRIPTION
+        "NE clear alarm notification."
+    ::= { dekoNotifications 20 }    
+    
+--- 
+   
+  dekoHeartbeatNotification NOTIFICATION-TYPE
+	OBJECTS {   
+    dekoHBNotificationId,    
+    dekoTrapNotificationId,    
+    dekoTrapMngrSnapId,          
+    dekoTrapRptrSnapId,
+    dekoTrapAdditionalData,    
+    dekoTrapPhoneNumber,
+    dekoTrapConnectionType,
+    dekoTrapMngrVersion
+ 	}
+    STATUS  current
+    DESCRIPTION
+        "Heartbeat notification."
+    ::= { dekoNotifications 30 }    
+    
+---
+--- Notification Variables
+---
+
+  dekoNotificationObjects OBJECT IDENTIFIER
+    ::= { dekoNotificationManagement 20 }
+
+  dekoHBNotificationId	OBJECT-TYPE	
+		SYNTAX			Counter32
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"The system-wide unique ID of the Heartbeat Alarm.
+         Independent counter from notification id of other traps.
+         When it reaches the	maximum value of a unsigned 32-bit
+         integer, it restarts at 1."
+		::=  {  dekoNotificationObjects  1  }
+
+  dekoTrapNotificationId	OBJECT-TYPE	
+		SYNTAX			Counter32
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"The ID of the last Alarm Notification. This number
+				 starts at 1 and is incremented by 1 for each
+				 subsequent New or Clear Alarm notification. When it
+         reaches the	maximum value of a unsigned 32-bit integer,
+         it restarts at 1."
+		::=  {  dekoNotificationObjects  2  }
+
+   dekoTrapAlarmId 	OBJECT-TYPE	
+		SYNTAX			Counter32
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"unique id of the raised alarm."
+		::=  {  dekoNotificationObjects  3  }
+
+  dekoTrapMngrSnapId	OBJECT-TYPE	
+		SYNTAX			DisplayString 
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"Unique SNAP ID for NE in Dekolink
+				 System that generated the Alarm."
+		::=  {  dekoNotificationObjects  4  }		
+
+  dekoTrapRptrSnapId	OBJECT-TYPE	
+		SYNTAX			DisplayString 
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"Unique SNAP ID for NE in Dekolink
+				 System that generated the Alarm."
+		::=  {  dekoNotificationObjects  5  }		
+
+  dekoTrapPhoneNumber	OBJECT-TYPE	
+		SYNTAX			DisplayString
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"Manager Telephone number in alarm notification."
+		::=  {  dekoNotificationObjects  6  }		
+
+  dekoTrapConnectionType	OBJECT-TYPE	
+		SYNTAX INTEGER {
+			direct(1),
+			alwayson(2),
+			callback(3),
+			indeterminate(99)
+		}
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"Manager connection type in alarm notification.
+				Values are:
+				
+					1 - Direct for fixed ip - LAN connection 
+					2 - Alwayson for fixed ip WAN connection via modem
+					3 - callback for connection via modem that wakes the server.
+					    Server gets the callback call and initiates the connection from its side
+					99 - Indeterminate."
+          
+		::=  {  dekoNotificationObjects  7  }		
+
+    dekoTrapAlarmSeverity	OBJECT-TYPE	
+		SYNTAX INTEGER {
+			indeterminate(1),
+			critical(2),
+			major(3),
+			minor(4),
+			warning(5),
+			cleared(6)
+		}
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"Severity of the alarm notification:
+					1 - Indeterminate  
+					2 - Critical
+					3 - Major
+					4 - Minor
+					5 - Warning
+					6 - Cleared ."
+		::=  {  dekoNotificationObjects  8  }
+
+    dekoTrapAlarmTime	OBJECT-TYPE	
+		SYNTAX			DateAndTime
+		MAX-ACCESS	accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"Date/Time of the Alarm."
+		::=  {  dekoNotificationObjects  9  }
+
+    dekoTrapAlarmText	OBJECT-TYPE	
+		SYNTAX			DisplayString 
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"basic description of the problem that
+				caused the alarm."
+		::=  {  dekoNotificationObjects  10  }		
+	
+    dekoTrapAlarmAdditionalText	OBJECT-TYPE	
+		SYNTAX			DisplayString 
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"further qualification on the fault."
+		::=  {  dekoNotificationObjects  11  }
+	
+    dekoTrapAdditionalData	OBJECT-TYPE	
+		SYNTAX			DisplayString 
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"Additional data for heartbeat trap."
+		::=  {  dekoNotificationObjects  12  } 
+	
+    dekoTrapMngrName	OBJECT-TYPE	
+		SYNTAX			DisplayString 
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"Manager name notificatoin."
+		::=  {  dekoNotificationObjects  13  } 
+	
+    dekoTrapRptrName	OBJECT-TYPE	
+		SYNTAX			DisplayString 
+		MAX-ACCESS	accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"Repeater name notificatoin."
+		::=  {  dekoNotificationObjects  14  } 
+	
+    dekoTrapMngrVersion	OBJECT-TYPE	
+		SYNTAX			DisplayString 
+		MAX-ACCESS	accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+				"Manager name notificatoin."
+		::=  {  dekoNotificationObjects  15  } 
+	
+    dekoTrapAlarmGPS	OBJECT-TYPE
+		SYNTAX			DisplayString 
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+			"GPS position."
+		::=  {  dekoNotificationObjects  16  }
+	
+    dekoTrapMngrIPStatic	OBJECT-TYPE
+		SYNTAX			DisplayString 
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+			"Static IP Address."
+		::=  {  dekoNotificationObjects  17  }
+	
+    dekoTrapMngrIPDynamic	OBJECT-TYPE
+		SYNTAX			DisplayString 
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+			"Dynamic IP Address."
+		::=  {  dekoNotificationObjects  18  }
+		
+    dekoTrapMngrIPModem	OBJECT-TYPE
+		SYNTAX			DisplayString 
+		MAX-ACCESS		accessible-for-notify
+		STATUS			current
+		DESCRIPTION		
+			"Modem IP Address."
+		::=  {  dekoNotificationObjects  19  }
+--
+-- Conformance
+--
+
+dekoMIBConformance OBJECT IDENTIFIER ::= { dekoMIB 3 }
+
+dekoMIBCompliances OBJECT IDENTIFIER ::= { dekoMIBConformance 1 }
+
+dekoMIBGroups      OBJECT IDENTIFIER ::= { dekoMIBConformance 2 }
+
+
+---
+--- Compliance
+--- 
+    
+--+++++++++++++++++++++++++
+
+dekoMIBComplianceNe MODULE-COMPLIANCE
+     STATUS current
+     DESCRIPTION
+         "The compliance statement for the NE groups on the Dekolink MIB."
+     MODULE
+     MANDATORY-GROUPS { 
+		dekoAlarmsObjGroup,
+		dekoInventoryObjGroup
+	}
+     ::= { dekoMIBCompliances 1 }          
+
+--  *********************************
+-- Units of Conformance
+--
+--
+
+
+dekoAlarmsObjGroup OBJECT-GROUP
+	OBJECTS {
+	dekoAlarmNotificationId,
+	dekoAlarmId,
+	dekoAlarmMngrSnapId,
+	dekoAlarmMngrName,
+	dekoAlarmRptrSnapId,
+	dekoAlarmRptrName,
+	dekoAlarmTime,
+	dekoAlarmText,
+	dekoAlarmSeverity,
+	dekoAlarmAdditionalText,
+	dekoAlarmLogNotificationId,
+	dekoAlarmLogId,
+	dekoAlarmLogMngrSnapId,
+	dekoAlarmLogMngrName,
+	dekoAlarmLogRptrSnapId,
+	dekoAlarmLogRptrName,
+	dekoAlarmLogTime,
+	dekoAlarmLogText,
+	dekoAlarmLogSeverity,
+	dekoAlarmLogAdditionalText,
+	dekoAlarmsSystemCounter
+	}
+    STATUS current
+    DESCRIPTION
+        "A collection of objects providing the global configuration
+        and information for NE Alarms Management."
+    ::= { dekoMIBGroups 1 }
+
+--
+    
+--+++++++++++++++++++++++++
+
+dekoMIBComplianceNotifications MODULE-COMPLIANCE
+     STATUS current
+     DESCRIPTION
+         "The compliance statement for manager notifications group on the Dekolink MIB."
+     MODULE
+     MANDATORY-GROUPS { 
+     	dekoNotificationsGroup,
+     	dekoVariablesGroup  
+     }
+     ::= { dekoMIBCompliances 2 }
+
+--  *********************************
+-- Units of Conformance
+--
+
+dekoNotificationsGroup NOTIFICATION-GROUP
+	NOTIFICATIONS {
+		dekoNewAlarmNotification,
+		dekoClearAlarmNotification,
+		dekoHeartbeatNotification
+	}
+    STATUS current
+    DESCRIPTION
+        "A collection of Notifications (Traps) used by the snmp agent." 
+    ::= { dekoMIBGroups 2 }
+    
+dekoVariablesGroup OBJECT-GROUP
+	OBJECTS {
+	dekoHBNotificationId,
+	dekoTrapNotificationId,
+	dekoTrapAlarmId,
+	dekoTrapMngrSnapId,
+	dekoTrapMngrName,
+	dekoTrapRptrSnapId,
+	dekoTrapRptrName,
+	dekoTrapAlarmTime,
+	dekoTrapAlarmText,
+	dekoTrapAlarmSeverity,
+	dekoTrapAlarmAdditionalText,
+	dekoTrapPhoneNumber,
+	dekoTrapConnectionType,
+	dekoTrapMngrVersion,
+	dekoTrapAdditionalData,
+	dekoTrapAlarmGPS,
+	dekoTrapMngrIPStatic,
+	dekoTrapMngrIPDynamic,
+	dekoTrapMngrIPModem
+	}
+    STATUS current
+    DESCRIPTION
+        "A collection of objects providing the global configuration
+        and information for Fault Manager notification." 
+    ::= { dekoMIBGroups 3 }
+
+dekoInventoryObjGroup OBJECT-GROUP
+	OBJECTS {
+	dekoRptrSnapId,
+	dekoRptrName,
+	dekoMngrSnapid,
+	dekoMngrName,
+	dekoMngrVersion,
+	dekoRptrOperationState,
+	dekoConnectionType,
+	dekoPhoneNumber,
+	stadlerLanIP,
+	stadlerModemIP,
+	stadlerCoachID,
+	stadlerRptrName,
+	stadlerRptrPN,
+	stadlerSysVer,
+	stadlerSysTime,
+	stadlerConfVer,
+	stadlerGPSPos,
+	stadlerState,
+	axellNeIdIndex,
+	axellNeSystemType,
+	axellNeRepeaterPartNumber,
+	axellNeRepeaterSerialNumber,
+	axellNeRepeaterIdentification,
+	axellNeRFTransmissionEnable,
+	axellNeMaxPowerDL,
+	axellNeMaxPowerUL,
+	axellNeDLOutputThresholdDelta,
+	axellNeTemperature,
+	axellNeOutputPowerDL,
+	axellNeOscillationPrevention,
+	axellNeRFTransmissionEnableB,
+	axellNeOscillationPreventionB,
+	axellNeMaxPowerDLB,
+	axellNeMaxPowerULB,
+	axellNeDLOutputThresholdDeltaB,
+	axellNeOutputPowerDLB,
+	axellNeIMMuteEnable,
+	axellNeBuildVersion,
+	axellNePathADlUlShift,
+	axellNePathAName,
+	axellNePathBDlUlShift,
+	axellNePathBName,
+	axellNePossibleFilters,
+	axellNeIndex,
+	axellNeId,
+	axellNeBandIndex,
+	axellNeDlMesRSSI,
+	axellNeDlMesChPower,
+	axellNeDlMesChGain,
+	axellNeUlMesRSSI,
+	axellNeUlMesChPower,
+	axellNeUlMesChGain,
+	axellNeENABLED,
+	axellNeFilterType,
+	axellNeDlFreqStart,
+	axellNeDlSquelchLevel,
+	axellNeDlMaxPower,
+	axellNeDlMaxGain,
+	axellNeDlFreqStop,
+	axellNeUlSquelchLevel,
+	axellNeUlMaxPower,
+	axellNeUlMaxGain,
+	axellNeImopGainReduction,
+	axellNeDlIsolation,
+	axellNeUlIsolation
+	}
+	STATUS current
+	DESCRIPTION
+		"A collection of objects providing the global configuration
+		and information for NE Inventory Management." 
+	::= { dekoMIBGroups 4 } 
+
+END

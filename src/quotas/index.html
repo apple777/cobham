@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quota Management</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="wizard-panel">
+        <li id="wizard-start" class="wizard-step">Start</li>
+        <li id="wizard-operator" class="wizard-step">Operator</li>
+        <li id="wizard-spectrum" class="wizard-step">Spectrum</li>
+        <li id="wizard-power" class="wizard-step">Power</li>
+        <li id="wizard-filtering" class="wizard-step">Filtering</li>
+        <li id="wizard-CPRI" class="wizard-step">CPRI</li>
+        <li id="wizard-end" class="wizard-step">End</li>
+    </div>
+
+    <div id="tabs">
+        <ul style="list-style-type: none">
+            <li><a href="#tab-1" style="display:none">RF Power Quota</a></li>
+            <li><a href="#tab-2" style="display:none">Filtering (DSP) Resource Utilization</a></li>
+            <li><a href="#tab-3" style="display:none">CPRI Link Capacity</a></li>
+        </ul>
+        <div id ="tab-1" class="panel" style="display:none">
+            <div class="header">RF Power Quota</div>
+            <div class="contents">
+			<div id="filter"><b> Filter by region:</b>
+		    	<div><input type="radio" name="regions" value="all" /> All</div>
+		    	<div><input type="radio" name="regions" value="AMER"/> Americas</div>
+		    	<div><input type="radio" name="regions" value="EMEA"/> EMEA</div>
+		    	<div><input type="radio" name="regions" value="APAC"/> APAC</div>
+			</div>
+			<table id="operator_rf_data" class="type1">
+            	<tr id="operator_rf_allocation_header" class="default"></tr>
+                    <tbody id="operator_rf_allocations">
+                    </tbody>
+                </table>
+                <div id="rf_table"></div>
+            </div>
+        </div>
+        <div id ="tab-2" class="panel" style="display:none">
+            <div class="header">Filtering (DSP) Resource Utilization</div>
+            <div class="contents">
+                <table id="operator_dsp_data" class="type1">
+                  <tr id="operator_allocation_header" class="default">
+                  </tr>
+                  <tr id="operator_allocations">
+                  </tr>
+                </table>
+                <!--<div id="add_exception_panel"><a id="add_btn" class="button"><div class="icon add"></div> Add Exception</a></div>-->
+                <div id="filter_table"></div>
+            </div>
+        </div>
+        <div id ="tab-3" class="panel" style="display:none">
+            <div class="header">CPRI Link Capacity</div>
+            <div class="contents">
+                <table id="operator_cpri_data" class="type1">
+                    <tr id="operator_cpri_allocation_header" class="default">
+                    </tr>
+                    <tr id="operator_cpri_allocations">
+                    </tr>
+                </table>
+                <!--<div id="add_exception_panel"><a id="add_btn" class="button"><div class="icon add"></div> Add Exception</a></div>-->
+                <div id="cpri_table"></div>
+            </div>
+        </div>
+    </div>
+    <div class="wizard-bottom-panel">
+        <div class="icon warning" title="Updating allocated quotas may affect current active profile. Please deactivate all routing profile before updating this page."></div>
+        <a id="next-button" class="button"> Next</a>
+        <a id="save-button" class="button"> Save</a>
+        <a class="button" id="cancel">Cancel</a>
+    </div>
+</div>
+<div id="add_dialog" style="display:none">
+    <label>Node ID</label><input id="node_list_input"/>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>
+

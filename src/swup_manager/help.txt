@@ -1,0 +1,3 @@
+#Software update manager
+
+Here you can start update process for connected devices and also to see their update status.

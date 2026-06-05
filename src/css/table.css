@@ -1,0 +1,174 @@
+/**************** Table fonts and sizes *************/
+table{
+    width:100%;
+    border:none;
+    border-spacing:0;
+    table-layout: fixed;
+}
+table.type3{
+    table-layout: auto;
+}
+caption{
+    line-height: 30px;
+    font-weight:bold;
+    vertical-align:middle;
+    padding: 2px;
+    border-radius:3px 3px 0 0;
+}
+table tr{
+    height:30px;
+    width:100%;
+}
+th{
+    font-weight:bold;
+}
+table tr td.separator{
+    font-weight:bold;
+}
+/**************** Table Colors *************/
+table {
+    color:#666969;
+    background-color:#eeedef;
+}
+caption{
+    background-color:#00A4F2;
+    color:white;
+}
+/*orginal color + add draw border top*/
+/*
+td{
+    color:#666969;
+    border-top: lightgray 1px solid;
+}
+tr:nth-child(odd) td{
+    background-color:#eeedef;
+}
+tr:nth-child(even) td{
+    background-color:#f9f8fa;
+}
+th{
+    color:#2c5533;
+}
+
+tr:nth-child(odd) th{
+    border-top: lightgray 1px solid;
+    background-color:#e3dae5;
+}
+
+tr:nth-child(even) th{
+    border-top: lightgray 1px solid;
+    background-color:#ede3ef;
+}
+*/
+/* end of original color */
+
+/*test out option 6 */
+/*
+td{
+    color:#666969;
+    border-top: lightgray 1px solid;
+}
+tr:nth-child(odd) td{
+    background-color:#eeedef;
+}
+tr:nth-child(even) td{
+    background-color:#f9f8fa;
+}
+th{
+    color:#2c5533;
+}
+
+tr:nth-child(odd) th{
+    border-top: #a5a5a5 1px solid;
+    background-color:#ccbcd0;
+}
+
+tr:nth-child(even) th{
+    border-top: #a5a5a5 1px solid;
+    background-color:#d7cbdb;
+}
+*/
+/*end option 6*/
+
+/*test out option 6 updated */
+
+td{
+    color:#666969;
+    border-top: lightgray 1px solid;
+}
+tr:nth-child(odd) td{
+    background-color:#eeedef;
+}
+tr:nth-child(even) td{
+    background-color:#f9f8fa;
+}
+th{
+    color:#2c5533;
+}
+
+tr:nth-child(odd) th{
+    border-top: #a5a5a5 1px solid;
+    background-color:#BDBDBD;
+}
+
+tr:nth-child(even) th{
+    border-top: #a5a5a5 1px solid;
+    background-color:lightgray;
+}
+
+/*end option 6*/
+
+
+table tr.separator th,
+table tr.separator td,
+table tr td.separator{
+    background-color:#00A4F2;
+    color:white;
+    font-weight: bold;
+}
+
+/*
+table a{
+    color:#FF33FF;
+}
+table a:hover{
+    color:#FF66FF;
+}
+*/
+/**************** Table Text Alignment *************/
+table.type1 th{
+    text-align:center;
+}
+table.type1 td{
+    text-align:center;
+}
+table.type2 th:first-child{
+    text-align:left;
+}
+table.type2 td{
+    text-align:center;
+}
+table.type3 th{
+    text-align:right;
+    width:250px;
+    padding-right:5px;
+}
+table.type3 td{
+    text-align:left;
+    padding-left:5px;
+}
+table.type3 td.separator{
+    text-align:center;
+}
+table.type4 th,
+table.type4 td{
+    padding-left:5px;
+    text-align:left;
+}
+/****** Table cells with a border line on their right or left ******/
+table td.borderleft,table th.borderleft{
+    border-left:1px dotted #ccc;
+}
+table td.borderright,table th.borderright{
+    border-right:1px dotted #ccc;
+}

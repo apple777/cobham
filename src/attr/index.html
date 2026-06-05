@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attribute Reference</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="panel">
+        <table id="attributereference">
+            <caption>
+            Attribute Reference (<a href="javascript:void(0)" onclick="loadHelp()" title="Show the output of the help command which includes the list of all attributes">help</a>)
+            <div class="icon help" title="Choosing an attribute shows the output of its INF command"></div></caption>
+            <tr>
+                <td id="attrlist-td"><ul id="attrlist"></ul></td>
+                <td id="description-td">
+                <pre id="infcommand"></pre>
+                <pre id="description" class="monofont"></pre>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

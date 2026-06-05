@@ -1,0 +1,13 @@
+th.band_info{
+    text-align: left !important;
+    padding-left: 5px;
+}
+.conn_type{
+    display:inline-block;
+}
+.conn_info{
+    text-align: center !important;
+}
+#conn_type_table th td{
+    border-right: solid 1px;
+}

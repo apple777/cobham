@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Routing Setup</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div style="display:none" id="popup_general_config">
+   <br/>
+   Output Power: <input type="radio" id="radio_outputpower_min" name="outputpower" value="min"/> Min
+   <input type="radio" id="radio_outputpower_max" name="outputpower" value="max" checked/> Max
+   <br/>
+   <br/>
+   UL/DL Gain Offset [dB]: <input id="txt_gain_offset" type="text" style="width: 50px" value=0>
+   <br/>
+   <br/>
+   Output Power Monitoring [dBm]: <input id="txt_power_monitoring" type="text" style="width: 50px" value=-70>
+   <br/>
+   <br/>
+   UL Squelch Level [dBm]: <input id="txt_squelch_Level" type="text" style="width: 50px" value=-85>
+   <br/>
+   <br/>
+   Input Power Monitoring [dBm]: <input id="txt_dl_alr_thr" type="text" style="width: 50px" value=-70>
+</div>
+<div class="routing_pagecontainer">
+    <div class="button-panel">
+        <a class="button" id="save">Save</a>
+        <a class="button" id="delete">Delete</a>
+        <a class="button" id="back">Back to routing profiles</a>
+        <a class="button collapsed" id="collapse_expand_zones_btn"> Expand/Collapse Zones </a>
+        <a class="button collapsed" id="collapse_expand_cells_btn"> Expand/Collapse Cell Resources </a>
+        <a class="button" id="general_config">General Settings</a>
+        <a class="button" id="export">Export</a>
+    </div>
+    <div class="panel collapsible" style="width:1000%">
+        <!--<div class="header">Routing Setup</div>-->
+       <div class="contents">
+           <div>
+               <div id="info_panel">
+                   <div id="name_tag">
+                       <div><span>Profile Name:</span>
+                           <span id="route_name"></span></div>
+                       <div><span>Tag:</span>
+                           <input type="text" id="tag"/>
+                       </div>
+                       <div id="operator_div"><span>Operator:</span>
+                       <span id="operator_name"></span>
+                       </div>
+                       <div id="mode_div"><span>Mode:</span>
+                       <span id="mode_status"></span>
+                       </div>
+                       <div id="filter_panel">
+                            <div id="display_num_of_record">
+                                <span id="displayed_record" class="display_record">...</span> / <span id="total_record" class="display_record"></span> cell resources displayed
+                            </div>
+                            <div id="filter_setting_btn" class="icon filter" title="Filter Settings"></div>
+                       </div>
+                   </div>
+               </div>
+               <div id="filter_settings" style="display:none">
+                   <div id="filter_header">Please choose options to filter <div id="hide_btn"><span>x</span></div></div>
+                   <table>
+                       <tr>
+                           <th style="width:15em">Band</th>
+                           <th>Technology</th>
+                           <th>BTS Port</th>
+                           <th>Cell Resource</th>
+                           <th>Zone</th>
+                       </tr>
+                       <tr>
+                           <td>
+                               <div id="bands_select"> </div>
+                           </td>
+                           <td>
+                               <div id="tech_select"> </div>
+                           </td>
+                           <td id="sector-cell">
+                               <div class="result_holder"><div><span id="num_of_sector">...</span> sector found </div><div><span id="num_of_selected_sector">...</span> sector selected</div></div>
+                               <select id="sector" class="my_select_box chosen-ltr" multiple="multiple"></select>
+                               <ul id="sector_selected_list" class="selected_list_container"></ul>
+                           </td>
+                           <td id="cellres-cell">
+                               <div class="result_holder"><div><span id="num_of_cellres">...</span> cell resource found, <span id="num_of_unrouted_cellres">...</span> unrouted</div><div><span id="num_of_selected_cellres">...</span> cell resource selected</div></div>
+                               <select id="cellres" class="my_select_box chosen-ltr" multiple="multiple"></select>
+                               <ul id="cellres_selected_list" class="selected_list_container"></ul>
+                           </td>
+                           <td id="zone-cell">
+                               <div class="result_holder"><div><span id="num_of_zone">...</span> zone found </div><div><span id="num_of_selected_zone">...</span> zone selected</div></div>
+                               <select id="zone" class="my_select_box chosen-ltr" multiple="multiple"></select>
+                               <ul id="zone_selected_list" class="selected_list_container"></ul>
+                           </td>
+                       </tr>
+                   </table>
+                   <div id="button_panel"><a class="button" id="filter">Filter</a></div>
+               </div>
+           </div>
+               <div id="routing_content">
+                   <div id="routingCellResColumns">
+                       <div id="CellResHeadings">
+                           <div id="routingCellResNameHeading" class="cresHeading1"></div>
+                           <!--<div id="routingCellResBandHeading"class="cresHeading"></div>-->
+                           <!--<div id="routingCresSectorHeading"class="cresHeading"></div>-->
+                           <div id="routingCresSelectionHeading" class="cresHeading2"></div>
+                       </div>
+                       <div id="CellResData">
+                           <div id="routingCellResNameRows"></div>
+                           <!--<div id="routingCellResBandRows"></div>-->
+                           <!--<div id="routingCresSectorRows"></div>-->
+                           <div id="routingCresSelectionRows"></div>
+                       </div>
+
+                   </div>
+                   <div id="routingNodeStuff">
+                       <div id="routingZoneRRUHeading">
+                           <div id="routingZoneNames" style="display:flex"></div>
+                           <div id="routingCascadeNames" style="display:flex"></div>
+                           <div id="routingNodeNames"></div>
+                           <div id="routingNodeEnd" style="width:1635px; background:#666"></div>
+                       </div>
+
+                       <div id="routingCheckboxes"></div>
+
+                   </div>
+
+
+
+               </div>
+           </div>
+       </div>
+
+
+        <div id="dialog_del" style="display:none">Error: Routing profile cannot be locked and it is probably being edited by someone else. </div>
+        <div id="confirm_back" style="display:none">Warning: Going back to the routing profile will lose all unsaved changes, are you sure you wish to return?</div>
+        <div id="dialog_timer" style="display:none">Warning: No activity is detected. You now have approximately <span id="timeout_span"></span> minutes before your editing lock is released to be used by someone else.<br><br>Losing the lock means all non saved changes to the routing are lost. </div>
+        <div id="start_filter" style="display:none"> <img src="/images/waiting16-black.gif" /> Filtering...</div>
+        <div id="rf_power_level">
+        <div id="power_monitoring">
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+<script>
+    function set_save_button(){
+        $('#save').removeClass('disabled');
+    }
+</script>    
+</body>
+</html>

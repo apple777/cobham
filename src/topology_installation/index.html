@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="main_content">
+    <div id="page_header">Network Topology</div>
+    <!--<canvas id="topology_map" width="1000" height="650"></canvas>-->
+    <div id="BTS_panel">
+        <div class="layer_header">BTS
+            <div class="headericons">
+                <div id="BTS-status-overall-led" class="led round green" title="BTS Overall Status"></div>
+            </div>
+        </div>
+        <div id="BTS_container" class="contents">
+            <div id="button_panel">
+                <a href="javascript:void(0)" id="add_btn" class="button">Add</a><br />
+            </div>
+        </div>
+    </div>
+    <div id="APOI_panel">
+        <div class="layer_header"><div class="icon minmaxbutton minimize"></div>APOI
+            <div class="headericons">
+                <div id="APOI-status-overall-led" class="led round green" title="APOI Overall Status"></div>
+            </div>
+        </div>
+        <div id="APOI_container" class="contents"></div>
+    </div>
+    <div id="MTDI_panel">
+        <div class="layer_header"><div class="icon minimize minmaxbutton"></div>MTDI
+            <div class="headericons">
+                <div id="MTDI-status-overall-led" class="led round green" title="MTDI Overall Status"></div>
+            </div>
+        </div>
+        <div id="MTDI_container" class="contents"></div>
+    </div>
+    <div id="MSDH_panel">
+        <div class="layer_header"><div class="icon minimize minmaxbutton"></div>MSDH
+            <div class="headericons">
+                <div id="MSDH-status-overall-led" class="led round green" title="MSDH Overall Status"></div>
+            </div>
+        </div>
+        <div id="MSDH_container" class="contents"></div>
+    </div>
+    <div id="RRU_panel">
+        <div class="layer_header">RRU
+            <div class="headericons">
+                <div id="RRU-status-overall-led" class="led round green" title="RRU Overall Status"></div>
+            </div>
+        </div>
+        <div id="top_RRU_display"></div>
+        <div id="buildingA" class="droppable zoomTarget" data-targetsize="0.5" data-closeclick="true"> Building A
+            <!--
+            <div class="droppable zoomTarget" data-targetsize="0.7" data-closeclick="true" style="height:30px;background-color: grey">Level 1</div>
+            <div class="droppable zoomTarget" data-targetsize="1" data-closeclick="true" style="heigh:50px;background-color: green">Level 2</div>
+            -->
+        </div>
+        <div id="buildingB" class="droppable zoomTarget" data-targetsize="0.8" data-closeclick="true"> Building B</div>
+        <div id="buildingC" class="droppable zoomTarget" data-targetsize="0.8" data-closeclick="true"> Building C</div>
+    </div>
+    <div class="item_info"></div>
+    <div id="addBTS_dialog" title="Add BTS">
+        <p>This dialog allow users to fill in details of new BTS</p>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

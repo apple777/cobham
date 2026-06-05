@@ -1,0 +1,56 @@
+#node-overall-status-panel{
+    background-color: #00A4F2;
+    color:white;
+}
+.cellres_tbl {
+    table-layout: auto!important;
+    padding-bottom: 10px;
+}
+tr.celres-header-row th{
+    background-color: #BBB5BB!important;
+}
+.band-col{
+    width:40px;
+}
+.uldl-col{
+    width:65px;
+}
+.headericons{
+    display: inline-block;
+    vertical-align: text-top;
+    float:right;
+    height: 16px;
+}
+
+.headericon{
+    display: inline-block;
+}
+
+tr.focused-row td{
+    background-color: #165788;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    top:0;
+    z-index: 1;
+}
+tr.table_row:hover td{
+    background-color: #165788!important;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    top:0;
+    z-index: 1;
+}
+.cres_details{
+    cursor: pointer;
+}
+.cellres_gain_row{
+    display:inline-block;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.cellres_gain_row label{
+    width:40%;
+}
+.cellres_gain_row span{
+    width:55%;
+}

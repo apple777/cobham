@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Routing Profiles</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="button-panel">
+        <span>Operator: </span><select id="operator_name"></select>
+        <a class="button" id="newRouteBtn" >New routing profile</a>
+        <a class="button" id="reActivateBtn" title="Resend current route">Reactivate</a>
+    </div>
+    <div class="panel">
+        <div class="header">Routing Profiles
+		</div>
+        <div class="contents">
+            <div id="routing_content"></div>
+            <div id="advanced-btn" flag="true">Show advanced settings</div>
+        </div>
+        </div>
+        <div class="panel advanced" style="display:none">
+            <!--div class="header"><img src="/images/icons/scheduler.png" width="30px"/><span>Routing Schedule</span></div>
+            <div>
+                <a class="button" id="add_schedule">Add Routing Schedule</a>
+            </div>
+            <div id="schedule_content">
+
+            </div-->
+            <input type="checkbox" id="checkroutingscheduler"/> Enable Routing Profiles Scheduler
+        </div>
+
+</div>
+<div id="new_profile_dialog" style="display:none">
+    <label>Profile Name: </label><input id='new_profile_name' type='text'/></br>
+    <label>Tag: </label><input id='new_tag' type='text'/></br></div>
+<div id="copyToNew_profile_dialog" style="display:none">
+    <label>Profile Name: </label><input id='copyToNew_profile_name' type='text'/></br>
+    <label>Tag: </label><input id='copyToNew_tag' type='text'/></br>
+</div>
+<div id="add_schedule_dialog" style="display:none">
+    <label>Operator: </label><select id="schedule_operator_name"></select><br>
+    <label>Profile Name: </label><select id="schedule_profile_name"></select> </br>
+    <label>Description: </label><input id="schedule_profile_desc" type="text"/> </br>
+    <table id="schedule_date_tbl" class="type1">
+        <tr>
+            <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Time <br>(Hour:Minute)</th>
+        </tr>
+        <tr>
+            <td><input name= "date" type="checkbox" value="sun"/></td>
+            <td><input name= "date" type="checkbox" value="mon"/></td>
+            <td><input name= "date" type="checkbox" value="tue"/></td>
+            <td><input name= "date" type="checkbox" value="wed"/></td>
+            <td><input name= "date" type="checkbox" value="thu"/></td>
+            <td><input name= "date" type="checkbox" value="fri"/></td>
+            <td><input name= "date" type="checkbox" value="sat"/></td>
+            <td><select id="time">
+                    <option value="00">00</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                </select>:
+                <select id="minute">
+                    <option value="00">00</option>
+                    <option value="05">05</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50">50</option>
+                    <option value="55">55</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="activate_profile" style="display:none">Applying new routing profile. This might take a few moments...</div>
+<div id="error_activate_profile" style="display:none">There is an error activating the routing profile <br>
+    <span id="more">More details...</span>
+    <br><br>
+    <div id="detailed"></div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

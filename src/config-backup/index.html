@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configuration Backup</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div style="display:none" id="popupsuccess">
+Configuration loaded successfully.
+</div>
+<div class="pagecontainer">
+    <div id="system_backup_files" class="panel collapsible">
+        <div class="contents">
+            <ul class="title-bar">
+                <li title="System Backup Files">System Backup Files</li>
+            </ul>
+            <table id="systembackuplist">
+            </table>
+        </div>
+    </div>
+    <div id="general_backup_files" class="panel collapsible">
+        <div class="contents">
+            <ul class="title-bar">
+                <li title="General Backup Files">General Backup Files</li>
+            </ul>
+            <table id="generalbackuplist">
+            </table>
+        </div>
+    </div>
+    <div class="button-panel">
+            <a id="but_system_save" style="float: left" class="button"><div class="icon save" title="save system configuration"></div>Save System Configuration</a>
+            <a id="but_general_save" style="float: left" class="button"><div class="icon save" title="save general configuration"></div>Save General Configuration</a>
+            <a id="but_clear" style="float: right" class="button"><div class="icon clear" title="delete all"></div>Delete All</a>
+            <a id="but_select" style="float: right" class="button" onclick="$( '#backup_file' ).click()"><div class="icon uplink" title="select file"></div>upload file</a>
+            <input id="backup_file" type="file" name="sys-version" accept=".gz" value="Browse file" style="display:none">
+
+    </div>
+</div>
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

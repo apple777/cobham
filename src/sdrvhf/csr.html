@@ -1,0 +1,178 @@
+<div class="panel">
+    <div class="header">Channels
+        <div class="headericons">
+            <div class="led round overall-led" title="Overall Status"></div>
+        </div>
+    </div>
+    <div class="contents">
+        <table id="channels-table" class="type2">
+            <thead>
+            <tr>
+                <th>Chain</th>
+                {{#each chains}}
+                <th class="column-{{.}}">{{.}}</th>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="separator">
+                <td colspan="9"><div class="icon uplink"></div> Uplink</td>
+            </tr>
+            <tr class="uplink-row">
+                <th><div class="icon freq-center"></div> Center [MHz]</th>
+                {{#each chains}}
+                <td class="column-{{.}}">
+                    <input type="text" id="FQU{{.}}-center-value" class="center-config-select" size="9" data-attribute="FQU" data-number="{{.}}" />
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="uplink-row">
+                <th>Filter</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><select id="FCU{{.}}-select" class="config-select ul-config-select" data-attribute="FCU" data-number="{{.}}">
+                    <option value="1">High Selectivity</option>
+                    <option value="2">Low Delay</option>
+                </select></td>
+                {{/each}}
+            </tr>
+
+            <tr class="uplink-row advanced">
+                <th><div class="icon freq-span"></div> Span [KHz]</th>
+                {{#each chains}}
+                <td id="FQU{{.}}-span-value" class="column-{{.}}">...</td>
+                {{/each}}
+            </tr>
+            <tr class="uplink-row">
+                <th><div class="icon attenuation"></div>Attenuation [dB]</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><select id="ATU{{.}}-select" class="attenuation-select ul-attenuation-select" data-attribute="ATU" data-number="{{.}}">
+                    {{option 0 30}}
+                </select></td>
+                {{/each}}
+            </tr>
+            <tr class="uplink-row">
+                <th><div class="icon amplifier"></div> Power Level [dBm] (<span id="LVM_UL-value"  title="Max Carrier Power">...</span>)</th>
+                {{#each chains}}
+                <td class="column-{{.}}">
+                    <select id="LVU{{.}}-select" class="power-level-select ul-power-level-select" data-number="{{.}}" data-attribute="LVU">
+                        <option value="-100">OFF</option>
+                        <option value="0">Max</option>
+                        <option value="1">Max-1</option>
+                        <option value="2">Max-2</option>
+                        <option value="3">Max-3</option>
+                        <option value="4">Max-4</option>
+                        <option value="5">Max-5</option>
+                        <option value="6">Max-6</option>
+                        <option value="7">Max-7</option>
+                        <option value="8">Max-8</option>
+                        <option value="9">Max-9</option>
+                    </select>
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="uplink-row advanced">
+                <th>RF Input Level [dBm]</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><div class="numerical"><span id="IPL_UL{{.}}-value" class="value rf-input-val ul-rf-input-val">...</span></div></td>
+                {{/each}}
+            </tr>
+            <tr class="uplink-row">
+                <th>RF Output Level [dBm]</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><div class="numerical"><span id="OPL_UL{{.}}-value" class="value rf-output-val ul-rf-output-val">...</span></div></td>
+                {{/each}}
+            </tr>
+            <tr class="uplink-row">
+                <th>ALC</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><div id="ALC_UL{{.}}-led" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="uplink-row advanced">
+                <th>Squelch [dBm]</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><div class="numerical-pale"><span id="SQU{{.}}-value" class="value">...</span></div></td>
+                {{/each}}
+            </tr>
+
+            <tr class="separator">
+                <td colspan="9"><div class="icon downlink"></div> Downlink</td>
+            </tr>
+            <tr class="downlink-row">
+                <th><div class="icon freq-center"></div> Center [MHz]</th>
+                {{#each chains}}
+                <td class="column-{{.}}">
+                    <input type="text" id="FQD{{.}}-center-value" class="center-config-select" size="9" data-attribute="FQD" data-number="{{.}}" />
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="downlink-row">
+                <th>Filter</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><select id="FCD{{.}}-select" class="config-select dl-config-select" data-attribute="FCD" data-number="{{.}}">
+                    <option value="1">Low Delay</option>
+                    <option value="2">High Selectivity</option>
+                </select></td>
+                {{/each}}
+            </tr>
+
+            <tr class="downlink-row advanced">
+                <th><div class="icon freq-span"></div> Span [KHz]</th>
+                {{#each chains}}
+                <td id="FQD{{.}}-span-value" class="column-{{.}}">...</td>
+                {{/each}}
+            </tr>
+            <tr class="downlink-row">
+                <th><div class="icon attenuation"></div> Attenuation [dB]</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><select id="ATD{{.}}-select"  class="attenuation-select dl-attenuation-select"  data-attribute="ATD" data-number="{{.}}">
+                    {{option 0 30}}
+                </select></td>
+                {{/each}}
+            </tr>
+            <tr class="downlink-row">
+                <th><div class="icon amplifier"></div> Power Level [dBm] (<span id="LVM_DL-value" title="Max Carrier Power">...</span>)</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><select id="LVD{{.}}-select" class="power-level-select dl-power-level-select" data-number="{{.}}" data-attribute="LVD">
+                    <option value="-100">OFF</option>
+                    <option value="0">Max</option>
+                    <option value="1">Max-1</option>
+                    <option value="2">Max-2</option>
+                    <option value="3">Max-3</option>
+                    <option value="4">Max-4</option>
+                    <option value="5">Max-5</option>
+                    <option value="6">Max-6</option>
+                    <option value="7">Max-7</option>
+                    <option value="8">Max-8</option>
+                    <option value="9">Max-9</option>
+                </select></td>
+                {{/each}}
+            </tr>
+            <tr class="downlink-row advanced">
+                <th>RF Input Level [dBm]</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><div class="numerical"><span id="IPL_DL{{.}}-value" class="value rf-input-val dl-rf-input-val">...</span></div></td>
+                {{/each}}
+            </tr>
+            <tr class="downlink-row">
+                <th>RF Output Level [dBm]</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><div class="numerical"><span id="OPL_DL{{.}}-value"  class="value rf-output-val dl-rf-output-val">...</span></div></td>
+                {{/each}}
+            </tr>
+            <tr class="downlink-row">
+                <th>ALC</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><div id="ALC_DL{{.}}-led" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="downlink-row advanced">
+                <th>Squelch [dBm]</th>
+                {{#each chains}}
+                <td class="column-{{.}}"><div class="numerical-pale"><span id="SQD{{.}}-value" class="value">...</span></div></td>
+                {{/each}}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

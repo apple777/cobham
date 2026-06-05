@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>DOBR</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+<div class="button-panel">
+    <span>Operator: </span><select id="operator_name"></select>
+    <a id="basic-btn" class="button">Basic</a>
+    <a id="advanced-btn" class="button">Advanced</a>
+</div>
+
+<!--div id="general-panel-placeholder"></div-->
+<div class="pagecontainer">
+<div id="node-overall-status-panel" class="panel">
+        <div class="header"> Node Overall Status
+            <div class="headericons">
+                <div id="node-summary-status" class="led round summary-status" title="Node Overall Status"></div>
+            </div>
+        </div>
+</div>
+    <div id="general-panel-placeholder"></div>
+<div id="cellres_spectrum_display"></div>
+<div class="panel">
+    <script id="rf-status-template" type="text/x-handlebars-template">
+    <div class="header"> RF Status
+        <div class="headericons">
+            <div class="led round overall-led" title="Overall Status"></div>
+        </div>
+    </div>
+    <div class="contents">
+        <table id="radio-table" class="type2">
+            <thead>
+            <caption><div class="icon antenna2"></div> Radio Units</caption>
+            <tr>
+                <th><div class="icon antenna2"></div> Band</th>
+                {{#each band}}
+                    <th><div id="radio-{{.}}-overall-led" class="led round"></div> {{.}}</th>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="advanced">
+                <th><div class="icon install"></div> Installed</th>
+                {{#each band}}
+                <td><div id="radio-{{.}}-ism" class="icon"></div></td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th><div class="icon freq-range"></div> Band</th>
+                {{#each band}}
+                <td><span id="radio-{{.}}-band"></span></td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th><div class="icon communication"></div> Comm</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div id="radio-{{.}}-comm" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="advanced">
+                <th><div class="icon adc"></div> ADC</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div id="radio-{{.}}-adc" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="advanced">
+                <th><div class="icon dac"></div> DAC</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div id="radio-{{.}}-dac" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="advanced">
+                <th><div class="icon firmware"></div> Firmware Status</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div id="radio-{{.}}-crc" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="advanced">
+                <th><div class="icon synth"></div> Synthesizer UL</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div id="radio-{{.}}-szu" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="advanced">
+                <th><div class="icon synth"></div> Synthesizer DL</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div id="radio-{{.}}-szd" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="advanced">
+                <th><div class="icon user-mute"></div>  User Mute </th>
+                {{#each band}}
+                <td class="radio{{.}}"><div id="radio-{{.}}-umt" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="advanced">
+                <th><div class="icon system-mute"></div> System Mute </th>
+                {{#each band}}
+                <td class="radio{{.}}"><div id="radio-{{.}}-smt" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="advanced">
+                <th><div class="icon system-mute"></div> VSWR DL </th>
+                {{#each band}}
+                <td class="radio{{.}}"><div id="radio-{{.}}-vswrd" class="led"></div></td>
+                {{/each}}
+            </tr>
+            <tr class="advanced">
+                <th><div class="icon system-mute"></div> VSWR UL </th>
+                {{#each band}}
+                <td class="radio{{.}}"><div id="radio-{{.}}-vswru" class="led"></div></td>
+                {{/each}}
+            </tr>            
+            <tr>
+                <th><div class="icon output"></div> Composite Output </th>
+                {{#each band}}
+                <td class="radio{{.}}"><div class="numerical"><span id="radio-{{.}}-opl">...</span> dBm</div></td>
+                {{/each}}
+            </tr>
+            <!--tr class="advanced">
+                <th title="VSWR Level from MCPA"><div class="icon vswr"></div> Return Loss</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div class="numerical"><div id="radio-{{.}}-vswr-led" class="led"></div><span id="radio-{{.}}-vswr-val" class="value">...</span><span class="unit">dB</span></div></td>
+                {{/each}}
+            </tr-->
+            <tr class="advanced">
+                <th title="Radio Board Temprature"><div class="icon temperature"></div> Temperature</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div class="numerical"><div id="radio-{{.}}-temp-led" class="led"></div><span id="radio-{{.}}-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+                {{/each}}
+            </tr>
+            <!--tr class="advanced">
+                <th><div class="icon power1"></div> Power 1</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div class="numerical"><div id="radio-{{.}}-psu-1" class="led"></div><span id="radio-{{.}}-psu-1-val" class="value">...</span><span class="unit">V</span></div></td>
+                {{/each}}
+            </tr-->
+            <!--tr class="advanced">
+                <th><div class="icon power2"></div> Power 2</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div class="numerical"><div id="radio-{{.}}-psu-2" class="led"></div><span id="radio-{{.}}-psu-2-val" class="value">...</span><span class="unit">V</span></div></td>
+                {{/each}}
+            </tr-->
+            <!--tr class="advanced">
+                <th><div class="icon power3"></div> Power 3</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div class="numerical"><div id="radio-{{.}}-psu-3" class="led"></div><span id="radio-{{.}}-psu-3-val" class="value">...</span><span class="unit">V</span></div></td>
+                {{/each}}
+            </tr-->
+            <!--tr class="advanced">
+                <th><div class="icon power4"></div> Power 4</th>
+                {{#each band}}
+                <td class="radio{{.}}"><div class="numerical"><div id="radio-{{.}}-psu-4" class="led"></div><span id="radio-{{.}}-psu-4-val" class="value">...</span><span class="unit">V</span></div></td>
+                {{/each}}
+            </tr-->
+            </tbody>
+        </table>
+    </div>
+        </script>
+</div>
+    <script id="ic-status-template" type="text/x-handlebars-template">
+    <!--div id="ic-status-panel" class="panel collapsible">
+        <div class="header"> Interconnection
+            <div class="headericons">
+                <div class="led round overall-led" title="Overall Status"></div>
+            </div>
+        </div>
+        <div class="contents">
+            <table id="ic-status" class="type2">
+                <thead>
+                <caption><div class="icon laser"></div>Digital Interconnect
+                    <div class="headericons">
+                        <div class="headericon"><div title="Recovered clock status" class="icon recovered-clock-white"></div><div id ="ic-recovered-clock" class="led"></div></div>
+                    </div>
+                </caption>
+                </thead>
+                <tbody>
+                <tr class="modules">
+                    <th><div class="icon number"></div> Position</th>
+                    <th id= "band1" class="th-position">Aux</th>
+                    <th id= "band2" class="th-position">Main</th>
+                </tr>
+                <tr>
+                    <th><div class="icon status"></div> Overall status</th>
+                    {{#each module}}
+                    <td><div id="ic{{.}}-overall-led" class="led round"></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon install"></div> Installed</th>
+                    {{#each module}}
+                    <td><div id="ic{{.}}-ism" class="icon"></div></td>
+                    {{/each}}
+                </tr>
+                <tr id="supported" class="advanced">
+                    <th><div class="icon axelllogocolor"></div> Supported</th>
+                    {{#each module}}
+                    <td><div id="ic{{.}}-usm" class="icon"></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon remote-power"></div> Far End Power Supply</th>
+                    {{#each module}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-rem" class="led"></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon remote"></div> Far End ID</th>
+                    {{#each module}}
+                    <td class="ic{{.}}"><span id="ic{{.}}-ser">...</span></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon pilotsynth"></div> Digital Link</th>
+                    {{#each module}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-digi" class="led"></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon noise"></div> RF Stream </th>
+                    {{#each module}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-rf" class="led"></div></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon linkstate"></div> Link State </th>
+                    {{#each module}}
+                    <td id="ic{{.}}-linkst" class="linkstate_cell"></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th></th>
+                    {{#each module}}
+                    <th class="ic{{.}}"><div class="icon laser"></div></th>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon communication"></div> SFP+ Comm</th>
+                    {{#each module}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-comm" class="led"></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th title="Inter Connection Temprature"><div class="icon temperature"></div> Temperature</th>
+                    {{#each module}}
+                    <td class="ic{{.}}"><div class="numerical"><div id="ic{{.}}-temp-led" class="led"></div><span id="ic{{.}}-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon power"></div> Power</th>
+                    {{#each module}}
+                    <td class="ic{{.}}"><div class="numerical"><div id="ic{{.}}-power-led" class="led"></div><span id="ic{{.}}-power-val" class="value">...</span><span class="unit">V</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon specanalyzer"></div> Bias</th>
+                    {{#each module}}
+                    <td class="ic{{.}}"><div class="numerical"><div id="ic{{.}}-current-led" class="led"></div><span id="ic{{.}}-current-val" class="value">...</span><span class="unit">mA</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon txopto"></div> Tx Opto</th>
+                    {{#each module}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-txopto" class="numerical"><div id="ic{{.}}-txopto-led" class="led"></div><span id="ic{{.}}-txopto-val" class="value">...</span><span class="unit">dBm</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon rxopto"></div> Rx Opto</th>
+                    {{#each module}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-rxopto" class="numerical"><div id="ic{{.}}-rxopto-led" class="led"></div><span id="ic{{.}}-rxopto-val" class="value">...</span><span class="unit">dBm</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr id="deactivate_port">
+                    <th></th>
+                    {{#each module}}
+                        <td id = "ic{{.}}_deactivate_cell" class="deactivate_cell"> </td>
+                    {{/each}}
+                </tr>
+                </tbody>
+                </table>
+            </div>
+        </div-->
+</script>
+<!--
+    <div id="ethernet-panel" class="panel">
+        <div class="header">Ethernet<div class="headericons"><div class="led round overall-led" title="Overall Status"></div></div></div>
+        <div class="contents">
+            <table class="type1">
+                <thead>
+                <caption><div class="icon switch"></div> Ethernet Status</caption>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><div id= "main-clock-led" class="icon switch1" title="Ethernet 1"></div> <div class="led"></div></td>
+                    <td><div id= "ethernet-clock-led" class="icon switch2" title="Ethernet 2"></div> <div class="led"></div></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    -->
+    <div id="misc-panel" class="panel">
+        <div class="header">Subsystems<div class="headericons"><div class="led round overall-led" title="Overall Status"></div></div></div>
+        <div class="contents">
+            <!--table id="clock-tbl" class="type1">
+                <thead>
+                <caption><div class="icon clock-white"></div> Clock</caption>
+                <tr class="advanced">
+                    <td><div class="icon processor" title="Main clock"></div> <div id="clock-main-led" class="led"></div></td>
+                    <td><div class="icon ethernet" title="Ethernet clock"></div> <div id="clock-eth-led" class="led"></div></td>
+                </tr>
+            </table>
+            <br-->
+            <table id="pwsupply-tbl" class="type1 advanced"
+                <thead>
+                <caption><div class="icon powerinput"></div> Power Supervision 1</caption>
+                <tr>
+                    <th title="Power supply 1V0"><div class="icon power1"></div> </th>
+                    <th title="Power supply 1V5"><div class="icon power2"></div> </th>
+                    <th title="Power supply 1V8"><div class="icon power3"></div> </th>
+                    <th title="Power supply 2V5"><div class="icon power4"></div> </th>
+                    <th title="Power supply 5V0"><div class="icon power5"></div> </th>
+                    <th title="Power supply 12V0:1"><div class="icon power6"></div> </th>
+                    <th title="Power supply 12V0:2"><div class="icon power7"></div> </th>
+                    <!--th title="Power supply 28V0"><div class="icon power8"></div> </th-->
+                    <th title="Current 1"><div class="icon current1"></div> </th>
+                    <th title="Current 2"><div class="icon current2"></div> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><div class="numerical"><div id="1V0-led" class="led"></div><span id="1V0-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="1V5-led" class="led"></div><span id="1V5-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="1V8-led" class="led"></div><span id="1V8-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="2V5-led" class="led"></div><span id="2V5-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="5V0-led" class="led"></div><span id="5V0-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="12V0_1-led" class="led"></div><span id="12V0_1-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="12V0_2-led" class="led"></div><span id="12V0_2-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <!--td><div class="numerical"><div id="28V0-led" class="led"></div><span id="28V0-val" class="value">...</span><span class="unit">V</span></div></td-->
+                    <td><div class="numerical"><div id="current1-led" class="led"></div><span id="current1-val" class="value">...</span><span class="unit">A</span></div></td>
+                    <td><div class="numerical"><div id="current2-led" class="led"></div><span id="current2-val" class="value">...</span><span class="unit">A</span></div></td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <table id="pwsupply-tbl" class="type1 advanced">
+                <thead>
+                <caption><div class="icon powerinput"></div>Power Supervision 2</caption>
+                <tr>
+                    <th title="Power supply measured at point Int"><div class="icon power1"></div> </th>
+                    <th title="Power supply measured at point Aux"><div class="icon power2"></div> </th>
+                    <th title="Power supply measured at point BRAM"><div class="icon power3"></div> </th>
+                    <th title="Power supply measured at point PINT"><div class="icon power4"></div> </th>
+                    <th title="Power supply measured at point PAUX"><div class="icon power5"></div> </th>
+                    <th title="Power supply measured at point O_DDR"><div class="icon power6"></div> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><div class="numerical"><div id="Int-led" class="led"></div><span id="Int-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="Aux-led" class="led"></div><span id="Aux-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="BRAM-led" class="led"></div><span id="BRAM-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="PINT-led" class="led"></div><span id="PINT-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="PAUX-led" class="led"></div><span id="PAUX-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="O_DDR-led" class="led"></div><span id="O_DDR-val" class="value">...</span><span class="unit">V</span></div></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

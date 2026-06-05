@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Spectrum</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+<div class="button-panel">
+
+  <div id="generalstatus" class="panel">
+      <div class="demo-container">
+          <div id="placeholder" class="demo-placeholder"></div>
+      </div>
+      <div class="control-panel" style="text-align: left;">
+          <span class="space">Band: <select id="bands_name"></select></span>
+          <span class="space">UL/DL: <select id="uldl_name"></select></span>
+          <span class="space">Range [MHz]: <input id="start_freq" size="5"><span> - </span><input id="stop_freq" size="5"></span>
+          <button class="space" type="button" style="height: 30px !important" id="start_cap">Start capture</button>
+          <button class="space" type="button" style="height: 30px !important" id="stop_cap">Stop capture</button>
+          <button class="space" type="button" style="height: 30px !important" id="snapshot">Snapshot</button>
+          <br><br>
+          <font size="2" color="#FF8080"><input id="min_hold" type="checkbox">&nbsp;MIN Hold </font>&nbsp;&nbsp;
+          <font size="2" color="#8080FF"><input id="max_hold" type="checkbox">&nbsp;MAX Hold</font>&nbsp;&nbsp;          
+          <font size="2" color="green"><input id="filters_show" type="checkbox">&nbsp;Show Filters</font>          
+          <br><br>
+          <span class="toggle-keydown" style="display: none;">Factor: <input id="factor" type="text" value="-155">
+              <a id="apply-button" class="ui-button ui-state-default ui-button-text-only">
+                <span class="ui-button-text">Apply</span>
+              </a>
+          </span>
+          <br><br>
+      </div>
+  </div>
+</div>
+
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

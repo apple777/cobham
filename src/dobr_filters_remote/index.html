@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOBR Filters</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div style="display:none" id="popupfail">
+    Selected IP doesn't answer!!!
+    </div>
+    <div class="pagecontainer">
+        <div class="button-panel">
+            <a id="refresh-button" class="ui-button ui-state-default ui-button-text-only">
+                <span class="ui-button-text">Refresh</span>
+            </a>
+            <a id="apply-button" class="ui-button ui-state-default ui-button-text-only">
+                <span class="ui-button-text">Apply</span>
+            </a>
+        <br><br>
+        </div>
+
+        <div id="module-tabs" class="wizard-panel">
+        </div>
+
+        <div id ="900_panel" class="panel">
+            <div class="contents">
+                <table class="type2">
+                    <tbody>
+                        <tr>
+                            <td class="separator" colspan="10">Filters</td>
+                        </tr>
+                        <tr>
+                            <td colspan=10>
+                                <div style="width: 100%;">
+                                    <table id="filters-table">
+    <thead>
+    <tr>
+        <td width=30px rowspan=2 align=center title="Index" id="Index">Filter
+        <td width=75px rowspan=2 align=center title="Tag" id="Tag">Tag
+        <td width=30px rowspan=2 align=center title="Enable" id="Enable">Enable
+        <td width=60px rowspan=2 align=center title="BW" id="BW">BW<br>[KHz]
+        <td width=370px colspan=7 align=center>Downlink
+        <td width=200px colspan=4 align=center>Uplink
+    </tr>
+    <tr>
+        <td width=60px align=center title="DL Start Freq" id="DLStartFreq">Start<br>Freq<br>[MHz]
+        <td width=60px align=center title="DL Stop Freq" id="DLStopFreq">Stop<br>Freq<br>[MHz]
+        <td width=50px align=center title="Set DL Ch. Max Power" id="DLMaxPower">Set Ch.<br>Max<br>Power
+        <td width=50px align=center title="Set DL Ch. Max Gain" id="DLMaxGain">Set Ch.<br>Max<br>Gain
+        <td width=50px align=center title="Meas. DL RSSI" id="DLRSSI">Meas<br>RSSI<br>[dBm]
+        <td width=50px align=center title="Meas. DL Ch. Gain" id="DLMeasGain">Meas.<br>Ch.Gain<br>[dB]
+        <td width=50px align=center title="Meas. DL Ch. Power" id="DLMeasPower">Meas.Ch<br>Power<br>[dBm]
+        <td width=50px align=center title="UL Start Freq" id="ULStartFreq">Start<br>Freq<br>[MHz]
+        <td width=50px align=center title="UL Stop Freq" id="ULStopFreq">Stop<br>Freq<br>[MHz]
+        <td width=50px align=center title="UL Power &#916;" id="ULGainDelta">Power<br>&#916;<br>[dBm]
+        <td width=50px align=center title="Meas. UL Ch. Gain" id="ULMeasGain">Meas.<br>Ch.Gain<br>[dB]
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="separator" colspan="10">Spectrum</td>
+                        </tr>
+                        <tr>
+                            <td colspan="10">
+                                <div id ="sector-band-freq-indicator" class="freq-indicator">
+                                </div>
+                           </td>
+                        </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="loading_dialog" style="display:none;font-size:20px;">Loading...</div>
+
+    <script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BTS Port Management</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="button-panel">
+        <span>Operator: </span><select id="operator_name"></select>
+        <a id="add_sector" class="button"> Add BTS Port</a>
+        <a id="newGrpBtn" class="button"> Add BTS Port Group</a>
+        <a id="add_sector_virtual" class="button"> Add Virtual BTS Port</a>
+    </div>
+        <div class="panel">
+            <div class="header"><img src="/images/icons/unassigned_sectgrp_icon.png"/><span> Unassigned BTS Ports</span></div>
+            <div id="unassigned_content">
+
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="header"><img src="/images/icons/sectgrp_icon.png"/><span> BTS Port Groups</span></div>
+            <div id="grp_content">
+
+            </div>
+        </div>
+
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

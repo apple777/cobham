@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rack View Setup</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="page-content">
+    <div id="sysnodes-container" class="panel">
+        <div class="header">System Nodes</div>
+        <div id="sysnode-container">
+            <div id="apoi-container" class="nodes_container">
+                <div class="nodes-header">Axell Point of Interface</div>
+                <div id="apoi-placeholder" class="nodes_placeholder"></div>
+            </div>
+            <div id="mtdi-container" class="nodes_container">
+                <div class="nodes-header">Multi Technology Digital Interface</div>
+                <div id="mtdi-placeholder" class="nodes_placeholder"></div>
+            </div>
+            <div id="msdh-container" class="nodes_container">
+                <div class="nodes-header">Multi Sector Digital Hub</div>
+                <div id="msdh-placeholder" class="nodes_placeholder"></div>
+            </div>
+        </div>
+    </div>
+    <div id="rack-setup-container" class="panel">
+       <div class="header"> Rack View Setup
+            <a id="add_rack_btn" class="button"><div class="icon add"></div> Add Rack</a>
+       </div>
+       <div id="racks-holder">
+
+       </div>
+    </div>
+</div>
+<div id="set_rack_order_dialog" style="display: none">
+    <div class="dialog-row">
+        <label>Rack Order: </label>
+        <select id="rack_order_select"> </select>
+    </div>
+    <div class="dialog-row">
+
+        <label>Rack Tag: </label>
+        <input id="rack_tag_edit" type="text"/>
+    </div>
+</div>
+<div id="add_rack_dialog" style="display: none">
+    <div class="dialog-row">
+        <label>Rack Unit Height: </label>
+        <select id="rack_unit_height_select">
+            <option value="">Select</option>
+            <option value="12">12</option>
+            <option value="24">24</option>
+            <option value="42">42</option>
+        </select>
+    </div>
+    <div class="dialog-row">
+        <label>Rack Tag: </label><input id="rack_tag" type="text" placeholder="Rack tag"/>
+    </div>
+</div>
+<div id="config_slot_dialog" style="display: none">
+    <div class="dialog-row">
+        <label>Slot Unit Height: </label><input id="slot_unit_height" type="number" step="1" placeholder="Number"/>
+    </div>
+    <div class="dialog-row">
+        <label>Slot Label: </label><input id= "slot_label" type="text" placeholder="Slot label"/>
+    </div>
+    <div class="dialog-row">
+        <label>Slot IP: </label><input id= "slot_ip" type="text" placeholder="Slot IP"/>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+
+</body>
+</html>

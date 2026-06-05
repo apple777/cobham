@@ -1,0 +1,42 @@
+.pagecontainer {
+	width: 1400px;
+}
+#module-tabs{
+	width: auto; 
+}
+.panel{
+	width: auto; 
+}
+
+tr.focused-row td{
+    background-color: #165788;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    top:0;
+    z-index: 1;
+}
+tr.table_row:hover td{
+    background-color: #165788!important;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    top:0;
+    z-index: 1;
+}
+
+.freq-indicator
+{
+	height: 75px;
+	background-size: 100px 100px, 1380px 100px, 20px 10px, 10px 20px;
+}
+#sector-band-freq-indicator .leftStart{
+	float: left;
+	color: #fff;
+	font-weight: bold;   
+	padding: 51px 4px 0px 8px;
+}
+#sector-band-freq-indicator .rightStop{
+	float: right;
+	color: #fff;
+	font-weight: bold;
+	padding: 4px 7px;
+}

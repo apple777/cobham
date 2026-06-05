@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Routing Scheduler</title>
+
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+
+	 <link href="/css/fullcalendar.min.css" type="text/css" rel="stylesheet" />
+	 <!--script src="/js/lib/jquery.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/fullcalendar.min.js"></script-->
+
+	 <!--link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />
+	 <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script-->
+
+</head>
+<body>
+
+     <div style="display:none" id="delete">
+      You are about to delete occurrences
+     </div>
+ 
+     <div style="display:none" id="popup">
+		<span>Profile:</span><select  id="profile"></select>
+      <br/>
+      <br/>
+      Start: <span id="spanstart"></span> 
+      <br/>
+      End  : <span id="spanend"></span>
+      <br/>
+      <br/>
+      <input type="checkbox" id="checkallday"/> All Day
+      <br/> 
+      <br/> 
+      <input type="checkbox" id="checkrecurrence"/> Recurrence<br/>
+      <form style="display:none" id="formrecurrence">
+         End <input type="date" id="setdate" value="2000-01-01"/><br/>
+         <input type="radio" id="radiodaily" name="recurrence" value="daily" checked/> Daily<br/>
+         <input type="radio" id="radioweekly" name="recurrence" value="weekly"/> Weekly
+      </form>
+      <form style="display:none" id="formweekly">
+         <input type="checkbox" id="checksun"/> Sun
+         <input type="checkbox" id="checkmon"/> Mon
+         <input type="checkbox" id="checktue"/> Tue
+         <input type="checkbox" id="checkwed"/> Wed
+         <input type="checkbox" id="checkthu"/> Thu
+         <input type="checkbox" id="checkfri"/> Fri
+         <input type="checkbox" id="checksat"/> Sat
+      </form>
+      <br/>
+      <br/>
+      <div id="divred" style="float:left; width:15px; height:15px; background-color:rgb(220,33,39); cursor:pointer"></div><span style="float:left; width:15px; height:15px"></span>
+      <div id="divgreen" style="float:left; width:15px; height:15px; background-color:rgb(81,183,73); cursor:pointer"></div><span style="float:left; width:15px; height:15px"></span>
+      <div id="divblue" style="float:left; width:15px; height:15px; background-color:rgb(84,132,237); cursor:pointer"></div><span style="float:left; width:15px; height:15px"></span>
+      <div id="divorange" style="float:left; width:15px; height:15px; background-color:rgb(255,184,120); cursor:pointer"></div><span style="float:left; width:15px; height:15px"></span>
+      <div id="divyellow" style="float:left; width:15px; height:15px; background-color:rgb(251,215,91); cursor:pointer"></div><span style="float:left; width:15px; height:15px"></span>
+    </div>
+
+   <div class="container" style="width:1400px; margin:0 auto">
+      <br/> 
+      <div style="width:300px; margin:0 auto">
+         <span>Operator:</span><select id="operatorname"></select>
+         <button type="button" style="height:30px !important" id="saveevents">Save</button>
+         <button type="button" style="height:30px !important" id="deleteevents">Clear All</button>
+      </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <br/> 
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

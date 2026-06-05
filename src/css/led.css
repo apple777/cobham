@@ -1,0 +1,133 @@
+/*Basic LED stuff*/
+div.led{
+    display:inline-block;
+    width:16px;
+    height:16px;
+    background-color:transparent;
+    background-image:url(/images/led.png);
+    background-repeat:no-repeat;
+    vertical-align:text-top;
+}
+/*DEFAULT LED*/
+div.led{
+    background-position:-0px 0px;
+}
+div.led.red{
+    background-position:-16px 0px;
+}
+div.led.green{
+    background-position:-32px 0px;
+}
+div.led.orange{
+    background-position:-48px 0px;
+}
+div.led.blue{
+    background-position:-64px 0px;
+}
+div.led.grey,div.led.red.off{
+    background-position:-80px 0px;
+}
+div.led.grey,div.led.yellow.off{
+    background-position:-80px 0px;
+}
+div.led.grey,div.led.orange.off{
+    background-position:-80px 0px;
+}
+div.led.yellow{
+    background-position:-95px 0px;
+}
+/*standard LED*/
+div.led.standard{
+    background-position:0px -16px;
+}
+div.led.red.standard{
+    background-position:-16px -16px;
+}
+div.led.green.standard{
+    background-position:-32px -16px;
+}
+div.led.orange.standard{
+    background-position:-48px -16px;
+}
+div.led.blue.standard{
+    background-position:-64px -16px;
+}
+div.led.grey.standard,div.led.red.standard.off{
+    background-position:-80px -16px;
+}
+div.led.yellow.standard{
+    background-position:-95px -16px;
+}
+/*Round LED*/
+div.led.round{
+    background-position:0px -32px;
+}
+div.led.red.round{
+    background-position:-16px -32px;
+}
+div.led.green.round{
+    background-position:-32px -32px;
+}
+div.led.orange.round{
+    background-position:-48px -32px;
+}
+div.led.blue.round{
+    background-position:-64px -32px;
+}
+div.led.grey.round,div.led.red.round.off{
+    background-position:-80px -32px;
+}
+div.led.yellow.round{
+    background-position:-95px -32px;
+}
+/*Square LED*/
+div.led.square{
+    background-position:0px -48px;
+}
+div.led.red.square{
+    background-position:-16px -48px;
+}
+div.led.green.square{
+    background-position:-32px -48px;
+}
+div.led.orange.square{
+    background-position:-48px -48px;
+}
+div.led.blue.square{
+    background-position:-64px -48px;
+}
+div.led.grey.square,div.led.red.square.off{
+    background-position:-80px -48px;
+}
+div.led.yellow.square{
+    background-position:-95px -48px;
+}
+/*Small LED*/
+div.led.small{
+    background-position:0px -64px;
+}
+div.led.red.small{
+    background-position:-16px -64px;
+}
+div.led.green.small{
+    background-position:-32px -64px;
+}
+div.led.orange.small{
+    background-position:-48px -64px;
+}
+div.led.blue.small{
+    background-position:-64px -64px;
+}
+div.led.grey.small,div.led.red.small.off{
+    background-position:-80px -64px;
+}
+div.led.yellow.small{
+    background-position:-95px -64px;
+}
+/*LED set to error counter*/
+div.int {
+    display:inline-block;
+    width:16px;
+    height:16px;
+    vertical-align:text-top;
+}

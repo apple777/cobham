@@ -1,0 +1,8 @@
+#Attributes</h2>
+Here is a list of all attributes in the system. There are 3 possible actions on attributes:
+
+ * Act (also known as execute or x)</li>
+ * Get (also known as read or r)</li>
+ * Set (also known as write or w)</li>
+
+Many attributes support only one or two of the above actions. For example you can read the RSP attribute but you cannot set it.

@@ -1,0 +1,61 @@
+.icon{
+    display:inline-block;
+    background-color:transparent;
+    background-image:url(/images/icons.png);
+    background-repeat:no-repeat;
+    vertical-align:text-top;
+    /*this background-position is just a place holder for when an icon is not defined properly here in this CSS (background-position for undefined icons is 0 0)*/
+    background-position:0 0;
+}
+.band_icon{
+    background-color:transparent;
+    background-image:url(/images/band-tech.png);
+    background-repeat:no-repeat;
+    vertical-align:text-top;
+    /*this background-position is just a place holder for when an icon is not defined properly here in this CSS (background-position for undefined icons is 0 0)*/
+    background-position:0 0;
+}
+.iconcontainer {
+    border-right: 1px dotted #666666;
+    display: inline-block !important;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/*make a little space on the right for icons that there is text on their right side*/
+.icon.text-right{
+    margin-right:5px;
+}
+/*make a little space on the left for icons that there is text on their left side*/
+.icon.text-left{
+    margin-left:5px;
+}
+/* all the icons with title attribute will show a little help icon when mouse hovers over them */
+.icon[title] {
+    cursor:help;
+}
+.icon.waiting{
+    background-image:url(/images/waiting16.gif);
+}
+/* this is suitable for debugging as it highlights all the help icons without an actual text on their title attribute */
+.icon.help:not([title]) {
+    background-color:red;
+}
+/*used for an icon that intentionally doesn't have any glyph in it*/
+.icon.nothing{
+    cursor: default;
+}
+.icon.maximize{
+    cursor:pointer;
+}
+.icon.minimize{
+    cursor:pointer;
+}
+/*used for an routing icon that only at horizontal collapse - dark plus/minus*/
+.icon.maximize2{
+    cursor:pointer;
+    background-position:-358px -19px !important;
+}
+.icon.minimize2{
+    cursor:pointer;
+    background-position:-378px -19px !important;    
+}

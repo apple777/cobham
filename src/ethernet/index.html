@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ethernet</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+	<div class="warning-panel"><div class="icon warning"></div> <em>WARNING!</em><br />
+    Changing the IP settings on the controller may make it unaccessible. If you change these settings, you may not be able to correct them via this web interface. You may have to use the serial connection (COM PORT) to get or set the value of NIC according to the instructions.</div>
+	<div class="panel">
+		<div id="EOC_panel" class="header">Ethernet Over CPRI</div>
+		<div class="EOC-contents">
+			<table id="EOCsettings" class="type3">
+				<tr>
+					<td colspan="2"><input id="EOCcb" type="checkbox" name="configMethod"/>
+						<label for="EOCcb"><b>Support 1Gb Ethernet</b></label>
+                    </td>
+				</tr>
+				<tr>
+					<td colspan="2"><input id="LANtoggle" type="checkbox" name="configMethod"/>
+						<label for="LANtoggle"><b>External LAN enable</b></label>
+                    </td>
+				</tr>				
+            </table>
+        </div>
+		<div class="header">Network IP</div>
+		<div class="contents">
+			<table id="ipsettings" class="type3">
+				<tr>
+					<td colspan="2"><input id="rdDHCP" type="checkbox" name="configMethod"/>
+						<label for="rdDHCP">Automatically obtain IP address (DHCP)</label>
+						<div class="icon warning" title="If the controller gets its IP address from a DHCP server, you need to know that IP address in order to connect via ethernet. There will be no problem for USB connection though."></div></td>
+				</tr>
+				<tr>
+					<th><label for="edtIP" class="manualstuff">IP</label></th>
+					<td><input id="edtIP" class="manualstuff" type="text" />
+						<div class="icon help" title="IP is the address used to connect to this controller. This system uses IPv4 which is in the form of A.B.C.D where A, B, C and D are numbers between 0 to 255 (inclusive). The first number cannot be 0."></div>
+						<div class="icon warning" title="Please be careful while setting the IP address. A mistype or wrong IP setting may prevent you from connecting via the web interface to correct the mistake."></div></td>
+				</tr>
+				<tr>
+					<th><label for="edtSubnet" class="manualstuff">Subnet Mask</label></th>
+					<td><input id="edtSubnet" class="manualstuff" type="text" list="subnetlist"/>
+					<datalist id="subnetlist">
+						<option value="128.0.0.0"></option>
+						<option value="192.0.0.0"></option>
+						<option value="224.0.0.0"></option>
+						<option value="240.0.0.0"></option>
+						<option value="248.0.0.0"></option>
+						<option value="252.0.0.0"></option>
+						<option value="254.0.0.0"></option>
+						<option value="255.0.0.0"></option>
+						<option value="255.128.0.0"></option>
+						<option value="255.192.0.0"></option>
+						<option value="255.224.0.0"></option>
+						<option value="255.240.0.0"></option>
+						<option value="255.248.0.0"></option>
+						<option value="255.252.0.0"></option>
+						<option value="255.254.0.0"></option>
+						<option value="255.255.0.0"></option>
+						<option value="255.255.128.0"></option>
+						<option value="255.255.192.0"></option>
+						<option value="255.255.224.0"></option>
+						<option value="255.255.240.0"></option>
+						<option value="255.255.248.0"></option>
+						<option value="255.255.252.0"></option>
+						<option value="255.255.254.0"></option>
+						<option value="255.255.255.0"></option>
+						<option value="255.255.255.128"></option>
+						<option value="255.255.255.192"></option>
+						<option value="255.255.255.224"></option>
+						<option value="255.255.255.240"></option>
+						<option value="255.255.255.248"></option>
+						<option value="255.255.255.252"></option>
+						<option value="255.255.255.254"></option>
+					</datalist>
+						<div class="icon help" title="A subnetwork is a logically visible subdivision of an IP network. This system uses IPv4 and the subnet mask is usually in the form of A.B.C.D where A, B, C and D are numbers between 0 to 255 (inclusive). The first number cannot be 0."></div>
+						<div class="icon info" title="The Broadcast address is always 255.255.255.255"></div></td>
+				</tr>
+				<tr>
+					<th><label for="edtGateway" class="manualstuff">Default Gateway</label></th>
+					<td><input id="edtGateway" class="manualstuff" type="text" />
+						<div class="icon help" title="Default gateways specifies the default route for controller ethernet connection to use when communicating with other controllers and Axell Element Manager."></div></td>
+				</tr>
+				<tr>
+					<th><label for="edtDNS1" class="manualstuff">DNS 1</label></th>
+					<td><input id="edtDNS1" class="manualstuff" type="text" />
+						<div class="icon help" title="A DNS server is used to resolve textual names to IP addresses."></div></td>
+				</tr>
+				<tr>
+					<th><label for="edtDNS2" class="manualstuff">DNS 2</label></th>
+					<td><input id="edtDNS2" class="manualstuff" type="text" />
+						<div class="icon help" title="If the system cannot use the first DNS, it will try to use the second DNS."></div></td>
+				</tr>
+				<tr>
+					<th><label for="edtDNS3" class="manualstuff">DNS 3</label></th>
+					<td><input id="edtDNS3" class="manualstuff" type="text" />
+						<div class="icon help" title="If the system cannot use the second DNS, it will try to use the third DNS."></div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="button-panel">
+			<a class="button" id="reload" onclick="javascript:location.reload(false)"><div class="icon refresh"></div> Reload</a>
+			<a class="button" id="apply" ><div class="icon apply"></div> Apply</a>
+	</div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

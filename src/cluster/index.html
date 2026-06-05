@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cluster</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div style="display:none" id="popupfail">
+  IP has been added successfully
+  </div>
+      <div id="tree_sidebar">
+          <div id="treelist">
+             <br/> 
+             <br/> 
+             <li class="head">Cluster
+          <!-- <td class="radio{{.}}"><div id="radio-{{.}}-comm" class="led"></div></td> -->
+               <ul id="iplist" style="cursor:pointer;list-style-type:none;">
+
+               </ul>
+             </li>
+          </div>
+
+          <div id="treecontrol">
+             <span>Selected IP: </span><br><input type="text" id="iptxt" style="margin: 5px;"/><br>
+             <button type="button" style="height:30px" id="addip">Add</button>
+             <button type="button" style="height:30px" id="deleteip">Delete</button>
+             <button type="button" style="height:30px" id="deleteall">Delete All</button>
+        <!-- <button type="button" style="height:30px;float:right" id="btnalarms">Alarms</button>
+             <button type="button" style="height:30px;float:right" id="btnfilters">Filters</button> -->
+          </div>
+
+      </div>
+
+
+
+      <div class="pagecontainer">
+            <div class="wizard-panel">
+                <li id="wizard-filtering" class="wizard-step">Filters</li>
+                <li id="wizard-logs" class="wizard-step">Alarms</li>
+
+            </div>
+
+            <div id="content" style="margin-right:200px"></div> 
+
+      </div> 
+
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

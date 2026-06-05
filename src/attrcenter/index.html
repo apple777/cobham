@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Terminal - Command Reference</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+	<div class="button-panel">Attribute: <select id="list-of-attrs"><option>RSP</option></select></div>
+
+	<div class="panel collapsible">
+		<div class="header">INF</div>
+		<div class="contents">
+			<pre id="inf-result"></pre>
+		</div>
+	</div>
+
+	<div class="panel collapsible">
+		<div class="header">GET</div>
+		<div class="contents">
+			<table class="type3">
+				<tr>
+					<td>GET <span class="attr-name"></span></td>
+					<td><input type="text" id="get-params" class="params-txt" placeholder="Parameters"/></td>
+					<td><a id="get-btn" class="button exe-btn">GET</a></td>
+				</tr>
+				<tr>
+					<td colspan="3"><input type="text" id="get-results" class="results-txt" readonly="readonly"/></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="panel collapsible">
+		<div class="header">SET</div>
+		<div class="contents">
+			<table class="type3">
+				<tr>
+					<td>SET <span class="attr-name"></span></td>
+					<td><input type="text" id="set-params" class="params-txt" placeholder="Parameters"/></td>
+					<td><a id="set-btn" class="button exe-btn">SET</a></td>
+				</tr>
+				<tr>
+					<td colspan="3"><input type="text" id="set-results" class="results-txt" readonly="readonly"/></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="panel collapsible">
+		<div class="header">ACT</div>
+		<div class="contents">
+			<table class="type3">
+				<tr>
+					<td>ACT <span class="attr-name"></span></td>
+					<td><input type="text" id="act-params" class="params-txt" placeholder="Parameters"/></td>
+					<td><a id="act-btn" class="button exe-btn">ACT</a></td>
+				</tr>
+				<tr>
+					<td colspan="3"><input type="text" id="act-results" class="results-txt" readonly="readonly"/></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</div>
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

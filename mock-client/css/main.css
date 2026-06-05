@@ -1,0 +1,33 @@
+@import url('tokens.css');
+@import url('header.css');
+@import url('system-overview.css');
+@import url('topology.css');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background: var(--color-surface-page);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+select {
+  font: inherit;
+}

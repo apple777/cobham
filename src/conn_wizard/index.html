@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BTS Port Connection Wizard</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="wizard-panel">
+        <li id="wizard-start" class="wizard-step">Start</li>
+        <li id="wizard-bts-port" class="wizard-step">BTS Port</li>
+        <li id="wizard-apoi" class="wizard-step">APOI</li>
+        <li id="wizard-mtdi" class="wizard-step">MTDI</li>
+        <li id="wizard-msdh" class="wizard-step">MSDH</li>
+        <li id="wizard-filters" class="wizard-step">Filters</li>
+        <li id="wizard-end" class="wizard-step">End</li>
+    </div>
+
+    <div class="panel">
+        <div class="contents">
+        <div class="left_panel">
+            <table id ="instruction_tbl" class="type4">
+                <tr>
+                    <th>Instructions</th>
+                </tr>
+                <tr id="instruction1" style="display:none">
+                    <td><div id="instruction1_stt" class="icon ok_disabled"></div><div id="instruction_txt1"></div></td>
+                </tr>
+                <tr id="instruction2" style="display:none">
+                    <td><div id="instruction2_stt" class="icon ok_disabled"></div><div id="instruction_txt2"></div></td>
+                </tr>
+                <tr id="instruction3" style="display:none">
+                    <td><div id="instruction3_stt" class="icon ok_disabled"></div><div id="instruction_txt3"></div></td>
+                </tr>
+                <tr id="instruction4" style="display:none">
+                    <td><div id="instruction4_stt" class="icon ok_disabled"></div><div id="instruction_txt4"></div></td>
+                </tr>
+                <tr id="instruction5" style="display:none">
+                    <td><div id="instruction5_stt" class="icon ok_disabled"></div><div id="instruction_txt5"></div></td>
+                </tr>
+                <tr id="instruction6" style="display:none">
+                    <td><div id="instruction6_stt" class="icon ok_disabled"></div><div id="instruction_txt6"></div></td>
+                </tr>
+                <tr id="instruction7" style="display:none">
+                    <td><div id="instruction7_stt" class="icon ok_disabled"></div><div id="instruction_txt7"></div></td>
+                </tr>
+                <tr id="instruction8" style="display:none">
+                    <td><div id="instruction8_stt" class="icon ok_disabled"></div><div id="instruction_txt8"></div></td>
+                </tr>
+                <tr id="instruction9" style="display:none">
+                    <td><div id="instruction9_stt" class="icon ok_disabled"></div><div id="instruction_txt9"></div></td>
+                </tr>
+            </table>
+            <div id="conn_panel" class="conn_panel_header" style="display:none">Connection Panel</div>
+            <table id ="APOI_display_table" class="type4">
+                <tr class="APOI_display" style="display:none">
+                    <th colspan="4">BTS Port</th>
+                </tr>
+                <tr class="APOI_display" style="display:none">
+                    <th></th>
+                    <!--th>BTS Port ID</th-->
+                    <th>BTS Port Tag</th>
+                    <th>BTS Tag</th>
+                    <th>BTS Band</th>
+                </tr>
+                <tr class="APOI_display" style="display:none">
+                    <td><img src="/images/icons/sector_icon.png" class="sector"></td>
+                    <!--td><span id="sector_id2"></span></td-->
+                    <td><span id="sector_tag2"></span></td>
+                    <td><span id="bts_tag2"></span></td>
+                    <td><span id="band_id2"></span></td>
+                </tr>
+                <tr class="APOI_display" style="display:none">
+                    <th colspan="4">Axell Point of Interface</th>
+                </tr>
+                <tr class="APOI_display" style="display:none">
+                    <td colspan="4" class="model_display">
+                        <div class="legend">
+                            <div class="legend_color available_port"></div><b>Available Port</b>
+                            <div class="legend_color selected_port"></div><b>Selected Port</b>
+                        </div>
+                        <img id="APOI_model" src="/images/icons/APOI_model.png" usemap="#APOI_map"/>
+                        <map name="APOI_map">
+                            <area id="1-SECT-UL1" shape="circle" alt="1:SECT-UL1" title="1:SECT-UL1" coords="61,47,9"/>
+                            <area id="1-DL1" shape="circle" alt="1:DL1" title="1:DL1" coords="61,72,9"/>
+                            <area id="1-UL1" shape="circle" alt="1:UL1" title="1:UL1" coords="61,97,9"/>
+                            <area id="1-DL2" shape="circle" alt="1:DL2" title="1:DL2" coords="61,120,9"/>
+                            <area id="1-UL2" shape="circle" alt="1:UL2" title="1:UL2" coords="61,145,9"/>
+                            <area id="1-SECT-UL2" shape="circle" alt="1:SECT-UL2" title="1:SECT-UL2" coords="61,170,9"/>
+                            <area id="1-SECT-DL1" shape="circle" alt="1:SECT-DL1" title="1:SECT-DL1" coords="109,55,9"/>
+                            <area id="1-SECT-DL2" shape="circle" alt="1:SECT-DL2" title="1:SECT-DL2" coords="109,162,9"/>
+
+                            <area id="2-SECT-UL1" shape="circle" alt="2:SECT-UL1" title="2:SECT-UL1" coords="136,47,9"/>
+                            <area id="2-DL1" shape="circle" alt="2:DL1" title="2:DL1" coords="136,72,9"/>
+                            <area id="2-UL1" shape="circle" alt="2:UL1" title="2:UL1" coords="136,97,9"/>
+                            <area id="2-DL2" shape="circle" alt="2:DL2" title="2:DL2" coords="136,120,9"/>
+                            <area id="2-UL2" shape="circle" alt="2:UL2" title="2:UL2" coords="136,145,9"/>
+                            <area id="2-SECT-UL2" shape="circle" alt="2:SECT-UL2" title="2:SECT-UL2" coords="136,170,9"/>
+                            <area id="2-SECT-DL1" shape="circle" alt="2:SECT-DL1" title="2:SECT-DL1" coords="184,55,9"/>
+                            <area id="2-SECT-DL2" shape="circle" alt="2:SECT-DL2" title="2:SECT-DL2" coords="184,162,9"/>
+
+                            <area id="3-SECT-UL1" shape="circle" alt="3:SECT-UL1" title="3:SECT-UL1" coords="211,47,9"/>
+                            <area id="3-DL1" shape="circle" alt="3:DL1" title="3:DL1" coords="211,72,9"/>
+                            <area id="3-UL1" shape="circle" alt="3:UL1" title="3:UL1" coords="211,97,9"/>
+                            <area id="3-DL2" shape="circle" alt="3:DL2" title="3:DL2" coords="211,120,9"/>
+                            <area id="3-UL2" shape="circle" alt="3:UL2" title="3:UL2" coords="211,145,9"/>
+                            <area id="3-SECT-UL2" shape="circle" alt="3:SECT-UL2" title="3:SECT-UL2" coords="211,170,9"/>
+                            <area id="3-SECT-DL1" shape="circle" alt="3:SECT-DL1" title="3:SECT-DL1" coords="259,55,9"/>
+                            <area id="3-SECT-DL2" shape="circle" alt="3:SECT-DL2" title="3:SECT-DL2" coords="259,162,9"/>
+
+                            <area id="4-SECT-UL1" shape="circle" alt="4:SECT-UL1" title="4:SECT-UL1" coords="286,47,9"/>
+                            <area id="4-DL1" shape="circle" alt="4:DL1" title="4:DL1" coords="286,72,9"/>
+                            <area id="4-UL1" shape="circle" alt="4:UL1" title="4:UL1" coords="286,97,9"/>
+                            <area id="4-DL2" shape="circle" alt="4:DL2" title="4:DL2" coords="286,120,9"/>
+                            <area id="4-UL2" shape="circle" alt="4:UL2" title="4:UL2" coords="286,145,9"/>
+                            <area id="4-SECT-UL2" shape="circle" alt="4:SECT-UL2" title="4:SECT-UL2" coords="286,170,9"/>
+                            <area id="4-SECT-DL1" shape="circle" alt="4:SECT-DL1" title="4:SECT-DL1" coords="334,55,9"/>
+                            <area id="4-SECT-DL2" shape="circle" alt="4:SECT-DL2" title="4:SECT-DL2" coords="334,162,9"/>
+
+                            <area id="5-SECT-UL1" shape="circle" alt="5:SECT-UL1" title="5:SECT-UL1" coords="361,47,9"/>
+                            <area id="5-DL1" shape="circle" alt="5:DL1" title="5:DL1" coords="361,72,9"/>
+                            <area id="5-UL1" shape="circle" alt="5:UL1" title="5:UL1" coords="361,97,9"/>
+                            <area id="5-DL2" shape="circle" alt="5:DL2" title="5:DL2" coords="361,120,9"/>
+                            <area id="5-UL2" shape="circle" alt="5:UL2" title="5:UL2" coords="361,145,9"/>
+                            <area id="5-SECT-UL2" shape="circle" alt="5:SECT-UL2" title="5:SECT-UL2" coords="361,170,9"/>
+                            <area id="5-SECT-DL1" shape="circle" alt="5:SECT-DL1" title="5:SECT-DL1" coords="409,55,9"/>
+                            <area id="5-SECT-DL2" shape="circle" alt="5:SECT-DL2" title="5:SECT-DL2" coords="409,162,9"/>
+
+                            <area id="6-SECT-UL1" shape="circle" alt="6:SECT-UL1" title="6:SECT-UL1" coords="437,47,9"/>
+                            <area id="6-DL1" shape="circle" alt="6:DL1" title="6:DL1" coords="437,72,9"/>
+                            <area id="6-UL1" shape="circle" alt="6:UL1" title="6:UL1" coords="437,97,9"/>
+                            <area id="6-DL2" shape="circle" alt="6:DL2" title="6:DL2" coords="437,120,9"/>
+                            <area id="6-UL2" shape="circle" alt="6:UL2" title="6:UL2" coords="437,145,9"/>
+                            <area id="6-SECT-UL2" shape="circle" alt="6:SECT-UL2" title="6:SECT-UL2" coords="437,170,9"/>
+                            <area id="6-SECT-DL1" shape="circle" alt="6:SECT-DL1" title="6:SECT-DL1" coords="484,55,9"/>
+                            <area id="6-SECT-DL2" shape="circle" alt="6:SECT-DL2" title="6:SECT-DL2" coords="484,162,9"/>
+
+                            <area id="7-SECT-UL1" shape="circle" alt="7:SECT-UL1" title="7:SECT-UL1" coords="511,47,9"/>
+                            <area id="7-DL1" shape="circle" alt="7:DL1" title="7:DL1" coords="511,72,9"/>
+                            <area id="7-UL1" shape="circle" alt="7:UL1" title="7:UL1" coords="511,97,9"/>
+                            <area id="7-DL2" shape="circle" alt="7:DL2" title="7:DL2" coords="511,120,9"/>
+                            <area id="7-UL2" shape="circle" alt="7:UL2" title="7:UL2" coords="511,145,9"/>
+                            <area id="7-SECT-UL2" shape="circle" alt="7:SECT-UL2" title="7:SECT-UL2" coords="511,170,9"/>
+                            <area id="7-SECT-DL1" shape="circle" alt="7:SECT-DL1" title="7:SECT-DL1" coords="559,55,9"/>
+                            <area id="7-SECT-DL2" shape="circle" alt="7:SECT-DL2" title="7:SECT-DL2" coords="559,162,9"/>
+
+                            <area id="8-SECT-UL1" shape="circle" alt="8:SECT-UL1" title="8:SECT-UL1" coords="586,47,9"/>
+                            <area id="8-DL1" shape="circle" alt="8:DL1" title="8:DL1" coords="586,72,9"/>
+                            <area id="8-UL1" shape="circle" alt="8:UL1" title="8:UL1" coords="586,97,9"/>
+                            <area id="8-DL2" shape="circle" alt="8:DL2" title="8:DL2" coords="586,120,9"/>
+                            <area id="8-UL2" shape="circle" alt="8:UL2" title="8:UL2" coords="586,145,9"/>
+                            <area id="8-SECT-UL2" shape="circle" alt="8:SECT-UL2" title="8:SECT-UL2" coords="586,170,9"/>
+                            <area id="8-SECT-DL1" shape="circle" alt="8:SECT-DL1" title="8:SECT-DL1" coords="634,55,9"/>
+                            <area id="8-SECT-DL2" shape="circle" alt="8:SECT-DL2" title="8:SECT-DL2" coords="634,162,9"/>
+                        </map>
+                        <div id="guide_tool_UL"></div>
+                        <div id="guide_tool_DL"></div>
+                    </td>
+                </tr>
+                <tr class="MTDI_display" style="display:none">
+                    <th colspan="4">Multi Technology Digital Interface</span></th>
+                </tr>
+                <tr class="MTDI_display" style="display:none">
+                    <td colspan="4" class="model_display">
+                        <div class="legend">
+                            <div class="legend_color available_port"></div><b>Available Port</b>
+                            <div class="legend_color selected_port"></div><b>Selected Port</b>
+                        </div>
+                        <img id="MTDI_model" src="/images/icons/MTDI_bigicon.png" usemap="#MTDI_map"/>
+                        <map name="MTDI_map">
+                            <area id="1-1-DL2" shape="circle" alt="1-1:DL2" title="1-1:DL2" group="1-1-ULDL1" coords="256,38,9"/>
+                            <area id="1-1-DL1" shape="circle" alt="1-1:DL1" title="1-1:DL1" group="1-1-ULDL2" coords="286,38,9"/>
+                            <area id="1-1-UL2" shape="circle" alt="1-1:UL2" title="1-1:UL2" group="1-1-ULDL1" coords="315,38,9"/>
+                            <area id="1-1-UL1" shape="circle" alt="1-1:UL1" title="1-1:UL1" group="1-1-ULDL2" coords="345,38,9"/>
+
+                            <area id="1-2-DL2" shape="circle" alt="1-2:DL2" title="1-2:DL2" group="1-2-ULDL1" coords="378,38,9"/>
+                            <area id="1-2-DL1" shape="circle" alt="1-2:DL1" title="1-2:DL1" group="1-2-ULDL2" coords="408,38,9"/>
+                            <area id="1-2-UL2" shape="circle" alt="1-2:UL2" title="1-2:UL2" group="1-2-ULDL1" coords="438,38,9"/>
+                            <area id="1-2-UL1" shape="circle" alt="1-2:UL1" title="1-2:UL1" group="1-2-ULDL2" coords="468,38,9"/>
+
+                            <area id="1-3-DL2" shape="circle" alt="1-3:DL2" title="1-3:DL2" group="1-3-ULDL1" coords="501,38,9"/>
+                            <area id="1-3-DL1" shape="circle" alt="1-3:DL1" title="1-3:DL1" group="1-3-ULDL2" coords="531,38,9"/>
+                            <area id="1-3-UL2" shape="circle" alt="1-3:UL2" title="1-3:UL2" group="1-3-ULDL1" coords="561,38,9"/>
+                            <area id="1-3-UL1" shape="circle" alt="1-3:UL1" title="1-3:UL1" group="1-3-ULDL2" coords="591,38,9"/>
+
+                            <area id="1-4-DL2" shape="circle" alt="1-4:DL2" title="1-4:DL2" group="1-4-ULDL1" coords="623,38,9"/>
+                            <area id="1-4-DL1" shape="circle" alt="1-4:DL1" title="1-4:DL1" group="1-4-ULDL2" coords="653,38,9"/>
+                            <area id="1-4-UL2" shape="circle" alt="1-4:UL2" title="1-4:UL2" group="1-4-ULDL1" coords="683,38,9"/>
+                            <area id="1-4-UL1" shape="circle" alt="1-4:UL1" title="1-4:UL1" group="1-4-ULDL2" coords="713,38,9"/>
+                        </map>
+                    </td>
+                </tr>
+            </table>
+            <div id="mimo_conn_panel" class="conn_panel_header" style="display:none">MIMO Connection Panel</div>
+            <table id ="mimo_APOI_display_table" class="type4">
+                <tr class="mimo_APOI_display" style="display:none">
+                    <th colspan="4" >Axell Point of Interface</th>
+                </tr>
+                <tr class="mimo_APOI_display" style="display:none">
+                    <td colspan="4" class="model_display">
+                        <div class="legend">
+                            <div class="legend_color available_port"></div><b>Available Port</b>
+                            <div class="legend_color selected_port"></div><b>Selected Port</b>
+                        </div>
+                        <img id="mimo_APOI_model" src="/images/icons/APOI_model.png" usemap="#mimo_APOI_map"/>
+                        <map name="mimo_APOI_map">
+                            <area id="MIMO-1-SECT-UL1" shape="circle" alt="1:SECT-UL1" title="1:SECT-UL1" coords="61,47,9"/>
+                            <area id="MIMO-1-DL1" shape="circle" alt="1:DL1" title="1:DL1" coords="61,72,9"/>
+                            <area id="MIMO-1-UL1" shape="circle" alt="1:UL1" title="1:UL1" coords="61,97,9"/>
+                            <area id="MIMO-1-DL2" shape="circle" alt="1:DL2" title="1:DL2" coords="61,120,9"/>
+                            <area id="MIMO-1-UL2" shape="circle" alt="1:UL2" title="1:UL2" coords="61,145,9"/>
+                            <area id="MIMO-1-SECT-UL2" shape="circle" alt="1:SECT-UL2" title="1:SECT-UL2" coords="61,170,9"/>
+                            <area id="MIMO-1-SECT-DL1" shape="circle" alt="1:SECT-DL1" title="1:SECT-DL1" coords="109,55,9"/>
+                            <area id="MIMO-1-SECT-DL2" shape="circle" alt="1:SECT-DL2" title="1:SECT-DL2" coords="109,162,9"/>
+
+                            <area id="MIMO-2-SECT-UL1" shape="circle" alt="2:SECT-UL1" title="2:SECT-UL1" coords="136,47,9"/>
+                            <area id="MIMO-2-DL1" shape="circle" alt="2:DL1" title="2:DL1" coords="136,72,9"/>
+                            <area id="MIMO-2-UL1" shape="circle" alt="2:UL1" title="2:UL1" coords="136,97,9"/>
+                            <area id="MIMO-2-DL2" shape="circle" alt="2:DL2" title="2:DL2" coords="136,120,9"/>
+                            <area id="MIMO-2-UL2" shape="circle" alt="2:UL2" title="2:UL2" coords="136,145,9"/>
+                            <area id="MIMO-2-SECT-UL2" shape="circle" alt="2:SECT-UL2" title="2:SECT-UL2" coords="136,170,9"/>
+                            <area id="MIMO-2-SECT-DL1" shape="circle" alt="2:SECT-DL1" title="2:SECT-DL1" coords="184,55,9"/>
+                            <area id="MIMO-2-SECT-DL2" shape="circle" alt="2:SECT-DL2" title="2:SECT-DL2" coords="184,162,9"/>
+
+                            <area id="MIMO-3-SECT-UL1" shape="circle" alt="3:SECT-UL1" title="3:SECT-UL1" coords="211,47,9"/>
+                            <area id="MIMO-3-DL1" shape="circle" alt="3:DL1" title="3:DL1" coords="211,72,9"/>
+                            <area id="MIMO-3-UL1" shape="circle" alt="3:UL1" title="3:UL1" coords="211,97,9"/>
+                            <area id="MIMO-3-DL2" shape="circle" alt="3:DL2" title="3:DL2" coords="211,120,9"/>
+                            <area id="MIMO-3-UL2" shape="circle" alt="3:UL2" title="3:UL2" coords="211,145,9"/>
+                            <area id="MIMO-3-SECT-UL2" shape="circle" alt="3:SECT-UL2" title="3:SECT-UL2" coords="211,170,9"/>
+                            <area id="MIMO-3-SECT-DL1" shape="circle" alt="3:SECT-DL1" title="3:SECT-DL1" coords="259,55,9"/>
+                            <area id="MIMO-3-SECT-DL2" shape="circle" alt="3:SECT-DL2" title="3:SECT-DL2" coords="259,162,9"/>
+
+                            <area id="MIMO-4-SECT-UL1" shape="circle" alt="4:SECT-UL1" title="4:SECT-UL1" coords="286,47,9"/>
+                            <area id="MIMO-4-DL1" shape="circle" alt="4:DL1" title="4:DL1" coords="286,72,9"/>
+                            <area id="MIMO-4-UL1" shape="circle" alt="4:UL1" title="4:UL1" coords="286,97,9"/>
+                            <area id="MIMO-4-DL2" shape="circle" alt="4:DL2" title="4:DL2" coords="286,120,9"/>
+                            <area id="MIMO-4-UL2" shape="circle" alt="4:UL2" title="4:UL2" coords="286,145,9"/>
+                            <area id="MIMO-4-SECT-UL2" shape="circle" alt="4:SECT-UL2" title="4:SECT-UL2" coords="286,170,9"/>
+                            <area id="MIMO-4-SECT-DL1" shape="circle" alt="4:SECT-DL1" title="4:SECT-DL1" coords="334,55,9"/>
+                            <area id="MIMO-4-SECT-DL2" shape="circle" alt="4:SECT-DL2" title="4:SECT-DL2" coords="334,162,9"/>
+
+                            <area id="MIMO-5-SECT-UL1" shape="circle" alt="5:SECT-UL1" title="5:SECT-UL1" coords="361,47,9"/>
+                            <area id="MIMO-5-DL1" shape="circle" alt="5:DL1" title="5:DL1" coords="361,72,9"/>
+                            <area id="MIMO-5-UL1" shape="circle" alt="5:UL1" title="5:UL1" coords="361,97,9"/>
+                            <area id="MIMO-5-DL2" shape="circle" alt="5:DL2" title="5:DL2" coords="361,120,9"/>
+                            <area id="MIMO-5-UL2" shape="circle" alt="5:UL2" title="5:UL2" coords="361,145,9"/>
+                            <area id="MIMO-5-SECT-UL2" shape="circle" alt="5:SECT-UL2" title="5:SECT-UL2" coords="361,170,9"/>
+                            <area id="MIMO-5-SECT-DL1" shape="circle" alt="5:SECT-DL1" title="5:SECT-DL1" coords="409,55,9"/>
+                            <area id="MIMO-5-SECT-DL2" shape="circle" alt="5:SECT-DL2" title="5:SECT-DL2" coords="409,162,9"/>
+
+                            <area id="MIMO-6-SECT-UL1" shape="circle" alt="6:SECT-UL1" title="6:SECT-UL1" coords="437,47,9"/>
+                            <area id="MIMO-6-DL1" shape="circle" alt="6:DL1" title="6:DL1" coords="437,72,9"/>
+                            <area id="MIMO-6-UL1" shape="circle" alt="6:UL1" title="6:UL1" coords="437,97,9"/>
+                            <area id="MIMO-6-DL2" shape="circle" alt="6:DL2" title="6:DL2" coords="437,120,9"/>
+                            <area id="MIMO-6-UL2" shape="circle" alt="6:UL2" title="6:UL2" coords="437,145,9"/>
+                            <area id="MIMO-6-SECT-UL2" shape="circle" alt="6:SECT-UL2" title="6:SECT-UL2" coords="437,170,9"/>
+                            <area id="MIMO-6-SECT-DL1" shape="circle" alt="6:SECT-DL1" title="6:SECT-DL1" coords="484,55,9"/>
+                            <area id="MIMO-6-SECT-DL2" shape="circle" alt="6:SECT-DL2" title="6:SECT-DL2" coords="484,162,9"/>
+
+                            <area id="MIMO-7-SECT-UL1" shape="circle" alt="7:SECT-UL1" title="7:SECT-UL1" coords="511,47,9"/>
+                            <area id="MIMO-7-DL1" shape="circle" alt="7:DL1" title="7:DL1" coords="511,72,9"/>
+                            <area id="MIMO-7-UL1" shape="circle" alt="7:UL1" title="7:UL1" coords="511,97,9"/>
+                            <area id="MIMO-7-DL2" shape="circle" alt="7:DL2" title="7:DL2" coords="511,120,9"/>
+                            <area id="MIMO-7-UL2" shape="circle" alt="7:UL2" title="7:UL2" coords="511,145,9"/>
+                            <area id="MIMO-7-SECT-UL2" shape="circle" alt="7:SECT-UL2" title="7:SECT-UL2" coords="511,170,9"/>
+                            <area id="MIMO-7-SECT-DL1" shape="circle" alt="7:SECT-DL1" title="7:SECT-DL1" coords="559,55,9"/>
+                            <area id="MIMO-7-SECT-DL2" shape="circle" alt="7:SECT-DL2" title="7:SECT-DL2" coords="559,162,9"/>
+
+                            <area id="MIMO-8-SECT-UL1" shape="circle" alt="8:SECT-UL1" title="8:SECT-UL1" coords="586,47,9"/>
+                            <area id="MIMO-8-DL1" shape="circle" alt="8:DL1" title="8:DL1" coords="586,72,9"/>
+                            <area id="MIMO-8-UL1" shape="circle" alt="8:UL1" title="8:UL1" coords="586,97,9"/>
+                            <area id="MIMO-8-DL2" shape="circle" alt="8:DL2" title="8:DL2" coords="586,120,9"/>
+                            <area id="MIMO-8-UL2" shape="circle" alt="8:UL2" title="8:UL2" coords="586,145,9"/>
+                            <area id="MIMO-8-SECT-UL2" shape="circle" alt="8:SECT-UL2" title="8:SECT-UL2" coords="586,170,9"/>
+                            <area id="MIMO-8-SECT-DL1" shape="circle" alt="8:SECT-DL1" title="8:SECT-DL1" coords="634,55,9"/>
+                            <area id="MIMO-8-SECT-DL2" shape="circle" alt="8:SECT-DL2" title="8:SECT-DL2" coords="634,162,9"/>
+                        </map>
+                        <div id="MIMO-guide_tool_UL"></div>
+                        <div id="MIMO-guide_tool_DL"></div>
+                    </td>
+                </tr>
+                <tr class="mimo_MTDI_display" style="display:none">
+                    <th colspan="4">Multi Technology Digital Interface</span></th>
+                </tr>
+                <tr class="mimo_MTDI_display" style="display:none">
+                    <td colspan="4" class="model_display">
+                        <div class="legend">
+                            <div class="legend_color available_port"></div><b>Available Port</b>
+                            <div class="legend_color chosen_port"></div><b>Selected Port</b>
+                        </div>
+                        <img id="mimo_MTDI_model" src="/images/icons/MTDI_bigicon.png" usemap="#mimo_MTDI_map"/>
+                        <map name="mimo_MTDI_map">
+                            <area id="MIMO-1-1-DL2" shape="circle" alt="1-1:DL2" title="1-1:DL2" group="1-1-ULDL1" coords="256,38,9"/>
+                            <area id="MIMO-1-1-DL1" shape="circle" alt="1-1:DL1" title="1-1:DL1" group="1-1-ULDL2" coords="286,38,9"/>
+                            <area id="MIMO-1-1-UL2" shape="circle" alt="1-1:UL2" title="1-1:UL2" group="1-1-ULDL1" coords="315,38,9"/>
+                            <area id="MIMO-1-1-UL1" shape="circle" alt="1-1:UL1" title="1-1:UL1" group="1-1-ULDL2" coords="345,38,9"/>
+
+                            <area id="MIMO-1-2-DL2" shape="circle" alt="1-2:DL2" title="1-2:DL2" group="1-2-ULDL1" coords="378,38,9"/>
+                            <area id="MIMO-1-2-DL1" shape="circle" alt="1-2:DL1" title="1-2:DL1" group="1-2-ULDL2" coords="408,38,9"/>
+                            <area id="MIMO-1-2-UL2" shape="circle" alt="1-2:UL2" title="1-2:UL2" group="1-2-ULDL1" coords="438,38,9"/>
+                            <area id="MIMO-1-2-UL1" shape="circle" alt="1-2:UL1" title="1-2:UL1" group="1-2-ULDL2" coords="468,38,9"/>
+
+                            <area id="MIMO-1-3-DL2" shape="circle" alt="1-3:DL2" title="1-3:DL2" group="1-3-ULDL1" coords="501,38,9"/>
+                            <area id="MIMO-1-3-DL1" shape="circle" alt="1-3:DL1" title="1-3:DL1" group="1-3-ULDL2" coords="531,38,9"/>
+                            <area id="MIMO-1-3-UL2" shape="circle" alt="1-3:UL2" title="1-3:UL2" group="1-3-ULDL1" coords="561,38,9"/>
+                            <area id="MIMO-1-3-UL1" shape="circle" alt="1-3:UL1" title="1-3:UL1" group="1-3-ULDL2" coords="591,38,9"/>
+
+                            <area id="MIMO-1-4-DL2" shape="circle" alt="1-4:DL2" title="1-4:DL2" group="1-4-ULDL1" coords="623,38,9"/>
+                            <area id="MIMO-1-4-DL1" shape="circle" alt="1-4:DL1" title="1-4:DL1" group="1-4-ULDL2" coords="653,38,9"/>
+                            <area id="MIMO-1-4-UL2" shape="circle" alt="1-4:UL2" title="1-4:UL2" group="1-4-ULDL1" coords="683,38,9"/>
+                            <area id="MIMO-1-4-UL1" shape="circle" alt="1-4:UL1" title="1-4:UL1" group="1-4-ULDL2" coords="713,38,9"/>
+                        </map>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="right_panel">
+            <table id="config_table" class="type4">
+                <tr>
+                    <th colspan="2">Configuration</th>
+                </tr>
+                <!--tr>
+                    <td>BTS Port ID: </td><td><span id="sector_id"></span></td>
+                </tr-->
+                <tr>
+                    <td>BTS Port Tag: </td><td><span id="sector_tag"></span></td>
+                </tr>
+                <tr>
+                    <td>BTS Tag: </td><td><span id="bts_tag"></span></td>
+                </tr>
+                <tr>
+                    <td>Band: </td><td><span id="band_id"></span></td>
+                </tr>
+                <tr>
+                    <td>RF Interface: </td><td><span id="conn_type"></span></td>
+                </tr>
+                <tr class="APOI_display" style="display:none">
+                    <th>Selected APOI: </th><th><span id="selected_APOI" class="APOI_conn_info"></span></th>
+                </tr>
+                <tr class="APOI_display" style="display:none">
+                    <td>Input/ Output Slot: </td><td><span id="APOI_input_port" class="APOI_conn_info"></span></td>
+                </tr>
+                <tr class="APOI_display" style="display:none">
+                    <td>Input Connector DL: </td><td><span id="APOI_input_conn_DL" class="APOI_conn_info"></span></td>
+                </tr>
+                <tr class="APOI_display" style="display:none">
+                    <td>Output Connector UL: </td><td><span id="APOI_input_conn_UL" class="APOI_conn_info"></span></td>
+                </tr>
+                <tr class="APOI_display" style="display:none">
+                    <td>MTDI Connector DL:</td> <td><span id="APOI_output_conn_DL" class="APOI_conn_info"> </span></td>
+                </tr>
+                <tr class="APOI_display" style="display:none">
+                    <td>MTDI Connector UL:</td><td><span id="APOI_output_conn_UL" class="APOI_conn_info"> </span></td>
+                </tr>
+                <tr class="MTDI_display" style="display:none">
+                    <th>Selected MTDI: </th><th><span id="selected_MTDI" class="MTDI_conn_info"></span></th>
+                </tr>
+                <tr class="MTDI_display" style="display:none">
+                    <td>RF Band: </td><td><span id="MTDI_input_port" class="MTDI_conn_info"></span></td>
+                </tr>
+                <tr class="MTDI_display" style="display:none">
+                    <td>Output Connector DL: </td><td><span id="MTDI_input_conn_DL" class="MTDI_conn_info"></span></td>
+                </tr>
+                <tr class="MTDI_display" style="display:none">
+                    <td>Output Connector UL: </td><td><span id="MTDI_input_conn_UL" class="MTDI_conn_info"></span></td>
+                </tr>
+                <tr class="mimo" style="display:none">
+                    <th colspan="2">MIMO</th>
+                </tr>
+                <tr class="mimo_APOI_display" style="display:none">
+                    <th>Selected APOI: </th><th><span id="mimo_selected_APOI" class="mimo_APOI_conn_info"></span></th>
+                </tr>
+                <tr class="mimo_APOI_display" style="display:none">
+                    <td>Input/ Output Slot: </td><td><span id="mimo_APOI_input_port" class="mimo_APOI_conn_info"></span></td>
+                </tr>
+                <tr class="mimo_APOI_display" style="display:none">
+                    <td>Input Connector DL: </td><td><span id="mimo_APOI_input_conn_DL" class="mimo_APOI_conn_info"></span></td>
+                </tr>
+                <tr class="mimo_APOI_display" style="display:none">
+                    <td>Output Connector UL: </td><td><span id="mimo_APOI_input_conn_UL" class="mimo_APOI_conn_info"></span></td>
+                </tr>
+                <tr class="mimo_APOI_display" style="display:none">
+                    <td>MTDI Connector DL:</td> <td><span id="mimo_APOI_output_conn_DL" class="mimo_APOI_conn_info"> </span></td>
+                </tr>
+                <tr class="mimo_APOI_display" style="display:none">
+                    <td>MTDI Connector UL:</td><td><span id="mimo_APOI_output_conn_UL" class="mimo_APOI_conn_info"> </span></td>
+                </tr>
+                <tr class="mimo_MTDI_display" style="display:none">
+                    <th>Selected MTDI: </th><th><span id="mimo_selected_MTDI" class="mimo_MTDI_conn_info"></span></th>
+                </tr>
+                <tr class="mimo_MTDI_display" style="display:none">
+                    <td>RF Band: </td><td><span id="mimo_MTDI_input_port" class="mimo_MTDI_conn_info"></span></td>
+                </tr>
+                <tr class="mimo_MTDI_display" style="display:none">
+                    <td>Output Connector DL: </td><td><span id="mimo_MTDI_input_conn_DL" class="mimo_MTDI_conn_info"></span></td>
+                </tr>
+                <tr class="mimo_MTDI_display" style="display:none">
+                    <td>Output Connector UL: </td><td><span id="mimo_MTDI_input_conn_UL" class="mimo_MTDI_conn_info"></span></td>
+                </tr>
+            </table>
+        </div>
+        </div>
+    </div>
+    <div class="wizard-bottom-panel">
+        <a class="button" id="save">Save & Next</a>
+        <a class="button" id="cancel">Cancel</a>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

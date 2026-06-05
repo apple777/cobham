@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Preferences</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="button-panel">
+    <a id="reload-button" class="button" title="Reload the date and time settings from controller"><div class="icon refresh"></div>Reload</a>
+    <a id="local-time-button" class="button" title="Fill in the above fileds with date and time settings from the machine running this browser"><div class="icon forwardarrow"></div>Local Time</a>
+    <a id="apply-button" class="button" title="Set the date and time of the controller"><div class="icon apply"></div>Apply</a>
+</div>
+<div class="pagecontainer">
+  <div class="panel">
+    <div class="header">Setting date and time</div>
+    <div class="contents">
+      <table class="type3">
+        <tr>
+      		<th>Date</th>
+            <td>
+            	<input type="text" class="two-digit-number" id="dayField" maxlength="2" title="Day"/>/
+            	<input id="monthField" class="two-digit-number" type="text" maxlength="2" title="Month"/>/
+           	    <input id="yearField" class="two-digit-number" type="text" maxlength="2" title="Year"/> (DD/MM/YY)
+                <div class="icon help" title="Enter the date in the DD/MM/YY format where DD is the day, MM is month and YY is the two-digit year number. For example 03/11/12 means 3rd of November 2012."></div>
+            </td>
+        </tr>
+        <tr>
+      		<th>Time</th>
+            <td>
+            	<input id="hourField" class="two-digit-number" type="text" maxlength="2" title="Hour"/>:
+            	<input id="minuteField" class="two-digit-number" type="text" maxlength="2" title="Minute"/>:
+            	<input id="secondField" class="two-digit-number" type="text" maxlength="2" title="Second"/> (HH:MM:SS)
+                <div class="icon help" title="Enter the time in HH:MM:SS format where HH is the hour (in 24h format), MM is minutes and SS is seconds. For example 20:20:00 means 20 minutes past 8 o'clock in the evening."></div>
+            </td>
+        </td>
+      </table>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="header">NTP</div>
+    <div class="contents">
+      <table class="type3">
+			<tr>
+				<td colspan="2"><input id="checkNtp" type="checkbox" name="configNtp"/>
+					<label for="checkNtp">Automatically obtain Date and Time</label>
+				</td>
+			</tr>
+         <tr>
+      		<th>Server IP</th>
+            <td>
+			      <input id="editNtp" class="manualstuff" type="text" />
+				   <div class="icon help" title="Server IP is date and time server address."></div>
+            </td>
+         </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+table{
+    margin-bottom: 10px;
+}
+#cellres_table{
+    table-layout: auto;
+}
+#cellres_table td:nth-child(3){
+    width:180px;
+}
+.freq-indicator-bar {
+    height: 45px;
+}
+.freq-indicator-bar.disabled {
+    background-color: #419138;
+}
+tr.focused-row td{
+    background-color: #165788;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    top:0;
+    z-index: 1;
+}
+tr.table_row:hover td{
+    background-color: #165788!important;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    top:0;
+    z-index: 1;
+}
+/*available frequency range */
+.avail-range-indicator-bar.disabled {
+    background-color: #C1F7BB;
+    color: #333;
+    z-index: 1;
+}
+.avail-range-indicator-bar {
+    display: inline-block;
+    position: absolute;
+    opacity: 0.7;
+    box-shadow: 0 0 2px #86bb87;
+    z-index: 2;
+    height: 45px;
+    padding-top: 5px;
+}
+#sector-band-freq-indicator{
+    margin-top: 20px;
+}
+/*---------------------------- BSR frequency editor window -----------------------------*/
+#band-frequency-editor {
+    background-image: url('bsr-wave-form.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    width: 420px;
+    height: 250px;
+    position: relative;
+    margin-top: 160px;
+}
+.agc-control {
+    text-align: center;
+    color: #666;
+    position: absolute;
+    /*border: 1px solid red;*/
+    min-width: 100px;
+}
+.agc-control input {
+    text-align: center;
+    width:50px;
+}
+.agc-control label {
+    display: block;
+    width:110px;
+}
+
+.edit-and-label {
+    text-align: center;
+    color: #666;
+    position: absolute;
+    /*border: 1px solid red;*/
+    min-width: 110px;
+}
+.edit-and-label input {
+    text-align: center;
+    width:100px;
+}
+.edit-and-label select {
+    text-align: center;
+    width:100px;
+}
+.edit-and-label label {
+    display: block;
+}
+.band-range-hint {
+    font-size: 0.7em;
+    color:#777;
+}
+.numeric.erroneous {
+    background-color: red;
+    color: yellow;
+}
+.cellres-tag{
+    text-align: center;
+    color: #666;
+    position: absolute;
+}
+.cellres-tag label{
+    display: block;
+}
+#cellres-tag{
+    width:120px;
+}
+
+#cellres-long-tag{
+    width:180px;
+}
+.mimo-cellres{
+    color: #666;
+    position: absolute;
+}
+.mimo-cellres input{
+    margin-left:10px;
+}
+.mimo-cellres input{
+    margin-left:10px;
+}
+#tech-select{
+    width:180px;
+}
+#sector-tag{
+    width:200px;
+}
+#sector-bts-tag{
+    width:200px;
+}
+#sector-details{
+    table-layout: auto;
+}
+/*legend*/
+.legend{
+    display: inline-block;
+    padding: 5px;
+    float: right;
+}
+.legend_color{
+    display: inline-block;
+    margin-right: 3px;
+    width:14px;
+    height:14px;
+}
+#unavailable_range_legend{
+    background-color: #BAB7B7;
+}
+#available_range_legend{
+    background-color: #C1F7BB;
+}
+#cellres_range_legend{
+    background-color: #419138;
+}
+#add_cellres{
+    float:right;
+    margin-bottom: 5px;
+}

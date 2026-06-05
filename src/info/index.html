@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Information</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <!--div class="panel">
+        <div class="header">Performance</div>
+        <div id="general-gauge-container" class="contents">
+            <div id="cpu-gauge" title="Load Average Now"></div>
+            <div id="mem-gauge" title="Memory Usage %"></div>
+            <div id="sys-disk-gauge" title="System Disk Usage %"></div>
+            <div id="fw-disk-gauge" title="Firmware Disk Usage %"></div>
+            <div id="tmp-disk-gauge" title="Temporary Disk Usage %"></div>
+            <div id="spd-gauge" title="Response Time (ms)"></div>
+        </div>
+    </div-->
+
+    <div class="container panel">
+    <div class="header">Control Module</div>
+    <div class="contents">
+      <table class="type3">
+        <tr>
+          <th>Serial Number</th><td id="config_ctrlserial">...</td>
+        </tr>
+        <!--tr>
+          <th>Hardware Version</th><td id="config_hwversion">...</td>
+        </tr-->
+        <tr>
+          <th>Target Version</th><td id="config_targetversion">...</td>
+        </tr>
+        <tr>
+          <th>Common Version</th><td id="config_commonversion">...</td>
+        </tr>
+        <tr>
+          <th>System Version</th><td id="config_systemversion">...</td>
+        </tr>
+        <tr>
+          <th>Boot Version</th><td id="config_bootversion">...</td>
+        </tr>
+		<!--
+		<tr>
+          <th>System Built Date</th><td id="sys-dt">...</td>
+        </tr>
+		<tr>
+          <th>Common Built Date</th><td id="com-dt">...</td>
+        </tr>
+		<tr>
+          <th>Target Built Date</th><td id="tar-dt">...</td>
+        </tr>
+		-->
+      </table>
+    </div>
+  </div>
+  <div class="container panel">
+    <div class="header">Site Information</div>
+    <div class="contents">
+      <table class="type3">
+        <tr>
+          <th>Model</th><td id="config_model">...</td>
+        </tr>
+        <tr>
+          <th>Serial Number</th><td id="config_serial">...</td>
+        </tr>
+        <!--tr>
+          <th>Article Number</th><td id="config_artno">...</td>
+        </tr-->
+        <tr>
+          <th>TAG</th><td id="config_tag">...</td>
+        </tr>
+        <!--tr>
+          <th>RID</th><td id="config_id">...</td>
+        </tr-->
+        <tr class="redundancy">
+          <th>Redundancy</th><td id="config_prm_type">...</td>
+        </tr> 
+      </table>
+    </div>
+  </div>
+  <div class="container panel" id="hw_informaton">
+    <div class="header">Hardware Information</div>
+    <div class="contents">
+      <table class="type3">
+        <tr>
+          <th>Revision</th><td id="config_mfr_revision">...</td>
+        </tr>
+        <tr>
+          <th>Model</th><td id="config_mfr_model">...</td>
+        </tr>
+        <tr>
+          <th>Serial</th><td id="config_mfr_serial">...</td>
+        </tr>
+        <tr>
+          <th>Date</th><td id="config_mfr_date">...</td>
+        </tr>
+        <tr class="toggle-keydown" style="display:none;">
+          <th>Revision</th>
+          <td id="config_mfr_type">
+            <select id="sequencer">
+              <option value="">Select</option>
+              <option value="ASS001INTSE">ASS001INTSE</option>              
+              <option value="ASS002EXTNSE">ASS002EXTNSE</option>
+              <option value="ASS003EXTSE">ASS003EXTSE</option>
+              <option value="ASS004EXGPSE">ASS004EXGPSE</option>
+              <option value="NONE">NONE</option>
+              <option value="ASS001CLKSEP">ASS001CLKSEP</option>
+            </select>
+          </td>
+        </tr>         
+      </table>
+    </div>
+  </div>
+
+  <div class="button-panel toggle-keydown" style="display:none;"> 
+      <a class="button" id="set"><div class="icon refresh"></div> Set</a> 
+      <a class="button" id="save"><div class="icon apply"></div> Save</a>
+  </div>  
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

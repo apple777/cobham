@@ -1,0 +1,64 @@
+ html,body { height: 100%; margin: 0px; padding: 0px; }
+.pagecontainer {
+    width: 1000px;
+    margin: 10px 280px;
+    padding: 0;
+}
+#tree_sidebar{
+      min-height: 100%;
+      float: left;
+      background-color: #ffffff;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 247px;
+      padding: 10px;      
+      /*z-index: 2;*/
+}
+#treelist{
+	position: relative; top: 36px; height: 580px; overflow:auto;list-style-type:none;
+}
+#treecontrol{
+	position: relative; top: 286px; /*text-align:center;*/
+}
+#login{
+    margin-left: 20px;
+}
+.led{
+    margin-right: 15px;
+}
+
+#iplist{
+  padding: 0 15px;
+}
+#iplist li{
+    height: 30px;
+    width: 100%;
+    padding: 10px 0 0 5px;
+}
+
+#iplist button:not(.ui-button),
+a.button{
+	padding:1px 5px 9px 5px;
+}
+#iplist a.button{
+    height: 8px;
+    padding: 1px 5px 9px 5px;
+    margin: 0 15px;
+    float: right;    
+}
+
+.active{
+/*   padding: 15px 0 0 0;
+*/  background-color: #165788;
+    color: white;
+
+
+}
+
+/* @group Disabled Support */
+.chosen-disabled {
+    opacity: 0.5 !important;
+    cursor: default;
+}

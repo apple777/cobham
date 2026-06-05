@@ -1,0 +1,83 @@
+---
+description: idDAS Topology mock-client — wireframe tokens, naming conventions, mock API contract
+globs: mock-client/**/*
+alwaysApply: false
+---
+
+# idDAS Topology Mock Client
+
+Vanilla JavaScript client-side replacement for `/cgi/cmd.lua`. Reference screen: **Topology** (`src/msdh/index.html`).
+
+## Naming conventions
+
+| Context | Convention | Example |
+|---------|------------|---------|
+| DOM `id` (legacy parity) | snake_case | `#topology-container`, `#system_overview` |
+| CSS classes (new mock) | BEM block__element--modifier | `.topology-layer__header` |
+| JS variables / functions | camelCase | `layerModel`, `computeLayerSeverity` |
+| JS constants / enums | SCREAMING_SNAKE_CASE | `TOPOLOGY_LAYER_LABELS`, `FIXTURE_META` |
+| Mock API commands | exact axsh string (preserve spaces) | `operators --json` |
+| JSON fields from backend | preserve axsh casing/spaces | `"Node Type"`, `"SectorID"` |
+| File names | kebab-case or camelCase by type | `fixtureSnapshot.js`, `system-overview.css` |
+| Data-bind hooks | `data-bind="camelCase"` | `data-bind="activeRoutingProfile"` |
+| Component roots | `data-component="kebab-case"` | `data-component="topology-canvas"` |
+
+## Wireframe regions (snapshot baseline 1920×1080)
+
+```
+┌─ app-header (fixed, h=50px) ─────────────────────────────────────────────┐
+│ COBHAM(217px) │ idDAS(150px) │ Topology title │ versions │ user │ logout │
+├─ system-overview (whitesmoke bar, h≈38px, margin 5px, shadow) ───────────┤
+│ Routing profile │ Operator ▼ │ Display mode ▼ │ logged in user │ ● LED  │
+├─ topology-canvas (calc(100vh - 98px), bg #f5f5f5) ────────────────────────┤
+│ [BTS Port Group ─────────────────────────────────────────────── ● red]   │
+│                    (1× sectgrp icon 30×30)                                │
+│ [Axell Point of Interface ─────────────────────────────────── ● green]   │
+│                    (1× APOI icon 100×27)                                  │
+│ [Multi Technology Digital Interface ───────────────────────── ● red]     │
+│              (4× MTDI icons 100×60, 1 red + 3 green)                    │
+│ [Multi Sector Digital Hub ─────────────────────────────────── ● green]   │
+│              (2× MSDH icons 100×54, both green)                           │
+└──────────────────────────────────────────────────────────────────────────┘
+```
+
+## Layout tokens (from production CSS/JS)
+
+- Header height: `50px`; title left offset: `495px`, top: `11px`
+- Topology vertical offset: `98px` (header + system overview)
+- Layer header height: `30px`; fill: `rgba(137,150,160,0.5)`
+- Layer title x: `30px`; layer LED: circle r=`7`, cx=`98%`
+- Node sizes: SECTGRP `30×30`, APOI `100×27`, MTDI `100×10` (render ×6), MSDH `100×9` (render ×6)
+- Font: Verdana 12px; brand blue `#00A4F2`
+
+## Status model
+
+Node fields: `Comm` (`0`=connected, `1`=comm fail, `-`=unknown), `Status` (`0`=red … `4`=green).
+
+Layer LED = worst severity across child nodes (see `computeLayerSeverity` in `fixtureSnapshot.js`).
+
+## Mock API contract
+
+Implement commands exactly as production polls them:
+
+- `username`, `get tag`, `get mdl`, `get swv`, `operators --json`, `bands --json`
+- `SECTGRP -o {op} list --sectors && sector -o {op} --json`
+- `zone -o {op} list --nodes && topology -o {op} --json && rack topology --json`
+- `rfroute -o {op} --json`
+
+Register new commands in `MockAxshApi.registerCommand()`. Use `fixtureSnapshot.js` for screenshot-accurate data.
+
+## Implementation rules
+
+- No jQuery, RequireJS, or D3 in mock-client — pure DOM + CSS Grid/Flexbox
+- Reuse assets from `src/images/` via relative paths
+- Keep mock latency configurable (`MockAxshApi({ latencyMs })`)
+- Rack View toggle logs stub until rack renderer is ported from `msdh/code.js drawARack()`
+
+## Run locally
+
+```bash
+# from repo root — any static server
+npx --yes serve . -p 8080
+# open http://localhost:8080/mock-client/
+```

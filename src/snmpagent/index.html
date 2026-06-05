@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer hidden">
+	<!--<div class="warning-panel"><div class="icon warning"></div> <em>WARNING!</em><br />
+    Changing the IP settings on the controller may make it unaccessible. If you change these settings, you may not be able to correct them via this web interface. You may have to use the serial connection (COM PORT) to get or set the value of NIC according to the instructions.</div>-->
+	<div class="panel">
+		<div class="header">SNMP Agent Configuration</div>
+		<div class="contents">
+			<table id="snmpsettings" class="type3">
+                <tr>
+                    <th><label for="remoteEnSNMPbutton">SNMP Agent</label><div class="icon help" title="These items are retrieved using the SNMP attribute"></div></th>
+                    <td><div id="remoteEnSNMPbutton" class="powerbutton"></div></td>
+
+                <tr class="snmpVersion hidewhenoff showwhenon">
+                    <th><label for="snmpVersion">Version</label><div class="icon help" title="Currently used snmp version."></div></th>
+                    <td>
+                        <select id="snmpVersion">
+                            <option value="v2c">v2c</option>
+                            <option value="v3">v3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="snmpPort hidewhenoff showwhenon">
+                    <th><label for="snmpPort">Port</label><div class="icon help" title="Sets The Port For SNMP agent"></div></th>
+                    <td><input id="snmpPort"></input></td>
+                </tr>
+
+                <!-- SNMP v2c rows -->
+                <tr class="snmpAgent hidewhenoff snmpv2c">
+                    <th><label for="snmpAgent">Agent</label><div class="icon help" title="Description of currently configured SNMP agent"></div></th>
+                    <td><div id="snmpAgent"></div></td>
+                </tr>
+                <tr class="snmpMIB hidewhenoff snmpv2c">
+                    <th><label for="snmpMIB">MIB</label><div class="icon help" title="Description of currently configured SNMP agent"></div></th>
+                    <td><div id="snmpMIB"></div></td>
+                </tr>
+                </tr>
+                <tr class="snmpReadOnly hidewhenoff snmpv2c">
+                    <th><label for="snmpReadOnly">Read-Only Community</label><div class="icon help" title="Community string used to access read-only parameters in SNMP agent"></div></th>
+                    <td><input id="snmpReadOnly"></input></td>
+                </tr>
+                <tr class="snmpPlaceHolder hidealways">
+                    <th><label for="snmpPlaceHolder">Placeholder</label><div class="icon help" title=""></div></th>
+                    <td><input id="snmpPlaceHolder"></input></td>
+                </tr>
+                <!--<tr class="snmpReadWrite hidewhenoff snmpv2c">
+                    <th><label for="snmpReadWrite"><div class="icon help" title="Community string used to access read-only parameters in SNMP agent"></div>Read-Write Community</label></th>
+                    <td><input id="snmpReadWrite" onkeydown="isSNMPCommunityCharValid('#snmpReadWrite')"></td>
+                    </input>
+                </tr>-->
+
+                <!-- SNMP v3 rows -->
+                <tr class="securityName hidewhenoff snmpv3">
+                    <th><label for="securityName">Security Name</label><div class="icon help" title="Security Name for SNMP agent"></div></th>
+                    <td><input id="securityName" maxlength="15"></input></td>
+                </tr>
+
+                <tr class="authProtocol hidewhenoff snmpv3">
+                    <th><label for="authProtocol">Protocol</label><div class="icon help" title="Authentication protocol for SNMP agent"></div></th>
+                    <td id="authProtocol">
+                        <select id="authProtocol">
+                            <option value="MD5">MD5</option>
+                            <option value="SHA">SHA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="authKey hidewhenoff snmpv3">
+                    <th><label for="authKey">Key</label><div class="icon help" title="Authentication key for SNMP agent"></div></th>
+                    <td><input id="authKey" maxlength="20"></input></td>
+                </tr>
+                <tr class="privProtocol hidewhenoff snmpv3">
+                    <th><label for="privProtocol">Private Protocol</label><div class="icon help" title="Privacy protocol for SNMP agent"></div></th>
+                    <td id="privProtocol">
+                        <select id="privProtocol">
+                            <option value="AES">AES</option>
+                            <option value="DES">DES</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="privKey hidewhenoff snmpv3">
+                    <th><label for="privKey">Password</label><div class="icon help" title="Password for SNMP agent"></div></th>
+                    <td><input id="privKey"></input></td>
+                </tr>
+			</table>
+		</div>
+	</div>
+	<div class="button-panel"> 
+			<a class="button" id="reload" onclick="javascript:location.reload(false)"><div class="icon refresh"></div> Reload</a> 
+			<a class="button" id="apply"><div class="icon apply"></div> Apply</a>
+	</div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

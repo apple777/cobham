@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zone Management</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="button-panel">
+        <span>Operator: </span><select id="operator_name"></select>
+        <a id="newZoneBtn" class="button"> Add Zone</a>
+        <a id="clearZonesBtn" class="button"> Clear Zones</a>
+    </div>
+        <div class="panel">
+            <div class="header"><img src="/images/icons/unassigned_zone_icon.png"/><span> Unassigned idRemotes</span></div>
+            <div id="unassigned_content">
+
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="header"><img src="/images/icons/zone_icon.png"/><span> Zones</span></div>
+            <div id="zone_content">
+
+            </div>
+        </div>
+
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/*node height*/
+#nodelist tr{
+}
+/*node width*/
+.node-delete {
+	width:20px;
+}
+.node-number{
+	width:60px;
+}
+.node-serial{
+	width:60px;
+}
+.node-status{
+	width:50px;
+}
+.node-comm{
+	width:40px;
+}
+.node-model{
+	width:115px;
+}
+.node-rackslot{
+	width:40px;
+}
+.node-type{
+	width:30px;
+}
+.node-tag{
+	width:150px;
+}
+.node-ver{
+	width:230px;
+}
+.node-desc{
+	width:auto;
+}
+.node-control{
+	width:80px;
+}
+td {
+	word-wrap:break-word;
+}

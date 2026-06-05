@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remote Nodes</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+	<div class="warning-panel"><div class="icon warning"></div> <em>Note!</em><br />
+    Before moving a node from one slot to another, you must delete it from the node list. After moving the node to the new slot, it should be power-cycled to be registered by the OMU in the new location.
+	</div>
+    <div class="panel">
+        <div class="header">System Nodes</div>
+        <div class="contents">
+            <script id="node-table-template" type="text/-x-handelbars-template">
+                <table class="type1">
+                    <caption>{{nodes.length}} nodes in the system</caption>
+                    <thead>
+                    <tr>
+                        <th class="node-delete" id="none-delete-header"></th>
+                        <th class="node-number" id="none-number-header"><div title="Node Number" class="icon number"></div></th>
+                        <th class="node-status" id="none-status-header"><div title="Node Status" class="icon status"></div></th>
+                        <th class="node-comm" id="none-comm-header"><div title="Node Communication" class="icon communication"></div></th>
+                        <th class="node-model" id="none-model-header"><div title="Node Model" class="icon model"></div>Model</th>
+                        <th class="node-tag" id="none-tag-header"><div class="icon tag"></div>Tag</th>
+                        <th title="Node Serial Number" class="node-serial" id="none-serial-header">Serial</th>
+                        <th class="node-rackslot not-in-slave" id="none-rackslot-header"><div title="Rack:Slot" class="icon info"></div></th>
+                        <th class="node-ver" id="none-version-header">Software Version<div title="&quot;System Version&quot; &quot;Common Version&quot; &quot;Target Version&quot;" class="icon info"></div></th>
+                        <th class="node-control" id="none-control-header">Control</th>
+                    </tr>
+                    </thead>
+                    {{#each nodes}}
+                    <tr id="node-{{number}}-row">
+                        <td class="node-delete">
+                            <a class="button node-delete-button" href="javascript:void(0)" title="Delete this node" data-node-number="{{number}}" data-node-serial={{serial}}>
+                                <div class="icon clear"></div>
+                            </a>
+                        </td>
+                        <td class="node-number">{{number}}</td>
+                        <td class="node-status">
+                            {{led status}}
+                        </td>
+                        <td class="node-comm">
+                            {{led comm}}
+                        </td>
+                        <td class="node-rtype">{{mdl}}</td>
+                        <td class="node-tag">{{tag}}</td>
+                        <td class="node-serial">{{serial}}</td>
+                        <td class="node-rackslot not-in-slave">{{rack}}:{{slot}}</td>
+                        <td class="node-ver">{{version}}</td>
+                        <td class="node-control">
+                            <a class="button node-control-button" title="Node template state: {{state}}" data-comm="{{comm}}">
+                                <div class="icon prompt"></div> Control
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </script>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

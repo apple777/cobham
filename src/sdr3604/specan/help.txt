@@ -1,0 +1,55 @@
+#Spectrum Analyzer
+
+The digital products of the Axell Wireless product family contains an ADC/DAC and an FPGA where the incoming signal is
+continuously captured.
+By retrieving the data onto the controller and performing an FFT this allows for a spectrum analyse of the input of the
+repeater, allowing to identify any disturbances or intermodulations that might corrupt the repeater performance.
+
+##Control buttons
+
+There is a set of buttons under the screen that allows interacting with the spectrum analyzer:
+
+ * **Start, Stop, Center, Span:** These 4 buttons allow you to adjust the range for the signal
+ * **Clear Peak Hold:** Clears the peak hold data (see below)
+ * **Set Resolution:* Sets the sampling resolution for the data.
+ * **Zoom in:** Zooms in +50% around the current center point
+ * **Zoom out:** Zooms out -50% around the current center point
+ * **Reset View:** Resets the view to show the whole range for the current link (uplink or downlink)
+ * **Move Left:** Moves the diagram 10% to the left (which is equal to one grid line)
+ * **Move Right:** Moves the diagram 10% to the right (which is equal to one grid line)
+ * **Uplink:** Chooses to show the uplink
+ * **Downlink:** Chooses to show downlink
+ * **Save:** Captures an snapshot of the diagram and saves it as a PNG file.
+
+##Peak Hold
+
+The controller saves the highest level of the signal (peak) together with information about when it happened.
+
+When hovering over the signal with your mouse, you can see the peak information behind the current signal value with a darker color. The date and time that is shown at the top of the cursor line is the moment that this signal has had its highest value. The value itself is shown along the line that has the same color as the peak diagram.
+
+The *Clear Peak Hold Data* button allows you to clear this historical data. The data persist as long as the controller hasn't restarted or you manually haven't cleared it.
+
+Using the *Save Peaks into a text file* you can save a copy of the peak hold data for future reference or print it.
+
+##Raster Details
+
+The raster is defined as the distance in Hz between each FFT bin centre.
+The span for the FFT is 125 MHz, but only half of the FFT bins are used (0-62.5 MHz).
+This means that half of the FFT bins are used of the samples requested in hardware.
+
+This gives:
+
+<table>
+<tbody><tr>
+<th> SampleLength</th><th> Raster (Hz)</th><th> Rounded</th><th> Error</th></tr>
+<tr><td>512</td><td>122070</td><td>120kHz</td><td>1.7%</td></tr>
+<tr><td>1024</td><td>61035</td><td>60kHz</td><td>1.7%</td></tr>
+<tr><td>2048</td><td>30518</td><td>30kHz</td><td>1.7%</td></tr>
+<tr><td>4096</td><td>15259</td><td>15kHz</td><td>1.7%</td></tr>
+<tr><td>8192</td><td>7629</td><td>7.5kHz</td><td>1.7%</td></tr>
+<tr><td>16384</td><td>3815</td><td>3.75kHz</td><td>1.7%</td></tr>
+<tr><td>32768</td><td>1907</td><td>2kHz</td><td> -4.86%</td></tr>
+<tr><td>65536</td><td>954</td><td>1kHz</td><td> -4.86%</td></tr>
+</tbody></table>
+
+Please notice that setting the resolution to a new value will clear up the peak hold data.

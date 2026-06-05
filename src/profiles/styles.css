@@ -1,0 +1,175 @@
+#advanced-btn{
+    float:right;
+    font-size: 1em;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+#deactivate_btn_holder{
+    margin-right: -100px;
+    float: right;
+}
+#deactivate_btn_holder a.button{
+    font-size: 0.95em;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+}
+.profile_table{
+    table-layout: auto !important;
+    padding-bottom: 10px;
+}
+.profile_table td{
+    text-align: center;
+}
+.profile_table td:nth-child(3){
+    max-width:350px;
+}
+.profile_table td:nth-child(8){
+    width:100px;
+}
+.button-panel span{
+    font-weight: bold;
+    margin:3px;
+}
+.schedule_table{
+    padding-bottom: 10px;
+}
+#new_profile_dialog label{
+    display:inline-block;
+    width:40%;
+    margin-bottom: 10px;
+}
+#new_profile_dialog input{
+    display:inline-block;
+}
+#copyToNew_profile_dialog label{
+    display:inline-block;
+    width:40%;
+    margin-bottom: 10px;
+}
+#copyToNew_profile_dialog input{
+    display:inline-block;
+}
+#add_schedule_dialog label{
+    display:inline-block;
+    width:30%;
+    margin-bottom: 15px;
+}
+#add_schedule_dialog input{
+    display:inline-block;
+}
+#add_schedule{
+    margin-bottom: 5px;
+}
+.header span{
+    line-height: 30px;
+}
+#schedule_date_tbl{
+    table-layout: auto!important;
+}
+#schedule_date_tbl td:nth-child(8){
+    width:150px;
+}
+#neutral_but{
+float: right;
+margin-top: -9px;
+}
+#add_schedule{
+    margin-left: 10px;
+}
+.ok{
+    -webkit-filter: drop-shadow(0 0 7px #275f20);
+    -o-filter: drop-shadow(0 0 7px #275f20);
+    -moz-filter: drop-shadow(0 0 7px #275f20);
+    filter:         drop-shadow(0 0 7px #275f20);
+    -webkit-animation: pulsate 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: pulsate 1s;
+    -moz-animation-iteration-count: infinite;
+    animation: pulsate 1s;
+    animation-iteration-count: infinite;
+}
+@-webkit-keyframes pulsate {
+    0% {-webkit-filter: drop-shadow(0 0 7px #275f20);}
+    100% {-webkit-filter: drop-shadow(0 0 0 #969696);}
+}
+@-moz-keyframes pulsate {
+    0% {moz-filter: drop-shadow(0 0 7px #275f20);}
+    100% {moz-filter: drop-shadow(0 0 0 #969696);}
+}
+@-o-keyframes pulsate {
+    0% {-o-filter: drop-shadow(0 0 7px #275f20);}
+    100% {-o-filter: drop-shadow(0 0 0 #969696);}
+}
+@keyframes pulsate {
+    0% {filter: drop-shadow(0 0 7px #275f20);}
+    100% {filter: drop-shadow(0 0 0 #969696);}
+}
+/*gantt chart style */
+#schedule_content{
+    position: relative;
+    width:800px;
+    height:auto;
+    overflow: visible;
+    margin-left: 40px;
+    margin-top: -10px;
+    padding-bottom: 10px;
+}
+
+.svg {
+    width:800px;
+    overflow: visible;
+    position:relative;
+    display:inline-block;
+}
+
+.grid .tick {
+    stroke: lightgrey;
+    opacity: 0.3;
+    shape-rendering: crispEdges;
+}
+.grid path {
+    stroke-width: 0;
+}
+
+.tag {
+    color: #0c0c0c;
+    background: #B3B3B3;
+    width: 200px;
+    position: absolute;
+    display: none;
+    padding:3px 6px;
+    margin-left: -80px;
+    font-size: 11px;
+}
+
+.tag:before {
+    border: solid transparent;
+    content: ' ';
+    height: 0;
+    left: 30%;
+    margin-left: -5px;
+    position: absolute;
+    width: 0;
+    border-width: 10px;
+    border-bottom-color: #B3B3B3;
+    top: -20px;
+}
+#tag-btn-panel{
+    float:right;
+    padding-top: 3px;
+}
+#tag-btn-panel div{
+    cursor: pointer;
+}
+
+/*error activate profile */
+#more{
+    float:right;
+    font-size: 0.8em;
+    text-decoration: underline;
+    cursor: pointer;
+}

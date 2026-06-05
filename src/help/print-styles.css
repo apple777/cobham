@@ -1,0 +1,15 @@
+#bottom-logo,
+header,
+footer {
+    display: none;
+}
+
+pre {
+    border: 1px dotted #333;
+    padding: 1em;
+    margin: .5em;
+}
+
+tr {
+    border-bottom: 1px solid black;
+}

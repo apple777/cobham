@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OMU MkII</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+  <div class="button-panel">
+    <a href="javascript:void(0)" onclick="collapseAllPanels()" class="button"><div class="icon minimize"></div>Collapse</a>
+    <a href="javascript:void(0)" onclick="basicMode()" class="button"><div class="icon basicmode"></div>Basic</a>
+    <a href="javascript:void(0)" onclick="advancedMode()" class="button"><div class="icon advancedmode"></div>Advanced</a>
+    <div class="icon separator2"></div>
+    <a id="ola-button" href="ola/index.html" class="button"><div class="icon optolossadjustment"></div> Opto Adjust</a>
+    <a id="rfa-button" href="rfa/index.html" class="button"><div class="icon rfadjustbtn"></div> RF Adjust</a>
+  </div>
+  <div id="generalstatus" class="panel collapsible">
+    <div class="header">General
+      <div class="headericons">
+        <div id="generaloverallstatusled" class="led grey round" title="Overall Status"></div>
+      </div>
+    </div>
+    <div class="contents">
+      <table id="generalstatus-table" class="type2">
+        <caption><div class="icon controller"></div> Controller</caption>
+        <tr>
+          <th><div class="icon temperature"></div>Temperature <div class="icon help" title="Controller temperature"></div></th>
+          <td><div class="numerical">
+              <div id="systemtemperatureled" class="led grey"></div><span id="system-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+        </tr>
+        <tr class="basic">
+          <th><div class="icon tag"></div>Tag</th><td id="tag-row">
+          <a id="lock-tag-btn" class="button" href="javascript:void(0)" onClick="onLockTag()" title="Toggle lock of tag"><div id="lock-tag-button-icon" class="icon"></div></a>
+          <a id="edit-tag-btn" class="button" href="javascript:void(0)" onClick="onEditTag()" title="Edit tag"><div class="icon editwhite"></div></a>
+          <span id="tag-val">...</span></td>
+        </tr>
+        <tr class="basic">
+          <th><div class="icon id"></div>ID <div class="icon help" title="Repeater ID"></div></th>
+          <td id="rid-val">...</td>
+        </tr>
+        <tr class="basic">
+          <th><div class="icon model"></div>Model <div class="icon help" title="Repeater model"></div></th>
+          <td id="mdl-val">...</td>
+        </tr>
+      </table>
+      <table id="ext" class="type4">
+        <caption><div class="icon externalalarm"></div>
+         External Alarms
+            <div class="icon help" title="You can set the external alarm description by clicking on the text"></div></caption>
+        <tr>
+          <th><div class="icon ext1"></div> External Alarm 1</th>
+          <td id="ext-1-desc">...</td>
+          <td id="ext1led"><div id="ext1leddiv" class="led grey"></div></td>
+        </tr>
+        <tr>
+          <th><div class="icon ext2"></div> External Alarm 2</th>
+          <td id="ext-2-desc">...</td>
+          <td id="ext2led"><div id="ext2leddiv" class="led grey"></div></td>
+        </tr>
+        <tr>
+          <th><div class="icon ext3"></div> External Alarm 3</th>
+          <td id="ext-3-desc">...</td>
+          <td id="ext3led"><div id="ext3leddiv" class="led grey"></div></td>
+        </tr>
+        <tr>
+          <th><div class="icon ext4"></div> External Alarm 4</th>
+          <td id="ext-4-desc">...</td>
+          <td id="ext4led"><div id="ext4leddiv" class="led grey"></div></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+<script type="text/javascript" src="rackbuilder.js"></script>
+</body>
+</html>

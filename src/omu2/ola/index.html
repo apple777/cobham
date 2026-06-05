@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OMU Opto Loss Adjustment</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="button-panel">
+        <a class="button" href="../index.html"><div class="icon backarrow"></div> Back</a>
+        <a id="adjust-button" class="button" href="javascript:void(0)"><div class="icon optolossadjustment"></div> Adjust</a>
+        <span id="ola-progress" style="display:none;"><div class="icon warning" title="You can use other pages. Optical loss adjustment will continue to run in the background untill it is finished."></div>Optical Loss Adjustment already in progress</span>
+    </div>
+    <div class="panel collapsible">
+        <div class="header">Opto Loss Adjustment</div>
+        <div class="contents">
+            <table class="config_panel type1">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th title="Rack:Slot">Pos</th>
+                    <th><label for="select-all-ul-ola-cbx"><div class="icon uplink" title="Uplink Opto Loss Adjustment"></div></label><input type="checkbox" id="select-all-ul-ola-cbx"/></th>
+                    <th><label for="select-all-ola-cbx">OLA</label><br/><input type="checkbox" id="select-all-ola-cbx"/></th>
+                    <th><label for="select-all-dl-ola-cbx"><div class="icon downlink" title="Downlink Opto Loss Adjustment"></div></label><input type="checkbox" id="select-all-dl-ola-cbx"/></th>
+                    <th>Node</th>
+                    <th><div class="icon status"></div> Status</th>
+                    <th>Finish Time</th>
+                    <th title="Resulting Attenuation">Resulting Atten [dB]</th>
+                    <th title="Pilot Tone Level">Pilot [dBm]</th>
+                </tr>
+                </thead>
+                <tbody>
+                <script id="ola-template" type="text/-x-handelbars-template">
+                    {{#each optos}}
+                    <tr class="ola-row opto-row" data-rack="{{rack}}" data-slot="{{slot}}">
+                        <td class="led-cell"><div class="led status-led"></div></td>
+                        <td class="position-cell" title="Rack: {{rack}}, Slot: {{slot}}"><label for="{{rack}}-{{slot}}-ul-ola-cbx">{{rack}}:{{slot}}</label></td>
+                        <td class="ul-ola-cell checbox-cell">
+                            <input type="checkbox" id="{{rack}}-{{slot}}-ul-ola-cbx" class="ul-ola-cbx ola-cbx" data-rack="{{rack}}" data-slot="{{slot}}" disabled="disabled"/>
+                        </td>
+                        <td class="drop-down-cell opto"></td>
+                        <td class=""></td>
+                        <td class=""></td>
+                        <td class="message-cell"><img src="/src/images/waiting16-black.gif"/> Getting information from the opto...</td>
+                        <td class="stop-cell"></td>
+                        <td class="result-attenuation-cell"></td>
+                        <td class="pilot-cell"></td>
+                    </tr>
+                    {{#each nodes}}
+                    <tr class="ola-row node-row" data-rack="{{rack}}" data-slot="{{slot}}" data-serial="{{serial}}" data-mdl="{{mdl}}">
+                        <td class="led-cell"><div class="led status-led"></div></td>
+                        <td class="ul-ola-cell"></td>
+                        <td class=""></td>
+                        {{#if isLast}}
+                        <td class="drop-down-cell node-last"></td>
+                        {{else}}
+                        <td class="drop-down-cell node"></td>
+                        {{/if}}
+                        <td class="dl-ola-cell checbox-cell">
+                            <input type="checkbox" id="{{serial}}-dl-ola-cbx" class="dl-ola-cbx ola-cbx" data-node-number="{{number}}" data-serial="{{serial}}" disabled="disabled"/>
+                        </td>
+                        <td class="position-cell"><label for="{{serial}}-dl-ola-cbx">{{number}} ({{serial}})</label></td>
+                        <td class="message-cell"><img src="/src/images/waiting16-black.gif"/> Getting information from the node...</td>
+                        <td class="stop-cell"></td>
+                        <td class="result-attenuation-cell"></td>
+                        <td class="pilot-cell"></td>
+                    </tr>
+                    {{/each}}
+                    {{/each}}
+                </script>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

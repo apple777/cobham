@@ -1,0 +1,107 @@
+#tag-row {
+	text-align:left;
+}
+/*------------------Don't let the OLA button grow too wide ----------------*/
+.ola-button {
+	max-width: 100px;
+}
+/*-----------------------Tables in the General Panel-----------------------*/
+table#generalstatus{
+	width:450px;
+	float:left;
+}
+table#generalstatus th{
+	width:190px;
+}
+table#ext{
+	margin-left:5px;
+	width:505px;
+	float:left;
+}
+table#ext th{
+	width:150px;
+}
+table#ext td:first-of-type{
+	width:315px;
+}
+table#uplinkdownlink-table th:first-child,
+table#fiberopticstatus  th:first-child{
+	width:200px;
+}
+table#fiberopticstatus tr td{
+	width:auto;
+	text-align:center;
+}
+table#powerstatus td{
+	width:5.55%;
+}
+/*-----------------------Frequency indicator-----------------------*/
+.freq-indicator {
+	width:200px;
+	height:115px;
+	background-image:url(waveform.png);
+	background-repeat:no-repeat;
+	background-position:0 0;
+	position: relative;
+    left: 50%;
+    margin-left: -100px;
+}
+.freq-indicator.off {
+	background-position:-200px 0;
+}
+.freq-indicator .start,
+.freq-indicator .stop{
+	color: #FF00FF;
+    display: inline-block;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    top: 100px;
+    width: 40px;
+	/*border-top: 2px solid red*/
+}
+.freq-indicator .start {
+	left: -24px;
+}
+.freq-indicator .stop {
+	left: 24px;
+}
+/*-----------------------Number fields-----------------------*/
+div.panel div.contents table tr td.number{
+}
+/*-----------------------Panel status led-----------------------*/
+div.panel div.header .led{
+	margin-right:4px;
+}
+/*-----------------------The border between rows-----------------------*/
+table.horizontal tr td+td,
+table.vertical th.borderleft,
+table.vertical td.borderleft{
+	border-left:1px solid #999;
+}
+/*-----------------------SELECT BOXES-----------------------*/
+table#bandstatus tr td select{
+	width:180px;
+}
+/*-----------------------BASIC ADVANCED LINKS-----------------------*/
+/* This one is just a fix for center-aligning the header for general status even though it's a horizontal table*/
+table.horizontal#generalstatus th#alightcenter{
+	text-align:center !important;
+}
+/*-----------------------These classes are used more as an indigation for showing or hiding a column-----------------------*/
+.band1{
+}
+.band2{
+}
+.band3{
+}
+.band4{
+}
+.fo1{
+}
+.fo2{
+}
+.fo3{
+}
+.fo4{
+}

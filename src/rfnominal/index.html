@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RF Nominal Power Level</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="button-panel">
+        <span>Operator: </span><select id="operator_name"></select>
+        <a id="save-button" class="button"> Save Change</a>
+    </div>
+    <div id="tabs">
+        <div class="panel">
+            <div class="header">idRemote - RF Nominal Power Level </div>
+            <br>
+            <div class="contents">
+                <div id="rru_rfnominal_plcholder"></div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="header">MTDI - RF Nominal Power Level </div>
+            <br>
+            <div class="contents">
+                <div id="mtdi_rfnominal_plcholder"></div>
+            </div>
+        </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

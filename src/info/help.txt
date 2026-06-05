@@ -1,0 +1,32 @@
+#System Information
+
+In this page you can see the vital information about the controller as well as identification informations.
+
+###Performance
+
+These gauges provide general information about the operating system of the repeater. Most of these data is obtained
+from the SPC attribute.
+
+Here is what every gauge represents:
+
+ * **cpu:** Load Average (normally below zero but can go up to 30).
+ * **mem:** Percentage of the used memory (% of total RAM that is used by programs)
+ * **sys dsk:** Percentage of the system disk that is used
+ * **fw dsk:** Percentage of the firmware disk that is used
+ * **tmp dsk:** Percentage of the temporary disk (a RAM disk) that is used
+ * **net ms:** Response time for the calls to the controller. This is a rough indication of the speed of your connectivity
+   to the controller.
+
+For all these gauges smaller is better meaning that the bigger the number, the more probablity the businer is the system.
+
+###Control Module
+
+This panel provides the basic information about the controller like serial number and various version numbers. You may
+need these information when you [contact the support](/help/contact.txt).
+
+Please note that the Serial Number here refers to the actual serial number that is printed on the controller board.
+
+###Site Information
+
+This panel contains the information about the system as a repeater. These information help to identify for example
+what type of repeater it is and what role does it play in an Axell Site (a collection of repeaters).

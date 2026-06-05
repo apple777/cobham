@@ -1,0 +1,194 @@
+<div id="generalstatus" class="panel">
+    <div class="header">General
+        <div class="headericons">
+            <div id="doo" class="advanced iconcontainer" title="Door alarm"><div class="icon door-white"></div><div id="doo-led" class="led"></div></div>
+            <div id="generaloverallstatusled" class="overall-led led round" title="Overall Status"></div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="/general/general.css">
+    <div class="contents">
+        <table id="generalstatus-table" class="type2">
+            <tr>
+                <th><div class="icon temperature"></div>Temperature <div class="icon help" title="Controller temperature"></div></th>
+                <td><div class="numerical">
+                    <div id="tem-led" class="led"></div><span id="system-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+            </tr>
+            <tr class="basic">
+                <th><div class="icon tag"></div>Tag</th><td id="tag-row">
+                <input type="checkbox" id="lock-tag-btn"><label for="lock-tag-btn">Toggle Lock</label></input>
+                <a id="edit-tag-btn">Edit</a>
+                <span id="tag-val">...</span></td>
+            </tr>
+            <tr class="basic">
+                <th><div class="icon tag"></div>Location Tag</th><td id="loc-tag-row">
+                <a id="edit-loc-tag-btn">Edit</a>
+                <span id="loc-tag-val">...</span></td>
+            </tr>
+            <tr id="master-mute" class="advanced">
+                <th><div class="icon mutedradio"></div>RF Master Mute
+                    <div class="icon help" title="The Master Mute is normally ran from the network management center to mute/unmute the repeater due to external problems.
+              In order to mute or unmute repeater, please issue SET RMM 0 (unmute) or SET RMM 1 (mute) from Axell Shell page"></div>
+                    <td id="mmt-td"><div id="mmt-led" class="led"></div></td>
+                </th>
+            </tr>
+            <tr class="basic">
+                <th><div class="icon id"></div>Serial Number <div class="icon help" title="Serial Number"></div></th>
+                <td id="serial-number">...</td>
+            </tr>
+           <tr class="basic simple_mode">
+                <th><div class="icon model"></div>Model <div class="icon help" title="Repeater Model"></div></th>
+                <td id="mdl-text">...</td>
+            </tr>
+            <tr class="basic mode">
+                <th><div class="icon model"></div>Model <div class="icon help" title="Model"></div></th>
+                <td id="config_mode_type">
+                    <select id="mode">
+                      <option value="master">MSDH-M</option>              
+                      <option value="slave">MSDH-S</option>
+                    </select>
+                </td>  
+            </tr>
+            <tr class="basic redundancy">
+                <th><div class="icon model"></div>Redundancy <div class="icon help" title="Redundancy"></div></th>
+                <td id="config_prm_type">
+                    <select id="redundancy">
+                      <option value="0">-</option>             
+                      <option value="1">Primary</option>              
+                      <option value="2">Secondary</option>
+                      <option value="3">Both</option>
+                      <option value="11">Active</option>
+                      <option value="22">Standby</option>
+                    </select>
+                    <span id="active"> Main 
+                        <select id="red_active">
+                          <option value="1">Primary</option>              
+                          <option value="2">Secondary</option>
+                        </select>
+                    </span>                    
+                </td>
+            </tr>
+            <tr class="basic fiber_redundancy">
+                <th><div class="icon model"></div>Fiber Redundancy <div class="icon help" title="Fiber Redundancy"></div></th>
+                <td id="config_fiber_redundancy">
+                    <select id="fiber_redundancy">
+                      <option value="0">Disable</option>              
+                      <option value="1">Enable</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="basic sync_port">
+                <th><div class="icon model"></div>Sync ports <div class="icon help" title="Sync clock port"></div></th>
+                <td id="config_sync_port">
+                    <span id="span_sync_port" style="margin-left:5px"></span>                    
+                    <select id="sync_port" style="margin-left:5px">
+                      <option value="0">-</option>             
+                      <option value="1">1</option>             
+                      <option value="2">2</option>              
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>             
+                      <option value="6">6</option>              
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>             
+                      <option value="10">10</option>              
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>             
+                      <option value="14">14</option>              
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                    </select>
+                    <a id="sync_port_set">Set</a>
+                    <a id="sync_port_clear">Clear</a>
+                </td>
+            </tr>
+            <tr class="basic mng_port">
+                <th><div class="icon model"></div>Management ports <div class="icon help" title="Management port"></div></th>
+                <td id="config_mng_port">
+                    <span id="span_mng_port" style="margin-left:5px"></span>                    
+                    <select id="mng_port" style="margin-left:5px">
+                      <option value="0">-</option>             
+                      <option value="1">1</option>             
+                      <option value="2">2</option>              
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>             
+                      <option value="6">6</option>              
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>             
+                      <option value="10">10</option>              
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>             
+                      <option value="14">14</option>              
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                    </select>
+                    <a id="mng_port_set">Set</a>
+                    <a id="mng_port_clear">Clear</a>
+                </td>
+            </tr>
+            <tr class="basic redundancy_mode">
+                <th><div class="icon model"></div>Redundancy Mode <div class="icon help" title="Redundancy Mode"></div></th>
+                <td id="config_redundancy_mode">
+                    <select id="redundancy_mode">
+                      <option value="0">Manual</option>              
+                      <option value="1">Auto</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="basic redundancy_interface">
+                <th><div class="icon model"></div>Redundancy Interface <div class="icon help" title="Redundancy Interface"></div></th>
+                <td id="config_redundancy_interface">
+                    <select id="redundancy_interface">
+                      <option value="0">ETH</option>              
+                      <option value="1">CPRI</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="basic redundancy_primary_ip">
+                <th><div class="icon tag"></div>Primary Ip</th><td id="prim-ip-row">
+                <a id="edit-prim-ip-btn">Edit</a>
+                <span id="prim-ip-val">...</span></td>
+            </tr>
+            <tr class="basic redundancy_secondary_ip">
+                <th><div class="icon tag"></div>Secondary Ip</th><td id="sec-ip-row">
+                <a id="edit-sec-ip-btn">Edit</a>
+                <span id="sec-ip-val">...</span></td>
+            </tr>
+            <tr class="basic gps">
+                <th><div class="icon location"></div>GPS <div class="icon help" title="GPS Clock"></div></th>
+                <td><div id="gpsPowerBtn" class="powerbutton hidewhenon"></div>
+                    <div id="poweroffwarning"></div>
+                </td>
+            </tr>            
+        </table>
+        <table id="ext" class="type4">
+            <caption><div class="icon externalalarm"></div>
+                External Alarms
+                <div class="icon help" title="You can set the external alarm description by clicking on the text"></div></caption>
+            <tr id="ex1">
+                <th><div class="icon ext1"></div> External Alarm 1</th>
+                <td id="ead1-text">...</td>
+                <td><div id="ex1-led" class="led"></div></td>
+            </tr>
+            <tr id="ex2">
+                <th><div class="icon ext2"></div> External Alarm 2</th>
+                <td id="ead2-text">...</td>
+                <td><div id="ex2-led" class="led"></div></td>
+            </tr>
+            <tr id="ex3">
+                <th><div class="icon ext3"></div> External Alarm 3</th>
+                <td id="ead3-text">...</td>
+                <td><div id="ex3-led" class="led"></div></td>
+            </tr>
+            <tr id="ex4">
+                <th><div class="icon ext4"></div> External Alarm 4</th>
+                <td id="ead4-text">...</td>
+                <td><div id="ex4-led" class="led"></div></td>
+            </tr>
+        </table>
+    </div>
+</div>

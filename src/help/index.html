@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Help</title>
+    <!-- this page dosn't use the general main.css or main.js-->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" media="screen" href="styles.css" />
+    <link rel="stylesheet" media="print" href="print-styles.css" />
+</head>
+<body>
+<div id="markdown-view">
+    <textarea id="markdown-text" placeholder="markdown text"></textarea>
+</div>
+<div id="html-view">
+    <header>
+        <div id="message">Looking up the page parameter from the URL...</div>
+        <a id="print-btn" class="help-loaded" href="javascript:window.print()">Print</a>
+    </header>
+    <div id="markdown-output-contents" class="help-loaded"></div>
+    <footer class="help-loaded">copyright &copy; Axell Wireless. All rights reserved</footer>
+</div>
+<script data-main="code.js" src="/js/require.js"></script>
+</body>
+</html>

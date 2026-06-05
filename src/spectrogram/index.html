@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Spectrogram</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="chart"></div>
+<div id="dataset-picker"></div>
+
+<div class="control-panel" style="text-align: left;">
+   <span class="space">Operator: <select id="operatorname"></select></span>
+   <span class="space">Band: <select id="bands_name"></select></span>
+   <span class="space">Range [MHz]: <input id="start_freq" size="5"><span> - </span><input id="stop_freq" size="5"></span>
+   <span class="space">Number Measurements: <input id="num_measurements" size="5"><span>
+   <button class="space" type="button" style="height: 30px !important" id="refresh">Refresh</button>
+   <br><br>
+   <span class="toggle-keydown" style="display: none;">Factor: <input id="factor" type="text" value="-155">
+     <a id="apply-button" class="ui-button ui-state-default ui-button-text-only">
+       <span class="ui-button-text">Apply</span>
+     </a>
+     <span class="space">Rx/Tx: <select id="uldl_name"></select></span>
+   </span>
+   <br><br>
+</div>
+
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

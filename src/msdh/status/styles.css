@@ -1,0 +1,34 @@
+#node-overall-status-panel{
+    background-color: #00A4F2;
+    color:white;
+}
+#ic-status tr.modules th{
+    background-color: #0381BD!important; /* sky blue dark */
+    color:white!important;
+}
+.headericons{
+    display: inline-block;
+    vertical-align: text-top;
+    float:right;
+    height: 16px;
+}
+
+.headericon{
+    display: inline-block;
+}
+.even-activity-led{
+    margin-top: 10px;
+}
+.odd-activity-led{
+    margin-top: -5px;
+}
+.activity-odd-band div{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.ui-tooltip {
+    white-space: pre-line;
+}

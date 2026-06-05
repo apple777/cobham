@@ -1,0 +1,13 @@
+#passwd-button{
+    text-decoration: underline;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+#reset_password span{
+    width: 35%;
+    float: left;
+}
+#reset_password input{
+    margin: 5px;
+}

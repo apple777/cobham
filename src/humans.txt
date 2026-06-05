@@ -1,0 +1,2 @@
+Web Management and Control (WMC) is a web application by Axell Wireless that allows the users to control the repeater
+and monitor its status. It is basically useful for troubleshooting.

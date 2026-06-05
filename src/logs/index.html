@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Active Alarms</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div style="display:none" id="popup_filter_setting">
+   <br/>
+   Status: <input type="checkbox" id="checkCritical" checked/> Critical
+   <input type="checkbox" id="checkMajor" checked/> Major
+   <input type="checkbox" id="checkMinor" checked/> Minor
+   <input type="checkbox" id="checkInfo" checked/> Info
+   <input type="checkbox" id="checkEvent" checked/> Event
+   <input type="checkbox" id="checkClear" checked/> Clear
+   <br/>
+   <br/>
+   <br/>
+   <!--Source: <select class="filter_select" name="colomn" id="filter_colomn">
+   </select-->
+   Source: <input id="filter_source" type="text" style="min-width: 180px; min-height: 24px">
+   <br/>
+   <br/>
+   <br/>
+   Description text: <input id="filter_text" type="text" style="min-width: 180px; min-height: 24px">
+</div>
+<div class="pagecontainer">
+    <div id="control_buttons" class="button-panel" style="height: 30px;">
+        <a id="raise_button" class="button" style="float: left;"><div title="Raise Test Alarm"></div>Raise Test Alarm</a>
+        <a id="clear_button" class="button" style="float: left;"><div title="Clear Test Alarm"></div>Clear Test Alarm</a>
+        <a id="clear_alarms_button" class="button" style="float: left;"><div title="Clear Alarms"></div>Clear Alarms</a>
+        <a id="filter_btn" class="button">Filter</a>
+        <a id="export_button" class="button" style="float: right;"><div title="Export"></div>Export</a>
+        <a id="login_button" class="button" style="float: right;"><div title="Login"></div>Login</a>
+        <a id="zoom_button" class="button" style="float: right;"><div title="Zoom"></div>Zoom</a>
+    </div>   
+	<div class="panel collapsible">
+        <div class="header"><span id="log-count"></span></div>
+        <div class="contents">
+			<table id="alarms-table" >
+				<caption>Active Alarms</caption>
+                <thead>
+                    <tr class="alarms_table_head">
+                        <td title="Index" id="Index" width=30px></td>
+                        <td title="Severity" id="Severity" width=80px>Severity</td>
+                        <td title="Date And Time" id="Date and Time" width=175px>Date And Time</td>
+                        <td title="Operator" id="Operator" width=100px>Operator</td>
+                        <td title="Attrib" id="Attrib" width=100px>Attribute</td>
+                        <td title="Source" id="Source" width=80px>Source</td>
+                        <td title="Tag" id="Tag" width=120px>Tag</td>
+                        <td title="Description" id="Description">Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Software Update</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script>
+
+      function cmd(name)
+     {
+      var xmlhttp;
+      if (window.XMLHttpRequest)
+       {// code for IE7+, Firefox, Chrome, Opera, Safari
+         xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+        document.getElementById("log").innerHTML=xmlhttp.responseText;
+        }
+        }
+        xmlhttp.open("GET","/cgi/cmd.lua?cmd="+name,true);
+        xmlhttp.send();
+    }
+   </script>
+
+
+
+</head>
+<body>
+
+
+
+
+<div class="pagecontainer">
+    <div id="advanced-btn" flag="true">Show advanced settings</div>
+    <div class="panel advanced">
+        <div class="header">System Update</div>
+        <div class="contents">
+            <form id="sys-upgrade-form" enctype="multipart/form-data" method="post" >
+                <ol>
+                    <li> Choose the new version file to update: <input id="sys-file" type="file" name="sys-version" accept=".gz" value="Browse file"></li>
+                    <li> Upload file: <input id="upload_system" type="submit" value="Upload"></li>
+                </ol>
+            </form>
+            <div class="btn_panel">
+                <a class="button" id ="burn_sys_btn">Burn System</a>
+
+                <!--<a class="button" id ="get_status">Read Status</a>-->
+            </div>
+            <br>
+            <div>
+                <b>Activity log</b><br>
+                <div id="sys_log">
+
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="panel">
+    <div class="header">Software Update</div>
+    <div class="contents">
+        <form id="sw-upgrade-form" enctype="multipart/form-data" method="post" >
+            <ol>
+                <li> Choose the new version file to update: <input id="sw-file" type="file" accept=".z" name="sw-version" value="Browse file"></li>
+                <li> Upload file: <input id="upload_sw" type="submit" value="Upload"></li>
+            </ol>
+        </form>
+         <div class="btn_panel">
+         <a class="button" id ="burn_sw_btn">Burn Software</a>
+
+         <!--<a class="button" id ="get_status">Read Status</a>-->
+         </div>
+        <br>
+        <div>
+            <b>Activity log</b><br>
+            <div id="sw_log">
+            </div>
+        </div>
+    </div>
+  </div>
+    <div id="factory_reset_panel" class="panel" style="display:none">
+        <div class="header">Factory Reset</div>
+        <div class="contents">
+            <div id="reset_btn"></div>
+        <div>
+            <br>
+            <b>Activity log</b><br>
+            <div id="reset_log">
+            </div>
+        </div>
+        </div>
+    </div>
+    <div id="patches_panel" class="panel" style="display:none">
+        <div class="header">Installed Patches</div>
+        <div class="contents">
+            <div>
+                <div id="patches_log">
+                </div>
+            </div>
+        </div>
+    </div>
+  <div id="file_upload_msg" style="display:none">File is uploading...</div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

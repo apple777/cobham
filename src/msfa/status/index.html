@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>MSDH</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+<div class="button-panel">
+    <a id="basic-btn" class="button">Basic</a>
+    <a id="advanced-btn" class="button">Advanced</a>
+</div>
+
+<!--div id="general-panel-placeholder"></div-->
+<div class="pagecontainer">
+<div id="node-overall-status-panel" class="panel">
+    <div class="header"> Node Overall Status
+        <div class="headericons">
+            <div id="node-summary-status" class="led round summary-status" title="Node Overall Status"></div>
+        </div>
+    </div>
+</div>
+    <div id="general-panel-placeholder"></div>
+<script id="ic-status-template" type="text/x-handlebars-template">
+    <div id="ic-status-panel" class="panel collapsible">
+    <div class="header"> Interconnection
+        <div class="headericons">
+            <div class="led round overall-led" title="Overall Status"></div>
+        </div>
+    </div>
+    <div class="contents">
+        <table id="ic-status" class="type2">
+            <thead>
+                <caption><div class="icon laser"></div>Digital Interconnect
+                    <div class="headericons">
+                        <div class="headericon"><div title="Recovered clock status" class="icon recovered-clock-white"></div><div id ="ic-recovered-clock" class="led"></div></div>
+                    </div>
+                </caption>
+            </thead>
+            <tbody>
+                <tr class="modules">
+                    <th><div class="icon number"></div> Position</th>
+                    {{#each odd-band}}
+                    <th id= "band{{.}}" class="th-position">{{.}}</th>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon status"></div> Overall status</th>
+                    {{#each odd-band}}
+                    <td><div id="ic{{.}}-overall-led" class="led round"></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon install"></div> Installed</th>
+                    {{#each odd-band}}
+                    <td><div id="ic{{.}}-ism" class="icon"></div></td>
+                    {{/each}}
+                </tr>
+                <tr id="supported1" class="advanced">
+                    <th><div class="icon axelllogocolor"></div> Supported</th>
+                    {{#each odd-band}}
+                    <td><div id="ic{{.}}-usm" class="icon"></div></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon linkstate"></div> Link State </th>
+                    {{#each odd-band}}
+                    <td id="ic{{.}}-linkst" class="linkstate_cell"></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th></th>
+                    {{#each odd-band}}
+                        <th class="ic{{.}}"><div class="icon laser"></div></th>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon communication"></div> SFP+ Comm</th>
+                    {{#each odd-band}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-comm" class="led"></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th title="Inter Connection Temprature"><div class="icon temperature"></div> Temperature</th>
+                    {{#each odd-band}}
+                    <td class="ic{{.}}"><div class="numerical"><div id="ic{{.}}-temp-led" class="led"></div><span id="ic{{.}}-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon power"></div> Power</th>
+                    {{#each odd-band}}
+                    <td class="ic{{.}}"><div class="numerical"><div id="ic{{.}}-power-led" class="led"></div><span id="ic{{.}}-power-val" class="value">...</span><span class="unit">V</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon specanalyzer"></div> Bias</th>
+                    {{#each odd-band}}
+                    <td class="ic{{.}}"><div class="numerical"><div id="ic{{.}}-current-led" class="led"></div><span id="ic{{.}}-current-val" class="value">...</span><span class="unit">mA</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon txopto"></div> Tx Opto</th>
+                    {{#each odd-band}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-txopto" class="numerical"><div id="ic{{.}}-txopto-led" class="led"></div><span id="ic{{.}}-txopto-val" class="value">...</span><span class="unit">dBm</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon rxopto"></div> Rx Opto</th>
+                    {{#each odd-band}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-rxopto" class="numerical"><div id="ic{{.}}-rxopto-led" class="led"></div><span id="ic{{.}}-rxopto-val" class="value">...</span><span class="unit">dBm</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th></th>
+                    {{#each odd-band}}
+                    <td id = "ic{{.}}_deactivate_cell" class="deactivate_cell"> </td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <td colspan="9"></td>
+                </tr>
+                <tr class="modules">
+                    <th><div class="icon number"></div> Position</th>
+                    {{#each even-band}}
+                    <th id= "band{{.}}" class="th-position">{{.}}</th>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon status"></div> Overall status</th>
+                    {{#each even-band}}
+                    <td><div id="ic{{.}}-overall-led" class="led round"></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon install"></div> Installed</th>
+                    {{#each even-band}}
+                    <td><div id="ic{{.}}-ism" class="icon"></div></td>
+                    {{/each}}
+                </tr>
+                <tr id="supported2" class="advanced">
+                    <th><div class="icon axelllogocolor"></div> Supported</th>
+                    {{#each even-band}}
+                    <td><div id="ic{{.}}-usm" class="icon"></div></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon linkstate"></div> Link State </th>
+                    {{#each even-band}}
+                    <td id="ic{{.}}-linkst" class="linkstate_cell"></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th></th>
+                    {{#each even-band}}
+                    <th class="ic{{.}}"><div class="icon laser"></div></th>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon communication"></div> SFP+ Comm</th>
+                    {{#each even-band}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-comm" class="led"></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th title="Inter Connection Temprature"><div class="icon temperature"></div> Temperature</th>
+                    {{#each even-band}}
+                    <td class="ic{{.}}"><div class="numerical"><div id="ic{{.}}-temp-led" class="led"></div><span id="ic{{.}}-temp-val" class="value">...</span><span class="unit">&deg;C</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon power"></div> Power</th>
+                    {{#each even-band}}
+                    <td class="ic{{.}}"><div class="numerical"><div id="ic{{.}}-power-led" class="led"></div><span id="ic{{.}}-power-val" class="value">...</span><span class="unit">V</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon specanalyzer"></div> Bias</th>
+                    {{#each even-band}}
+                    <td class="ic{{.}}"><div class="numerical"><div id="ic{{.}}-current-led" class="led"></div><span id="ic{{.}}-current-val" class="value">...</span><span class="unit">mA</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th><div class="icon txopto"></div> Tx Opto</th>
+                    {{#each even-band}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-txopto" class="numerical"><div id="ic{{.}}-txopto-led" class="led"></div><span id="ic{{.}}-txopto-val" class="value">...</span><span class="unit">dBm</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <th><div class="icon rxopto"></div> Rx Opto</th>
+                    {{#each even-band}}
+                    <td class="ic{{.}}"><div id="ic{{.}}-rxopto" class="numerical"><div id="ic{{.}}-rxopto-led" class="led"></div><span id="ic{{.}}-rxopto-val" class="value">...</span><span class="unit">dBm</span></div></td>
+                    {{/each}}
+                </tr>
+                <tr class="advanced">
+                    <th></th>
+                    {{#each even-band}}
+                    <td id = "ic{{.}}_deactivate_cell" class="deactivate_cell"> </td>
+                    {{/each}}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</script>
+<!--
+    <div id="ethernet-panel" class="panel">
+        <div class="header">Ethernet<div class="headericons"><div class="led round overall-led" title="Overall Status"></div></div></div>
+        <div class="contents">
+            <table class="type1">
+                <thead>
+                <caption><div class="icon switch"></div> Ethernet Status</caption>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><div id= "main-clock-led" class="icon switch1" title="Ethernet 1"></div> <div class="led green"></div></td>
+                    <td><div id= "ethernet-clock-led" class="icon switch2" title="Ethernet 2"></div> <div class="led green"></div></td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <script id="activity-tbl-template" type="text/x-handlebars-template">
+            <table class="type1">
+                <thead>
+                    <caption><div class="icon activity-white"></div> Activity</caption>
+                </thead>
+                <tbody>
+                <tr>
+                    {{#each odd-band}}
+                <th><div class="icon number"></div> {{.}}</th>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each odd-band}}
+                    <td class="activity-odd-band"><div class="led green odd-activity-led"></div> <div class="icon ethernet"></div> <div class="led yellow odd-activity-led"></div></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each even-band}}
+                    <th><div class="icon number"></div> {{.}}</th>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each even-band}}
+                    <td class="activity-even-band"><div class="led green even-activity-led"></div> <div class="icon ethernet"></div> <div class="led yellow even-activity-led"></div></td>
+                    {{/each}}
+                </tr>
+                </tbody>
+            </table>
+            </script>
+        </div>
+    </div>
+    -->
+    <div id="misc-panel" class="panel">
+        <div class="header">Subsystems<div class="headericons"><div class="led round overall-led" title="Overall Status"></div></div></div>
+        <div class="contents">
+            <table id="clock-tbl" class="type1">
+                <thead>
+                <caption><div class="icon clock-white"></div> Clock</caption>
+                <tr class="advanced">
+                    <td><div class="icon processor" title="Main clock"></div> <div id="clock-main-led" class="led"></div></td>
+                    <td><div class="icon ethernet" title="Ethernet clock"></div> <div id="clock-eth-led" class="led"></div></td>
+                </tr>
+            </table>
+            <br>
+            <table id="pwsupply-tbl" class="type1">
+                <thead>
+                <caption><div class="icon powerinput"></div> Power Supervision 1</caption>
+                <tr>
+                    <th title="Power supply 1V0"><div class="icon power1"></div> </th>
+                    <th title="Power supply 1V5"><div class="icon power2"></div> </th>
+                    <th title="Power supply 1V8"><div class="icon power3"></div> </th>
+                    <th title="Power supply 2V5"><div class="icon power4"></div> </th>
+                    <th title="Power supply 5V0"><div class="icon power5"></div> </th>
+                    <th title="Power supply 12V0:1"><div class="icon power6"></div> </th>
+                    <th title="Power supply 12V0:2"><div class="icon power7"></div> </th>
+                    <th title="Power supply 24V0"><div class="icon power8"></div> </th>
+                    <th title="Current 1"><div class="icon current1"></div> </th>
+                    <th title="Current 2"><div class="icon current2"></div> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="advanced">
+                    <td><div class="numerical"><div id="1V0-led" class="led"></div><span id="1V0-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="1V5-led" class="led"></div><span id="1V5-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="1V8-led" class="led"></div><span id="1V8-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="2V5-led" class="led"></div><span id="2V5-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="5V0-led" class="led"></div><span id="5V0-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="12V0_1-led" class="led"></div><span id="12V0_1-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="12V0_2-led" class="led"></div><span id="12V0_2-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="24V0-led" class="led"></div><span id="24V0-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="current1-led" class="led"></div><span id="current1-val" class="value">...</span><span class="unit">A</span></div></td>
+                    <td><div class="numerical"><div id="current2-led" class="led"></div><span id="current2-val" class="value">...</span><span class="unit">A</span></div></td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <table id="fpgapwsupply-tbl" class="type1">
+                <thead>
+                <caption><div class="icon powerinput"></div> Power Supervision 2</caption>
+                <tr>
+                    <th title="Power supply measured at point Int"><div class="icon power1"></div> </th>
+                    <th title="Power supply measured at point Aux"><div class="icon power2"></div> </th>
+                    <th title="Power supply measured at point BRAM"><div class="icon power3"></div> </th>
+                    <th title="Power supply measured at point PINT"><div class="icon power4"></div> </th>
+                    <th title="Power supply measured at point PAUX"><div class="icon power5"></div> </th>
+                    <th title="Power supply measured at point O_DDR"><div class="icon power6"></div> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="advanced">
+                    <td><div class="numerical"><div id="Int-led" class="led"></div><span id="Int-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="Aux-led" class="led"></div><span id="Aux-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="BRAM-led" class="led"></div><span id="BRAM-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="PINT-led" class="led"></div><span id="PINT-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="PAUX-led" class="led"></div><span id="PAUX-val" class="value">...</span><span class="unit">V</span></div></td>
+                    <td><div class="numerical"><div id="O_DDR-led" class="led"></div><span id="O_DDR-val" class="value">...</span><span class="unit">V</span></div></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

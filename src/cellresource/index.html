@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BTS Port Information</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="wizard-panel">
+        <li id="wizard-start" class="wizard-step">Start</li>
+        <li id="wizard-bts-port" class="wizard-step">BTS Port</li>
+        <li id="wizard-apoi" class="wizard-step">APOI</li>
+        <li id="wizard-mtdi" class="wizard-step">MTDI</li>
+        <li id="wizard-msdh" class="wizard-step">MSDH</li>
+        <li id="wizard-filters" class="wizard-step">Filters</li>
+        <li id="wizard-end" class="wizard-step">End</li>
+    </div>
+    <div class="panel">
+        <!--<div class="header"></div>-->
+        <div class="contents">
+            <table id="sector-details" class="type1">
+                <caption>BTS Port Details</caption>
+                <tr>
+                    <!--th><label for="sector-id">BTS Port ID</label></th-->
+                    <th><label for="operator_id">Operator</label></th>
+                    <th><label for="operator_id">Connection Type</label></th>
+                    <th><label for="sector-tag">BTS Port Tag</label></th>
+                    <th><label for="sector-bts-tag">Base Station Tag</label></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <!--td id="sector-id"></td-->
+                    <td id="operator_id"></td>
+                    <td id="conn-type"></td>
+                    <td> <span id="sector-tag"></span>
+                    </td>
+                    <td> <span id="sector-bts-tag"></span>
+                    </td>
+                    <td> <a class="button" id="edit_sector_tag">Edit BTS Port Tag</a>
+                         <a class="button" id="cancel_edit_sector_tag" style="display:none">Cancel</a>
+                         <a class="button disabled" id="save_sector_tag" style="display:none">Save BTS Port Tag</a>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr><th id="band-id"> Spectrum </th></tr>
+                <tr>
+                    <td>
+                        <div id ="sector-band-freq-indicator" class="freq-indicator"></div>
+                        <div>
+                            <div class="legend"><div id="available_range_legend" class="legend_color"></div>Operator Allocated Range</div>
+                            <div class="legend"><div id="cellres_range_legend" class="legend_color"></div>Cell Resource</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <a class="button" id="add_cellres">Add Cell Resource</a>
+            <table id="cellres_table" class="type1">
+                <tr class="header"><th colspan="8"> Cell Resources</th></tr>
+                <tr class="header">
+                    <!--th>ID</th-->
+                    <th>Tag</th>
+                    <th>Long Tag</th>
+                    <th>Tech</th>
+                    <!--<th>ALC Level </th>-->
+                    <th>UL/DL Gain Track </th>
+                    <th>UL/DL Gain Offset </th>
+                    <th>Manual DL Level </th>
+                    <!--<th>Ref. Level </th>-->
+                    <!--<th>MIMO</th>-->
+                    <th>Start DL</th>
+                    <th>Stop DL</th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div style="">
+        <div id="band-frequency-editor-contents" style="display:none">
+            <div>
+                <div class="cellres-tag" style="left:20px;top: 5px">
+                    <label for="cellres-tag">Tag <div class="icon help" title="Tag should be 0-50 characters long and contain [a-z0-9-_], space is allowed"></div></label>
+                    <input type="text" id="cellres-tag"/>
+                </div>
+                <div class="cellres-tag" style="left:160px;top: 5px">
+                    <label for="cellres-long-tag">Long Tag <div class="icon help" title="Tag should be 0-50 characters long and contain [a-z0-9-_], space is allowed"></div></label>
+                    <input type="text" id="cellres-long-tag"/>
+                </div>
+                <div class="mimo-cellres" style="left:20px;top: 60px">
+                    <label >MIMO options: </label>
+                    <input type="radio" name="mimo" value="A,B" checked> MIMO
+                    <input type="radio" name="mimo" value="A"> Input A
+                    <input type="radio" name="mimo" value="B"> Input B
+                </div>
+                <!--
+               <div class="agc-control" style="left:30px;top: 100px">
+                   <label for="alc-level">ALC Offset Level [dB]</label>
+                   <select id="alc-level" style="width:63px;"></select> <div class="icon help" title="Offset from nominal ALC levels that this cell resource should have in the MTDI uplink path.
+                      Range from +10 to -10 (with one decimal point). Default is 0."></div>
+               </div>
+               -->
+               <div class="agc-control" style="left:30px;top: 100px">
+                   <label for="enable-gain-track">Enable UL / DL Gain Track</label>
+                   <input id="enable-gain-track" type="checkbox" style="margin-top:8px" checked></input> <div class="icon help" title="Enable Gain Track"></div>
+               </div>
+                
+               <div class="agc-control" style="left:170px;top: 100px">
+                   <label for="gain-level">UL/ DL Gain Offset [dB]</label>
+                   <select id="gain-level" style="width:63px;"></select> <div class="icon help" title="Offset from gain uplink/ downlink levels.
+                      Range from +10 to -20 (with one decimal point). Default is 0."></div>
+               </div>
+               <div class="agc-control" style="left:310px;top: 100px">
+                   <label for="manual-level">Manual DL Level [dBm]</label>
+                   <select id="manual-level" style="width:63px;"></select> <div class="icon help" title="Manually sets the signal level from the base station to reach full power"></div>
+               </div>
+               <!--
+               <div class="agc-control" style="left:340px;top: 100px">
+                   <label for="rx-ref-level">Rx Ref. Level [dBm]</label>
+                   <select id="rx-ref-level" style="width:63px;"></select> <div class="icon help" title=""></div>
+               </div>
+               -->
+                <div class="cellres-tag" style="left:360px;top: 5px">
+                    <label for="rf-range-select">RF Ranges<div class="icon help" title="Allocated RF Ranges.  
+                               Note :  Changing the Technology will reset the RF Range "></div></label>
+                    <select id="rf-range-select" style="width:85px;height:22px"></select> 
+                </div>
+            </div>
+               <div id="band-frequency-editor">
+                <div class="edit-and-label" style="left:160px;top: 0px">
+                    <label for="band-library-select">Technology</label>
+                    <select id="band-library-select"></select>
+                </div>
+                <div class="edit-and-label" style="left:160px;top: 63px">
+                    <label for="band-span-select">Span [MHz]</label>
+                    <select type="text" id="band-span-select" class="validation-range numeric"></select>
+                    <div id="band-range-hint-span" class="band-range-hint"></div>
+                </div>
+                <div class="edit-and-label" style="left:0px;top: 167px">
+                    <label for="band-edit-start">Start [MHz]</label>
+                    <input type="text" id="band-edit-start" class="validation-range numeric" placeholder="Numbers"/>
+                    <div id="band-range-hint-start" class="band-range-hint"></div>
+                </div>
+                <div class="edit-and-label" style="left:160px;top: 167px">
+                    <label for="band-edit-center">Center [MHz]</label>
+                    <input type="text" id="band-edit-center" class="validation-range numeric" placeholder="Numbers"/>
+                    <div id="band-range-hint-center" class="band-range-hint"></div>
+                </div>
+                <div class="edit-and-label" style="left:319px;top:167px">
+                    <label for="band-edit-stop">Stop [MHz]</label>
+                    <input type="text" id="band-edit-stop" class="validation-range numeric" placeholder="Numbers"/>
+                    <div id="band-range-hint-stop" class="band-range-hint"></div>
+                </div>
+            </div>
+        </div>
+        <div id="edit_cellres_dialog" style="display:none">
+            <div>
+               <div class="cellres-tag" style="left:40px;top: 5px">
+                   <label for="edit-cellres-tag">Tag <div class="icon help" title="Tag should be 0-50 characters long and contain [a-z0-9-_], space is allowed"></div></label>
+                   <input type="text" id="edit-cellres-tag"/>
+               </div>
+               <div class="cellres-tag" style="left:250px;top: 5px">
+                   <label for="edit-cellres-long-tag">Long Tag <div class="icon help" title="Tag should be 0-50 characters long and contain [a-z0-9-_], space is allowed"></div></label>
+                   <input type="text" id="edit-cellres-long-tag"/>
+               </div>
+               <!--
+               <div class="agc-control" style="left:30px;top: 80px">
+                   <label for="edit-alc-level">ALC Offset Level [dB]</label>
+                   <select id="edit-alc-level" style="width:63px;"></select> <div class="icon help" title="Offset from nominal ALC levels that this cell resource should have in the MTDI uplink path.
+                          Range from +10 to -10 (with one decimal point). Default is 0."></div>
+               </div>
+               -->
+               <div class="agc-control" style="left:30px;top: 80px">
+                   <label for="enable-gain-track-edit">Enable UL / DL Gain Track</label>
+                   <input id="enable-gain-track-edit" type="checkbox" style="margin-top:8px"></input> <div class="icon help" title="Enable Gain Track"></div>
+               </div>
+               <div class="agc-control" style="left:170px;top: 80px">
+                   <label for="edit-gain-level">UL/ DL Gain Offset [dB]</label>
+                   <select id="edit-gain-level" style="width:63px;"></select> <div class="icon help" title="Offset from gain uplink/ downlink levels.
+                          Range from +10 to -20 (with one decimal point). Default is 0."></div>
+               </div>
+               <div class="agc-control" style="left:310px;top: 80px">
+                   <label for="edit-manual-level">Manual DL Level [dBm]</label>
+                   <select id="edit-manual-level" style="width:63px;"></select> <div class="icon help" title="Manually sets the signal level from the base station to reach full power"></div>
+               </div>
+            </div>
+            <div id="band-frequency-editor">
+                <div class="edit-and-label" style="left:160px;top: 0px">
+                    <label for="edit-band-library-select">Technology</label>
+                    <select id="edit-band-library-select"></select>
+                </div>
+                <div class="edit-and-label" style="left:160px;top: 63px">
+                    <label for="edit-band-span-select">Span [MHz]</label>
+                    <select type="text" id="edit-band-span-select" class="validation-range numeric"></select>
+                    <div id="edit-band-range-hint-span" class="band-range-hint"></div>
+                </div>
+                <div class="edit-and-label" style="left:0px;top: 167px">
+                    <label for="edit-band-edit-start">Start [MHz]</label>
+                    <input type="text" id="edit-band-edit-start" class="validation-range numeric" placeholder="Numbers"/>
+                    <div id="edit-band-range-hint-start" class="band-range-hint"></div>
+                </div>
+                <div class="edit-and-label" style="left:160px;top: 167px">
+                    <label for="edit-band-edit-center">Center [MHz]</label>
+                    <input type="text" id="edit-band-edit-center" class="validation-range numeric" placeholder="Numbers"/>
+                    <div id="edit-band-range-hint-center" class="band-range-hint"></div>
+                </div>
+                <div class="edit-and-label" style="left:319px;top:167px">
+                    <label for="edit-band-edit-stop">Stop [MHz]</label>
+                    <input type="text" id="edit-band-edit-stop" class="validation-range numeric" placeholder="Numbers"/>
+                    <div id="edit-band-range-hint-stop" class="band-range-hint"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wizard-bottom-panel">
+        <a class="button" href="/target/sectgrp/">Back To BTS Port Management</a>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>External Alarms</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<div class="pagecontainer">
+		<div class="panel">
+			<div class="header">External Alarms Configuration </div>
+			<div class="contents">
+				<table id="eadext" class="type1">
+					<tr>
+                    	<th rowspan="2"><div class="icon externalalarm"></div></th>
+						<th rowspan="2">External Alarm Pins<div class="icon help" title="External alarms are the 4 pins in front side of the controller. They are numbered from left to right."</div></th>
+						<th colspan="2" class="borderleft borderright">Trigger<div class="icon help" title="Adjust what triggers the external alarm"></div></th>
+						<th rowspan="2">Description<div class="icon help" title="Please see the EAD attribute"></div></th>
+					</tr>
+                    <tr>
+						<th class="borderleft"><div class="icon trigger-low"></div> Low<div class="icon help" title="Low means that no voltage is the OK state, i.e. a voltage applied to the pin generates an alarm"></div></th>
+						<th class="borderright"><div class="icon trigger-high"></div> High<div class="icon help" title="High means that applied voltage is the OK state, i.e. absence of voltage generates an alarm meansPlease see EXT attribute"></div></th>
+					</tr>
+					<tr>
+						<td><div class="icon ext1"></div></td>
+                        <td>Pin 1</td>
+						<td class="borderleft"><input id="ext1lo" type="radio" class="ext-radio" name="ext1pin" value="0"/></td>
+						<td class="borderright"><input id="ext1hi" type="radio" class="ext-radio" name="ext1pin" value="1"/></td>
+						<td><input id="ext1desc" type="text" class="ead-edit" /></td>
+					</tr>
+					<tr>
+						<td><div class="icon ext2"></div></td>
+                        <td>Pin 2</td>
+						<td class="borderleft"><input id="ext2lo" type="radio" class="ext-radio" name="ext2pin" value="0"/></td>
+						<td class="borderright"><input id="ext2hi" type="radio" class="ext-radio" name="ext2pin" value="1"/></td>
+						<td><input id="ext2desc" type="text" class="ead-edit" /></td>
+					</tr>
+					<tr>
+						<td><div class="icon ext3"></div></td>
+                        <td>Pin 3</td>
+						<td class="borderleft"><input id="ext3lo" type="radio" class="ext-radio" name="ext3pin" value="0"/></td>
+						<td class="borderright"><input id="ext3hi" type="radio" class="ext-radio" name="ext3pin" value="1"/></td>
+						<td><input id="ext3desc" type="text" class="ead-edit" /></td>
+					</tr>
+					<tr>
+						<td><div class="icon ext4"></div></td>
+                        <td>Pin 4</td>
+						<td class="borderleft"><input id="ext4lo" type="radio" class="ext-radio" name="ext4pin" value="0"/></td>
+						<td class="borderright"><input id="ext4hi" type="radio" class="ext-radio" name="ext4pin" value="1"/></td>
+						<td><input id="ext4desc" type="text" class="ead-edit" /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="button-panel">
+				<a class="button" href="javascript:window.location.reload()"><div class="icon refresh"></div> Reload</a>
+				<a id="apply-button" class="button"><div class="icon apply"></div> Apply</a>
+		</div>
+	</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

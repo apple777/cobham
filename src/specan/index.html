@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spectrum Analyzer</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer fixed">
+    <div id="button-bar">
+        <a id="edit-start-btn" class="btn" title="Edit Start"><div class="icon freq-start-white"></div></a>
+        <a id="edit-stop-btn" class="btn" title="Edit Stop"><div class="icon freq-stop-white"></div></a>
+        <a id="edit-center-btn" class="btn" title="Edit Center"><div class="icon freq-center-white"></div></a>
+        <a id="edit-span-btn" class="btn" title="Edit Span"><div class="icon freq-span-white"></div></a>
+
+        <a id="clear-peak-hold-btn" class="btn" title="Clear Peak Hold Data"><div class="icon clear-peak-hold-data"></div></a>
+        <a id="raster-btn" class="btn" title="Set Resolution"><div class="icon raster-wave"></div></a>
+
+        <a id="zoom-in-btn" class="btn" title="Zoom In"><div class="icon zoom-in"></div></a>
+        <a id="zoom-out-btn" class="btn" title="Zoom Out"><div class="icon zoom-out"></div></a>
+        <a id="reset-zoom-btn" class="btn" title="Reset View"><div class="icon zoom-reset"></div></a>
+        <a id="go-left-btn" class="btn" title="Left"><div class="icon left-white"></div></a>
+        <a id="go-right-btn" class="btn" title="Right"><div class="icon right-white"></div></a>
+        <a id="show-uplink-btn" class="btn" title="Show Uplink"><div class="icon uplink-white"></div></a>
+        <a id="show-downlink-btn" class="btn" title="Show Downlink"><div class="icon downlink-white"></div></a>
+        <a id="save-btn" class="btn" title="Capture Image"><div class="icon save-white"></div></a>
+        <a id="save-peaks-btn" class="btn" title="Save Peaks into a text file"><div class="icon current-peak"></div></a>
+    </div>
+    <div id="canvas-container"><canvas id="spectrum-analyzer"></canvas></div>
+</div>
+<script src="filesaver.js"></script>
+<script src="Blob.js"></script>
+<script src="canvas-toBlob.js"></script>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/*-----------------------Buttons-----------------------*/
+#optoloss-adjustment-btn {
+	width: 246px;
+}
+/*-----------------------Tables-----------------------*/
+table#generaltable th,
+table#bandstable th:first-child{
+	text-align:left;
+	width:210px;
+}
+table#generaltable input[type="text"]{
+	width:90%;
+}
+table#generaltable td{
+	width:260px;
+}
+table#bandstable select.attenuation{
+	width:100%;
+}
+/*-----------------------Saturation led overloads-----------------------*/
+div.icon.sat-val-icon {
+	background-position:0 -320px !important;
+}
+div.icon.sat-val-icon.unsaturated {
+    background-position: -0px -304px !important;
+}
+div.icon.sat-val-icon.saturated {
+    background-position: -16px -304px !important;
+}

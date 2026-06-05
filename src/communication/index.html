@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Communication</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+
+	<div class="button-panel">
+        <a class="button" href="javascript:window.location.reload()"><div class="icon refresh"></div> Reload</a>
+        <a id="apply-button" class="button"><div class="icon apply"></div> Apply</a>
+	</div>
+    <div id="enableAndDeviceMethod" class="panel hidden">
+        <div class="header">Remote Communication</div>
+        <div class="contents">
+            <table class="type3">
+                <tr>
+                    <th>All Remote Communications</th>
+                    <td><div id="remoteComPowerBtn" class="powerbutton hidewhenon"></div>
+                        <div id="poweroffwarning" class="icon warning" title="Warning: turning off the remote communications will disable any reporting or connection. You may not be able to change it if it disconnects your connection web interface as well."></div>
+                    </td>
+                </tr>
+                <tr class="deviceMethodRow hidewhenoff">
+                    <th><label for="deviceMethodSelection"><div class="icon help" title="These items are retrieved using the CSL attribute"></div> Device:Method</label></th>
+                    <td><select id="deviceMethodSelection">
+                    </select>
+                    </td>
+                </tr>
+                <tr class="deviceRow hidewhenoff">
+                    <th><div class="icon help" title="See DDS attribute"></div>
+                        Communication Device</th>
+                    <td id="deviceDescription"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="Heartbeat" class="panel hidden">
+        <div class="header">Heartbeat</div>
+        <div class="contents">
+            <table class="type3">
+                <tr>
+                    <th>Heartbeat interval<div class="icon help" title="Please see RCH attribute for more information"></th>
+                    <td class="interval" alaign="left">
+                        <select id="interval-days-sel"></select> days
+                        <select id="interval-hours-sel"></select> hours
+                        <select id="interval-minutes-sel"></select> minutes
+                    </td>
+                </tr>
+			</table>
+		</div>
+	</div>
+
+	<div id="DTCsettings" class="panel settings hidden">
+		<div class="header">DTC</div>
+		<div class="contents">
+			<table class="type3">
+				<tr>
+					<th><label for="modemInitializationString">Modem Initialization String</label></th>
+					<td><input id="modemInitializationString" type="text" />
+						<div class="icon help" title="Please see MIS attribute for more information"></div></td>
+				</tr>
+				<tr>
+					<th><label for="aemMainAddressDTC">AEM Main Number</label></th>
+					<td><input id="aemMainAddressDTC" type="text" />
+						<div class="icon help" title="Please see ASC attribute for more information"></div></td>
+				</tr>
+				<tr>
+					<th><label for="aemSecondaryAddressDTC">AEM Secondary Number</label></th>
+					<td><input id="aemSecondaryAddressDTC" type="text" />
+						<div class="icon help" title="Please see SSC attribute for more information"></div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="TCPsettings" class="panel settings hidden">
+		<div class="header">TCP</div>
+		<div class="contents">
+			<table class="type3">
+				<tr>
+					<th><label for="aemMainIpAddressTCP">AEM Main IP Address</label></th>
+					<td><input id="aemMainIpAddressTCP" type="text" />
+						<div class="icon help" title="Please see ASC attribute for more information"></div></td>
+				</tr>
+				<tr>
+					<th><label for="aemMainPortTCP">AEM Main Port</label></th>
+					<td><input id="aemMainPortTCP" type="text" />
+						<div class="icon help" title="Please see PPO attribute for more information"></div></td>
+				</tr>
+				<tr>
+					<th><label for="aemSecondaryIpAddressTCP">AEM Secondary IP Address</label></th>
+					<td><input id="aemSecondaryIpAddressTCP" type="text" />
+						<div class="icon help" title="Please see SSC attribute for more information"></div></td>
+				</tr>
+				<tr>
+					<th><label for="aemSecondaryPortTCP">AEM Secondary Port</label></th>
+					<td><input id="aemSecondaryPortTCP" type="text" />
+						<div class="icon help" title="Please see SPO attribute for more information"></div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="SNMPsettings" class="panel settings hidden">
+		<div class="header">SNMP</div>
+		<div class="contents">
+			<table class="type3">
+                <tr>
+                    <th><label for="snmpManager">SNMP Manager</label></th>
+                    <td><div align="center"><b>1</b></div></td>
+                    <td><div align="center"><b>2</b></div></td>
+                    <td><div align="center"><b>3</b></div></td>
+                    <td><div align="center"><b>4</b></div></td>
+                </tr>
+
+                <tr class="snmpTrapVersion">
+                    <th><label for="snmpTrapVersion">Version</label><div class="icon help" title="Currently used snmp version."></div></th>
+                    <td><select id="snmpTrapVersion-1"><option value="2">v2c</option><option value="3">v3</option></select></td>
+                    <td><select id="snmpTrapVersion-2"><option value="2">v2c</option><option value="3">v3</option></select></td>
+                    <td><select id="snmpTrapVersion-3"><option value="2">v2c</option><option value="3">v3</option></select></td>
+                    <td><select id="snmpTrapVersion-4"><option value="2">v2c</option><option value="3">v3</option></select></td>
+                </tr>
+
+				<tr>
+					<th><label for="snmpTrapAddress">Trap Address</label><div class="icon help" title="Please see RAD attribute for more information"></div></th>
+                    <td><input id="snmpTrapAddress-1" type="text" /></td>
+                    <td><input id="snmpTrapAddress-2" type="text" /></td>
+                    <td><input id="snmpTrapAddress-3" type="text" /></td>
+                    <td><input id="snmpTrapAddress-4" type="text" /></td>
+				</tr>
+
+				<tr>
+					<th><label for="snmpTrapPort">Trap Port</label><div class="icon help" title="Please see RPO attribute for more information"></div></th>
+                    <td><input id="snmpTrapPort-1" type="text" /></td>
+                    <td><input id="snmpTrapPort-2" type="text" /></td>
+                    <td><input id="snmpTrapPort-3" type="text" /></td>
+                    <td><input id="snmpTrapPort-4" type="text" /></td>
+				</tr>
+
+                <tr class="snmpTrapCommunity snmpv2c">
+                    <th><label for="snmpTrapCommunity">Trap Community</label><div class="icon help" title="Please see SNMP TRAPCOMMUNITY for more information"></div></th>
+                    <td><div class="snmpv2c-1"><input id="snmpTrapCommunity-1" type="text"/></div></td>
+                    <td><div class="snmpv2c-2"><input id="snmpTrapCommunity-2" type="text"/></div></td>
+                    <td><div class="snmpv2c-3"><input id="snmpTrapCommunity-3" type="text"/></div></td>
+                    <td><div class="snmpv2c-4"><input id="snmpTrapCommunity-4" type="text"/></div></td>
+                </tr>
+
+                <!--tr class="snmpPlaceHolder hidealways">
+                    <th><label for="snmpPlaceHolder">Placeholder</label><div class="icon help" title=""></div></th>
+                    <td><input id="snmpPlaceHolder-1"></input></div></td>
+                    <td><input id="snmpPlaceHolder-2"></input></div></td>
+                    <td><input id="snmpPlaceHolder-3"></input></div></td>
+                    <td><input id="snmpPlaceHolder-4"></input></div></td>
+                </tr-->
+
+                <tr class="snmpMyUser snmpv3">
+                    <th><label for="snmpMyUser">My User</label><div class="icon help" title="Please see SNMP MyUser for more information"></div></th>
+                    <td><div class="snmpv3-1"><input id="snmpMyUser-1" type="text"/></div></td>
+                    <td><div class="snmpv3-2"><input id="snmpMyUser-2" type="text"/></div></td>
+                    <td><div class="snmpv3-3"><input id="snmpMyUser-3" type="text"/></div></td>
+                    <td><div class="snmpv3-4"><input id="snmpMyUser-4" type="text"/></div></td>
+                </tr>
+
+                <tr class="authProtocol snmpv3">
+                    <th><label for="authProtocol">Protocol</label><div class="icon help" title="Authentication protocol for SNMP agent"></div></th>
+                    <td><div class="snmpv3-1" id="authProtocol-1"><select id="authProtocol-1"><option value="MD5">MD5</option><option value="SHA">SHA</option></select></div></td>
+                    <td><div class="snmpv3-2" id="authProtocol-2"><select id="authProtocol-2"><option value="MD5">MD5</option><option value="SHA">SHA</option></select></div></td>
+                    <td><div class="snmpv3-3" id="authProtocol-3"><select id="authProtocol-3"><option value="MD5">MD5</option><option value="SHA">SHA</option></select></div></td>
+                    <td><div class="snmpv3-4" id="authProtocol-4"><select id="authProtocol-4"><option value="MD5">MD5</option><option value="SHA">SHA</option></select></div></td>
+                </tr>
+
+                <tr class="snmpMyPassword snmpv3">
+                    <th><label for="snmpMyPassword">Password</label><div class="icon help" title="Please see SNMP MyPassword for more information"></div></th>
+                    <td><div class="snmpv3-1"><input id="snmpMyPassword-1" type="text"/></div></td>
+                    <td><div class="snmpv3-2"><input id="snmpMyPassword-2" type="text"/></div></td>
+                    <td><div class="snmpv3-3"><input id="snmpMyPassword-3" type="text"/></div></td>
+                    <td><div class="snmpv3-4"><input id="snmpMyPassword-4" type="text"/></div></td>
+                </tr>
+
+                <tr class="privProtocol snmpv3">
+                    <th><label for="privProtocol">Private Protocol</label><div class="icon help" title="Privacy protocol for SNMP agent"></div></th>
+                    <td><div class="snmpv3-1" id="privProtocol-1"><select id="privProtocol-1"><option value="AES">AES</option><option value="DES">DES</option></select></div></td>
+                    <td><div class="snmpv3-2" id="privProtocol-2"><select id="privProtocol-2"><option value="AES">AES</option><option value="DES">DES</option></select></div></td>
+                    <td><div class="snmpv3-3" id="privProtocol-3"><select id="privProtocol-3"><option value="AES">AES</option><option value="DES">DES</option></select></div></td>
+                    <td><div class="snmpv3-4" id="privProtocol-4"><select id="privProtocol-4"><option value="AES">AES</option><option value="DES">DES</option></select></div></td>
+                </tr>
+
+                <tr class="snmpMyOtherPassword snmpv3">
+                    <th><label for="snmpMyOtherPassword">My Other Passwordr</label><div class="icon help" title="Please see SNMP MyOtherPassword for more information"></div></th>
+                    <td><div class="snmpv3-1"><input id="snmpMyOtherPassword-1" type="text"/></div></td>
+                    <td><div class="snmpv3-2"><input id="snmpMyOtherPassword-2" type="text"/></div></td>
+                    <td><div class="snmpv3-3"><input id="snmpMyOtherPassword-3" type="text"/></div></td>
+                    <td><div class="snmpv3-4"><input id="snmpMyOtherPassword-4" type="text"/></div></td>
+                </tr>
+			</table>
+		</div>
+	</div>
+
+	<div id="SMSsettings" class="panel settings hidden">
+		<div class="header">SMS</div>
+		<div class="contents">
+			<table class="type3">
+				<tr>
+					<th><label for="smsCenterAddress">SMS Center Address</label></th>
+					<td><input id="smsCenterAddress" type="text" />
+						<div class="icon help" title="Please see SMC attribute for more information"></div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div id="GPRSsettings" class="panel settings hidden">
+		<div class="header">GPRS</div>
+		<div class="contents">
+			<table class="type3">
+				<tr>
+					<th>Attachment Status:</th>
+					<td><div id="attachmentStatus" class="led grey"></div></td>
+				</tr>
+				<tr id="access-point-name-row">
+					<th><label for="accessPointName">Access Point Name</label></th>
+					<td><input id="accessPointName" type="text" />
+						<div class="icon help" title="Please see GPR APN in the documentation for more information"></div></td>
+				</tr>
+				<tr>
+					<th><label for="aemMainIpAddressGPRS">AEM Main IP Address</label></th>
+					<td><input id="aemMainIpAddressGPRS" type="text" />
+						<div class="icon help" title="Please see ASC attribute for more information"></div></td>
+				</tr>
+				<tr>
+					<th><label for="aemMainPortGPRS">AEM Main Port</label></th>
+					<td><input id="aemMainPortGPRS" type="text" />
+						<div class="icon help" title="Please see PPO attribute for more information"></div></td>
+				</tr>
+				<tr>
+					<th><label for="aemSecondaryIpAddressGPRS">AEM Secondary IP Address</label></th>
+					<td><input id="aemSecondaryIpAddressGPRS" type="text" />
+						<div class="icon help" title="Please see SSC attribute for more information"></div></td>
+				</tr>
+				<tr>
+					<th><label for="aemSecondaryPortGPRS">AEM Secondary Port</label></th>
+					<td><input id="aemSecondaryPortGPRS" type="text" />
+						<div class="icon help" title="Please see SPO attribute for more information"></div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

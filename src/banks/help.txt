@@ -1,0 +1,4 @@
+#Date and time settings
+
+In this page you can set date and time.
+Please keep in mind that the date and time will be set together at the time that you press the **Apply** button

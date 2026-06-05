@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Home</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="button-panel">
+        <a id="basic-btn">Basic</a>
+        <a id="advanced-btn">Advanced</a>
+    </div>
+
+    <div id="general-panel-placeholder"></div>
+
+    <div class="panel">
+        <div class="header">Radio
+            <span id="rec"></span>
+            <span class="headericons">
+                <div class="led round overall-led" title="Overall Status"></div>
+            </span>
+        </div>
+        <div class="contents">
+            <table id="radio-table" class="type2">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th><div class="icon uplink" ></div> Uplink</th>
+                    <th><div class="icon downlink"></div> Downlink</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="advanced">
+                    <th><div class="icon attenuation"></div>Input Attenuation</th>
+                    <td><div class="numerical"><div id="IOU-led" class="led" title="Input Overload"></div><span id="IAT_UL-value" class="value">...</span><span class="unit">dB</span></div></td>
+                    <td><div class="numerical"><div id="IOD-led"  class="led" title="Input Overload"></div><span id="IAT_DL-value" class="value">...</span><span class="unit">dB</span></div></td>
+                </tr>
+                <tr>
+                    <th>Power Level [dBm]</th>
+                    <td><div class="numerical"><div id="PDL-uplink-value" class="value"></div></div></td>
+                    <td><div class="numerical"><div id="PDL-led" class="led"></div>  <span id="PDL-downlink-value" class="value"></span></div></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="product-specific-placeholder"></div>
+
+    <div id="misc-panel" class="panel">
+        <div class="header">Miscellaneous
+            <div class="headericons">
+                <div class="led round overall-led" title="Overall Status"></div>
+            </div>
+        </div>
+        <div class="contents">
+            <table class="type1">
+                <thead>
+                <tr>
+                    <th colspan="8" title="Power Supply">Power Supply</th>
+                    <th class="borderleft" colspan="2" title="Reference Generator">Ref. Gen.</th>
+                    <th class="borderleft" colspan="5" title="DSP Board">DSP Board</th>
+                </tr>
+                <tr>
+                    <th title="Communication with the Power Supply"><div class="icon communication"></div></th>
+                    <th title="Temperature of the Power Supply"><div class="icon temperature"></div></th>
+                    <th title="Alarm for the input of the Power Supply"><div class="icon powerinput"></div></th>
+                    <th title="Alarm for the Battery of the Power Supply"><div class="icon battery"></div></th>
+                    <th title="Power 1"><div class="icon power1"></div></th>
+                    <th title="Power 2"><div class="icon power2"></div></th>
+                    <th title="Power 3"><div class="icon power3"></div></th>
+                    <th title="Power 4"><div class="icon power4"></div></th>
+                    <th class="borderleft" title="Communication with the Reference Generator"><div class="icon communication"></div></th>
+                    <th title="Power 3 that goes to the Reference Generator"><div class="icon power3"></div></th>
+                    <th class="borderleft" title="Communication with the DSP Board"><div class="icon communication"></div></th>
+                    <th title="Power 3 that goes to the DSP Board"><div class="icon power3"></div></th>
+                    <th title="Temperature of the DSP Board"><div class="icon temperature"></div></th>
+                    <th title="Alarm for the Internal Board of the DSP Board"><div class="icon circuitboard"></div></th>
+                    <th title="Firmware integrity (CRC) of the DSP Board"><div class="icon firmware"></div></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><div id="COM_PSUP-led" class="led"></div></td>
+                    <td><div id="PTM-led" class="led"></div></td>
+                    <td><div id="PSL-led" class="led"></div></td>
+                    <td><div id="BAT-led" class="led"></div></td>
+                    <td><div id="PW1_PSU-led" class="led"></div></td>
+                    <td><div id="PW2_PSU-led" class="led"></div></td>
+                    <td><div id="PW3_PSU-led" class="led"></div></td>
+                    <td><div id="PW4_PSU-led" class="led"></div></td>
+                    <td class="borderleft"><div id="COM_REFGEN-led" class="led"></div></td>
+                    <td><div id="PW3_REFGEN-led" class="led"></div></td>
+                    <td class="borderleft"><div id="COM_DSPB-led" class="led"></div></td>
+                    <td><div id="PW3_DSPB-led" class="led"></div></td>
+                    <td><div id="RBT_DSPB-led" class="led"></div></td>
+                    <td><div id="DBS-led" class="led"></div></td>
+                    <td><div id="CRC_DSPB-led" class="led"></div></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

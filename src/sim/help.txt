@@ -1,0 +1,8 @@
+#Simulator
+
+This page is used for setting and viewing the simulator.
+It is mainly aimed for development and debugging of new software features specially when the back end
+is not ready yet or is buggy.
+
+On the left side you can see a list of commands and on the right side you see the expected results.
+The Ajax API will automatically take care of the simulated commands.

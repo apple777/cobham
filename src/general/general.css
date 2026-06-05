@@ -1,0 +1,30 @@
+#generalstatus {
+}
+#generaloverallstatusled {
+    float: right;
+}
+table#generalstatus-table{
+    width:370px;
+    float:left;
+}
+table#generalstatus-table tr th:first-child{
+    width:180px;
+}
+table#generalstatus-table tr td:nth-child(2){
+    text-align:left;
+}
+table#ext{
+    margin-left:6px;
+    width:610px;
+    float:left;
+}
+table#ext th:first-child{
+    width:140px;
+}
+table#ext td:last-child{
+    text-align:center;
+    width:20px;
+}
+table#generalstatus-table td#mmt-td{
+    text-align: center;
+}

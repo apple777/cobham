@@ -1,0 +1,239 @@
+#header-place-holder {
+    height: 50px; /* height: 100px; */
+    width: 100%;
+}
+#header-company-title{
+    background-image: url('/images/logo.jpg');
+    background-repeat: no-repeat;
+    background-position: 26px center;
+    height: 50px;
+    width: 100%;
+    background-color: #ffffff;
+}
+/*for new header / new menu (dual headers)*/
+#header-company-title #logo-testing{
+    position: relative;
+    top: 0;
+    left: 277px;
+}
+
+#header {
+    position: fixed;
+    display: block !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    /*background-color: #00A4F2; bluesky*/
+    background-color: #ffffff;
+    box-shadow: 0 0 4px #242;
+    color: #00A4F2;
+    z-index: 1000000;
+    font-size: 1.5em;
+    transition: opacity 0.3s linear;
+    -webkit-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+}
+#header-always-visible {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 50px;
+    right: 0;
+}
+#header:hover,
+#header.expanded {
+    opacity: 1;
+}
+#header.expanded {
+    position: relative;
+    box-shadow: 0 0 4px #222 inset;
+    border-bottom: 5px solid #2C123A;
+    background-color: #500C71;
+}
+#header-logo {
+    background-image: url('/images/header-logo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition:transform 0.3s ease-out;
+}
+#cobham-logo {
+    background-image: url('/images/cobham_logo.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 217px;
+    height: 50px;
+    padding: 0 25px 0 25px;
+    border-right: 2px solid #00A4F2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition:transform 0.3s ease-out;
+}
+#idDAS-logo {
+    background-image: url('/images/idDAS_logo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 150px;
+    height: 50px;
+    padding: 0 25px 0 25px;
+    border-right: 2px solid #00A4F2;
+    position: absolute;
+    top: 0;
+    left: 265px;
+    transition:transform 0.3s ease-out;
+}
+#header-logo:hover {
+    transform:rotate(360deg);'
+}
+#header-ajax-led {
+    position: relative;
+    right: -1px;
+    top: -2px;
+    z-index: 5;
+    opacity: 0.7;
+}
+#header-text {
+
+        color: #00A4F2;
+
+    font-family: verdana,serif;
+    font-size: 1.1em;
+    position: absolute;
+    left: 495px;
+    top: 11px;
+    letter-spacing: 1px;
+}
+#header-response-time-gauge {
+    background-image: url('/images/gauge2_background.png');
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 11px;
+}
+#header-response-time-gauge .gauge-needle{
+    background-image: url('/images/gauge2_needle.png');
+}
+#header-response-time-gauge .gauge-value {
+    display: none;
+}
+#header-response-time-gauge .gauge-title {
+    display: none;
+}
+#header-text-model {
+    font-weight: bold;
+    border-right: 2px solid white;
+    padding-right: 12px;
+}
+#header-text-title {
+    font-size: 0.85em;
+}
+#header-text-title:hover {
+    background-image: url('/images/header-refresh.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+}
+#header-help-link{
+    position: absolute;
+    top:10px;
+    right: 46px;
+    padding: 13px;
+}
+#header-logout-link{
+    position: absolute;
+    top:10px;
+    right: 0px;
+    padding: 13px;
+}
+#header-text-version {
+    font-size: 0.5em;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#header-text-version-number {
+    opacity: 1;
+}
+#header-text-username-holder {
+
+    color: #00A4F2;
+
+    font-size: 0.7em;
+    position: absolute;
+    right: 100px;
+    top: 22px;
+    opacity: 1;
+    padding-bottom: 5px;
+}
+#header-settings {
+    background-image: url('/images/header-settings.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+#header-link-list {
+    display: none;
+    position: absolute;
+    list-style: none;
+    margin: 0 0 15px 0;
+    padding: 0;
+    background-color: #00A4F2;
+    color: #fff;
+    width: 100%;
+}
+#header:hover #header-link-list,
+.expanded #header-link-list {
+    display: block;
+}
+
+#header-link-list li.header {
+    display: inline-block;
+    line-height:1.5em;
+    margin: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    font-size: 0.85em;
+    font-weight: bold;
+    float:left;
+}
+#header-link-list ul{
+    padding-top: 0;
+    /*height:150px;*/
+}
+#header-link-list ul li{
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: -30px;
+}
+
+#header-link-list a {
+    min-width: 200px;
+    padding: 0 0 0 0px;
+}
+
+#header a {
+    color:inherit;
+    text-decoration: none;
+    display: inline-block;
+}
+#header a:hover {
+    text-decoration: underline;
+    background-color: rgba( 255, 255, 255, 0.2 );
+}
+
+#header-link-list .icon {
+    position: relative;
+    top: 3px;
+}

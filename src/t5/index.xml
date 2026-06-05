@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="index.xsl" ?>
+<catalog_STATUS>
+   <!-- does not return anything except the reply structure. Lets use the status for validation. -->
+
+   <object>
+      <name>poll</name>
+      <transport>"POLL"</transport>
+      <data>
+         <label>"pollStatus"</label> 
+         <get_offset>4</get_offset>
+         <type>"UINT8"</type>
+         <length>1</length>
+         <get_eval>3</get_eval>
+      </data>
+   </object>
+   
+   <object>
+      <name>articlenumber</name>
+      <transport>"ARTICLENUMBER"</transport>
+      <data>
+         <label>"artnr"</label> 
+         <set_offset>13</set_offset>
+         <get_offset>5</get_offset>
+         <type>"UINT8"</type>
+         <length>1</length>
+         <set_eval></set_eval>
+         <get_eval></get_eval>
+      </data>
+   </object>
+
+   <object>
+      <name>uptime</name>
+      <transport>"UPTIME"</transport>
+      <data>
+         <label>"uptime"</label> 
+         <get_offset>5</get_offset>
+         <type>"UNIT32"</type>
+         <length>1</length>
+         <get_eval></get_eval>
+      </data>
+   </object>
+</catalog_STATUS>

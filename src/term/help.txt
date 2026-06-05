@@ -1,0 +1,64 @@
+# Axell Shell
+
+This terminal can be used for interacting with the system in a command level. The web interface itself uses these
+commands behind the scene in a safe manner. However, if there is a functionality that is not provided via the web
+interface you may try this terminal.
+
+##Disclaimer
+
+IT IS HIGHLY RECOMMENDED TO READ THE SYSTEM MANUALS BEFORE ENTERING COMMANDS. AS A GENERAL RULE OF THUMB FIRST TRY TO
+ACHIEVE YOUR GOALS VIA THE GRAPHICAL USER INTERFACE INSTEAD OF USING THE COMMANDS. IF YOU CAN'T FIND A FUNCTIONALITY
+YOU ARE LOOKING FOR, PLEASE [CONTACT SUPPORT](/HELP/CONTACT.TXT) FOR MORE INFORMATION.
+
+EXECUTING SYSTEM COMMANDS VIA TERMINAL CAN SERIOUSLY DAMAGE YOUR SYSTEM TO AN EXTENT THAT IS IRREVERSIBLE AND YOU MAY HAVE
+TO PHYSICALLY REACH THE REPEATER SYSTEM AND MIGHT HAVE TO SEND IT BACK TO AXELL WIRELESS FOR REPAIR.
+
+##Running commands
+
+Type the `help` command to get a list of all attributes:
+
+    help
+
+And press enter:
+
+    ACL  rw  Displays and changes default alarm classes.
+    ALA  rw  Used for reconfiguration of the alarm settings / thresholds.
+    ASE  rw  Displays and changes default alarm severities.
+    LIT  r   Displays information about entries in the alarm log.
+    LLN  r   This replies with current number of entries in the alarm log.
+    MAR  rw  Defines minimum time that must elapse between two concurrent alarms.
+    MNR  rw  Defines alarm retransmission attempts to the AEM.
+
+The help command lists all the attributes in the system. Each line contains the following information about the attributes:
+
+ * **Attribute Name:** usually 3 character long
+ * **Access Methods:** r = read access (GET), w = write access (SET) and x = execution access (ACT)
+ * **Brief:** a brief introduction to what the attribute does.
+
+All Axell Shell commands are like this:
+
+    <GET|SET|ACT> <ATTRIBUTE_NAME> [parameters]
+
+For example to get the repeater status information (RSP attribute) we can type:
+
+    GET RSP
+
+Go ahead and [execute it](/term/index.html?cmd=get rsp)
+
+##Inf
+
+You can get more information about an attribute using the INF command. The INF command has this format:
+
+    INF <ATTRIBUTE_NAME>
+
+The result will be a human readable of the functionality of that particular attribute. Among the most useful information
+is the format specification of the result and some examples. Since the attributes may change from version to version
+it is a good idea to check their INF for the latest formatting information.
+
+*Note: as of this writing the INF command for some attributes is outdated. Please refer to the PDF documentation or the
+printed manual that came with your product (and version) for more information.*
+
+##Command Links
+
+When you enter a command, it changes to a link. You can easily right click on it and copy the link. Then you can send
+this command to anyone else and they can run it in a secure way.

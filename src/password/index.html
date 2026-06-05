@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+  <div class="panel">
+    <div class="header">Change Password</div>
+    <div class="contents">
+      <table class="type3">
+		<tr>
+		  <th>User Name</th>
+		  <td><span id="currentUsername">Loading...</span></td>
+		</tr>
+          <tr id="oldpasswd_field">
+              <th> <label for="oldpassword">Old Password</label></th>
+              <td><input id="oldpassword" type="password" />
+                  <div class="icon help" title="Password should be 8-25 characters long, only contain [a-z0-9.:;!+()-_], contain a least 1 cap letter, contain a least 1 digit"></div>
+              </td>
+          </tr>
+        <tr>
+          <th> <label for="newpassword">New Password</label></th>
+          <td><input id="newpassword" type="password" />
+		  <div class="icon help" title="Password should be 8-25 characters long, only contain [a-z0-9.:;!+()-_], contain a least 1 cap letter, contain a least 1 digit"></div>
+		  <div class="icon warning" title="Username and password will be transmitted over your communication line without encryption. If it is not a safe line, please don't use this page."></div>
+		  </td>
+        </tr>
+        <tr>
+          <th> <label for="newpasswordrep">Repeat Password</label></th>
+          <td><input id="newpasswordrep" type="password" />
+		  <div class="icon help" title="Please repeate the password to make sure you remember it correctly"></div>
+		  </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="button-panel">
+      <a id="apply-button" class="button"><div class="icon apply"></div> Change</a>
+  </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

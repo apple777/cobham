@@ -1,0 +1,146 @@
+/*filter */
+#filter div{
+    display:inline-block;
+    margin:10px;
+}
+/* freq indicator */
+.freq-indicator-bar {
+    height: 45px;
+}
+.legend_color.focused{
+    opacity: 1;
+    box-shadow: none;
+    background-color: #68AFE4 !important;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    top:0;
+    z-index: 1;
+    height: 14px;
+}
+tr.focused-row td{
+    background-color: #68AFE4;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    top:0;
+    z-index: 1;
+}
+tr.table_row:hover td{
+    background-color: #68AFE4!important;
+    color: rgba(255,255,255,0.7);
+    border-radius: 0 0 2px 2px;
+    top:0;
+    z-index: 1;
+}
+
+/*overwrite ui tabs header*/
+.ui-widget-header {
+    border: none!important;
+/*    background: none!important;
+    background-color: #7E6284!important;
+*/
+    color: #f5eaf7;
+    font-weight: bold;
+}
+.ui-widget-content{
+    border:none!important;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 1px solid #ca02a2;
+    /*background: none!important;
+    background-color: #ca02a2!important;*/
+    font-weight: normal;
+    color: #eee;
+}
+
+.ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    border: none!important;
+    /*background: none!important;
+    background-color: #ca02a2!important;*/
+    font-weight: normal;
+    color: #eee;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: none!important;
+    /*background: none!important;
+    background-color: #165788!important;*/
+
+    font-weight: normal;
+    color: #eee;
+}
+/* others */
+.table_header{
+    background-color: #0381BD;
+    height:30px;
+    line-height: 30px;
+    text-align: left;
+    font-weight: bold;
+    color: white;
+    padding-left: 10px;
+    border: solid 1px;
+}
+.operator_table_header{
+    background-color: #632F6E;
+    height:30px;
+    line-height: 30px;
+    text-align: left;
+    font-weight: bold;
+    color: white;
+    padding-left: 0px;
+    margin-top: 20px;
+}
+
+.add_opranges{
+    float:right;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-right: 5px;
+    cursor:pointer;
+}
+.button-col{
+    float: right;
+}
+/*add opranges dialog*/
+
+.edit-and-label {
+    text-align: center;
+    color: #666;
+    position: absolute;
+    min-width: 110px;
+}
+.edit-and-label input {
+    text-align: center;
+    width:100px;
+}
+.edit-and-label select {
+    text-align: center;
+    width: 150px;
+}
+.edit-and-label label {
+    display: block;
+    padding-bottom: 5px;
+}
+.band-range-hint {
+    font-size: 0.7em;
+    color:#777;
+}
+.numeric.erroneous {
+    background-color: red;
+    color: yellow;
+}
+/*legend*/
+.legend{
+    display: inline-block;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.legend span{
+    margin-right: 7px;
+}
+.legend_color{
+    display: inline-block;
+    margin-right: 3px;
+    width:14px;
+    height:14px;
+}

@@ -1,0 +1,202 @@
+<div class="panel">
+<div class="header">Bands
+    <div class="headericons">
+        <div class="led round overall-led" title="Overall Status"></div>
+    </div>
+</div>
+<div class="contents">
+    <table id="bands-table" class="type2">
+        <thead>
+        <tr>
+            <th>Bands</th>
+            {{#each bands}}
+            <th class="column-{{.}}">{{.}}</th>
+            {{/each}}
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="separator">
+            <td colspan="5"><div class="icon uplink"></div> Uplink</td>
+        </tr>
+        <tr class="uplink-row">
+            <th>Filter Selection</th>
+            {{#each bands}}
+            <td class="column-{{.}}"><a class="ul-adjust-button adjust-button" data-number="{{.}}" data-link="u">Adjust</a></td>
+            {{/each}}
+        </tr>
+        <tr class="uplink-row">
+            <th><div class="icon freq-start"></div> Start [MHz]</th>
+            {{#each bands}}
+            <td class="column-{{.}}" id="FQU{{.}}-start-value">...</td>
+            {{/each}}
+        </tr>
+        <tr class="uplink-row">
+            <th><div class="icon freq-stop"></div> Stop [MHz]</th>
+            {{#each bands}}
+            <td class="column-{{.}}" id="FQU{{.}}-stop-value">...</td>
+            {{/each}}
+        </tr>
+        <tr class="uplink-row advanced">
+            <th><div class="icon freq-center"></div> Center [MHz]</th>
+            {{#each bands}}
+            <td class="column-{{.}}" id="FQU{{.}}-center-value">...</td>
+            {{/each}}
+        </tr>
+        <tr class="uplink-row advanced">
+            <th><div class="icon freq-span"></div> Span [KHz]</th>
+            {{#each bands}}
+            <td class="column-{{.}}" id="FQU{{.}}-span-value">...</td>
+            {{/each}}
+        </tr>
+        <tr class="uplink-row">
+            <th><div class="icon amplifier"></div> Power Level [dBm] (<span id="LVM_UL-value"  title="Max Carrier Power">...</span>)</th>
+            {{#each bands}}
+            <td class="column-{{.}}">
+                <select id="LVU{{.}}-select" class="power-level-select ul-power-level-select" data-number="{{.}}" data-attribute="LVU">
+                    <option value="-100">OFF</option>
+                    <option value="0">Max</option>
+                    <option value="1">Max-1</option>
+                    <option value="2">Max-2</option>
+                    <option value="3">Max-3</option>
+                    <option value="4">Max-4</option>
+                    <option value="5">Max-5</option>
+                    <option value="6">Max-6</option>
+                    <option value="7">Max-7</option>
+                    <option value="8">Max-8</option>
+                    <option value="9">Max-9</option>
+                </select>
+            </td>
+            {{/each}}
+        </tr>
+        <tr class="uplink-row">
+            <th><div class="icon attenuation"></div> Attenuation [dB]</th>
+            {{#each bands}}
+            <td class="column-{{.}}">
+                <select id="ATU{{.}}-select" class="attenuation-select ul-attenuation-select" data-attribute="ATU" data-number="{{.}}">
+                    {{option 0 30}}
+                </select>
+            </td>
+            {{/each}}
+        </tr>
+        <tr class="uplink-row advanced">
+            <th><div class="icon rf-input"></div> RF Input Level [dBm]</th>
+            {{#each bands}}
+            <td class="column-{{.}}"><div class="numerical"><span id="IPL_UL{{.}}-value" class="value rf-input-val ul-rf-input-val">...</span></div></td>
+            {{/each}}
+        </tr>
+        <tr class="uplink-row">
+            <th><div class="icon rf-output"></div>RF Output Level [dBm]</th>
+            {{#each bands}}
+            <td class="column-{{.}}"><div class="numerical"><span id="OPL_UL{{.}}-value"  class="value rf-output-val ul-rf-output-val">...</span></div></td>
+            {{/each}}
+        </tr>
+        <tr class="uplink-row">
+            <th>ALC</th>
+            {{#each bands}}
+            <td class="column-{{.}}"><div id="ALC_UL{{.}}-led" class="led"></div></td>
+            {{/each}}
+        </tr>
+        <tr class="uplink-row advanced">
+            <th>Squelch [dBm]</th>
+            {{#each bands}}
+            <td class="column-{{.}}"><div class="numerical-pale"><span id="SQU{{.}}-value" class="value">...</span></div></td>
+            {{/each}}
+        </tr>
+
+        <td colspan="5">
+            <div id="bsr-freq-indicator" class="freq-indicator" data-count="4">
+
+            </div>
+        </td>
+
+        <tr class="separator">
+            <td colspan="5"><div class="icon downlink"></div> Downlink</td>
+        </tr>
+        <tr class="downlink-row">
+            <th>Filter Selection</th>
+            {{#each bands}}
+            <td class="column-{{.}}"><a class="dl-adjust-button adjust-button" data-number="{{.}}" data-link="d">Adjust</a></td>
+            {{/each}}
+        </tr>
+        <tr class="downlink-row">
+            <th><div class="icon freq-start"></div> Start [MHz]</th>
+            {{#each bands}}
+            <td class="column-{{.}}" id="FQD{{.}}-start-value">...</td>
+            {{/each}}
+        </tr>
+        <tr class="downlink-row">
+            <th><div class="icon freq-stop"></div> Stop [MHz]</th>
+            {{#each bands}}
+            <td class="column-{{.}}" id="FQD{{.}}-stop-value">...</td>
+            {{/each}}
+        </tr>
+        <tr class="downlink-row advanced">
+            <th><div class="icon freq-center"></div> Center [MHz]</th>
+            {{#each bands}}
+            <td class="column-{{.}}" id="FQD{{.}}-center-value">...</td>
+            {{/each}}
+        </tr>
+        <tr class="downlink-row advanced">
+            <th><div class="icon freq-span"></div> Span [KHz]</th>
+            {{#each bands}}
+            <td class="column-{{.}}" id="FQD{{.}}-span-value">...</td>
+            {{/each}}
+        </tr>
+        <tr class="downlink-row">
+            <th><div class="icon amplifier"></div> Power Level [dBm] (<span id="LVM_DL-value"  title="Max Carrier Power">...</span>)</th>
+            {{#each bands}}
+            <td class="column-{{.}}">
+                <select id="LVD{{.}}-select" class="power-level-select ul-power-level-select" data-number="{{.}}" data-attribute="LVD">
+                    <option value="-100">OFF</option>
+                    <option value="0">Max</option>
+                    <option value="1">Max-1</option>
+                    <option value="2">Max-2</option>
+                    <option value="3">Max-3</option>
+                    <option value="4">Max-4</option>
+                    <option value="5">Max-5</option>
+                    <option value="6">Max-6</option>
+                    <option value="7">Max-7</option>
+                    <option value="8">Max-8</option>
+                    <option value="9">Max-9</option>
+                </select>
+            </td>
+            {{/each}}
+        </tr>
+        <tr class="downlink-row">
+            <th><div class="icon attenuation"></div> Attenuation [dB]</th>
+            {{#each bands}}
+            <td class="column-{{.}}">
+                <select id="ATD{{.}}-select" class="attenuation-select dl-attenuation-select" data-attribute="ATD" data-number="{{.}}">
+                    {{option 0 30}}
+                </select>
+            </td>
+            {{/each}}
+        </tr>
+        <tr class="downlink-row advanced">
+            <th><div class="icon rf-input"></div> RF Input Level [dBm]</th>
+            {{#each bands}}
+            <td class="column-{{.}}"><div class="numerical"><span id="IPL_DL{{.}}-value" class="value rf-input-val dl-rf-input-val">...</span></div></td>
+            {{/each}}
+        </tr>
+        <tr class="downlink-row">
+            <th><div class="icon rf-output"></div> RF Output Level [dBm]</th>
+            {{#each bands}}
+            <td class="column-{{.}}"><div class="numerical"><span id="OPL_DL{{.}}-value"  class="value rf-output-val dl-rf-output-val">...</span></div></td>
+            {{/each}}
+        </tr>
+        <tr class="downlink-row">
+            <th>ALC</th>
+            {{#each bands}}
+            <td class="column-{{.}}"><div id="ALC_DL{{.}}-led" class="led"></div></td>
+            {{/each}}
+        </tr>
+        <tr class="downlink-row advanced">
+            <th>Squelch [dBm]</th>
+            {{#each bands}}
+            <td class="column-{{.}}"><div class="numerical-pale"><span id="SQD{{.}}-value" class="value">...</span></div></td>
+            {{/each}}
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>

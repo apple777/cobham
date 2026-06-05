@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terminal</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="output" class="pagecontainer fixed">
+    <pre>Modem Terminal...</pre>
+    <pre>You can type any AT command (.e.g AT+CSQ)</pre>
+    <pre> </pre>
+    <div class="after-login" style="display: none">
+    <input type="text" id="cmd" class="command" autofocus="autofocus"/>
+    </div>
+</div>
+<div id="the-warning-message" style="display: none">
+    Using the command line is not recommended. Incorrect commands can damage the system.<br/>
+    Please use the other pages for configuration.
+</div>
+
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

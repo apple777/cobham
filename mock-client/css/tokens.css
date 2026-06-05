@@ -1,0 +1,85 @@
+/**
+ * idDAS design tokens — extracted from src/header.css, src/msdh/styles.css,
+ * src/css/general.css, src/css/led.css
+ * Reference viewport: 1920×1080 (topology screenshot baseline)
+ */
+:root {
+  /* Brand */
+  --color-brand-cobham-blue: #005daa;
+  --color-brand-iddas-blue: #00a4f2;
+  --color-brand-iddas-blue-alt: #00a9e0;
+  --color-header-border: #00a4f2;
+
+  /* Surfaces */
+  --color-surface-page: #dddddd;
+  --color-surface-page-noise: url('../assets/bg-noise.png');
+  --color-surface-header: #ffffff;
+  --color-surface-system-overview: whitesmoke;
+  --color-surface-topology-canvas: #f5f5f5;
+  --color-surface-layer-header: rgba(137, 150, 160, 0.5);
+  --color-surface-layer-header-alt: rgba(211, 200, 216, 0.6);
+
+  /* Text */
+  --color-text-primary: #444444;
+  --color-text-secondary: #666666;
+  --color-text-muted: #555555;
+  --font-family-base: Verdana, Geneva, sans-serif;
+  --font-size-base: 12px;
+  --font-size-header-title: 1.1em;
+  --font-size-header-page-title: 0.85em;
+  --font-size-header-meta: 0.5em;
+  --font-size-header-user: 0.7em;
+
+  /* Status LEDs (SVG gradient stops + div.led sprite) */
+  --color-status-red: #f44336;
+  --color-status-red-light: #f58869;
+  --color-status-green: #4caf50;
+  --color-status-green-light: #a8d5a2;
+  --color-status-orange: #ff9800;
+  --color-status-yellow: #ffeb3b;
+  --color-status-grey: #9e9e9e;
+  --color-status-white: #ffffff;
+
+  /* Layout — header */
+  --layout-header-height: 50px;
+  --layout-header-placeholder-height: 50px;
+  --layout-cobham-logo-width: 217px;
+  --layout-iddas-logo-width: 150px;
+  --layout-iddas-logo-left: 265px;
+  --layout-header-title-left: 495px;
+  --layout-header-title-top: 11px;
+  --layout-header-user-right: 100px;
+  --layout-header-user-top: 22px;
+
+  /* Layout — system overview bar */
+  --layout-system-overview-margin: 5px;
+  --layout-system-overview-padding-top: 5px;
+  --layout-system-overview-border-radius: 5px;
+  --layout-system-overview-width: 99%;
+  --layout-system-overview-section-width: 20%;
+  --layout-system-overview-line-height: 18px;
+  --layout-v-separator-height: 20px;
+
+  /* Layout — topology layers (from msdh/code.js updateScreenSize) */
+  --layout-topology-offset-top: 98px;
+  --layout-node-height: 30px;
+  --layout-layer-header-height: 30px;
+  --layout-layer-header-text-x: 30px;
+  --layout-layer-header-led-radius: 7px;
+  --layout-layer-header-led-cx: 98%;
+  --layout-topology-margin-left: 20px;
+  --layout-topology-margin-right: 20px;
+
+  /* Node icon logical sizes (msdh/code.js) */
+  --size-node-sector-width: 30px;
+  --size-node-sector-height: 30px;
+  --size-node-fixed-width: 100px;
+  --size-node-apoi-height: 27px;
+  --size-node-mtdi-height: 10px;
+  --size-node-msdh-height: 9px;
+  --size-node-led-diameter: 14px;
+
+  /* Shadows */
+  --shadow-system-overview: 2px 2px 2px #666666;
+  --shadow-header: 0 0 4px #224422;
+}

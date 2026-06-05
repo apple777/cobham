@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id="main_content">
+        <div id="BTS_container">
+            <span class="layer_header">BTS</span>
+        </div>
+        <div id="APOI_container">
+            <span class="layer_header">APOI</span>
+
+        </div>
+        <div id="MTDI_container">
+            <span class="layer_header">MTDI</span>
+        </div>
+        <div id="MSDH_container">
+            <span class="layer_header">MSDH</span>
+        </div>
+        <div id="RRU_container">
+            <span class="layer_header">RRU</span>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="../js/lib/jquery.js"></script>
+<script type="text/javascript" src="../js/lib/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/lib/jquery-jsPlumb.js"></script>
+        <script>
+            var NUM_OF_BTS = 6;
+            var NUM_OF_APOI = 4;
+            var NUM_OF_MTDI = 2;
+            var NUM_OF_MSDH = 2;
+            var NUM_OF_RRU = 32;
+
+            var WIDTH_OF_BTS = 73;
+            var WIDTH_OF_APOI = 150;
+            var WIDTH_OF_MTDI = 150;
+            var WIDTH_OF_MSDH = 150;
+            var WIDTH_OF_RRU = 66;
+
+            var PAGE_WIDTH = 1200;
+            var PAGE_HEIGHT = 650;
+
+            $(document).ready(function() {
+                //draw BTS
+                for(var i =1; i <= NUM_OF_BTS; i++){
+                    $('#BTS_container').append('<img id="BTS_' + i +'" class="BTS_item" src="../images/icons/BTS_icon.png"/>');
+                }
+                $('.BTS_item').css('margin-right', ((PAGE_WIDTH - 80 - NUM_OF_BTS * WIDTH_OF_BTS)/ NUM_OF_BTS /2)+'px');
+                $('.BTS_item').css('margin-left', ((PAGE_WIDTH - 80 - NUM_OF_BTS * WIDTH_OF_BTS)/ NUM_OF_BTS /2)+'px');
+
+                //draw APOI
+                for(var i =1; i <= NUM_OF_APOI; i++){
+                    $('#APOI_container').append('<img id="APOI_' + i +'" class="APOI_item" src="../images/icons/APOI_icon.png"/>');
+                }
+                $('.APOI_item').css('margin-right', ((PAGE_WIDTH - 80 - NUM_OF_APOI * WIDTH_OF_APOI) / NUM_OF_APOI /2)+'px');
+                $('.APOI_item').css('margin-left', ((PAGE_WIDTH - 80 - NUM_OF_APOI * WIDTH_OF_APOI) / NUM_OF_APOI /2)+'px');
+
+                //draw MTDI
+                for(var i =1; i <= NUM_OF_MTDI; i++){
+                    $('#MTDI_container').append('<img id="MTDI_' + i +'" class="MTDI_item" src="../images/icons/MTDI_icon.png"/>');
+                }
+                $('.MTDI_item').css('margin-right', ((PAGE_WIDTH - 80 - NUM_OF_MTDI * WIDTH_OF_MTDI) / NUM_OF_MTDI /2)+'px');
+                $('.MTDI_item').css('margin-left', ((PAGE_WIDTH - 80 - NUM_OF_MTDI * WIDTH_OF_MTDI) / NUM_OF_MTDI /2)+'px');
+
+                //draw MSDH
+                for(var i =1; i <= NUM_OF_MSDH; i++){
+                    $('#MSDH_container').append('<img id="MSDH_' + i +'" class="MSDH_item" src="../images/icons/MSDH_icon.png"/>');
+                }
+                $('.MSDH_item').css('margin-right', ((PAGE_WIDTH - 80 - NUM_OF_MSDH * WIDTH_OF_MSDH) / NUM_OF_MSDH /2)+'px');
+                $('.MSDH_item').css('margin-left', ((PAGE_WIDTH - 80 - NUM_OF_MSDH * WIDTH_OF_MSDH) / NUM_OF_MSDH /2)+'px');
+
+                //draw RRU
+                for(var i =1; i <= NUM_OF_RRU; i++){
+                    $('#RRU_container').append('<img id="RRU_' + i +'" class="RRU_item" src="../images/icons/RRU_icon.png"/>');
+                }
+                $('.RRU_item').css('padding-right', ((PAGE_WIDTH - 80 - NUM_OF_RRU * WIDTH_OF_RRU) / NUM_OF_RRU /2)+'px');
+                $('.RRU_item').css('padding-left', ((PAGE_WIDTH - 80 - NUM_OF_RRU * WIDTH_OF_RRU) / NUM_OF_RRU /2)+'px');
+
+                jsPlumb.bind("ready", function() {
+                var e0 = jsPlumb.addEndpoint('BTS_1', { anchor:"Center" });
+                var e1 = jsPlumb.addEndpoint('MTDI_1', { anchor:"Center" });
+                var e2 = jsPlumb.addEndpoint('BTS_2', { anchor:"Center" });
+                var e3 = jsPlumb.addEndpoint('MTDI_2', { anchor:"Center" });
+                    if ($(".BTS_item").css("marginLeft")!='0px'){
+
+                    }
+            })
+            })
+            $(window).load(function() {
+                console.log("repaint");
+                jsPlumb.repaintEverything();
+            });
+        </script>

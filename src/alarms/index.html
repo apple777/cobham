@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Logs</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div id="control_buttons" class="button-panel" style="height: 30px;">
+        <a style="font-size: 17px;padding-right: 10px;">Filter By: </a>
+        <select class="filter_select" name="colomn" id="filter_colomn">
+        </select>
+        <a id="alarms_filter" class="button" style="margin-left: 10px;">Filter</a>
+        <a id="export_button" class="button" style="float: right;"><div title="Export"></div>Export</a>
+        <a id="login_button" class="button" style="float: right;"><div title="Login"></div>Login</a>
+        <a id="clear_button" class="button" style="float: left;"><div title="Clear"></div>Clear Logs</a>
+    </div>   
+	<div class="panel collapsible">
+        <div class="header"><span id="log-count"></span></div>
+        <div class="contents">
+			<table id="alarms-table" >
+				<caption>System Logs</caption>
+                <thead>
+                    <tr class="alarms_table_head">
+                        <td title="Index" id="Index" width=20px></td>
+                        <td title="Source" id="Source" width=100px>Source</td>
+                        <td title="Description" id="Description">Description</td>
+                        <td title="Date And Time" id="Date and Time" width=175px>Date And Time</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

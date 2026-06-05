@@ -1,0 +1,106 @@
+.app-header-placeholder {
+  height: var(--layout-header-placeholder-height);
+  width: 100%;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--layout-header-height);
+  background-color: var(--color-surface-header);
+  box-shadow: var(--shadow-header);
+  color: var(--color-brand-iddas-blue);
+  z-index: 1000000;
+  font-size: 1.5em;
+}
+
+.app-header__brand-cobham {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--layout-cobham-logo-width);
+  height: var(--layout-header-height);
+  padding: 0 25px;
+  border-right: 2px solid var(--color-header-border);
+  background: center / contain no-repeat url('../../src/images/cobham_logo.jpg');
+}
+
+.app-header__brand-iddas {
+  position: absolute;
+  top: 0;
+  left: var(--layout-iddas-logo-left);
+  width: var(--layout-iddas-logo-width);
+  height: var(--layout-header-height);
+  padding: 0 25px;
+  border-right: 2px solid var(--color-header-border);
+  background: center / contain no-repeat url('../../src/images/idDAS_logo.png');
+}
+
+.app-header__page-title {
+  position: absolute;
+  left: var(--layout-header-title-left);
+  top: var(--layout-header-title-top);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-header-title);
+  letter-spacing: 1px;
+  color: var(--color-brand-iddas-blue);
+}
+
+.app-header__page-title-text {
+  font-size: var(--font-size-header-page-title);
+}
+
+.app-header__version {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: var(--font-size-header-meta);
+  color: var(--color-brand-iddas-blue);
+  padding: 4px 8px 0 0;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.app-header__user {
+  position: absolute;
+  right: var(--layout-header-user-right);
+  top: var(--layout-header-user-top);
+  font-size: var(--font-size-header-user);
+  color: var(--color-brand-iddas-blue);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.app-header__user-icon {
+  width: 18px;
+  height: 18px;
+  background: center / contain no-repeat url('../../src/images/icons/header_user.png');
+}
+
+.app-header__logout {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  padding: 13px;
+  border: 0;
+  background: transparent center / 16px no-repeat url('../../src/images/icons/logout-link-icon.png');
+  cursor: pointer;
+}
+
+.app-header__ajax-led {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  vertical-align: text-top;
+  background: url('../../src/images/led.png') -80px -64px no-repeat;
+}
+
+.app-header__ajax-led.is-busy {
+  background-position: -64px -64px;
+}

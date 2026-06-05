@@ -1,0 +1,4 @@
+#Unsupported device
+
+This device does not have a specific web interface.
+However the general settings like date and time are still available via the web interface.

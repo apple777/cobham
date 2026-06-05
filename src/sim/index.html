@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Simulator Configuration</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="button-panel">
+        <a id="add-btn" class="button">Add</a>
+        <a id="save-btn" class="button">Save</a>
+        <a id="download-btn" class="button">Download</a>
+        <a id="upload-btn" class="button">Upload</a>
+    </div>
+
+    <div class="panel">
+        <div class="header">Simulator</div>
+        <div class="contents">
+            <table class="type3">
+                <caption id="table-caption">Loading commands...</caption>
+                <tbody id="sim-table-body">
+                    <script id="row-template" type="text/x-handlebars-template">
+                        <tr data-command="{{command}}">
+                            <td class="action-cell">
+                                <a class="button delete-command-btn"><div class="icon clear"></div></a>
+                            </td>
+                            <td class="command-cell">
+                                <input type="text" class="command" value="{{command}}" placeholder="Command"/>
+                            </td>
+                            <td class="result-cell">
+                                <textarea class="result" placeholder="Result">{{result}}</textarea>
+                            </td>
+                        </tr>
+                    </script>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

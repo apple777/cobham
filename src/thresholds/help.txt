@@ -1,0 +1,12 @@
+#Alarm Thresholds
+
+You can adjust the alarm thresholds in this page.
+An alarm will be issued if the relevant value falls below this threshold or goes above that level.
+
+##Apply
+
+When you press the apply button it will save all of your changes.
+In order to improve the speed, only those rows that have been clicked will be saved.
+So if you touch any row (clicking it), then it will be saved.
+If you interrupt the dialog that shows the progress, it will terminate the save process.
+

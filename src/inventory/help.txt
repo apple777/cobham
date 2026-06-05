@@ -1,0 +1,3 @@
+#Inventory
+
+Here you can see a list of devices that are connected to the controller as well as their serial number and other information.

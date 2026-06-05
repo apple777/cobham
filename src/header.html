@@ -1,0 +1,79 @@
+<!--div id="header-company-title"></div-->
+<div id="header-place-holder"><!--this will make some empty space at top of the page--></div>
+
+<header id="header" style="display: none" class="clearfix">
+
+    <div id="header-always-visible">
+
+        <link rel="stylesheet" href="/header.css" />
+        <a href="/target"><div id="cobham-logo" title="COBHAM"></div></a>
+        <a href="/target"><div id="idDAS-logo" title="idDAS"></div></a>
+
+        <div id="header-text">
+            <!--<a href="/target"><span id="header-text-model">Loading model...</span></a>-->
+            <a href="javascript:void(0)" onclick="window.location.reload()"><span id="header-text-title"></span></a>
+        </div>
+        <div id="header-text-username-holder">
+            <img src="/images/icons/header_user.png" style="width:18px"/> <span id="header-text-username"></span>
+        </div>
+        <div id="header-text-version">
+            <span id="header-text-version-number">Loading version...</span>
+            <div id="header-ajax-led" class="led small grey" title="Communication with server"></div>
+        </div>
+        <a id="header-logout-link" href="/logout" title="Logout from the system"><div class="icon logout-link-icon"></div></a>
+
+    </div>
+
+
+    <ul id="header-link-list">
+        <!--
+        <li><a href="/target/" title="Target-specific settings of this product"><div class="icon home-link-icon"></div> Home</a></li>
+        
+        <li><a href="/topology" title="Topology screen"><div class="icon nodes-link-icon"></div> Topology</a></li>
+        <li><a href="/bts" title="Manage sector antenna"><div class="icon sector-icon"></div> Sector Antenna</a></li>
+        <li><a href="/profiles" title="Set up route to remotes"><div class="icon route-setup-icon"></div> Routing Profiles</a></li>
+        <li><a href="/nodes" title="List of nodes in the system"><div class="icon nodes-link-icon"></div> Nodes</a></li>
+        -->
+        <!--
+        <li><a href="/logs" title="View and acknowledge the logs on the controller"><div class="icon logs-link-icon"></div> Logs</a></li>
+        <li><a href="/datetime" title="View and set system date and time (it will be used for logs for example)"><div class="icon date-and-time-link-icon"></div> Date and Time</a></li>
+        <li><a href="/password" title="Change your password"><div class="icon password-link-icon"></div> Password</a></li>
+        <li><a href="/ethernet" title="Ethernet and IP settings"><div class="icon ethernet-link-icon"></div> Ethernet</a></li>
+        <li><a href="/communication" title="Communication settings"><div class="icon communication-link-icon"></div> Communication</a></li>
+        <li><a href="/snmpagent" title="SNMP (Simple Network Management Protocol) settings"><div class="icon snmp-link-icon"></div> SNMP</a></li>
+        <li><a href="/ext" title="Configure the external alarms triggers"><div class="icon external-alarms-link-icon"></div> External Alarms</a></li>
+        <li><a href="/thresholds" title="See and change the thresholds for triggering alarms"><div class="icon alarm-thresholds-link-icon"></div> Alarm Thresholds</a></li>
+        <li><a href="/info" title="View general site information and set tag and id"><div class="icon system-information-link-icon"></div> System Information</a></li>
+        <li><a href="/reboot" title="Reboot the controller"><div class="icon reboot-link-icon"></div> Reboot</a></li>
+        <li><a href="/term" title="Axell Shell terminal"><div class="icon axell-shell-link-icon"></div> Axell Shell</a></li>
+        -->
+
+        <li class="header">Alarms
+            <ul id="alarm" class="section">
+                <li><a href="/logs" title="View and acknowledge the logs on the controller"><div class="icon logs-link-icon"></div> Active Alarms</a></li>
+                <li><a href="/thresholds" title="See and change the thresholds for triggering alarms"><div class="icon alarm-thresholds-link-icon"></div> Alarms Configuration</a></li>
+                <li id="ext-header-menu"><a href="/ext" title="Configure the external alarms triggers"><div class="icon external-alarms-link-icon"></div> External Alarms</a></li>
+                <li id="comm"><a href="/communication" title="Communication settings"><div class="icon communication-link-icon"></div> Communication</a></li>
+                <li id="dobr-comm"><a href="/target/dobr_communication" title="Communication settings"><div class="icon communication-link-icon"></div> Communication</a></li>
+                <li id="snmp"><a href="/snmpagent" title="SNMP (Simple Network Management Protocol) settings"><div class="icon snmp-link-icon"></div> SNMP</a></li>
+
+            </ul>
+        </li>
+        <li class="header">Others
+            <ul id="other" class="section">
+                <li><a href="/ethernet" title="Ethernet and IP settings"><div class="icon ethernet-link-icon"></div> Ethernet</a></li>
+                <li><a href="/info" title="View general site information and set tag and id"><div class="icon system-information-link-icon"></div> System Information</a></li>
+                <li><a href="/datetime" title="Preferences"><div class="icon preferences"></div> Preferences</a></li>
+                <!--<li><a href="/password" title="Change user password"><div class="icon password-link-icon"></div> Change Password</a></li>-->
+                <li id="swUpdateLi"><a href="/upgrade" title="Software Update"><div class="icon backup_restore"></div> Software Update</a></li>
+                <li id="term"><a href="/term" title="Terminal"><div class="icon axell-shell-link-icon"></div> Terminal</a></li>
+                <li id="cluster"><a href="/target/cluster" title="Cluster Manager"><div class="icon axell-shell-link-icon"></div> Cluster Manager</a></li>
+                <!--<li><a href="/common_features.html" title="Common Features"><div class="icon axell-shell-link-icon"></div> Common Features</a></li>
+                <li><a href="/target/features.html" title="Target Features"><div class="icon axell-shell-link-icon"></div> Target Features</a></li>-->
+            </ul>
+        </li>
+        <!--<li><a href="/about/" title="About the product"><div class="icon about-link-icon"></div> About</a></li>-->
+    </ul>
+
+
+</header>

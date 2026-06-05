@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Administration</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="wizard-panel">
+        <li id="wizard-start" class="wizard-step">Start</li>
+        <li id="wizard-operator" class="wizard-step">Operator</li>
+        <li id="wizard-spectrum" class="wizard-step">Spectrum</li>
+        <li id="wizard-power" class="wizard-step">Power</li>
+        <li id="wizard-filtering" class="wizard-step">Filtering</li>
+        <li id="wizard-CPRI" class="wizard-step">CPRI</li>
+        <li id="wizard-end" class="wizard-step">End</li>
+    </div>
+    <div id ="operator_panel" class="panel">
+        <div class="operator_panel_header header"><img src="/images/icons/operator2.png"/> Operators
+            <a id="add-op-button" class="button header_btn"> <div class="icon add"></div> Add</a>
+            <!--<a href="/target/rfsettings" class="button header_btn" >RF Setting</a>
+            <a href="/target/quotas" class="button header_btn">Quota Management</a>-->
+        </div>
+
+
+       <div id="operator_list"></div>
+    </div>
+
+    <div id ="user_panel" class="panel">
+    <div id="useroperator_display"><img src="/images/icons/operator2.png"/> <span id="useroperator_name"></span></div>
+    <div class="header"><img src="/images/icons/users.png"/> Users<a id="add-user-button" class="button header_btn"> <div class="icon add"></div> Add</a></div>
+        <div id="user_operator_list"></div>
+    </div>
+
+  <div class="wizard-bottom-panel">
+      <a class="button" id="next">Next</a>
+      <a class="button" id="cancel">Cancel</a>
+  </div>
+</div>
+</div>
+
+<div id="add_operator_dialog" title="Add Operator" style="display:none">
+    <span>Operator Name: </span><input id="operator_name" type="text"/><div class="icon help" title="Operator name should be 5-10 characters long and only contain [a-z0-9-_], no space and uppercase is allowed"></div><br>
+    <span>Description: </span><input id="operator_desc" type="text"/>
+</div>
+<div id="add_user_dialog" title="Add User" style="display:none">
+    <div id="add_user">
+        <span>User Name: </span><input id ="username" type="text"/> <div class="icon help" title="User name should be 5-25 characters long and only contain [a-z0-9-_], no space and uppercase is allowed"></div><br>
+        <span>Password: </span><input id="passwd" type="password"/>
+        <div class="icon help" title="Password should be 8-25 characters long, only contain [a-z0-9.:;!+()-_], contain a least 1 cap letter, contain a least 1 digit"></div>
+        <div class="icon warning" title="Username and password will be transmitted over your communication line without encryption. If it is not a safe line, please don't use this page."></div><br>
+        <span>Confirm Password: </span><input type="password" id="passwd2"/> <div class="icon help" title="Please repeate the password to make sure you remember it correctly"></div><br>
+        <span>Access: </span> <input name="access" class="new_user_access" type="radio" value="RO" checked = "checked"/> Read Only    &nbsp;&nbsp;&nbsp;  <input name="access" class="new_user_access" type="radio" value="RW"/> Read /Write<br>
+        <span> </span> <input id="user_web_access" name="new_user_webaccess" type="checkbox" checked = "checked"/>
+    </div>
+</div>
+<div id="reset_password_dialog" title="Change Password" style="display:none">
+    <div id="reset_password">
+        <span>Password: </span><input id="reset_passwd" type="password"/>
+        <div class="icon help" title="Password should be 8-25 characters long, only contain [a-z0-9.:;!+()-_], contain a least 1 cap letter, contain a least 1 digit"></div>
+        <div class="icon warning" title="Username and password will be transmitted over your communication line without encryption. If it is not a safe line, please don't use this page."></div><br>
+        <span>Confirm Password: </span><input type="password" id="reset_passwd2"/> <div class="icon help" title="Please repeate the password to make sure you remember it correctly"></div><br>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

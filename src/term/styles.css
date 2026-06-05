@@ -1,0 +1,62 @@
+/*----------------------------The three main parts of the screen: output, caption and command input----------------------------*/
+#output{
+    background-color: #2C123A;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    /*background-image: url('/images/background.png');*/
+    color:#ccc;
+    box-shadow: 0 0 9px black inset;
+    font-family: monospace;
+    font-size:12px;
+    font-weight:normal;
+	overflow:auto;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px;
+}
+#output em,
+#output a,
+#output a:hover {
+    color: white;
+}
+#cmd{
+    background-color: transparent;
+    color: inherit;
+	border-radius:0;
+	border:none;
+	box-shadow:none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 0 14px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#cmd:focus{
+	outline:none;/*to remove the ugly outline around cmd line*/
+}
+/*----------------------------Command output colors----------------------------*/
+.error{
+	color:#F99;
+}
+.result{
+	color:#9F9;
+}
+.command{
+	/*border-top: 1px dotted #517148;*/
+    background-image: url('prompt.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 14px;
+}
+.completion{
+	color:#C6168D;
+}
+.timestamp {
+    font-size: 0.7em;
+    margin-top: 0.5em;
+    color: #899;
+}

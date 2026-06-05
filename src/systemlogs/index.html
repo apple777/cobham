@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Logs</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div style="display:none" id="popup_filter_setting">
+   <br/>
+   Status: <input type="checkbox" id="checkCritical" checked/> Critical
+   <input type="checkbox" id="checkMajor" checked/> Major
+   <input type="checkbox" id="checkMinor" checked/> Minor
+   <input type="checkbox" id="checkInfo" checked/> Info
+   <input type="checkbox" id="checkEvent" checked/> Event
+   <input type="checkbox" id="checkClear" checked/> Clear
+   <br/>
+   <br/>
+   <br/>
+   <!--Source: <select class="filter_select" name="colomn" id="filter_colomn">
+   </select-->
+   Source: <input id="filter_source" type="text" style="min-width: 180px; min-height: 24px">
+   <br/>
+   <br/>
+   <br/>
+   Description text: <input id="filter_text" type="text" style="min-width: 180px; min-height: 24px">
+</div>
+<div class="pagecontainer">
+    <div id="control_buttons" class="button-panel" style="height: 30px;">
+        <a id="filter_btn" class="button">Filter</a>
+        <!--div id="filter_setting_btn" class="icon filter" title="Filter Settings"></div-->
+        <a id="export_button" class="button" style="float: right;"><div title="Export"></div>Export</a>
+        <a id="login_button" class="button" style="float: right;"><div title="Login"></div>Login</a>
+        <a id="zoom_button" class="button" style="float: right;"><div title="Zoom"></div>Zoom</a>
+        <a id="clear_button" class="button" style="float: left;"><div title="Clear"></div>Clear Logs</a>
+    </div>   
+	<div class="panel collapsible">
+        <div class="header"><span id="log-count"></span></div>
+        <div class="contents">
+			<table id="alarms-table" >
+				<caption>System Logs</caption>
+                <thead>
+                    <tr class="alarms_table_head">
+                        <td title="Index" id="Index" width=50px>ID</td>
+                        <td title="Status" id="Status" width=80px>Status</td>
+                        <td title="Date And Time" id="Date and Time" width=175px>Date And Time</td>
+                        <td title="Operator" id="Operator" width=100px>Operator</td>
+                        <td title="Attrib" id="Attrib" width=100px>Attribute</td>
+                        <td title="Source" id="Source" width=80px>Source</td>
+                        <td title="Tag" id="Tag" width=120px>Tag</td>
+                        <td title="Description" id="Description">Description</td>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+			</table>
+		</div>
+	</div>
+    <div id="paging_buttons" class="button-panel" style="height: 30px;">
+        <button id="page_1_lo" style="width: 50px; height:30px; float:left ">1</button>
+        <button id="page_2_lo" style="width: 50px; height:30px; float:left ">2</button>
+        <button id="page_3_lo" style="width: 50px; height:30px; float:left ">3</button>
+        <button id="page_4_lo" style="width: 50px; height:30px; float:left ">4</button>
+        <button id="page_next" style="width: 50px; height:30px; float:left ">Next</button>
+    </div>   
+</div>
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

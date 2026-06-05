@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Setting</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+  <div class="panel">
+      <div class="header"><img src="/images/icons/user.png"/> User Details</div>
+      <div class="contents">
+          <table class="type4">
+              <tr>
+                  <th>User Name</th> <td><span id="username"></span><a id="passwd-button"> Change Password</a></td>
+              </tr>
+          </table>
+      </div>
+  </div>
+    <div id="reset_password_dialog" title="Reset Password">
+        <div id="reset_password">
+            <span>Password: </span><input id="reset_passwd" type="password"/><br>
+            <span>Confirm Password: </span><input type="password" id="reset_passwd2"/><br>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

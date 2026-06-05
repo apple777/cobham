@@ -1,0 +1,18 @@
+#add_apoi_dialog label{
+    display:inline-block;
+    font-weight: bold;
+    text-align: left;
+    width:45%;
+    line-height:16px;
+    color:#666;
+}
+#add_apoi_dialog span{
+    display:inline-block;
+    text-align: left;
+    width:45%;
+    padding-bottom: 5px;
+}
+.loc_led{
+    padding:5px;
+    display: inline-block;
+}

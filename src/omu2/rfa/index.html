@@ -1,0 +1,82 @@
+<html>
+<head>
+    <title>RF Adjustment</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="pagecontainer">
+        <div class="button-panel">
+            <a id="select-all-btn" class="button"><div class="icon select-all"></div> Select All</a>
+            <a id="select-none-btn" class="button"><div class="icon unselect-all"></div> Select None</a>
+            <a id="adjust-btn" class="button"><div class="icon rfadjustbtn"></div> Adjust</a>
+        </div>
+        <div class="warning-panel">
+            <em>Note:</em><br/>
+            The automatic RF Adjustment procedure will adjust the output in the downlink path for each chain to the nominal level and then set uplink gain according to the Delta configuration.
+            For this to work, there must be a downlink signal enabled in the downlink from the base station allowing to reach the desired output power level.
+            Before performing RF Adjustments it is strongly recommended to adjust corresponding opto links in the opto adjustment page.
+        </div>
+        <div class="nothing-to-show warning-panel">
+            <em><div class="icon warning"></div>Warning</em><br/>
+            No node with an MBF-20 was detected in the system. If the system is just being initialized, wait a couple of minutes so that all nodes are detected. Then try again and reload this page.
+        </div>
+        <script id="layout" type="text/x-handlebars-template">
+        {{#each .}}
+            <div class="panel node-panel" data-node-number="{{number}}" data-serial="{{serial}}">
+                <div class="header">
+                    <div class="icon systemnodes"></div> Node {{number}}, {{mdl}} , {{tag}} <div class="icon rack" title="Rack#: {{rack}}, Slot#: {{slot}}"></div><div class="icon help" title="Node Number, Model, Tag, Rack, Slot"></div>
+                </div>
+                <div class="contents">
+                    <table class="type1 bands-table">
+                        <thead>
+                            <tr>
+                                <th class="led-title"></th>
+                                <th class="checkbox-title"><div class="icon help" title="Choose the bands that you would like to do a Radio Frequency Adjustment on them"></div></th>
+                                <th class="title-header">Freq [MHz]<div class="icon help" title="Frequency Band"></div></th>
+                                <th class="select-title">Nominal Level [dBm]<div class="icon help" title="Nominal Downlink Level"></div></th>
+                                <th class="select-title">Uplink Delta [dB]<div class="icon help" title="Difference between downlink and uplink gain to set when adjustment is done"></div></th>
+                                <th><div class="icon status"></div> Status <div class="icon help" title="Status of the last RF Adjustment"></div></th>
+                                <th class="date-time-title">Finish Time</th>
+                                <th class="numerical-title">Resulting Atten [dB]<div class="icon help" title="Resulting Downlink Attenuation"></div></th>
+                                <th class="numerical-title">Output Level [dBm]<div class="icon help" title="Output Power Level"></div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each bands}}
+                                <tr id="band-row_{{nodeNumber}}_{{bandNumber}}" class="band-row" data-node-number="{{nodeNumber}}" data-band-number="{{bandNumber}}">
+                                    <td><div class="led status-led"></div></td>
+                                    <td>
+                                        <input type="checkbox" class="rfa-cbx" />
+                                        <img class="rfa-in-progress-image" src="/src/images/waiting16-black.gif" />
+                                    </td>
+                                    <td class="title-header" data-frequency="{{frequency}}">
+                                        {{name}}
+                                    </td>
+                                    <td>
+                                        <select class="nominal-level-select">
+                                            {{option "0" powerRange}}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="uplink-delta-select">
+                                            {{option "15" "-15"}}
+                                        </select>
+                                    </td>
+                                    <td class="status-cell"></td>
+                                    <td class="time-date-val"></td>
+                                    <td class="downlink-attenuation-val"></td>
+                                    <td class="output-power-level-val"></td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {{/each}}
+        </script>
+    </div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

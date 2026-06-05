@@ -1,0 +1,71 @@
+#add_user span{
+    width: 35%;
+    float: left;
+    line-height: 20px;
+}
+#add_user input{
+    margin: 5px;
+}
+#reset_password span{
+    width: 35%;
+    float: left;
+    line-height: 30px;
+}
+#reset_password input{
+    margin: 5px;
+}
+input[name="access"] {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+#add_operator_dialog span{
+    width: 40%;
+    float: left;
+    margin:5px;
+}
+#add_operator_dialog input{
+    margin:5px;
+}
+.users_table{
+    table-layout: auto!important;
+}
+.users_table td:nth-child(6),.users_table td:nth-child(7){
+    width:30px;
+}
+#operator_panel{
+    width:50%;
+    padding:10px;
+    display: inline-block;
+}
+.operator_panel_header{
+    margin-bottom: 28px!important;
+}
+#user_panel{
+    width:45%;
+    padding:10px;
+    display: inline-block;
+    float: right;
+}
+.header_btn{
+    float:right;
+    margin-right: 5px!important;
+    margin-left: 0px!important;
+}
+tr.op_row.clicked td{
+    background-color: #165788;
+    color:white;
+}
+tr.op_row:hover td{
+    background-color: #68AFE4;
+    color:white;
+}
+
+#useroperator_display{
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.icon {
+    cursor: pointer!important;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Topology</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="system_overview" class="panel collapsible">
+    <div id="filter">
+        <span class="system-overview-title">Operator:</span> <span id="operator_name"></span>
+    </div>
+    <div class="v-seperator"></div>
+    <div id="display_filter">
+        <span class="system-overview-title">System Configuration</span>
+        <select id="system_configuration_mode">
+            <option value="2io14o">1 to 15</option>
+            <option value="4io12o">2 X 1 to 7</option>
+        </select>
+    </div>
+    <div class="v-seperator"></div>
+    <div id="logged_in_user">
+        <span class="system-overview-title">Current logged in user:</span> <span id="username"></span>
+    </div>
+</div>
+
+<div id="topology-container">
+    <div id="right_side_bar" class="panel" style="display:none">
+        <div id="right_side_bar_header">
+            <span id="right_side_bar_header_text">Status</span>
+        </div>
+        <div id="right_side_bar_content">
+        </div>
+    </div>
+</div>
+
+<div id="disable_connection_dialog" style="display:none">
+    <span>You will have
+        <select id="hour"></select> hour(s)
+        <select id="minute"></select> minute(s) to remove the CPRI link before it is reconnected again.</span>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+
+</body>
+</html>

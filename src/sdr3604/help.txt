@@ -1,0 +1,11 @@
+#SDR3604
+
+This product can act as channel selective and band selective repeater.
+
+##BSR3604
+
+In the band selective mode it is possible to define bands for the repeaters.
+
+##CSR3604
+
+In the channel selective mode, the repeater works in the range of predefined channels.

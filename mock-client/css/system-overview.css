@@ -1,0 +1,63 @@
+.system-overview {
+  background-color: var(--color-surface-system-overview);
+  color: var(--color-text-secondary);
+  margin: var(--layout-system-overview-margin);
+  padding-top: var(--layout-system-overview-padding-top);
+  border-radius: var(--layout-system-overview-border-radius);
+  width: var(--layout-system-overview-width);
+  box-shadow: var(--shadow-system-overview);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.system-overview__section {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: var(--layout-system-overview-section-width);
+  margin: var(--layout-system-overview-margin);
+  line-height: var(--layout-system-overview-line-height);
+}
+
+.system-overview__label {
+  font-weight: bold;
+}
+
+.system-overview__value {
+  font-weight: normal;
+}
+
+.system-overview__select {
+  min-width: 100px;
+  padding: 2px 4px;
+}
+
+.system-overview__separator {
+  border-right: 1px dashed #666666;
+  width: 0;
+  height: var(--layout-v-separator-height);
+  align-self: center;
+}
+
+.system-overview__status {
+  margin-left: auto;
+  margin-right: 12px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.system-overview__status-led {
+  width: 16px;
+  height: 16px;
+  background: url('../../src/images/led.png') -32px -32px no-repeat;
+  cursor: help;
+}
+
+.system-overview__status-led.is-red {
+  background-position: -16px -32px;
+}
+
+.system-overview__status-led.is-green {
+  background-position: -32px -32px;
+}

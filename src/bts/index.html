@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sector Antenna</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="button-panel">
+        <div id="sector_list">
+        </div>
+        <a class="button" id="add">Add Sector</a>
+        <a class="button" id="cancel">Cancel</a>
+    </div>
+    <div class="panel">
+        <div class="header">Sector Antenna</div>
+        <div id="sector-content">
+        <table id="sector-config" class="type3">
+            <caption> Sector Configuration</caption>
+            <tr>
+                <th><label for="sector-id">Sector ID</label></th>
+                <td colspan="3"> <input id="sector-id" type="text" disabled/>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="sector-tag">Sector Tag</label></th>
+                <td colspan="3"> <input id="sector-tag" type="text"/>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="sector-bts-tag">Base Station Tag</label></th>
+                <td colspan="3"> <input id="sector-bts-tag" type="text"/>
+                </td>
+            </tr>
+
+            <!--
+            <tr>
+                <th><label for="MIMO">MIMO</label></th>
+                <td> <input id="MIMO" type="checkbox"/>
+                </td>
+            </tr>
+            -->
+            <tr>
+                <th><label>Band</label></th>
+                <td colspan="3"><select id="band-select"/>
+                </td>
+
+            </tr>
+            <tr>
+                <th></th>
+                <th class="band_info">
+                    Lower Downlink
+                </th>
+                <th class="band_info">
+                    Upper Downlink
+                </th>
+                <th class="band_info">
+                    Duplex
+                </th>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <input id="startDL" type="text"/>
+                </td>
+                <td>
+                    <input id="stopDL" type="text"/>
+                </td>
+                <td>
+                    <input id="duplex" type="text"/>
+                </td>
+            </tr>
+            <!--
+            <tr>
+                <th><label for="sector-connections">Connection</label></th>
+                <td>
+                    <select id="sector-connections" sector-id="sector-{{.}}" class="connection-select">
+                        <option value="">Select</option>
+                        <option value="APOI">APOI</option>
+                        <option value="MTDI">MTDI</option>
+                    </select>
+                    <a class="button" id="view_port" sector-id="sector-{{.}}">View port</a>
+                </td>
+            </tr>
+            -->
+        </table>
+        <table id="conn_type_table">
+            <tr class="conn_info">
+                <th rowspan="4"><label>Connection Type</label></th>
+                <th class="conn_info" colspan="4"><input type="radio" name="conn_type" value="MIMO"/> MIMO</th>
+                <th class="conn_info" colspan="2"><input type="radio" name="conn_type" value="MIMO_DUPLEX"/> MIMO DUPLEX</th>
+                <th class="conn_info" colspan="2"><input type="radio" name="conn_type" value="DLUL"/> DLUL</th>
+                <th class="conn_info"><input type="radio" name="conn_type" value="DUPLEX"/> DUPLEX</th>
+            </tr>
+            <tr class="conn_info">
+                <td colspan="2" class="conn_info"><b>MIMO A</b></td>
+                <td colspan="2" class="conn_info"><b>MIMO B</b></td>
+                <td class="conn_info"><b>MIMO A</b></td>
+                <td class="conn_info"><b>MIMO B</b></td>
+                <td class="conn_info" rowspan="2">Donwlink</td>
+                <td class="conn_info" rowspan="2">Uplink</td>
+                <td class="conn_info" rowspan="2">Downlink/ Uplink</td>
+            </tr>
+            <tr>
+                <td class="conn_info">Downlink</td>
+                <td class="conn_info">Uplink</td>
+                <td class="conn_info">Downlink</td>
+                <td class="conn_info">Uplink</td>
+                <td class="conn_info">Downlink/ Uplink</td>
+                <td class="conn_info">Downlink/ Uplink</td>
+            </tr>
+            <tr class="conn_info">
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+                <td><img src="/images/icons/rf_connector.png"/></td>
+            </tr>
+        </table>
+        <!--
+        <table class="type3">
+            <caption> Sector Band Configuration <div class="icon help" title="Click on each band to configure"></div></caption>
+            <tr>
+                <td>
+                    <div id="bts-freq-indicator" class="bts-band-indicator" sector-id="sector-{{.}}"></div>
+                </td>
+            </tr>
+
+        </table>
+
+        <div id="sector-band-1" class ="band_details">
+            <table id="sector-band-config" class="type3">
+                <caption id="band_config_caption">
+                </caption>
+
+                <tr>
+                    <th><label>MIMO</label></th>
+                    <td colspan="3">
+                        <select id="sector-band-1-MIMO" sector-id="sector-{{.}}">
+                            <option value="">Select</option>
+                            <option value="sector-band-1-MIMO-Y">Yes</option>
+                            <option value="sector-band-1-MIMO-N">No</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><div class="icon freq-start"></div><span>Start [MHz]</span></th>
+                    <td>
+                        <input id="sector-band-start" sector-id="sector-{{.}}" type="text"/>
+                    </td>
+                    <th><div class="icon freq-stop"></div><span>Stop [MHz]</span></th>
+                    <td>
+                        <input id="sector-band-stop" sector-id="sector-{{.}}" type="text"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <a class="button config-band-btn" id="sector-config-band" sector-id="sector-{{.}}"> Configure Band</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div id="sector-band-freq-indicator" class="band-freq-indicator" data-count=""></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <a class="button add-band-btn" id="sector-add-band" sector-id="sector-{{.}}"><div class="icon add"></div> Add Band</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <div style="display: none">
+        <div id="band-frequency-editor-contents">
+            <div id="band-frequency-editor">
+                <div class="edit-and-label" style="left:160px;top: 63px">
+                    <label for="band-edit-span">Span</label>
+                    <input type="number" id="band-edit-span" class="validation-range" />
+                    <div id="bamd-range-hint-span" class="band-range-hint"></div>
+                </div>
+                <div class="edit-and-label" style="left:0px;top: 167px">
+                    <label for="band-edit-start">Start</label>
+                    <input type="number" id="band-edit-start" class="validation-range" />
+                    <div id="bamd-range-hint-start" class="band-range-hint"></div>
+                </div>
+                <div class="edit-and-label" style="left:160px;top: 167px">
+                    <label for="band-edit-center">Center</label>
+                    <input type="number" id="band-edit-center" class="validation-range" />
+                    <div id="band-range-hint-center" class="band-range-hint"></div>
+                </div>
+                <div class="edit-and-label" style="left:319px;top: 167px">
+                    <label for="band-edit-stop">Stop</label>
+                    <input type="number" id="band-edit-stop" class="validation-range" />
+                    <div id="band-range-hint-stop" class="band-range-hint"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: none">
+        <div id="APOI_connection_select_content">
+            <table>
+            <tr class="APOI_connector_display">
+                <th>
+                    <span>APOI Serial Number</span>
+                </th>
+                <td>
+                    <select>
+                        <option value="">APOI_1</option>
+                        <option value="">APOI_2</option>
+                        <option value="">APOI_3</option>
+                        <option value="">APOI_4</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="sector-APOI-connection-port" class="APOI_connector_display">
+                <th><label>Port</label></th>
+                <td id="sector-APOI-connection-port-number" sector-id="sector-{{.}}">
+
+                </td>
+            </tr>
+            <tr id="sector-APOI-connection-point" class="APOI_connector_display">
+                <td colspan="2">
+                    <div id="sector-APOI" sector-id="sector-{{.}}">
+                        <img src="../images/icons/APOI_model.png"/>
+                    </div>
+                </td>
+            </tr>
+            </table>
+        </div>
+
+        <div style="display: none">
+            <div id="MTDI_connection_select_content">
+                <table>
+                    <tr class="MTDI_connector_display">
+                        <th>
+                            <span>MTDI Serial Number</span>
+                        </th>
+                        <td>
+                            <select>
+                                <option value="">MTDI_1</option>
+                                <option value="">MTDI_2</option>
+                                <option value="">MTDI_3</option>
+                                <option value="">MTDI_4</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="sector-MTDI-connection-port" class="MTDI_connector_display">
+                        <th><label>Port</label></th>
+                        <td id="sector-MTDI-connection-port-number" sector-id="sector-{{.}}">
+
+                        </td>
+                    </tr>
+                    <tr id="sector-MTDI-connection-point" class="MTDI_connector_display">
+                        <td colspan="2">
+                            <div id="sector-MTDI" sector-id="sector-{{.}}">
+                                <img src="../images/icons/MTDI_model.png"/>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

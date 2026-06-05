@@ -1,0 +1,196 @@
+/*-----------------------Radioface-----------------------*/
+#current-frequency{
+	display:inline-block;
+}
+#radioface{
+	position:relative;
+	width:960px;
+	height:150px;
+	margin:5px 0 5px 0;
+	
+	box-shadow:inset 0 0 5px #002200;
+	
+	background-image:url(csr138-ui-bg.png);
+	background-repeat:none;
+	background-position:top left;
+	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+	cursor:crosshair;
+}
+.channel-selector{
+	box-shadow:0 0 2px #444;
+	position:absolute;
+	display:none;
+
+	left:40px;
+	width:16px;
+	height:150px;
+
+	cursor:col-resize;
+
+	background-image:url(csr138-ui-indicator.png);
+	background-position:-16px 0;
+	background-repeat:no-repeat;
+}
+.channel-selector.selected{
+	box-shadow:0 0 3px #444;
+	background-position:-32px 0;
+	/*border:1px red dotted;*/
+	z-index:100;
+}
+.channel-selector.selected.moving{
+	background-position:-48px 0;
+}
+.channel-selector .value{
+	position:relative;
+	display:inline-block;
+	width:50px;
+	height:16px;
+	top:65px;
+	left:-18px;
+	
+	transform:rotate(-90deg);
+	-webkit-transform:rotate(-90deg);
+	-moz-transform:rotate(-90deg);
+	-o-transform: rotate(-90deg);
+
+	color:black;
+	font-size:14px;
+	text-align:center;
+}
+.channel-selector .indicator{
+	position:absolute;
+	background-color:#0099FF;
+	width:7px;
+	top:101px;
+	height:44px;
+	left:5px;
+	z-index:9;
+}
+.channel-selector .threshold{
+	position:absolute;
+	background-color:red;
+	width:16px;
+	top:99px;
+	height:4px;
+	left:0px;
+	z-index:10;
+}
+#statusbar{
+	position:absolute;
+	top:300px;
+	text-align:center;
+}
+
+/*-----------------------Tables in the General Panel-----------------------*/
+table#generalstatus{
+	width:450px;
+	float:left;
+}
+table#generalstatus th{
+	width:190px;
+}
+table#ext{
+	margin-left:5px;
+	width:505px;
+	float:left;
+}
+table#ext th{
+	width:150px;
+}
+table#ext td:first-of-type{
+	width:325px;
+}
+table#bandstatus tr:first-child th{
+	width:auto;
+}
+table tr.separatortitle{
+	background-color:#B8C6EB;
+	text-align:center !important;
+	height:15px !important;
+	font-size:12px;
+	font-weight:bold;
+	color:black;
+}
+table#bandstatus tr td{
+	width:auto;
+	text-align:center;
+}
+table#bandstatus tr th{
+	width:190px;
+}
+table#fiberopticstatus tr td{
+	width:auto;
+	text-align:center;
+}
+table#fiberopticstatus tr th{
+	width:190px;
+}
+table#powerstatus td{
+	width:5.55%;
+}
+/*-----------------------Number fields-----------------------*/
+div.panel div.contents table tr td.number{
+}
+/*-----------------------Panel status led-----------------------*/
+div.panel div.header .led{
+	margin-right:4px;
+}
+/*-----------------------The border between rows-----------------------*/
+table.horizontal tr td+td,
+table.vertical th.borderleft,
+table.vertical td.borderleft{
+	border-left:1px solid #999;
+}
+/*-----------------------SELECT BOXES-----------------------*/
+table#bandstatus tr td select{
+	width:180px;
+}
+/*---------------------------ALC SLIDER-----------------------------*/
+#alc-level-slider{
+	width:200px;
+}
+/*-----------------------BASIC ADVANCED LINKS-----------------------*/
+a.detaillevel{
+	text-decoration:none;
+	color:#DDD !important;
+}
+a.detaillevel.selected{
+	text-shadow:white 0 0 5px;
+	color:#FFF !important;
+	font-weight:bold;
+}
+/* This one is just a fix for center-aligning the header for general status even though it's a horizontal table*/
+table.horizontal#generalstatus th#alightcenter{
+	text-align:center !important;
+}
+/*-----------------------Advanced and Basic Elements-----------------------*/
+.basic{
+	/*Currently it is empty but it's there for the sake of auto-completion in design tools*/
+}
+.advanced{
+	/*Currently it is empty but it's there for the sake of auto-completion in design tools*/
+}
+/*-----------------------These classes are used more as an indigation for showing or hiding a column-----------------------*/
+.band1{
+}
+.band2{
+}
+.band3{
+}
+.band4{
+}
+.fo1{
+}
+.fo2{
+}
+.fo3{
+}
+.fo4{
+}

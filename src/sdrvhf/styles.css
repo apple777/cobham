@@ -1,0 +1,142 @@
+select {
+    width: 80%;
+}
+
+#mcpa-table,
+#radio-table,
+#channels-table {
+    table-layout: auto;
+}
+
+#mcpa-table th:first-child,
+#radio-table th:first-child {
+    width: 220px;
+}
+
+.freq-indicator {
+    height: 60px;
+    background-color: #D0DFD0;
+    border-radius: 1px;
+    box-shadow: inset 0 0 3px #999;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    border-radius: 5px;
+}
+
+.freq-indicator-range {
+    color: #888;
+    font-size: 10px;
+    position: absolute;
+}
+
+.freq-indicator-range-ul-min {
+    top: 0;
+    left: 2px;
+}
+.freq-indicator-range-ul-max {
+    top: 0;
+    right: 2px;
+}
+
+.freq-indicator-range-dl-min {
+    bottom: 0;
+    left: 2px;
+}
+
+.freq-indicator-range-dl-max {
+    bottom: 0;
+    right: 2px;
+}
+
+.freq-indicator-bar.disabled {
+    background-color: #777;
+    color: #333;
+    z-index: 1;
+}
+.freq-indicator-bar {
+    display: inline-block;
+    position: absolute;
+    opacity: 0.7;
+    box-shadow: 0 0 2px #5b5;
+    z-index: 2;
+}
+
+.freq-indicator-bar:hover {
+    opacity: 1;
+    box-shadow: none;
+}
+
+.uplink-row .focused-column,
+.ul-freq-indicator-bar {
+    background-color: #165788;
+    color: rgba(255,255,255,0.7);
+}
+
+.ul-freq-indicator-bar {
+    border-radius: 0 0 2px 2px;
+    top:0;
+    z-index: 1;
+    height: 25px;
+    padding-top: 5px;
+}
+
+.downlink-row .focused-column,
+.dl-freq-indicator-bar {
+    background-color: #2E3192;
+    color: rgba(255,255,255,0.7);
+}
+
+.dl-freq-indicator-bar {
+    border-radius: 2px 2px 0 0;
+    bottom: 0;
+    height: 24px;
+    padding-top: 5px;
+}
+
+/*
+.focused-column {
+    background-color: #ccc !important;
+}
+*/
+
+/*---------------------------- BSR frequency editor window -----------------------------*/
+#bsr-frequency-editor {
+    background-image: url('bsr-wave-form.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    width: 420px;
+    height: 250px;
+    position: relative;
+}
+.edit-and-label {
+    text-align: center;
+    color: #666;
+    position: absolute;
+    /*border: 1px solid red;*/
+    width: 100px;
+}
+.edit-and-label input {
+    text-align: center;
+    width:90px;
+}
+.edit-and-label select {
+    text-align: center;
+    width:100px;
+}
+.edit-and-label label {
+    display: block;
+}
+.bsr-range-hint {
+    font-size: 0.7em;
+    color:#777;
+}
+.erroneous {
+    background-color: red;
+    color: yellow;
+}
+input.center-config-select{
+    text-align: center;
+    width: 90px;
+}

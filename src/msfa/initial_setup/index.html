@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Welcome to idDAS</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="panel">
+        <div id="initial_setup_header">
+            Welcome to the COBHAM idDAS system!
+        </div>
+        <div id="instruction">
+            <span> Before the system can be used, please define an operator and the system operating mode.</span>
+            <span>An operators needs to be added to the system. Please give the operator a short name to use in the system, and also a longer more user-friendly description.</span>
+            <span> The default line rate is 9.8 Gbps.</span>
+        </div>
+        <div id="initial_setup_content">
+            <label>Operator Name: </label><span><input id="operator_name" style="margin-top:10px"></input></span>
+            <label>Operator Description: </label><span><input id="operator_description" style="margin-top:10px"></input></span>
+            <label>System Mode: </label>
+                <span><form id="system_mode" style="margin-top:10px">
+                <input type="radio" name="mode" value="Switch" checked="checked">Switch<br></option>
+                <input type="radio" name="mode" value="Transponder">Transponder<br></option>
+                <input type="radio" name="mode" value="TapperTransponder">Tapper Transponder</option>
+            </form></span>    
+        </div>
+        <div>
+            <div id="apply-btn-placeholder"><a id="apply-btn" class="button">Apply</a></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>

@@ -1,0 +1,28 @@
+#Nodes
+
+Many products from Axell Wireless connect to each other as nodes.
+
+An Axell Wireless Repeater System contains two different node types:
+
+ * Node Master is the node containing the communications interface towards the Axell Element Manager.
+ The node master is responsible for polling all slave nodes for new alarms and events that should be transmitted to the
+ Axell Element Manager.
+
+ * Slaves are nodes that does not have an interface towards the Axell Element Manager. Slaves contain a slave interface
+ allowing for a node master to communicate with the system slave.
+
+A typical example of an Axell Wireless Repeater System is an Optical Master Unit (OMU) containing a remote
+communications device such as a modem, and which monitors a number of fiber optic fed repeaters using the fiber as a
+data communications channel (using a sub carrier in the fiber).
+
+##Nodestat
+`nodestat` displays statistics on the quality of the communication between controller and active devices or slave repeaters.
+This command is used to display statistics between a controller and active devices or system slaves (repeater slaves).
+This is a useful tool to see if there are lost packets between the controller and a certain device or repeater and can
+be used to identify a failing opto link or an active device resetting very often.
+You can get the node statistics by the `nodestat` command:
+
+    nodestat
+
+([run in the current machine](/term/index.html?cmd=nodestat))
+

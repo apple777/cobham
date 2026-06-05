@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Software Banks</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script>
+
+      function cmd(name)
+     {
+      var xmlhttp;
+      if (window.XMLHttpRequest)
+       {// code for IE7+, Firefox, Chrome, Opera, Safari
+         xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+        document.getElementById("log").innerHTML=xmlhttp.responseText;
+        }
+        }
+        xmlhttp.open("GET","/cgi/cmd.lua?cmd="+name,true);
+        xmlhttp.send();
+    }
+   </script>
+
+</head>
+<body>
+
+<div class="pagecontainer">
+  <div class="panel">
+    <div class="header">Software Banks Status</div>
+      <br>
+    <div class="contents">
+        <form id="sw-banks-form" enctype="multipart/form-data" method="post" >
+            <table id="blocksTable"></table>
+        </form>
+    </div>
+  </div>
+</div>
+
+<div class="pagecontainer" id="sw_history">
+  <div class="panel">
+    <div class="header">Software History</div>
+      <br>
+    <div class="contents">
+        <form id="old-sw-form" enctype="multipart/form-data" method="post" >
+            <table id="swTable"></table>
+        </form>
+    </div>
+  </div>
+</div>
+
+<div class="pagecontainer" id="sys_history">
+  <div class="panel">
+    <div class="header">System History</div>
+      <br>
+    <div class="contents">
+        <form id="old-sys-form" enctype="multipart/form-data" method="post" >
+            <table id="sysTable"></table>
+        </form>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

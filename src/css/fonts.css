@@ -1,0 +1,17 @@
+@font-face
+{
+    font-family: letsgodigital;
+    src: url( '/css/letsgodigital.ttf' );
+}
+
+@font-face
+{
+    font-family: digital7;
+    src: url( '/css/digital7.ttf' );
+}
+
+@font-face
+{
+    font-family: lcdphone;
+    src: url( '/css/lcdphone.ttf' );
+}

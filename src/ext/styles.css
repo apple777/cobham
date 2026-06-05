@@ -1,0 +1,19 @@
+table#eadext tr th:nth-child(1),
+table#eadext tr td:nth-child(1){
+	width:20px;
+}
+table#eadext tr th:nth-child(2),
+table#eadext tr td:nth-child(2){
+	width:200px;
+}
+table#eadext tr th:nth-child(3),
+table#eadext tr td:nth-child(3){
+	width:180px;
+}
+table#eadext tr th:nth-child(4),
+table#eadext tr td:nth-child(4){
+	width:auto;
+}
+table#eadext tr td input[type="text"]{
+	width:530px;
+}

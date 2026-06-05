@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Logs</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div id="control_buttons" class="button-panel" style="height: 30px;">
+        <a style="font-size: 17px;padding-right: 10px;">Device </a>
+        <select class="device_select" name="colomn" id="device_colomn">
+        </select>
+    </div>   
+	
+	<div class="panel collapsible">
+        <div class="header"><span id="log-count"></span></div>
+        <div class="contents">
+			<table id="sfps8-table" >
+				<caption>SFPs</caption>
+                <thead>
+                    <tr class="sfps_table_head">
+                        <td title="meas" 		id="meas8" 			width=30px	style="background-color: black; color:cyan; text-align:center"></td>
+                        <td title="SFP1" 		id="sfp1" 			width=50px	style="background-color: black; color:cyan; text-align:center">1</td>
+                        <td title="SFP3" 		id="sfp3" 			width=50px	style="background-color: black; color:cyan; text-align:center">3</td>
+                        <td title="SFP5" 		id="sfp5" 			width=50px	style="background-color: black; color:cyan; text-align:center">5</td>
+                        <td title="SFP7" 		id="sfp7" 			width=50px	style="background-color: black; color:cyan; text-align:center">7</td>
+                        <td title="SFP9" 		id="sfp9" 			width=50px	style="background-color: black; color:cyan; text-align:center">9</td>
+                        <td title="SFP11" 		id="sfp11" 			width=50px	style="background-color: black; color:cyan; text-align:center">11</td>
+                        <td title="SFP13" 		id="sfp13" 			width=50px	style="background-color: black; color:cyan; text-align:center">13</td>
+                        <td title="SFP15" 		id="sfp15" 			width=50px	style="background-color: black; color:cyan; text-align:center">15</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+			</table>
+			<table id="sfps16-table" >
+                <thead>
+                    <tr class="sfps_table_head">
+                        <td title="meas" 		id="meas16" 		width=30px	style="background-color: black; color:cyan; text-align:center"></td>
+                        <td title="SFP2" 		id="sfp2" 			width=50px	style="background-color: black; color:cyan; text-align:center" >2</td>
+                        <td title="SFP4" 		id="sfp4" 			width=50px	style="background-color: black; color:cyan; text-align:center" >4</td>
+                        <td title="SFP6" 		id="sfp6" 			width=50px	style="background-color: black; color:cyan; text-align:center" >6</td>
+                        <td title="SFP8" 		id="sfp8" 			width=50px	style="background-color: black; color:cyan; text-align:center" >8</td>
+                        <td title="SFP10" 		id="sfp10" 			width=50px	style="background-color: black; color:cyan; text-align:center" >10</td>
+                        <td title="SFP12" 		id="sfp12" 			width=50px	style="background-color: black; color:cyan; text-align:center" >12</td>
+                        <td title="SFP14" 		id="sfp14" 			width=50px	style="background-color: black; color:cyan; text-align:center" >14</td>
+                        <td title="SFP16" 		id="sfp16" 			width=50px	style="background-color: black; color:cyan; text-align:center" >16</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+			</table>
+			<table id="measurements-table" >
+				<caption>Measurements</caption>
+                <thead>
+                    <tr class="measurements_table_head">
+                        <td title="Attribute" id="Attribute" width=80px>Attribute</td>
+                        <td title="Hwenum" id="Hwenum" width=80px>Hwenum</td>
+                        <td title="Posid" id="Posid and Time" width=80px>Posid</td>
+                        <td title="Description" id="Description" width=300px>Description</td>
+                        <td title="Min" id="Min" width=80px>Min</td>
+                        <td title="Value" id="Value" width=120px>Value</td>
+                        <td title="Max" id="Max" width=80px>Max</td>
+                        <td title="Units" id="Units" width=80px>Units</td>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

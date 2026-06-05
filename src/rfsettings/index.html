@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RF Management</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="pagecontainer">
+    <div class="wizard-panel">
+        <li id="wizard-start" class="wizard-step">Start</li>
+        <li id="wizard-operator" class="wizard-step">Operator</li>
+        <li id="wizard-spectrum" class="wizard-step">Spectrum</li>
+        <li id="wizard-power" class="wizard-step">Power</li>
+        <li id="wizard-filtering" class="wizard-step">Filtering</li>
+        <li id="wizard-CPRI" class="wizard-step">CPRI</li>
+        <li id="wizard-end" class="wizard-step">End</li>
+    </div>
+
+  <div class="panel">
+    <div class="header">Frequency Ranges</div>
+
+    <div class="contents">
+        <div id="filter"><b> Filter by region:</b>
+            <div><input type="radio" name="regions" value="all" /> All</div>
+            <div><input type="radio" name="regions" value="AMER"/> Americas</div>
+            <div><input type="radio" name="regions" value="EMEA"/> EMEA</div>
+            <div><input type="radio" name="regions" value="APAC"/> APAC</div>
+        </div>
+        <div id="legend" class="legend"></div>
+        <div id="freq_range_contents"></div>
+    </div>
+  </div>
+    <div id="add_opranges_dialog" style="display:none">
+        <div class="edit-and-label" style="left:10px;top: 10px">
+            <label for="operator-select">Operator</label>
+            <select id="operator-select"></select>
+        </div>
+        <div class="edit-and-label" style="left:170px;top: 10px">
+            <label for="freqblock-select">RF Block</label>
+            <select id="freqblock-select"></select>
+        </div>
+        <div class="edit-and-label" style="left:330px;top: 10px">
+            <label for="freq-tag">Tag</label>
+            <input type="text" id="freq-tag" placeholder="e.g Block A"/>
+        </div>
+        <div class="edit-and-label" style="left:5px;top: 80px">
+            <label for="range-start">Lower Downlink [MHz]</label>
+            <input type="text" id="range-start" class="validation-range numeric" placeholder="Numbers"/>
+            <div id="band-range-hint-start" class="band-range-hint"></div>
+        </div>
+        <div class="edit-and-label" style="left:155px;top:80px">
+            <label for="range-stop">Upper Downlink [MHz]</label>
+            <input type="text" id="range-stop" class="validation-range numeric" placeholder="Numbers"/>
+            <div id="band-range-hint-stop" class="band-range-hint"></div>
+        </div>
+        <div class="edit-and-label" style="left:315px;top:80px">
+            <label for="duplex">Duplex [MHz]</label>
+            <input type="text" id="duplex" disabled/>
+        </div>
+    </div>
+    <div id="edit_opranges_dialog" style="display:none">
+        <div class="edit-and-label" style="left:10px;top: 10px">
+            <label for="edit-operator-select">Operator</label>
+            <select id="edit-operator-select"></select>
+        </div>
+        <div class="edit-and-label" style="left:170px;top: 10px">
+            <label for="edit-freqblock-select">RF Block</label>
+            <select id="edit-freqblock-select"></select>
+        </div>
+        <div class="edit-and-label" style="left:330px;top: 10px">
+            <label for="edit-freq-tag">Tag</label>
+            <input type="text" id="edit-freq-tag" placeholder="e.g Block A"/>
+        </div>
+        <div class="edit-and-label" style="left:5px;top: 80px">
+            <label for="edit-range-start">Lower Downlink [MHz]</label>
+            <input type="text" id="edit-range-start" class="validation-range numeric" placeholder="Numbers"/>
+            <div id="band-range-hint-start" class="band-range-hint"></div>
+        </div>
+        <div class="edit-and-label" style="left:155px;top:80px">
+            <label for="edit-range-stop">Upper Downlink [MHz]</label>
+            <input type="text" id="edit-range-stop" class="validation-range numeric" placeholder="Numbers"/>
+            <div id="band-range-hint-stop" class="band-range-hint"></div>
+        </div>
+        <div class="edit-and-label" style="left:315px;top:80px">
+            <label for="edit-duplex">Duplex [MHz]</label>
+            <input type="text" id="edit-duplex" disabled/>
+        </div>
+    </div>
+    <!--
+    <div class="panel">
+        <div class="header">Power allocation</div>
+        <div class="contents">
+            <table class="type1">
+                <caption>Power allocation per technology</caption>
+                <tr>
+                    <th>Technology</th>
+                    <th>Power Allocation offset from maximum [dBm]</th>
+                    <th>Allow overlapping for cell resrouce</th>
+                </tr>
+                <tr>
+                    <td>WCDMA</td>
+                    <td>
+                        <select>
+                            <option>-2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="checkbox" value="checked"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>GSM/EDGE</td>
+                    <td>
+                        <select>
+                            <option>+5</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="checkbox" value="checked"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>LTE</td>
+                    <td>
+                        <select>
+                            <option>+2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="checkbox" value="checked"/>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <table class="type4">
+                <caption>Power Allocation per Band</caption>
+                <tr>
+                    <th>Power Allocation per Band at MTDI or Remots</th>
+                    <td>15.4 dB</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="header">Default cell resources</div>
+        <div class="contents">
+            <div><a id="add-def-cellres" class="button"><div class="icon add"></div> Add default cell resource</a></div>
+            <br>
+            <table class="type1">
+                <tr>
+                    <th>
+                        Tag
+                    </th>
+                    <th>
+                        Long Tag
+                    </th>
+                    <th>
+                        Lower Downlink
+                    </th>
+                    <th>
+                        Upper Downlink
+                    </th>
+                    <th>
+                        Duplex
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Default cellres 1
+                    </td>
+                    <td>
+                        WCDMA's default cell resource
+                    </td>
+                    <td>
+                        2100 MHz
+                    </td>
+                    <td>
+                        2200 MHz
+                    </td>
+                    <td>
+                        2.1 MHz
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    -->
+    <div class="wizard-bottom-panel">
+        <a class="button" id="next">Next</a>
+        <a id="back_to_useradmin" href="/target/useradmin" class="button" style="display:none"> Back to User Administration</a>
+    </div>
+</div>
+<script type="text/javascript" data-main="/js/main.js" src="/js/require.js"></script>
+</body>
+</html>

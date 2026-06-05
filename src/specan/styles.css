@@ -1,0 +1,26 @@
+#button-bar {
+    display: inline-block;
+    bottom: 0;
+    position: absolute;
+    height: 40px;
+    padding: 5px;
+    left: 50%;
+    margin-left: -386px;
+}
+.btn {
+    padding: 4px 0px;
+}
+
+#canvas-container {
+    min-width: 300px;
+    min-height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    background: black url("/images/waiting16.gif") no-repeat center center;
+}
+#spectrum-analyzer {
+    cursor: crosshair;
+}

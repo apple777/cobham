@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="795px" height="216px" viewBox="0 0 795 216" enable-background="new 0 0 795 216" xml:space="preserve">
+<g>
+<image overflow="visible" width="800" height="220" xlink:href="../images/icons/APOI_bigicon.png">
+</image>
+<path id="Slot1" class="slot" fill="none" d="M49,0v188h76V20H49z M71,180H51v-21h20V180z M71,155H51v-21h20V155z M71,131H51v-21h20V131z
+	 M71,106H51V85h20V106z M71,82H51V61h20V82z M71,58H51V37h20V58z M118,171.5H98v-21h20V171.5z M118,66.5H98v-21h20V66.5z"/>
+<path id="Slot2" class="slot" fill="none" d="M124,0v188h76V20H124z M146,180h-20v-21h20V180z M146,155h-20v-21h20V155z M146,131h-20v-21h20
+	V131z M146,106h-20V85h20V106z M146,82h-20V61h20V82z M146,58h-20V37h20V58z M193,171.5h-20v-21h20V171.5z M193,66.5h-20v-21h20
+	V66.5z"/>
+<path id="Slot3" class="slot" fill="none" d="M198,0v188h76V20H198z M220,180h-20v-21h20V180z M220,155h-20v-21h20V155z M220,131h-20v-21h20
+	V131z M220,106h-20V85h20V106z M220,82h-20V61h20V82z M220,58h-20V37h20V58z M267,171.5h-20v-21h20V171.5z M267,66.5h-20v-21h20
+	V66.5z"/>
+<path id="Slot4" class="slot" fill="none" d="M273,0v188h76V20H273z M294,180h-20v-21h20V180z M294,155h-20v-21h20V155z M294,131h-20v-21h20
+	V131z M294,106h-20V85h20V106z M294,82h-20V61h20V82z M294,58h-20V37h20V58z M341,171.5h-20v-21h20V171.5z M341,66.5h-20v-21h20
+	V66.5z"/>
+<path id="Slot5" class="slot" fill="none" d="M347,0v188h76V20H347z M368,180h-20v-21h20V180z M368,155h-20v-21h20V155z M368,131h-20v-21h20
+	V131z M368,106h-20V85h20V106z M368,82h-20V61h20V82z M368,58h-20V37h20V58z M415,171.5h-20v-21h20V171.5z M415,66.5h-20v-21h20
+	V66.5z"/>
+<path id="Slot6" class="slot" fill="none" d="M422,0v188h76V20H422z M443,180h-20v-21h20V180z M443,155h-20v-21h20V155z M443,131h-20v-21h20
+	V131z M443,106h-20V85h20V106z M443,82h-20V61h20V82z M443,58h-20V37h20V58z M490,171.5h-20v-21h20V171.5z M490,66.5h-20v-21h20
+	V66.5z"/>
+<path id="Slot7" class="slot" fill="none" d="M496,0v188h76V20H496z M518,180h-20v-21h20V180z M518,155h-20v-21h20V155z M518,131h-20v-21h20
+	V131z M518,106h-20V85h20V106z M518,82h-20V61h20V82z M518,58h-20V37h20V58z M565,171.5h-20v-21h20V171.5z M565,66.5h-20v-21h20
+	V66.5z"/>
+<path id="Slot8" class="slot" fill="none" d="M571,0v188h76V20H571z M592,180h-20v-21h20V180z M592,155h-20v-21h20V155z M592,131h-20v-21h20
+	V131z M592,106h-20V85h20V106z M592,82h-20V61h20V82z M592,58h-20V37h20V58z M639,171.5h-20v-21h20V171.5z M639,66.5h-20v-21h20
+	V66.5z"/>
+<rect id="1:SECT-UL1" class="port" opacity = "0" x="51" y="37" fill="#3BA818" width="20" height="21"/>
+<rect id="1:SECT-DL2" class="port" opacity = "0" x="98" y="150.5" fill="#3BA818" width="20" height="21"/>
+<rect id="1:DL1" class="port" opacity = "0" x="51" y="61" fill="#3BA818" width="20" height="21"/>
+<rect id="1:UL1" class="port" opacity = "0" x="51" y="85" fill="#3BA818" width="20" height="21"/>
+<rect id="1:UL2" class="port" opacity = "0" x="51" y="110" fill="#3BA818" width="20" height="21"/>
+<rect id="1:DL2" class="port" opacity = "0" x="51" y="134" fill="#3BA818" width="20" height="21"/>
+<rect id="1:SECT-UL2" class="port" opacity = "0" x="51" y="159" fill="#3BA818" width="20" height="21"/>
+<rect id="1:SECT-DL1" class="port" opacity = "0" x="98" y="45.5" fill="#3BA818" width="20" height="21"/>
+
+<rect id="2:SECT-UL1" class="port" opacity = "0" x="126" y="37" fill="#3BA818" width="20" height="21"/>
+<rect id="2:SECT-DL2" class="port" opacity = "0" x="173" y="150.5" fill="#3BA818" width="20" height="21"/>
+<rect id="2:DL1" class="port" opacity = "0" x="126" y="61" fill="#3BA818" width="20" height="21"/>
+<rect id="2:UL1" class="port" opacity = "0" x="126" y="85" fill="#3BA818" width="20" height="21"/>
+<rect id="2:UL2" class="port" opacity = "0" x="126" y="110" fill="#3BA818" width="20" height="21"/>
+<rect id="2:DL2" class="port" opacity = "0" x="126" y="134" fill="#3BA818" width="20" height="21"/>
+<rect id="2:SECT-UL2" class="port" opacity = "0" x="126" y="159" fill="#3BA818" width="20" height="21"/>
+<rect id="2:SECT-DL1" class="port" opacity = "0" x="173" y="45.5" fill="#3BA818" width="20" height="21"/>
+
+<rect id="3:SECT-UL1" class="port" opacity = "0" x="200" y="37" fill="#3BA818" width="20" height="21"/>
+<rect id="3:SECT-DL2" class="port" opacity = "0" x="247" y="150.5" fill="#3BA818" width="20" height="21"/>
+<rect id="3:DL1" class="port" opacity = "0" x="200" y="61" fill="#3BA818" width="20" height="21"/>
+<rect id="3:UL1" class="port" opacity = "0" x="200" y="85" fill="#3BA818" width="20" height="21"/>
+<rect id="3:UL2" class="port" opacity = "0" x="200" y="110" fill="#3BA818" width="20" height="21"/>
+<rect id="3:DL2" class="port" opacity = "0" x="200" y="134" fill="#3BA818" width="20" height="21"/>
+<rect id="3:SECT-UL2" class="port" opacity = "0" x="200" y="159" fill="#3BA818" width="20" height="21"/>
+<rect id="3:SECT-DL1" class="port" opacity = "0" x="247" y="45.5" fill="#3BA818" width="20" height="21"/>
+
+<rect id="4:SECT-UL1" class="port" opacity = "0" x="274" y="37" fill="#3BA818" width="20" height="21"/>
+<rect id="4:SECT-DL2" class="port" opacity = "0" x="321" y="150.5" fill="#3BA818" width="20" height="21"/>
+<rect id="4:DL1" class="port" opacity = "0" x="274" y="61" fill="#3BA818" width="20" height="21"/>
+<rect id="4:UL1" class="port" opacity = "0" x="274" y="85" fill="#3BA818" width="20" height="21"/>
+<rect id="4:UL2" class="port" opacity = "0" x="274" y="110" fill="#3BA818" width="20" height="21"/>
+<rect id="4:DL2" class="port" opacity = "0" x="274" y="134" fill="#3BA818" width="20" height="21"/>
+<rect id="4:SECT-UL2" class="port" opacity = "0" x="274" y="159" fill="#3BA818" width="20" height="21"/>
+<rect id="4:SECT-DL1" class="port" opacity = "0" x="321" y="45.5" fill="#3BA818" width="20" height="21"/>
+
+<rect id="5:SECT-UL1" class="port" opacity = "0" x="348" y="37" fill="#3BA818" width="20" height="21"/>
+<rect id="5:SECT-DL2" class="port" opacity = "0" x="395" y="150.5" fill="#3BA818" width="20" height="21"/>
+<rect id="5:DL1" class="port" opacity = "0" x="348" y="61" fill="#3BA818" width="20" height="21"/>
+<rect id="5:UL1" class="port" opacity = "0" x="348" y="85" fill="#3BA818" width="20" height="21"/>
+<rect id="5:UL2" class="port" opacity = "0" x="348" y="110" fill="#3BA818" width="20" height="21"/>
+<rect id="5:DL2" class="port" opacity = "0" x="348" y="134" fill="#3BA818" width="20" height="21"/>
+<rect id="5:SECT-UL2" class="port" opacity = "0" x="348" y="159" fill="#3BA818" width="20" height="21"/>
+<rect id="5:SECT-DL1" class="port" opacity = "0" x="395" y="45.5" fill="#3BA818" width="20" height="21"/>
+<rect id="6:SECT-UL1" class="port" opacity = "0" x="423" y="37" fill="#3BA818" width="20" height="21"/>
+<rect id="6:SECT-DL2" class="port" opacity = "0" x="470" y="150.5" fill="#3BA818" width="20" height="21"/>
+<rect id="6:DL1" class="port" opacity = "0" x="423" y="61" fill="#3BA818" width="20" height="21"/>
+<rect id="6:UL1" class="port" opacity = "0" x="423" y="85" fill="#3BA818" width="20" height="21"/>
+<rect id="6:UL2" class="port" opacity = "0" x="423" y="110" fill="#3BA818" width="20" height="21"/>
+<rect id="6:DL2" class="port" opacity = "0" x="423" y="134" fill="#3BA818" width="20" height="21"/>
+<rect id="6:SECT-UL2" class="port" opacity = "0" x="423" y="159" fill="#3BA818" width="20" height="21"/>
+<rect id="6:SECT-DL1" class="port" opacity = "0" x="470" y="45.5" fill="#3BA818" width="20" height="21"/>
+<rect id="7:SECT-UL1" class="port" opacity = "0" x="498" y="37" fill="#3BA818" width="20" height="21"/>
+<rect id="7:SECT-DL2" class="port" opacity = "0" x="545" y="150.5" fill="#3BA818" width="20" height="21"/>
+<rect id="7:DL1" class="port" opacity = "0" x="498" y="61" fill="#3BA818" width="20" height="21"/>
+<rect id="7:UL1" class="port" opacity = "0" x="498" y="85" fill="#3BA818" width="20" height="21"/>
+<rect id="7:UL2" class="port" opacity = "0" x="498" y="110" fill="#3BA818" width="20" height="21"/>
+<rect id="7:DL2" class="port" opacity = "0" x="498" y="134" fill="#3BA818" width="20" height="21"/>
+<rect id="7:SECT-UL2" class="port" opacity = "0" x="498" y="159" fill="#3BA818" width="20" height="21"/>
+<rect id="7:SECT-DL1" class="port" opacity = "0" x="545" y="45.5" fill="#3BA818" width="20" height="21"/>
+<rect id="8:SECT-UL1" class="port" opacity = "0" x="572" y="37" fill="#3BA818" width="20" height="21"/>
+<rect id="8:SECT-DL2" class="port" opacity = "0" x="619" y="150.5" fill="#3BA818" width="20" height="21"/>
+<rect id="8:DL1" class="port" opacity = "0" x="572" y="61" fill="#3BA818" width="20" height="21"/>
+<rect id="8:UL1" class="port" opacity = "0" x="572" y="85" fill="#3BA818" width="20" height="21"/>
+<rect id="8:UL2" class="port" opacity = "0" x="572" y="110" fill="#3BA818" width="20" height="21"/>
+<rect id="8:DL2" class="port" opacity = "0" x="572" y="134" fill="#3BA818" width="20" height="21"/>
+<rect id="8:SECT-UL2" class="port" opacity = "0" x="572" y="159" fill="#3BA818" width="20" height="21"/>
+<rect id="8:SECT-DL1" class="port" opacity = "0" x="619" y="45.5" fill="#3BA818" width="20" height="21"/>
+<rect id="APOI_1" class="outline" fill="none" width="47" height="216"/>
+<rect id="APOI_2" class="outline" x="643" fill="none" width="152" height="216"/>
+
+<text id="Slot1Text" x="88" y="32" font-family="sans-serif" font-size="14px" fill="dimgrey"></text>
+<text id="Slot2Text" x="161" y="32" font-family="sans-serif" font-size="14px" fill="dimgrey"></text>
+<text id="Slot3Text" x="237" y="32" font-family="sans-serif" font-size="14px" fill="dimgrey"></text>
+<text id="Slot4Text" x="312" y="32" font-family="sans-serif" font-size="14px" fill="dimgrey"></text>
+<text id="Slot5Text" x="386" y="32" font-family="sans-serif" font-size="14px" fill="dimgrey"></text>
+<text id="Slot6Text" x="461" y="32" font-family="sans-serif" font-size="14px" fill="dimgrey"></text>
+<text id="Slot7Text" x="535" y="32" font-family="sans-serif" font-size="14px" fill="dimgrey"></text>
+<text id="Slot8Text" x="610" y="32" font-family="sans-serif" font-size="14px" fill="dimgrey"></text>
+    
+<rect id="APOINum" class="outline" x="659" y="48" fill="dimgrey" width="25" height="16"/>
+<text id="APOINumText" x="664" y="61" font-family="sans-serif" font-size="14px" fill="greenyellow"></text>
+
+</g>
+</svg>

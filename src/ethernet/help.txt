@@ -1,0 +1,5 @@
+#Ethernet Settings
+
+You can adjust the ethernet settings like IP, DNS and Subnet mask.
+If you are connected via the ehternet to the controller, please keep in mind that your changes will most probably make
+the controller unreachable leaving you unable to compensate any mistake.

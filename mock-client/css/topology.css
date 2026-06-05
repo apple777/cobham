@@ -1,0 +1,137 @@
+.topology-canvas {
+  width: 100%;
+  height: calc(100vh - var(--layout-topology-offset-top));
+  overflow: auto;
+  background-color: var(--color-surface-topology-canvas);
+}
+
+.topology-canvas__layers {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 0 var(--layout-topology-margin-right) 40px var(--layout-topology-margin-left);
+}
+
+.topology-layer {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: calc((100vh - var(--layout-topology-offset-top)) / 4);
+}
+
+.topology-layer__header {
+  position: relative;
+  height: var(--layout-layer-header-height);
+  background-color: var(--color-surface-layer-header);
+  display: flex;
+  align-items: center;
+  padding-left: var(--layout-layer-header-text-x);
+  color: var(--color-text-secondary);
+  font-weight: bold;
+}
+
+.topology-layer__title {
+  font-size: var(--font-size-base);
+}
+
+.topology-layer__status-led {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(var(--layout-layer-header-led-radius) * 2);
+  height: calc(var(--layout-layer-header-led-radius) * 2);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.topology-layer__status-led[data-severity='0'] {
+  background: radial-gradient(circle at 35% 35%, var(--color-status-red-light), var(--color-status-red));
+}
+
+.topology-layer__status-led[data-severity='1'] {
+  background: radial-gradient(circle at 35% 35%, #ffb74d, var(--color-status-orange));
+}
+
+.topology-layer__status-led[data-severity='2'] {
+  background: radial-gradient(circle at 35% 35%, #fff176, var(--color-status-yellow));
+}
+
+.topology-layer__status-led[data-severity='3'] {
+  background: radial-gradient(circle at 35% 35%, #ffffff, #cccccc);
+}
+
+.topology-layer__status-led[data-severity='4'] {
+  background: radial-gradient(circle at 35% 35%, var(--color-status-green-light), var(--color-status-green));
+}
+
+.topology-layer__content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 6vw, 120px);
+  padding: 16px 0 24px;
+}
+
+.topology-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.topology-node__icon {
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 3px rgba(92, 92, 92, 0.55));
+}
+
+.topology-node__icon--sectgrp {
+  width: var(--size-node-sector-width);
+  height: var(--size-node-sector-height);
+}
+
+.topology-node__icon--apoi {
+  width: var(--size-node-fixed-width);
+  height: var(--size-node-apoi-height);
+}
+
+.topology-node__icon--mtdi {
+  width: var(--size-node-fixed-width);
+  height: calc(var(--size-node-mtdi-height) * 6);
+}
+
+.topology-node__icon--msdh {
+  width: var(--size-node-fixed-width);
+  height: calc(var(--size-node-msdh-height) * 6);
+}
+
+.topology-node__led {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: var(--size-node-led-diameter);
+  height: var(--size-node-led-diameter);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.topology-node__led[data-severity='0'] {
+  background: radial-gradient(circle at 35% 35%, var(--color-status-red-light), var(--color-status-red));
+}
+
+.topology-node__led[data-severity='4'] {
+  background: radial-gradient(circle at 35% 35%, var(--color-status-green-light), var(--color-status-green));
+}
+
+.topology-node.is-selected .topology-node__icon {
+  filter: drop-shadow(0 0 6px rgba(0, 164, 242, 0.85));
+}
+
+.topology-node.is-empty {
+  opacity: 0.4;
+}

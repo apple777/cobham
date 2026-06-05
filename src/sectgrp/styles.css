@@ -1,0 +1,103 @@
+.grpHead{
+    background-color: #0381BD!important;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+    width: 20%;
+    text-align: right;
+    padding-right: 10px;
+}
+.grpHeader
+{
+    background-color: #0381BD!important;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+    width: 80%;
+    text-align: left;
+    padding: 5px;
+    margin:10px;
+}
+
+.grpTitles
+{
+    border-top: #a5a5a5 1px solid;
+    background-color: #cbbcd1;
+    color: #2c5533;
+    font-weight: bold;
+    border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+}
+.grpTable{
+    table-layout: auto;
+}
+.grpTable td:nth-child(1){
+    width:50px;
+}
+.grpTable td:nth-child(2){
+    width:100px;
+}
+.button_col{
+    display: inline-block;
+    width: 200px;
+}
+.button_col a{
+    margin-top: 2px;
+}
+.evenRow {
+    background-color: #eeedef;
+}
+
+.oddRow {
+    background-color: #f9f8fa;
+}
+
+.grpRow
+{
+    text-align: center;
+}
+
+.grpNameDetail
+{
+    margin-left: 15px;
+}
+
+.sector
+{
+    width:23px;
+    cursor: move;
+    -webkit-filter: drop-shadow(2px 2px 2px #b2b2b2);
+}
+.sector.dragged
+{
+    box-shadow: 3px 3px 3px #b2b2b2;
+}
+.header_btn{
+    float:right;
+}
+tr.grpRow{
+    cursor: move;
+}
+.dragged_item{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+.tagCol{
+    max-width: 200px;
+    word-wrap: break-word;
+    padding: 5px;
+}
+.btsTagCol{
+    max-width: 200px;
+    word-wrap: break-word;
+    padding: 5px;
+}
