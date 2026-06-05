@@ -1,0 +1,92 @@
+{
+  "sectgrpByOperator": {
+    "oper1": {
+      "lines": ["SECTGRP 1: \"Group A\" SECT_001"],
+      "sector": {
+        "sector": [
+          {
+            "SectorID": "SECT_001",
+            "Tag": "Sector 1",
+            "Comm": "0",
+            "Status": "0"
+          }
+        ]
+      }
+    }
+  },
+  "bundleByOperator": {
+    "oper1": {
+      "zoneLines": [],
+      "topology": {
+        "nodes": [
+          {
+            "ID": "APOI_001",
+            "Tag": "APOI-1",
+            "Location": "Rack-1",
+            "Node Type": "APOI",
+            "Comm": "0",
+            "Status": "4",
+            "NodeOrder": 1
+          },
+          {
+            "ID": "MTDI_001",
+            "Tag": "MTDI-1",
+            "Location": "Rack-1",
+            "Node Type": "MTDI",
+            "Comm": "0",
+            "Status": "0",
+            "NodeOrder": 1
+          },
+          {
+            "ID": "MTDI_002",
+            "Tag": "MTDI-2",
+            "Location": "Rack-1",
+            "Node Type": "MTDI",
+            "Comm": "0",
+            "Status": "4",
+            "NodeOrder": 2
+          },
+          {
+            "ID": "MTDI_003",
+            "Tag": "MTDI-3",
+            "Location": "Rack-1",
+            "Node Type": "MTDI",
+            "Comm": "0",
+            "Status": "4",
+            "NodeOrder": 3
+          },
+          {
+            "ID": "MTDI_004",
+            "Tag": "MTDI-4",
+            "Location": "Rack-1",
+            "Node Type": "MTDI",
+            "Comm": "0",
+            "Status": "4",
+            "NodeOrder": 4
+          },
+          {
+            "ID": "MSDH_001",
+            "Tag": "MSDH-1",
+            "Location": "Rack-2",
+            "Node Type": "MSDH",
+            "Comm": "0",
+            "Status": "4",
+            "NodeOrder": 1
+          },
+          {
+            "ID": "MSDH_002",
+            "Tag": "MSDH-2",
+            "Location": "Rack-2",
+            "Node Type": "MSDH",
+            "Comm": "0",
+            "Status": "4",
+            "NodeOrder": 2
+          }
+        ]
+      },
+      "racks": {
+        "Racks": []
+      }
+    }
+  }
+}

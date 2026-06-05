@@ -1,0 +1,292 @@
+{
+  "$schema": "./platform.settings.schema.json",
+  "platformMeta": {
+    "platformId": "iddas-msdh-m",
+    "platformName": "idDAS",
+    "vendorName": "COBHAM",
+    "targetModel": "MSDH-M",
+    "pageTitle": "Topology",
+    "siteTag": "site-01",
+    "baselineViewport": { "widthPx": 1920, "heightPx": 1080 }
+  },
+  "designTokens": {
+    "colorBrandCobhamBlue": "#005daa",
+    "colorBrandIddasBlue": "#00a4f2",
+    "colorHeaderBorder": "#00a4f2",
+    "colorSurfacePage": "#dddddd",
+    "colorSurfaceHeader": "#ffffff",
+    "colorSurfaceSystemOverview": "whitesmoke",
+    "colorSurfaceTopologyCanvas": "#f5f5f5",
+    "colorSurfaceLayerHeader": "rgba(137, 150, 160, 0.5)",
+    "colorTextPrimary": "#444444",
+    "colorTextSecondary": "#666666",
+    "colorTextLayerHeader": "#666666",
+    "fontFamilyBase": "Verdana, Geneva, sans-serif",
+    "fontSizeBasePx": 12,
+    "layoutHeaderHeightPx": 50,
+    "layoutHeaderPlaceholderHeightPx": 50,
+    "layoutCobhamLogoWidthPx": 217,
+    "layoutIddasLogoWidthPx": 150,
+    "layoutIddasLogoLeftPx": 265,
+    "layoutHeaderTitleLeftPx": 495,
+    "layoutHeaderTitleTopPx": 11,
+    "layoutHeaderUserRightPx": 100,
+    "layoutHeaderUserTopPx": 22,
+    "layoutSystemOverviewMarginPx": 5,
+    "layoutSystemOverviewPaddingTopPx": 5,
+    "layoutSystemOverviewBorderRadiusPx": 5,
+    "layoutSystemOverviewWidthPct": 99,
+    "layoutSystemOverviewSectionWidthPct": 20,
+    "layoutSystemOverviewLineHeightPx": 18,
+    "layoutVerticalSeparatorHeightPx": 20,
+    "layoutTopologyOffsetTopPx": 98,
+    "layoutTopologyMarginLeftPx": 20,
+    "layoutTopologyMarginRightPx": 20,
+    "layoutTopologyMarginBottomPx": 50,
+    "layoutNodeHeightPx": 30,
+    "layoutLayerHeaderHeightPx": 30,
+    "layoutLayerHeaderTextOffsetXPx": 30,
+    "layoutLayerHeaderLedRadiusPx": 7,
+    "layoutLayerHeaderLedOffsetXPct": 98,
+    "layoutLayerHeaderTextOffsetYPx": 20,
+    "layoutLayerHeaderLedOffsetYPx": 15,
+    "shadowSystemOverview": "2px 2px 2px #666666",
+    "shadowHeader": "0 0 4px #224422"
+  },
+  "sessionContext": {
+    "username": "sysadmin",
+    "userAccess": "superuser",
+    "softwareVersions": ["3.0.0.2461", "3.0.0.4593", "JSON 3.0.0.4593"],
+    "softwareVersionDisplay": "3.0.0.2461 3.0.0.4593 JSON 3.0.0.4593",
+    "modelAttribute": "MSDH-M",
+    "siteTag": "site-01"
+  },
+  "headerBar": {
+    "brandCobhamTitle": "COBHAM",
+    "brandIddasTitle": "idDAS™",
+    "pageTitleText": "Topology",
+    "ajaxLedTitle": "Communication with server",
+    "logoutTitle": "Logout from the system",
+    "assetPaths": {
+      "cobhamLogo": "/images/cobham_logo.jpg",
+      "iddasLogo": "/images/idDAS_logo.png",
+      "userIcon": "/images/icons/header_user.png",
+      "favicon": "/images/favicon.png"
+    }
+  },
+  "systemOverviewBar": {
+    "routingProfileLabel": "Routing profile:",
+    "routingProfileValue": "oper1",
+    "operatorLabel": "Operator:",
+    "operatorSelectedValue": "oper1",
+    "operatorOptions": [{ "sysName": "oper1", "displayName": "oper1" }],
+    "displayModeLabel": "Display mode:",
+    "displayModeSelectedValue": "topology",
+    "displayModeOptions": [
+      { "value": "rack", "label": "Rack View" },
+      { "value": "topology", "label": "Topology View" }
+    ],
+    "loggedInUserLabel": "Current logged in user:",
+    "loggedInUserValue": "sysadmin",
+    "systemStatusLedTitle": "System Status",
+    "systemStatusSeverity": 4
+  },
+  "navigationMenu": {
+    "menuTagline": "The GUI covers full device lifecycle management:",
+    "commonSections": [
+      {
+        "menuSectionId": "alarm",
+        "menuSectionLabel": "Alarms",
+        "menuItems": [
+          { "menuItemId": "logs", "menuItemLabel": "Active Alarms", "menuItemTitle": "View and acknowledge the logs on the controller", "href": "/logs", "iconClass": "logs-link-icon" },
+          { "menuItemId": "thresholds", "menuItemLabel": "Alarms Configuration", "menuItemTitle": "See and change the thresholds for triggering alarms", "href": "/thresholds", "iconClass": "alarm-thresholds-link-icon" },
+          { "menuItemId": "ext", "menuItemDomId": "ext-header-menu", "menuItemLabel": "External Alarms", "menuItemTitle": "Configure the external alarms triggers", "href": "/ext", "iconClass": "external-alarms-link-icon" },
+          { "menuItemId": "comm", "menuItemDomId": "comm", "menuItemLabel": "Communication", "menuItemTitle": "Communication settings", "href": "/communication", "iconClass": "communication-link-icon" },
+          { "menuItemId": "snmp", "menuItemDomId": "snmp", "menuItemLabel": "SNMP", "menuItemTitle": "SNMP (Simple Network Management Protocol) settings", "href": "/snmpagent", "iconClass": "snmp-link-icon" }
+        ]
+      },
+      {
+        "menuSectionId": "other",
+        "menuSectionLabel": "Others",
+        "menuItems": [
+          { "menuItemId": "ethernet", "menuItemLabel": "Ethernet", "menuItemTitle": "Ethernet and IP settings", "href": "/ethernet", "iconClass": "ethernet-link-icon" },
+          { "menuItemId": "info", "menuItemLabel": "System Information", "menuItemTitle": "View general site information and set tag and id", "href": "/info", "iconClass": "system-information-link-icon" },
+          { "menuItemId": "datetime", "menuItemLabel": "Preferences", "menuItemTitle": "Preferences", "href": "/datetime", "iconClass": "preferences" },
+          { "menuItemId": "upgrade", "menuItemDomId": "swUpdateLi", "menuItemLabel": "Software Update", "menuItemTitle": "Software Update", "href": "/upgrade", "iconClass": "backup_restore", "hideForNonSysadmin": true },
+          { "menuItemId": "term", "menuItemDomId": "term", "menuItemLabel": "Terminal", "menuItemTitle": "Terminal", "href": "/term", "iconClass": "axell-shell-link-icon", "hideForNonSysadmin": true }
+        ]
+      }
+    ],
+    "targetSections": [
+      {
+        "menuSectionId": "wizard",
+        "menuSectionHeaderDomId": "wizards",
+        "menuSectionLabel": "Wizards",
+        "menuItems": [
+          { "menuItemId": "rack_setup", "menuItemLabel": "Rack View Setup", "menuItemTitle": "Set up rack view in DAS system", "href": "/target/rack_setup", "iconClass": "rack-white", "hideForNonSysadmin": true },
+          { "menuItemId": "operator_setup", "menuItemLabel": "Operator Setup", "menuItemTitle": "Set up new operator in DAS system", "href": "/target/useradmin", "iconClass": "user_admin", "hideForNonSysadmin": true },
+          { "menuItemId": "bts_port_setup", "menuItemLabel": "BTS Port Setup", "menuItemTitle": "Add new BTS port into the system", "href": "/target/sector", "iconClass": "sector-icon", "hideForNonSysadmin": true }
+        ]
+      },
+      {
+        "menuSectionId": "rf",
+        "menuSectionLabel": "RF",
+        "menuItems": [
+          { "menuItemId": "sectgrp", "menuItemLabel": "BTS Port Management", "menuItemTitle": "Manage base station port group", "href": "/target/sectgrp", "iconClass": "sectgrp" },
+          { "menuItemId": "profiles", "menuItemLabel": "Routing Profiles", "menuItemTitle": "Set up routing profile and manage RF route", "href": "/target/profiles", "iconClass": "route-setup-icon" }
+        ]
+      },
+      {
+        "menuSectionId": "hw",
+        "menuSectionLabel": "Devices",
+        "menuItems": [
+          { "menuItemId": "status", "menuItemLabel": "Master MSDH", "menuItemTitle": "View master MSDH's status", "href": "/target/status", "iconClass": "nodes-link-icon" },
+          { "menuItemId": "apoi", "menuItemDomId": "apoi_management", "menuItemLabel": "APOI Management", "menuItemTitle": "Add new APOI into system", "href": "/target/apoi", "iconClass": "apoi", "hideForNonSysadmin": true },
+          { "menuItemId": "msdhr", "menuItemDomId": "msdhr_management", "menuItemLabel": "MSDH Management", "menuItemTitle": "Add new MSDH into system", "href": "/target/msdhr", "iconClass": "preferences", "hideForNonSysadmin": true },
+          { "menuItemId": "zonemanagement", "menuItemDomId": "zone_management", "menuItemLabel": "Zone Management", "menuItemTitle": "Manage remote zone", "href": "/target/zonemanagement", "iconClass": "zone", "hideForNonSysadmin": true }
+        ]
+      },
+      {
+        "menuSectionId": "system_administration",
+        "menuSectionLabel": "System Administration",
+        "menuItems": [
+          { "menuItemId": "password", "menuItemDomId": "password", "menuItemLabel": "Password", "menuItemTitle": "Change user password", "href": "/target/password", "iconClass": "password-link-icon", "hideForReadOnly": true },
+          { "menuItemId": "quotas", "menuItemDomId": "quota_manage", "menuItemLabel": "Quota Management", "menuItemTitle": "Assign filter quota and CPRI quota to operators", "href": "/target/quotas", "iconClass": "alarm-thresholds-link-icon", "hideForNonSysadmin": true },
+          { "menuItemId": "devices_quota", "menuItemDomId": "device_quota_manage", "menuItemLabel": "Devices Quota Management", "menuItemTitle": "Assign filter quota and CPRI quota per device", "href": "/target/devices_quota", "iconClass": "access_control", "hideForNonSysadmin": true },
+          { "menuItemId": "rfsettings", "menuItemLabel": "RF Management", "menuItemTitle": "Assign RF ranges to operators", "href": "/target/rfsettings", "iconClass": "rfsettings-icon" },
+          { "menuItemId": "inventory", "menuItemLabel": "Inventory", "menuItemTitle": "Inventory", "href": "/inventory", "iconClass": "rack-white" },
+          { "menuItemId": "distance", "menuItemLabel": "Distance Report", "menuItemTitle": "Distance Report", "href": "/distance", "iconClass": "logs-link-icon" },
+          { "menuItemId": "swup_manager", "menuItemDomId": "swup_manager", "menuItemLabel": "Software Update Manager", "menuItemTitle": "Software Update Manager", "href": "/swup_manager", "iconClass": "snmp-link-icon", "hideForNonSysadmin": true },
+          { "menuItemId": "sw_banks", "menuItemDomId": "sw_banks", "menuItemLabel": "Software Banks", "menuItemTitle": "Software Banks", "href": "/banks", "iconClass": "date-and-time-link-icon", "hideForNonSysadmin": true },
+          { "menuItemId": "config_backup", "menuItemDomId": "config_backup", "menuItemLabel": "Configuration Backup", "menuItemTitle": "Configuration Backup", "href": "/config-backup", "iconClass": "backup_restore", "hideForNonSysadmin": true },
+          { "menuItemId": "systemlogs", "menuItemDomId": "system_log", "menuItemLabel": "System Logs", "menuItemTitle": "System Logs", "href": "/target/systemlogs", "iconClass": "logs-link-icon", "hideForReadOnly": true }
+        ]
+      }
+    ]
+  },
+  "severityModel": {
+    "commConnected": "0",
+    "commFailed": "1",
+    "commUnknown": "-",
+    "statusAlarm": "0",
+    "statusWarning": "1",
+    "statusMinor": "2",
+    "statusInfo": "3",
+    "statusOk": "4",
+    "severityToGradientId": {
+      "0": "red",
+      "1": "orange",
+      "2": "yellow",
+      "3": "white",
+      "4": "green"
+    },
+    "gradientStops": {
+      "red": { "inner": "#f58869", "outer": "#fd0303" },
+      "orange": { "inner": "#ffc080", "outer": "#fda003" },
+      "yellow": { "inner": "#ffff99", "outer": "#ffd701" },
+      "white": { "inner": "#ffffff", "outer": "#dddddd" },
+      "green": { "inner": "#9ecd5e", "outer": "#5ca301" },
+      "grey": { "inner": "#cccccc", "outer": "#888888" }
+    }
+  },
+  "topologyD3": {
+    "containerElementId": "topology-container",
+    "svgElementId": "topology-svg-content",
+    "svgGroupElementId": "topology-svg-group",
+    "enableZoom": true,
+    "zoomScaleExtentMin": 0.8,
+    "zoomScaleExtentMax": 5,
+    "canvasBackgroundColor": "#f5f5f5",
+    "layerCountBase": 5,
+    "layerVerticalOffsetPx": 150,
+    "layerRemoteVerticalOffsetPx": 50,
+    "nodeSizeMap": {
+      "SECTGRP": { "widthPx": 30, "heightPx": 30, "layerOrder": 1 },
+      "APOI": { "widthPx": 100, "heightPx": 27, "layerOrder": 2 },
+      "MTDI": { "widthPx": 100, "heightPx": 10, "layerOrder": 3 },
+      "MSDH": { "widthPx": 100, "heightPx": 9, "layerOrder": 4 },
+      "ZONE": { "widthPx": 25, "heightPx": 37, "layerOrder": 5 }
+    },
+    "nodeIconAssetMap": {
+      "SECTGRP": "/images/icons/sectgrp_icon.png",
+      "APOI": "/images/icons/APOI_bigicon.png",
+      "MTDI": "/images/icons/MTDI_bigicon.png",
+      "MSDH": "/images/icons/MSDH_bigicon.png",
+      "ZONE": "/images/icons/zone_icon.png"
+    },
+    "layerTitleMap": {
+      "SECTGRP": "BTS Port Group",
+      "APOI": "Axell Point of Interface",
+      "MTDI": "Multi Technology Digital Interface",
+      "MSDH": "Multi Sector Digital Hub",
+      "ZONE": "idRemote"
+    },
+    "layers": [
+      {
+        "layerId": "SECTGRP",
+        "layerLabel": "BTS Port Group",
+        "layerOrder": 1,
+        "layerSeverity": 0,
+        "devices": [
+          {
+            "deviceId": "sectgrp_oper1_1",
+            "deviceTag": "Group A",
+            "nodeType": "SECTGRP",
+            "commCode": "0",
+            "statusCode": "0",
+            "locationTag": "BTS",
+            "severity": 0
+          }
+        ]
+      },
+      {
+        "layerId": "APOI",
+        "layerLabel": "Axell Point of Interface",
+        "layerOrder": 2,
+        "layerSeverity": 4,
+        "devices": [
+          {
+            "deviceId": "APOI_001",
+            "deviceTag": "APOI-1",
+            "nodeType": "APOI",
+            "commCode": "0",
+            "statusCode": "4",
+            "locationTag": "Rack-1",
+            "nodeOrder": 1,
+            "severity": 4
+          }
+        ]
+      },
+      {
+        "layerId": "MTDI",
+        "layerLabel": "Multi Technology Digital Interface",
+        "layerOrder": 3,
+        "layerSeverity": 0,
+        "devices": [
+          { "deviceId": "MTDI_001", "deviceTag": "MTDI-1", "nodeType": "MTDI", "commCode": "0", "statusCode": "0", "locationTag": "Rack-1", "nodeOrder": 1, "severity": 0 },
+          { "deviceId": "MTDI_002", "deviceTag": "MTDI-2", "nodeType": "MTDI", "commCode": "0", "statusCode": "4", "locationTag": "Rack-1", "nodeOrder": 2, "severity": 4 },
+          { "deviceId": "MTDI_003", "deviceTag": "MTDI-3", "nodeType": "MTDI", "commCode": "0", "statusCode": "4", "locationTag": "Rack-1", "nodeOrder": 3, "severity": 4 },
+          { "deviceId": "MTDI_004", "deviceTag": "MTDI-4", "nodeType": "MTDI", "commCode": "0", "statusCode": "4", "locationTag": "Rack-1", "nodeOrder": 4, "severity": 4 }
+        ]
+      },
+      {
+        "layerId": "MSDH",
+        "layerLabel": "Multi Sector Digital Hub",
+        "layerOrder": 4,
+        "layerSeverity": 4,
+        "devices": [
+          { "deviceId": "MSDH_001", "deviceTag": "MSDH-1", "nodeType": "MSDH", "commCode": "0", "statusCode": "4", "locationTag": "Rack-2", "nodeOrder": 1, "severity": 4 },
+          { "deviceId": "MSDH_002", "deviceTag": "MSDH-2", "nodeType": "MSDH", "commCode": "0", "statusCode": "4", "locationTag": "Rack-2", "nodeOrder": 2, "severity": 4 }
+        ]
+      }
+    ]
+  },
+  "mockApiBindings": {
+    "username": "sessionContext.username",
+    "get tag": "sessionContext.siteTag",
+    "get mdl": "sessionContext.modelAttribute",
+    "get swv": "sessionContext.softwareVersionDisplay",
+    "operators --json": "systemOverviewBar.operatorOptions",
+    "RFROUTE PROFILES -o oper1 --json": "systemOverviewBar.routingProfileValue"
+  }
+}

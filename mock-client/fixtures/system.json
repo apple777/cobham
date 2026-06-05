@@ -1,0 +1,69 @@
+{
+  "cellresByOperator": {
+    "oper1": {
+      "cellres": [
+        {
+          "ResID": "CR001",
+          "CellRes": "LTE_B1",
+          "Tag": "Cell 1",
+          "Band": "B1",
+          "Technology": "LTE",
+          "Status": "4",
+          "Comm": "0"
+        }
+      ]
+    }
+  },
+  "connectionsByOperator": {
+    "oper1": {
+      "connections": []
+    }
+  },
+  "rfranges": {
+    "ranges": [
+      { "Band": "B1", "Low": "2110", "High": "2170" },
+      { "Band": "B3", "Low": "1805", "High": "1880" }
+    ]
+  },
+  "rfQuotaByOperator": {
+    "oper1": { "quota": 100, "used": 25 }
+  },
+  "rfNominalByOperator": {
+    "oper1": { "nominal": [] }
+  },
+  "rfLevelsByOperator": {
+    "oper1": { "levels": [] }
+  },
+  "linkstatus": {
+    "links": [
+      { "Port": 1, "Status": "up", "Speed": "10G" }
+    ]
+  },
+  "measurements": {
+    "env": { "temperature": 38.2, "humidity": 45 },
+    "sfp": [],
+    "cpri": []
+  },
+  "statusByTarget": {
+    "rru": { "status": "ok", "Comm": "0", "Status": "4" },
+    "rru40": { "status": "ok", "Comm": "0", "Status": "4" },
+    "mtdi": { "status": "ok", "Comm": "0", "Status": "4" },
+    "dobr": { "status": "ok", "Comm": "0", "Status": "4" }
+  },
+  "backup": {
+    "system": ["backup_2026-06-01.tar", "backup_2026-05-15.tar"],
+    "general": ["general_2026-06-01.tar"]
+  },
+  "banks": {
+    "appFiles": ["app_bank_a", "app_bank_b"],
+    "sysFiles": ["sys_bank_a", "sys_bank_b"]
+  },
+  "snmp": {
+    "enabled": false,
+    "community": "public"
+  },
+  "logs": {
+    "alarms": [],
+    "pages": []
+  }
+}

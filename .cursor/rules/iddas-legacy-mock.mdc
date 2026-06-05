@@ -1,0 +1,75 @@
+---
+description: idDAS full legacy GUI mock — dev server, /target routing, CGI command contract
+globs: mock-client/**/*
+alwaysApply: false
+---
+
+# idDAS Full Legacy GUI Mock
+
+Run the **unmodified** legacy GUI from `src/` with a vanilla JS mock replacing `/cgi/cmd.lua`.
+
+## Start
+
+```bash
+cd mock-client
+npm run dev
+# http://localhost:8080/target/   ← Topology (MSDH home)
+# http://localhost:8080/logs/     ← common pages
+```
+
+## Architecture
+
+```
+Browser (RequireJS + jQuery + original src/)
+  POST /cgi/cmd.lua { cmd: "operators --json" }
+       ↓
+mock-client/server/devServer.js
+       ↓
+mockCommandRouter.js  →  fixtures/*.json + in-memory state
+```
+
+- **`/target/*`** resolves to `src/msdh/*` or `src/<module>/*` (see `targetResolver.js`)
+- **No Lua, no RequireJS changes** — only the CGI endpoint is mocked
+- Unknown commands log `[mock-cgi] unhandled command:` — add handlers in `mockCommandRouter.js` + fixtures
+
+## Naming conventions
+
+| Context | Convention | Example |
+|---------|------------|---------|
+| Legacy DOM `id` | snake_case | `#topology-container` |
+| Mock server files | camelCase | `mockCommandRouter.js` |
+| Fixture JSON keys | match axsh output | `"Node Type"`, `SysName` |
+| Mock commands | exact axsh string | `RFROUTE -o oper1 PROFILES --json` |
+| CSS tokens (optional demo) | BEM | `.topology-layer__header` |
+
+## Fixture files
+
+| File | Purpose |
+|------|---------|
+| `fixtures/attributes.json` | All GET attributes (tag, mdl, swv, tem, tel, …) |
+| `fixtures/operators.json` | operators + USEROPERATOR users |
+| `fixtures/topology.json` | sectgrp + topology + racks bundles |
+| `fixtures/routing.json` | RFROUTE profiles + route detail + cells |
+| `fixtures/alarms.json` | alarms dump --json |
+| `fixtures/thresholds.json` | alarmconfig --weblayout |
+| `fixtures/system.json` | cellres, connections, measurements, backups, banks |
+
+Unknown commands are handled by catch-all in `defaultHandlers.js` (mutations → `ok`, `--json` → `{}`).
+
+## Adding a new command
+
+1. Add response data to the appropriate fixture JSON
+2. Register exact or regex handler in `server/mockCommandRouter.js`
+3. Restart dev server; watch terminal for unhandled commands while clicking UI
+
+## Key pages under /target/
+
+| URL | Module |
+|-----|--------|
+| `/target/` | Topology (`msdh/index.html`) |
+| `/target/profiles` | Routing Profiles |
+| `/target/status` | Master MSDH status |
+| `/target/sectgrp` | BTS Port Management |
+| `/target/rfsettings` | RF Management |
+
+Common pages (no `/target/`): `/logs`, `/ethernet`, `/thresholds`, `/inventory`, etc.

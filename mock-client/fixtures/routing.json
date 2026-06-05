@@ -1,0 +1,66 @@
+{
+  "profilesByOperator": {
+    "oper1": {
+      "Active": "oper1",
+      "Profiles": [
+        {
+          "Name": "oper1",
+          "Tag": "oper1",
+          "LockedBy": "-",
+          "LockedAt": 0,
+          "LastActivated": 1717526400
+        },
+        {
+          "Name": "disabled",
+          "Tag": "disabled",
+          "LockedBy": "-",
+          "LockedAt": 0,
+          "LastActivated": 0
+        }
+      ]
+    }
+  },
+  "routeDetailByKey": {
+    "oper1:oper1": {
+      "ProfileName": "oper1",
+      "Tag": "oper1",
+      "Operator": "oper1",
+      "Mode": "Normal",
+      "OutputPower": "max",
+      "GainOffset": 0,
+      "PowerMonitoring": -70,
+      "SquelchLevel": -85,
+      "InputPowerMonitoring": -70,
+      "cells": [
+        {
+          "ResID": "CR001",
+          "CellRes": "LTE_B1",
+          "NodeID": "MTDI_001",
+          "ALCOffset": 0,
+          "ULGainOffset": 0,
+          "DLAlrThr": -70,
+          "ULAlrThr": -85,
+          "ULLevel": -85,
+          "Status": "4"
+        }
+      ]
+    }
+  },
+  "defaultRouteDetail": {
+    "ProfileName": "oper1",
+    "Tag": "oper1",
+    "Operator": "oper1",
+    "Mode": "Normal",
+    "OutputPower": "max",
+    "GainOffset": 0,
+    "PowerMonitoring": -70,
+    "SquelchLevel": -85,
+    "InputPowerMonitoring": -70,
+    "cells": []
+  },
+  "scheduleByOperator": {
+    "oper1": {
+      "RfSchedule": []
+    }
+  }
+}

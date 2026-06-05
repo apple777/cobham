@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Topology — D3</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/icons.css" />
+  <link rel="stylesheet" href="/header.css" />
+  <link rel="stylesheet" href="./css/topology-d3.css" />
+</head>
+<body>
+  <div id="header-place-holder" aria-hidden="true"></div>
+  <header id="header" class="clearfix topology-d3-header">
+    <div id="header-always-visible">
+      <a href="/target/"><div id="cobham-logo" title="COBHAM"></div></a>
+      <a href="/target/"><div id="idDAS-logo" title="idDAS"></div></a>
+      <div id="header-text">
+        <a href="javascript:void(0)" onclick="window.location.reload()">
+          <span id="header-text-title">Topology</span>
+        </a>
+      </div>
+      <div id="header-text-username-holder">
+        <img src="/images/icons/header_user.png" style="width:18px" alt="" />
+        <span id="header-text-username">sysadmin</span>
+        <div id="header-ajax-led" class="led small grey" title="Communication with server"></div>
+      </div>
+      <div id="header-text-version">
+        <span id="header-text-version-number">Loading version...</span>
+      </div>
+      <a id="header-logout-link" href="/logout" title="Logout from the system">
+        <div class="icon logout-link-icon"></div>
+      </a>
+    </div>
+
+    <ul id="header-link-list"></ul>
+  </header>
+
+  <div id="system_overview" class="panel collapsible topology-d3-overview">
+    <div id="routing_setup">
+      <span class="system-overview-title">Routing profile:</span>
+      <span id="routing_setup_select"></span>
+    </div>
+    <div class="v-seperator"></div>
+    <div id="filter">
+      <span class="system-overview-title">Operator:</span>
+      <select id="operator_list"></select>
+    </div>
+    <div class="v-seperator"></div>
+    <div id="display_filter">
+      <span class="system-overview-title">Display mode:</span>
+      <select id="display_filter_list">
+        <option value="rack">Rack View</option>
+        <option value="topology" selected>Topology View</option>
+      </select>
+    </div>
+    <div class="v-seperator"></div>
+    <div id="logged_in_user">
+      <span class="system-overview-title">Current logged in user:</span>
+      <span id="username"></span>
+    </div>
+    <div id="system_status">
+      <div id="system_status_led" class="led round green" title="System Status"></div>
+    </div>
+  </div>
+
+  <div id="topology-container"></div>
+
+  <script src="/js/lib/d3.min.js"></script>
+  <script type="module" src="./js/topologyApp.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "weblayout": {
+    "groups": [
+      {
+        "name": "Controller",
+        "attributes": [
+          { "id": "tem_1", "label": "Temperature High", "severity": "Major" },
+          { "id": "tem_2", "label": "Temperature Low", "severity": "Minor" }
+        ]
+      }
+    ]
+  }
+}

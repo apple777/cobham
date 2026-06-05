@@ -1,0 +1,94 @@
+---
+description: idDAS platform settings JSON + independent D3 topology naming conventions
+globs: mock-client/**/*
+alwaysApply: false
+---
+
+# Platform Settings & D3 Topology — Cursor IDE Conventions
+
+## Single source of truth
+
+All UI parameters live in **`mock-client/config/platform.settings.json`**.
+
+Independent D3 page: **`http://localhost:8080/topology-d3/`** (no RequireJS/jQuery).
+
+Legacy full GUI: **`http://localhost:8080/target/`** (unchanged).
+
+## Naming convention matrix
+
+| Layer | Convention | Example |
+|-------|------------|---------|
+| JSON root keys | camelCase | `platformMeta`, `sessionContext` |
+| JSON nested IDs | camelCase | `layerId`, `deviceId`, `menuItemId` |
+| Legacy DOM `id` | snake_case | `#topology-container`, `#operator_list` |
+| D3 SVG `id` | legacy parity | `SECTGRP_overall-status`, `APOI_001_led` |
+| D3 CSS classes | kebab-case | `topology-d3-node`, `layer_header` |
+| JS modules | camelCase files | `topologyD3Renderer.js` |
+| JS functions | camelCase | `renderTopologyD3`, `computeLayerSeverity` |
+| JS constants | SCREAMING_SNAKE | `PLATFORM_SETTINGS_URL` |
+| Axsh backend fields | preserve casing | `"Node Type"`, `Comm`, `Status`, `SysName` |
+
+## platform.settings.json sections
+
+| Key | Purpose |
+|-----|---------|
+| `platformMeta` | vendor, model, viewport baseline |
+| `designTokens` | pixel-perfect layout/colors (from header.css + msdh/code.js) |
+| `sessionContext` | username, versions, model, site tag |
+| `headerBar` | COBHAM/idDAS header labels + asset paths |
+| `systemOverviewBar` | routing profile, operator, display mode, user |
+| `navigationMenu` | common + target menu tree (from header.html + msdh/header.html) |
+| `severityModel` | Comm/Status → LED gradient mapping |
+| `topologyD3.layers[]` | screenshot-accurate layer/device tree for D3 |
+| `mockApiBindings` | optional doc map cmd → settings path |
+
+## topologyD3.layers[] device fields
+
+```json
+{
+  "deviceId": "MTDI_001",
+  "deviceTag": "MTDI-1",
+  "nodeType": "MTDI",
+  "commCode": "0",
+  "statusCode": "0",
+  "locationTag": "Rack-1",
+  "nodeOrder": 1,
+  "severity": 0
+}
+```
+
+- `commCode`: `0`=connected, `1`=fail, `-`=unknown
+- `statusCode`: `0`=alarm … `4`=ok
+- `severity`: optional override; else computed by `computeDeviceSeverity()`
+
+## Menu diagnosis (from screenshot + msdh/header.html)
+
+**Tagline (`navigationMenu.menuTagline`):** "The GUI covers full device lifecycle management:"
+
+**Toolbar parameters (systemOverviewBar):**
+- `routingProfileValue` → "oper1"
+- `operatorSelectedValue` → dropdown
+- `displayModeSelectedValue` → `topology` | `rack`
+- `loggedInUserValue` → "sysadmin"
+
+**Target menu sections:** Wizards, RF, Devices, System Administration  
+**Common menu sections:** Alarms, Others
+
+## D3 layout parameters (designTokens + topologyD3)
+
+| Parameter | Value | Source |
+|-----------|-------|--------|
+| `layoutTopologyOffsetTopPx` | 98 | msdh `updateScreenSize()` |
+| `layoutLayerHeaderHeightPx` | 30 | `drawTopology()` rect |
+| `layoutLayerHeaderTextOffsetXPx` | 30 | D3 text x |
+| `layoutLayerHeaderLedRadiusPx` | 7 | D3 circle r |
+| `layoutLayerHeaderLedOffsetXPct` | 98 | D3 circle cx |
+| `colorSurfaceLayerHeader` | rgba(137,150,160,0.5) | D3 header fill |
+| `colorSurfaceTopologyCanvas` | #f5f5f5 | SVG background |
+
+## Edit workflow
+
+1. Change **`platform.settings.json`** only (devices, colors, menu, versions).
+2. Reload **`/topology-d3/`** — D3 re-reads JSON on refresh.
+3. Keep **`topologyD3Renderer.js`** generic; no hardcoded topology data in JS.
+4. Menu links use legacy **`/target/*`** URLs — same as `/js/header.js` + `msdh/header.html`.

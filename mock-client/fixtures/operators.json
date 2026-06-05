@@ -1,0 +1,26 @@
+{
+  "activeOperator": "oper1",
+  "list": {
+    "operators": [
+      {
+        "SysName": "oper1",
+        "Name": "Operator 1",
+        "Active": true
+      }
+    ]
+  },
+  "usersByOperator": {
+    "oper1": {
+      "users": [
+        {
+          "userName": "sysadmin",
+          "access": "superuser"
+        },
+        {
+          "userName": "operator1",
+          "access": "technician"
+        }
+      ]
+    }
+  }
+}

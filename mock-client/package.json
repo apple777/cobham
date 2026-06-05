@@ -1,0 +1,11 @@
+{
+  "name": "iddas-legacy-mock",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Vanilla JS mock backend + static server for idDAS legacy GUI",
+  "scripts": {
+    "dev": "node server/devServer.js",
+    "start": "node server/devServer.js"
+  }
+}

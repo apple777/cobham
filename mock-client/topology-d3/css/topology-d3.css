@@ -1,0 +1,71 @@
+#topology-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.topology-d3-header {
+  display: block !important;
+}
+
+.topology-d3-overview {
+  background-color: whitesmoke;
+  color: #666;
+  margin: 5px;
+  padding-top: 5px;
+  border-radius: 5px;
+  width: 99%;
+  box-shadow: 2px 2px 2px #666;
+}
+
+.topology-d3-overview #routing_setup,
+.topology-d3-overview #filter,
+.topology-d3-overview #display_filter,
+.topology-d3-overview #logged_in_user {
+  width: 20%;
+  display: inline-block;
+  margin: 5px;
+  line-height: 18px;
+}
+
+.topology-d3-overview .system-overview-title {
+  font-weight: bold;
+}
+
+.topology-d3-overview .v-seperator {
+  border-right: 1px dashed #666;
+  width: auto;
+  height: 20px;
+  display: inline-block;
+  top: 5px;
+  position: relative;
+}
+
+.topology-d3-overview #system_status {
+  float: right;
+  width: 10%;
+  display: inline-block;
+  text-align: right;
+  margin-right: 12px;
+}
+
+.topology-d3-node {
+  cursor: pointer;
+}
+
+.topology-d3-node.is-selected image {
+  filter: drop-shadow(0 0 6px rgba(0, 164, 242, 0.85));
+}
+
+#header-link-list .navigation-menu-tagline {
+  display: block;
+  width: 100%;
+  clear: both;
+  float: none;
+  font-size: 0.75em;
+  font-weight: normal;
+  font-style: italic;
+  padding: 8px 12px 4px;
+  margin: 0;
+  line-height: 1.4;
+  list-style: none;
+}
